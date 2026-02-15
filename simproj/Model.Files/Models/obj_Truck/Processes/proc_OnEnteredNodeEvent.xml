@@ -1,9 +1,0 @@
-<Fragment>
-  <Process Name="proc_OnEnteredNodeEvent" Category="40 Maintenance Processes">
-    <Properties>
-      <Property Name="TriggeringEventName">event_OnEnteredNodeEvent</Property>
-    </Properties>
-    <Steps />
-  </Process>
-</Fragment>
-<!-- Rw/jejRpN4s0jNEzCJ4H0om1rolbv2J/7y1ez6XGXUQkXVxaaB9Eig4fAuwR19GyGV8/ksvL0I6Jmn8Wfnjxgg== -->

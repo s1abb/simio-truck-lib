@@ -1,0 +1,70 @@
+<Fragment>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Basic Logic" />
+      <Category Name="Process Logic" Description="Process Logic" />
+      <Category Name="Crossing Logic" Description="Crossing Logic" />
+      <Category Name="Transport Logic" Description="Transport Logic" />
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Routing Logic/Destination" Description="Routing Logic/Destination" />
+      <Category Name="Routing Logic/Network Path" Description="Routing Logic/Network Path" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Statistic Element" Description="Statistic Element" />
+      <Category Name="Time Period Pattern" Description="Time Period Pattern" />
+      <Category Name="Reporting &amp; Logging" Description="Reporting &amp; Logging" InitiallyExpanded="False" />
+      <Category Name="Stopping Conditions" Description="Stopping Conditions" InitiallyExpanded="False" />
+      <Category Name="Input Flow Control" Description="Input Flow Control" />
+      <Category Name="Handling &amp; Storage Characteristics" Description="Handling &amp; Storage Characteristics" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Financials/Transport Costs" Description="Transport Costs" InitiallyExpanded="False" />
+      <Category Name="Financials/Resource Costs" Description="Resource Costs" InitiallyExpanded="False" />
+      <Category Name="Shortest Paths Logic" Description="Shortest Paths Logic" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+    </Categories>
+    <Overrides>
+      <Override Name="ResourceIdleCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceCostPerUse" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceUsageCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="LogResourceUsage" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayCategory" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayColor" Visible="False" InheritDefaultValue="True" />
+      <Override Name="IncludeInPlanResourceConstraints" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CapacityType" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialWorkSchedule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="WorkDayExceptions" Visible="False" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="WorkPeriodExceptions" Visible="False" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="InitialCapacity" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingRule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingExpression" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DynamicSelectionRule" Visible="False" InheritDefaultValue="True" />
+    </Overrides>
+  </PropertyDefinitions>
+  <States>
+    <ElementReferenceState Name="var_CreatedNodeReference" ElementType="Node" />
+    <IntegerState Name="var_CurrentSymbolIndex" />
+    <DiscreteState Name="var_PayLoad" />
+  </States>
+  <Events />
+  <Elements />
+  <Processes />
+  <External>
+    <Graphics>
+      <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+        <SymbolRef Id="cbc5dd6b-7508-4538-bbac-fbf623193122" />
+      </SymbolInstance>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2026-02-15T05:26:40" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- u8jqWUTn4+sgJrt/i1F3sWx79WbTN2yWrau+wZRFYQKoWioQ7LieUfsLkd0tQW7kwJcdGyBScIB/rNWv6ZKisw== -->

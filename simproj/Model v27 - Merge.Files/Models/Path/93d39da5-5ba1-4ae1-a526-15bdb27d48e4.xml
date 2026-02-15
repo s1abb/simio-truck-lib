@@ -1,0 +1,133 @@
+<Fragment>
+  <Icon>
+    <FileRef Name="Data\Icons\Path.png" />
+  </Icon>
+  <ChangeDescriptions>
+    <ChangeDescription Version="31">Version 2.39: Updated the Path object to provide a 'State Assignments' property category.</ChangeDescription>
+    <ChangeDescription Version="33">Version 2.40: Removed the Path object's 'Close' and 'Open' public processes. For equivalent functionality, use the Assign step and assign the path's DesiredDirection state to the value 'Enum.TrafficDirection.None' to close entry onto the path, or to the value 'Enum.TrafficDirection.Either' to re-open entry onto the path. In the object process logic, the 'Action' property for all Execute steps executing an 'add-on process' is now specified as 'WaitUntilCompleted'.</ChangeDescription>
+    <ChangeDescription Version="34">Version 2.41: Updated the assignments repeat groups to take state units into account.</ChangeDescription>
+    <ChangeDescription Version="35">Version 3.42: Changes related to setting the 'Token Associated Object Destroyed Action' option for process logic in this object.</ChangeDescription>
+    <ChangeDescription Version="36">Version 3.47: Added new 'Appearance' property category.</ChangeDescription>
+    <ChangeDescription Version="37">Version 3.49: Specified the 'OnAssociatedObjectTransferRequested' property of some processes as 'EndProcess'.</ChangeDescription>
+    <ChangeDescription Version="40">Version 3.51: Do not display new link 'Cell Spacing Type', 'Cell Size', and 'Auto Align Cells' properties.</ChangeDescription>
+    <ChangeDescription Version="42">Version 3.54: Conversion to 'OnRunInitialized' standard interface process. Added 'Run Ending' add-on process trigger.</ChangeDescription>
+    <ChangeDescription Version="44">Version 3.57: Added logic for new 'OnTurnedAround' standard interface process.</ChangeDescription>
+    <ChangeDescription Version="45">Version 4.58: Added new 'Advanced Options' property category.</ChangeDescription>
+    <ChangeDescription Version="47">Version 4.59: Process logic now uses new entity 'NextEntityAheadOnLink' function instead of deprecated 'FrontTraffic.Speed' function</ChangeDescription>
+    <ChangeDescription Version="48">Version 4.61: Set all inherited properties in 'Financials' category to not be visible.</ChangeDescription>
+    <ChangeDescription Version="49">Version 4.63: Reordered the position of the 'Financials' property category.</ChangeDescription>
+    <ChangeDescription Version="52">Version 4.68: Changed 'TravelerCapacity' integer property to 'InitialTravelerCapacity' expression property. Renamed 'InitializedAddOnProcess' property to 'RunInitializedAddOnProcess'.</ChangeDescription>
+    <ChangeDescription Version="55">Version 4.76: Updates required due to Suspend &amp; Resume step enhancements.</ChangeDescription>
+    <ChangeDescription Version="56">Version 5.85: Process logic changes to better support an entity on the path being destroyed before reaching the end of the link.</ChangeDescription>
+    <ChangeDescription Version="57">Version 5.87: Process logic now uses new property 'HasValue' function instead of deprecated 'IsDefined'.</ChangeDescription>
+    <ChangeDescription Version="58">Version 5.88: 'OnCollisionCleared' process - Improvements to entity movement rate assignment expression to better avoid null pointer exceptions.</ChangeDescription>
+    <ChangeDescription Version="59">Version 5.91: Added information to indicate which properties to display if the new 'Show Commonly Used Properties Only' option is enabled.</ChangeDescription>
+    <ChangeDescription Version="60">Version 6.103: Some property description updates.</ChangeDescription>
+    <ChangeDescription Version="61">Version 8.147: Property description string updates.</ChangeDescription>
+    <ChangeDescription Version="62">Version 9.161: New TokenMatchCondition property added to Suspend &amp; Resume steps.</ChangeDescription>
+    <ChangeDescription Version="63">Version 9.164: OnCollisionCleared process logic - Fixed entity movement rate assignment expression to never assign a value greater than the entity's desired speed.</ChangeDescription>
+  </ChangeDescriptions>
+  <ChangeStringReplacements>
+    <ChangeStringReplacement Version="52" RegularExpressionPattern="(^|[^\w_])(?i:InitializedAddOnProcess)([^\w_]|$)" ReplacementString="$1RunInitializedAddOnProcess$2" />
+  </ChangeStringReplacements>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="State Assignments" Description="Optional State Assignments" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+    </Categories>
+    <BooleanProperty Name="AllowPassing" DisplayName="Allow Passing" Description="Indicates whether passing is allowed on this path. Passing means that entities will not be blocked along the path, but instead will pass each other if speeds vary." Category="Travel Logic" DefaultValue="True" NullString="null" />
+    <RealProperty Name="SpeedLimit" DisplayName="Speed Limit" Description="The maximum speed at which an entity can travel along this path." Category="Travel Logic" DefaultValue="Infinity" NullString="null" UnitType="TravelRate" DefaultUnits="Meters per Second" />
+    <RepeatingProperty Name="AssignmentsOnEntering" DisplayName="On Entering" Description="Optional state assignments when an entity is entering the object." Category="State Assignments" Required="False" NullString="null">
+      <PropertyDefinitions>
+        <Categories>
+          <Category Name="Basic Logic" Description="State Assignments (Basic Logic)" />
+        </Categories>
+        <StateProperty Name="AssignmentsOnEnteringStateVariableName" DisplayName="State Variable Name" Description="Name of the state variable that will be assigned a new value." Category="Basic Logic" Required="False" NullString="null" IsAssignable="True" />
+        <ExpressionProperty Name="AssignmentsOnEnteringNewValue" DisplayName="New Value" Description="The new value to assign." Category="Basic Logic" DefaultValue="0.0" Required="False" NullString="null" UnitTypeProperty="AssignmentsOnEnteringStateVariableName" />
+        <Overrides />
+      </PropertyDefinitions>
+    </RepeatingProperty>
+    <RepeatingProperty Name="AssignmentsBeforeExiting" DisplayName="Before Exiting" Description="Optional state assignments when an entity is ready to exit the object." Category="State Assignments" Required="False" NullString="null">
+      <PropertyDefinitions>
+        <Categories>
+          <Category Name="Basic Logic" Description="State Assignments (Basic Logic)" />
+        </Categories>
+        <StateProperty Name="AssignmentsBeforeExitingStateVariableName" DisplayName="State Variable Name" Description="Name of the state variable that will be assigned a new value." Category="Basic Logic" Required="False" NullString="null" IsAssignable="True" />
+        <ExpressionProperty Name="AssignmentsBeforeExitingNewValue" DisplayName="New Value" Description="The new value to assign." Category="Basic Logic" DefaultValue="0.0" Required="False" NullString="null" UnitTypeProperty="AssignmentsBeforeExitingStateVariableName" />
+        <Overrides />
+      </PropertyDefinitions>
+    </RepeatingProperty>
+    <ElementProperty Name="RunInitializedAddOnProcess" DisplayName="Run Initialized" Description="Occurs when the simulation run is initialized." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="RunEndingAddOnProcess" DisplayName="Run Ending" Description="Occurs when the simulation run is ending." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="EnteredAddOnProcess" DisplayName="Entered" Description="Occurs when an entity's leading edge has entered this path." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="TrailingEdgeEnteredAddOnProcess" DisplayName="Trailing Edge Entered" Description="Occurs when an entity's trailing edge has entered this path." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="ReachedEndAddOnProcess" DisplayName="Reached End" Description="Occurs when an entity's leading edge has reached the end of this path." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="ExitedAddOnProcess" DisplayName="Exited" Description="Occurs when an entity has exited this path." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <Overrides>
+      <Override Name="ReportStatistics" DefaultValue="True" />
+      <Override Name="ParentCostCenter" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialCost" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceIdleCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceCostPerUse" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceUsageCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="LogResourceUsage" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayCategory" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayColor" Visible="False" InheritDefaultValue="True" />
+      <Override Name="IncludeInPlanResourceConstraints" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CapacityType" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialWorkSchedule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="WorkDayExceptions" Visible="False" InheritDefaultValue="True" />
+      <Override Name="WorkPeriodExceptions" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialCapacity" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingRule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingExpression" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DynamicSelectionRule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialDesiredSpeed" Visible="False" DefaultValue="0.0" />
+      <Override Name="EntityAlignment" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CellSpacingType" Visible="False" InheritDefaultValue="True" />
+      <Override Name="NumberOfCells" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CellSize" Visible="False" InheritDefaultValue="True" />
+      <Override Name="AutoAlignCells" Visible="False" InheritDefaultValue="True" />
+    </Overrides>
+    <PropertyReplacements>
+      <PropertyReplacement Version="51" OldPropertyName="InitializedAddOnProcess" NewPropertyName="RunInitializedAddOnProcess" />
+    </PropertyReplacements>
+  </PropertyDefinitions>
+  <States />
+  <Events />
+  <Elements />
+  <Processes>
+    <FileRef Name="Models\Path\Processes\OnRunInitialized.xml" />
+    <FileRef Name="Models\Path\Processes\OnRunEnding.xml" />
+    <FileRef Name="Models\Path\Processes\OnEntered.xml" />
+    <FileRef Name="Models\Path\Processes\OnExited.xml" />
+    <FileRef Name="Models\Path\Processes\OnReachedEnd.xml" />
+    <FileRef Name="Models\Path\Processes\OnCollided.xml" />
+    <FileRef Name="Models\Path\Processes\OnCollisionCleared.xml" />
+    <FileRef Name="Models\Path\Processes\OnTrailingEdgeEntered.xml" />
+    <FileRef Name="Models\Path\Processes\OnTurnedAround.xml" />
+  </Processes>
+  <External>
+    <Graphics>
+      <Line Center="0 0 0" LineColor="8b4513" ExternallyVisible="True">
+        <Points>
+          <Point Location="-5 0 0" />
+          <Point Location="5 0 0" />
+        </Points>
+      </Line>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2025-04-02T21:04:15" ProductVersion="18.275.44757.0" Edition="Internal" />
+    <SaveHistory SavedDateTime="2026-02-15T05:26:40" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- 04nuJyuWbVx9C31aKHP4fDMAnEZ1wqsOlK0e9TuGrogUxLntVFFu0tkQ8YoelqkVeveDza/4iz04dnSdAXbOdg== -->

@@ -1,0 +1,409 @@
+<Fragment>
+  <Icon>
+    <FileRef Name="Data\Icons\obj_BatteryElectricTruck.png" />
+  </Icon>
+  <Lists>
+    <StringList Name="list_BatteryResourceState">
+      <Items>
+        <Item Value="ReadyToDeploy" />
+        <Item Value="Deployed" />
+        <Item Value="ReadyToCharge" />
+        <Item Value="Charging" />
+        <Item Value="OutOfService" />
+      </Items>
+    </StringList>
+    <StringList Name="list_CurrentSymbolIndex_BatteryElectricTruck">
+      <Items>
+        <Item Value="BatterySwapTrayDown" />
+        <Item Value="BatterySwapTrayUp" />
+        <Item Value="DieselElectricTrayDownPantographDown" />
+        <Item Value="DieselElectricTrayDownPantographUp" />
+        <Item Value="DieselElectricTrayUp" />
+        <Item Value="BatteryElectricTrayDownPantographDown" />
+        <Item Value="BatteryElectricTrayDownPantographUp" />
+        <Item Value="BatteryElectricTrayUp" />
+      </Items>
+    </StringList>
+  </Lists>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Transport Logic" Description="Transport Logic" />
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Resource Logic" Description="Resource Logic" InitiallyExpanded="False" />
+      <Category Name="Reliability Logic" Description="Reliability Logic" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Financials/Transport Costs" Description="Transport Costs" InitiallyExpanded="False" />
+      <Category Name="Financials/Resource Costs" Description="Resource Costs" InitiallyExpanded="False" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+      <Category Name="Advanced Options/Deprecated Properties" Description="Advanced Options/Deprecated Properties" InitiallyExpanded="False" />
+    </Categories>
+    <RealProperty Name="prop_TimeStepSeconds" DisplayName="Time Step" Description="Physics update interval in seconds (recommended 1.0 for accuracy)" Category="User Defined" DefaultValue="1" NullString="null" UnitType="Time" DefaultUnits="Seconds" />
+    <DynamicObjectInstanceProperty Name="prop_BatteryEntityReference" DisplayName="Battery Entity Reference" Description="Reference to battery entity object definition" Category="User Defined" DefaultValue="tbl_BatteryElectricTrucks.BatteryEntityReference" NullString="null" ValidObjectType="Agent" LocationType="Cartesian" />
+    <BooleanProperty Name="prop_PowerDegradationActive" DisplayName="Power Degradation Active" Description="Enable/disable power degradation as battery health declines" Category="User Defined" DefaultValue="tbl_BatteryElectricTrucks.PowerDegradationActive" NullString="null" />
+    <ListProperty Name="prop_ElectricAssistMode" DisplayName="Electric Assist Mode" Category="User Defined" DefaultValue="tbl_BatteryElectricTrucks.ElectricAssistMode" Required="False" NullString="null" List="list_ElectricAssistMode">
+      <Captions>
+        <Caption Value="SustainSpeed" Display="IncreaseSpeed" />
+      </Captions>
+    </ListProperty>
+    <NodeProperty Name="prop_InitialSwapRefuelChargeNode" DisplayName="Assign Battery Swap Charge Station Node" Description="Initial assignment of swap station node for this truck" Category="User Defined" DefaultValue="tbl_BatteryElectricTrucks.InitialSwapRefuelChargeNode" NullString="null" ValidObjectType="Node" LocationType="Cartesian" />
+    <Overrides>
+      <Override Name="CurrentSizeIndex" DefaultValue="obj_BatteryElectricTruck.ResourceState" />
+      <Override Name="InitialDesiredSpeed" DefaultValue="tbl_BatteryElectricTrucks.InitialDesiredSpeed" />
+      <Override Name="InitialNumberInSystem" DefaultValue="tbl_BatteryElectricTrucks.InitialNumberInSystem" />
+      <Override Name="NetworkTurnaroundMethod" DefaultValue="tbl_BatteryElectricTrucks.NetworkTurnaroundMethod" />
+      <Override Name="LoadTime" DefaultValue="tbl_BatteryElectricTrucks.LoadTime" />
+      <Override Name="UnloadTime" DefaultValue="tbl_BatteryElectricTrucks.DumpTime" />
+      <Override Name="InitialNode" DefaultValue="tbl_BatteryElectricTrucks.InitialNode" />
+      <Override Name="IdleAction" DefaultValue="tbl_BatteryElectricTrucks.IdleAction" />
+      <Override Name="RunInitializedAddOnProcess" DefaultValue="tbl_BatteryElectricTrucks.OnRunInitialisedProcess" />
+      <Override Name="RunEndingAddOnProcess" DefaultValue="tbl_BatteryElectricTrucks.OnRunEndingProcess" />
+      <Override Name="ReleasedAddOnProcess" DefaultValue="tbl_BatteryElectricTrucks.OnReleasedProcess" />
+      <Override Name="UnloadedAddOnProcess" DefaultValue="tbl_BatteryElectricTrucks.OnUnloadedProcess" />
+      <Override Name="LoadedAddOnProcess" DefaultValue="tbl_BatteryElectricTrucks.OnLoadedProcess" />
+      <Override Name="prop_TruckType" DefaultValue="tbl_BatteryElectricTrucks.TruckType" />
+      <Override Name="prop_AveragePayload" DefaultValue="tbl_BatteryElectricTrucks.AveragePayload" />
+      <Override Name="prop_PayloadDistribution" DefaultValue="tbl_BatteryElectricTrucks.PayloadDistribution" />
+      <Override Name="prop_MTBF" DefaultValue="tbl_BatteryElectricTrucks.MTBF" />
+      <Override Name="prop_MTTR" DefaultValue="tbl_BatteryElectricTrucks.MTTR" />
+    </Overrides>
+  </PropertyDefinitions>
+  <States>
+    <IntegerState Name="var_BatteryIndex" Description="Battery instance index (used during initialization)" />
+    <BooleanState Name="var_BatteryUpdates" Description="Flag to enable/disable battery SOC/health updates (default True)" />
+    <BooleanState Name="var_FuelUpdates" />
+    <DiscreteState Name="var_DieselLevelL" />
+    <DiscreteState Name="var_DieselLevelPct" />
+    <DiscreteState Name="var_DieselEnergyConsumedKwh" />
+    <DiscreteState Name="var_DieselConsumedL" />
+    <DiscreteState Name="var_DieselEnergyPreservedKwh" />
+    <DiscreteState Name="var_DieselPreservedL" />
+    <DiscreteState Name="var_MotorThermalStatePct" />
+    <BooleanState Name="var_MotorPeakModeActive" />
+    <DiscreteState Name="var_MotorPeakModeStartTime" />
+    <BooleanState Name="var_SwapRefuelChargeFlag" Description="True when battery swap is needed (SOC &lt; threshold)" />
+    <ElementReferenceState Name="var_SwapRefuelChargeNode" Description="Assigned swap station node for this truck" ElementType="Node" />
+    <IntegerState Name="var_CurrentSymbolIndex_BatteryElectricTruck" />
+  </States>
+  <Events>
+    <Event Name="event_BatteryUpdates_True" Description="Fired when battery updates are enabled (sets `var_BatteryUpdates = True`)" />
+    <Event Name="event_BatteryUpdates_False" Description="Fired when battery updates are disabled (sets `var_BatteryUpdates = False`)" />
+    <Event Name="event_FuelUpdates_True" />
+    <Event Name="event_FuelUpdates_False" />
+    <Event Name="event_StartRefuelDieselTaskSequence" />
+    <Event Name="event_StartRechargeBatteryTaskSequence" />
+  </Events>
+  <UsedObjects>
+    <UsedObject Name="obj_Battery" />
+    <UsedObject Name="obj_ElectricPath" />
+  </UsedObjects>
+  <Elements>
+    <Element Type="TaskSequence" Name="RechargeBatteryTaskSequence" Scope="Public">
+      <Properties>
+        <Property Name="Tasks">
+          <Value>tbl_RechargeBatteryTaskSequence</Value>
+          <Rows>
+            <Properties>
+              <Property Name="TaskSequenceNumber">tbl_RechargeBatteryTaskSequence.SequenceNumber</Property>
+              <Property Name="TaskName">tbl_RechargeBatteryTaskSequence.Name</Property>
+              <Property Name="TaskBranchType">tbl_RechargeBatteryTaskSequence.TaskBranchType</Property>
+              <Property Name="TaskConditionOrProbability">tbl_RechargeBatteryTaskSequence.TaskConditionOrProbability</Property>
+              <Property Name="TaskProcessName">
+                <Value>tbl_RechargeBatteryTaskSequence.TaskProcessName</Value>
+              </Property>
+            </Properties>
+          </Rows>
+        </Property>
+      </Properties>
+    </Element>
+    <Element Type="TaskSequence" Name="RefuelDieselTaskSequence" Scope="Public">
+      <Properties>
+        <Property Name="Tasks">
+          <Value>tbl_RefuelDieselTaskSequence</Value>
+          <Rows>
+            <Properties>
+              <Property Name="TaskSequenceNumber">tbl_RefuelDieselTaskSequence.SequenceNumber</Property>
+              <Property Name="TaskName">tbl_RefuelDieselTaskSequence.Name</Property>
+              <Property Name="TaskBranchType">tbl_RefuelDieselTaskSequence.TaskBranchType</Property>
+              <Property Name="TaskConditionOrProbability">tbl_RefuelDieselTaskSequence.TaskConditionOrProbability</Property>
+              <Property Name="TaskProcessName">
+                <Value>tbl_RefuelDieselTaskSequence.TaskProcessName</Value>
+              </Property>
+            </Properties>
+          </Rows>
+        </Property>
+      </Properties>
+    </Element>
+    <Element Type="Station" Name="BatteryStation" Scope="Public" Description="Battery swap task sequence.">
+      <Properties>
+        <Property Name="EntryDynamicSelectionRule">
+          <Value>None</Value>
+        </Property>
+        <Property Name="CostPerUse" Units="USD">0.0</Property>
+        <Property Name="HoldingCostRate" Units="USD per Hour">0.0</Property>
+      </Properties>
+    </Element>
+    <Element Type="Timer" Name="tmr_TimeStep" Scope="Public" Description="Physics update timestep trigger.">
+      <Properties>
+        <Property Name="TimeInterval" Units="Seconds">prop_TimeStepSeconds</Property>
+      </Properties>
+    </Element>
+  </Elements>
+  <Processes>
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_OnRunInitialised.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_OnRunEnding.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_SymbolUpdate_RaiseTray.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_SymbolUpdate_LowerTray.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_BatteryStationEntered.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_BatteryUpdates_False.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_BatteryUpdates_True.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_FuelUpdates_False.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_FuelUpdates_True.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_StartRechargeBatteryTaskSequence.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_StartRefuelDieselTaskSequence.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_BatterySwap.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_DieselElectric_PreserveEnergy.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_DieselElectric_RefuelDiesel.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_DieselElectric_SustainSpeed.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_BatteryElectric_PreserveEnergy.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_BatteryElectric_RechargeBattery.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_PhysicsUpdates_BatteryElectric_SustainSpeed.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_101_PositionAtRefuelPoint.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_102_ConnectRefuelPoint.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_103_RefuelDiesel.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_104_WaitDieselRefueled.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_105_DisconnectRefuelPoint.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_101_PositionAtCharger.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_102_ConnectChargingCable.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_103_RechargeBattery.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_104_WaitBatteryRecharged.xml" />
+    <FileRef Name="Models\obj_BatteryElectricTruck\Processes\proc_105_DisconnectChargingCable.xml" />
+  </Processes>
+  <Tokens />
+  <External>
+    <Graphics>
+      <Queue Queue="RideStation.Contents" Alignment="Inline" ExternallyVisible="True">
+        <Points>
+          <Point Location="-4.625 11.293983359684614 0" />
+          <Point Location="-11.375 11.29398335968461 0" />
+        </Points>
+      </Queue>
+      <Queue Queue="BatteryStation.Contents" Alignment="Inline" ExternallyVisible="True">
+        <Points>
+          <Point Location="3.78125 5.145492587178791 0" />
+          <Point Location="7.78125 5.145492587178791 0" />
+        </Points>
+      </Queue>
+      <SymbolInstance Center="0 -3.552713678800501E-15 0" ExternallyVisible="True">
+        <SymbolRef Id="58c59d21-a7cd-4845-9b0e-49e38a0898ff" />
+        <Decorations>
+          <Decoration SurfacePath="6,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+          </Decoration>
+          <Decoration SurfacePath="2,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+          </Decoration>
+        </Decorations>
+        <FlowDecoration>
+          <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+        </FlowDecoration>
+      </SymbolInstance>
+      <DefaultAdditionalSymbols DefaultCurrentSymbolIndex="obj_BatteryElectricTruck.var_CurrentSymbolIndex_BatteryElectricTruck">
+        <DefaultAdditionalSymbol Index="0">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="38e198c4-82b5-4b30-8eee-ca4a0887d47c" />
+            <Decorations>
+              <Decoration SurfacePath="6,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+              </Decoration>
+              <Decoration SurfacePath="5,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="ae6075ea-2e4b-4c41-b58b-4ccada7535b2" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="1">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="58c59d21-a7cd-4845-9b0e-49e38a0898ff" />
+            <Decorations>
+              <Decoration SurfacePath="2,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="6,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="2">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="97845943-fc0a-4ebe-9511-3a7545b48143" />
+            <Decorations>
+              <Decoration SurfacePath="1,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="3">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="9c21030e-3950-460b-b53d-6b3b3392c792" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="1,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="4">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="6f52ff1e-dd1f-45fa-9c3e-4961e07ec641" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="1,6,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="5">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="97845943-fc0a-4ebe-9511-3a7545b48143" />
+            <Decorations>
+              <Decoration SurfacePath="1,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="6">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="9c21030e-3950-460b-b53d-6b3b3392c792" />
+            <Decorations>
+              <Decoration SurfacePath="1,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="7">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="6f52ff1e-dd1f-45fa-9c3e-4961e07ec641" />
+            <Decorations>
+              <Decoration SurfacePath="1,6,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="2da1d0b5-ea7a-40d3-8111-9230613ef852" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+      </DefaultAdditionalSymbols>
+      <DefaultDynamicLabel Expression="fx_obj_BatteryElectricTruck_DynamicLabelText" />
+    </Graphics>
+  </External>
+  <TableStatesDbStore>
+    <FileRef Name="Results\obj_BatteryElectricTruck\TableStates.sqlite" />
+  </TableStatesDbStore>
+  <Tables>
+    <Table Name="tbl_RechargeBatteryTaskSequence">
+      <Schema>
+        <PropertyDefinitions>
+          <SequenceNumberProperty Name="SequenceNumber" DefaultValue="10" NullString="null" />
+          <StringProperty Name="Name" NullString="null" />
+          <EnumProperty Name="TaskBranchType" DefaultValue="Always" NullString="null" EnumType="TaskBranchType" />
+          <ExpressionProperty Name="TaskConditionOrProbability" DefaultValue="0.0" NullString="null" />
+          <ElementProperty Name="TaskProcessName" DefaultValue="null" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+          <RealProperty Name="TaskDuration" DefaultValue="0.0" NullString="null" UnitType="Time" DefaultUnits="Minutes" />
+          <Overrides />
+        </PropertyDefinitions>
+        <ExtendedAttributeSets>
+          <ExtendedAttributeSet Name="SequenceNumber" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="Name" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskBranchType" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskConditionOrProbability" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskProcessName" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskDuration" OperationalPlanningEditable="True" />
+        </ExtendedAttributeSets>
+      </Schema>
+      <Rows>
+        <FileRef Name="Models\obj_BatteryElectricTruck\TableData\tbl_RechargeBatteryTaskSequence.xml" />
+      </Rows>
+      <DataBindings ImportMode="Automatic" />
+    </Table>
+    <Table Name="tbl_RefuelDieselTaskSequence">
+      <Schema>
+        <PropertyDefinitions>
+          <SequenceNumberProperty Name="SequenceNumber" DefaultValue="10" NullString="null" />
+          <StringProperty Name="Name" NullString="null" />
+          <EnumProperty Name="TaskBranchType" DefaultValue="Always" NullString="null" EnumType="TaskBranchType" />
+          <ExpressionProperty Name="TaskConditionOrProbability" DefaultValue="0.0" NullString="null" />
+          <ElementProperty Name="TaskProcessName" DefaultValue="null" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+          <RealProperty Name="TaskDuration" DefaultValue="0.0" NullString="null" UnitType="Time" DefaultUnits="Minutes" />
+          <Overrides />
+        </PropertyDefinitions>
+        <ExtendedAttributeSets>
+          <ExtendedAttributeSet Name="SequenceNumber" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="Name" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskBranchType" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskConditionOrProbability" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskProcessName" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="TaskDuration" OperationalPlanningEditable="True" />
+        </ExtendedAttributeSets>
+      </Schema>
+      <Rows>
+        <FileRef Name="Models\obj_BatteryElectricTruck\TableData\tbl_RefuelDieselTaskSequence.xml" />
+      </Rows>
+      <DataBindings ImportMode="Automatic" />
+    </Table>
+  </Tables>
+  <UserFunctions />
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2026-02-15T05:26:40" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- R1LS2ZOiN5lIf/KtCStTvEEDOwQ5OQM+LfpDhivRmrSLJ4ibkLgmFT9fBJbyiRp14yRx90lfGqSFlzgd3vzZTg== -->

@@ -1,0 +1,67 @@
+<Fragment>
+  <Icon>
+    <FileRef Name="Data\Icons\obj_ElectricPath.png" />
+  </Icon>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="State Assignments" Description="Optional State Assignments" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+    </Categories>
+    <RealProperty Name="prop_RoadFrictionCoefficient" DisplayName="Road Friction Coefficient" Category="User Defined" DefaultValue="tbl_Paths.RoadFrictionCoefficient" NullString="null" />
+    <BooleanProperty Name="prop_TrolleyAssistEnabled" DisplayName="Electric Assist Enabled" Description="Enable/disable trolley assist for this path." Category="User Defined" DefaultValue="tbl_Paths.TrolleyAssistEnabled" NullString="null" />
+    <RealProperty Name="prop_TrolleySectionTotalPowerKw" DisplayName="Trolley Section Total Power Kw" Description="Total substation/section capacity (kW) - shared among all active trucks." Category="User Defined" DefaultValue="tbl_Paths.TrolleySectionTotalPowerKw" NullString="null" />
+    <RealProperty Name="prop_TrolleyMaxPowerPerTruckKw" DisplayName="Trolley Max Power Per Truck Kw" Description="Maximum power per truck (kW) - pantograph/collector rating limit." Category="User Defined" DefaultValue="tbl_Paths.TrolleyMaxPowerPerTruckKw" NullString="null" />
+    <IntegerProperty Name="prop_TrolleyMaxConcurrentTrucks" DisplayName="Trolley Max Concurrent Trucks" Description="Maximum number of trucks simultaneously on section." Category="User Defined" DefaultValue="tbl_Paths.TrolleyMaxConcurrentTrucks" NullString="null" />
+    <RealProperty Name="prop_TrolleyVoltageV" DisplayName="Trolley Voltage V" Description="Trolley system voltage (V) - for reference/validation." Category="User Defined" DefaultValue="tbl_Paths.TrolleyVoltageV" NullString="null" />
+    <RealProperty Name="prop_TrolleyEfficiencyPct" DisplayName="Trolley Efficiency Pct" Description="Trolley power delivery efficiency (%)." Category="User Defined" DefaultValue="tbl_Paths.TrolleyEfficiencyPct" NullString="null" />
+    <Overrides>
+      <Override Name="WorkDayExceptions" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="WorkPeriodExceptions" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="Type" DefaultValue="tbl_Paths.LinkType" />
+      <Override Name="InitialDesiredSpeed" DefaultValue="0" />
+      <Override Name="AllowPassing" DefaultValue="tbl_Paths.AllowPassing" />
+      <Override Name="SpeedLimit" DefaultValue="tbl_Paths.SpeedLimit" />
+      <Override Name="AssignmentsOnEntering" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="AssignmentsBeforeExiting" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+    </Overrides>
+  </PropertyDefinitions>
+  <States />
+  <Events />
+  <UsedObjects>
+    <UsedObject Name="obj_Truck" />
+  </UsedObjects>
+  <Elements />
+  <Processes>
+    <FileRef Name="Models\obj_ElectricPath\Processes\OnCollided.xml" />
+    <FileRef Name="Models\obj_ElectricPath\Processes\OnCollisionCleared.xml" />
+  </Processes>
+  <External>
+    <Graphics>
+      <Line Center="0 0 0" LineColor="9acd32" ExternallyVisible="True">
+        <Points>
+          <Point Location="-5 0 0" />
+          <Point Location="5 0 0" />
+        </Points>
+      </Line>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2026-02-15T05:26:40" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- YMvXC0s84fo2bEg5eVY29+lZ8gqeZdvjOYvdr6Nf48HOemTOgvMMs/dSqcJ2jLRHtfrKWc9wUMExNlrbexi+7w== -->

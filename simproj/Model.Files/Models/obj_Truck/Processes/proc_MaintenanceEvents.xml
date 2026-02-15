@@ -1,9 +1,0 @@
-<Fragment>
-  <Process Name="proc_MaintenanceEvents" Category="40 Maintenance Processes">
-    <Properties>
-      <Property Name="TriggeringEventName">event_MaintenanceEvents</Property>
-    </Properties>
-    <Steps />
-  </Process>
-</Fragment>
-<!-- 0JHeEduqAFRyqN4I4qhdrewwwJ3lewMizl/rMEZc9ujB9VXPwc43rT4aKwDCZGoIqKJ8WMAfLvycp30M9PthSw== -->

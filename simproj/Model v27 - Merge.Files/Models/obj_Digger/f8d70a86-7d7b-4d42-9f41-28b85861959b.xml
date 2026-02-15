@@ -1,0 +1,238 @@
+<Fragment>
+  <Icon>
+    <FileRef Name="Data\Icons\obj_Digger.png" />
+  </Icon>
+  <Lists>
+    <StringList Name="list_DiggerResourceStates">
+      <Items>
+        <Item Value="ReadyToAllocate" />
+        <Item Value="TravellingToMineBlock" />
+        <Item Value="LoadingAtMineBlock" />
+        <Item Value="TravellingToHomeNode" />
+      </Items>
+    </StringList>
+  </Lists>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Transport Logic" Description="Transport Logic" />
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Resource Logic" Description="Resource Logic" InitiallyExpanded="False" />
+      <Category Name="Reliability Logic" Description="Reliability Logic" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Financials/Transport Costs" Description="Transport Costs" InitiallyExpanded="False" />
+      <Category Name="Financials/Resource Costs" Description="Resource Costs" InitiallyExpanded="False" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+      <Category Name="Advanced Options/Deprecated Properties" Description="Advanced Options/Deprecated Properties" InitiallyExpanded="False" />
+    </Categories>
+    <ElementProperty Name="prop_proc_AllocateDigger" DisplayName="Assign Mine Block Parcel To Digger" Category="User Defined" DefaultValue="tbl_Diggers.AssignMineBlockParcelToDiggerProcess" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <Overrides>
+      <Override Name="WorkDayExceptions" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="WorkPeriodExceptions" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="CurrentSizeIndex" DefaultValue="obj_Digger.ResourceState" />
+      <Override Name="InitialDesiredSpeed" DefaultValue="tbl_Diggers.InitialDesiredSpeed" />
+      <Override Name="InitialNumberInSystem" DefaultValue="tbl_Diggers.InitialNumberInSystem" />
+      <Override Name="NetworkTurnaroundMethod" DefaultValue="tbl_Diggers.NetworkTurnaroundMethod" />
+      <Override Name="LoadTime" DefaultValue="tbl_Diggers.LoadTime" />
+      <Override Name="UnloadTime" DefaultValue="tbl_Diggers.DumpTime" />
+      <Override Name="MinimumDwellTimeCondition" DefaultValue="Math.If(obj_Digger.CurrentNode.Is.TransferNode, obj_Digger.CurrentNode.TransferNode.RideOnTransporter, False) &amp;&amp; (obj_Digger.RideStation.Capacity &gt; obj_Digger.RideStationLoad) &amp;&amp; (obj_Digger.ResourceState == 7)" />
+      <Override Name="InitialNode" DefaultValue="tbl_Diggers.InitialNode" />
+      <Override Name="IdleAction" DefaultValue="tbl_Diggers.IdleAction" />
+      <Override Name="RunInitializedAddOnProcess" DefaultValue="tbl_Diggers.OnRunInitialisedProcess" />
+    </Overrides>
+  </PropertyDefinitions>
+  <States>
+    <ElementReferenceState Name="var_ManualControlDestinationNode" Description="Current target swap station node" ElementType="Node" />
+    <ElementReferenceState Name="var_MineBlockNodeReference_Current" ElementType="Node" />
+    <ElementReferenceState Name="var_MineBlockNodeReference_Previous" ElementType="Node" />
+    <ListState Name="var_DiggerResourceState" List="list_DiggerResourceStates" InitialListValue="ReadyToAllocate" />
+  </States>
+  <Events>
+    <Event Name="event_OnRunInitialised" />
+    <Event Name="event_AllocateDigger" />
+  </Events>
+  <Elements />
+  <Processes>
+    <FileRef Name="Models\obj_Digger\Processes\proc_OnRunInitialised.xml" />
+  </Processes>
+  <Tokens />
+  <External>
+    <Graphics>
+      <Queue Queue="RideStation.Contents" ExternallyVisible="True">
+        <Points>
+          <Point Location="8 2.728206468532603 -0.5" />
+          <Point Location="1 2.728206468532603 -0.5" />
+        </Points>
+      </Queue>
+      <SymbolInstance Center="0 0 0" Scale="1.919289195695612" ExternallyVisible="True">
+        <SymbolRef Id="54b91646-fe08-4033-a13d-e57a143f2f45" />
+        <Decorations>
+          <Decoration SurfacePath="1,0" SurfaceId="13" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="6" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="4" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="9" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="1" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="2" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="5" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="3" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="4,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="1,0" SurfaceId="12" DynamicPath="True">
+            <MaterialRef Id="e8ace378-e096-4a1b-8b82-aeda63150787" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="7" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="8" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="1" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="0,0" SurfaceId="1" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="6" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="2,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="2" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="4" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="0" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="10" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="11" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="13" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="14" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="5" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="12" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="0,0" SurfaceId="3" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="0,0" SurfaceId="2" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="2,0" SurfaceId="2" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="3" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+          <Decoration SurfacePath="3,0" SurfaceId="9" DynamicPath="True">
+            <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+          </Decoration>
+        </Decorations>
+        <FlowDecoration>
+          <MaterialRef Id="c9f3af47-7fc0-40ae-ae16-48257d1280e2" />
+        </FlowDecoration>
+      </SymbolInstance>
+      <DefaultAdditionalSymbols DefaultCurrentSymbolIndex="obj_Digger.ResourceState">
+        <DefaultAdditionalSymbol Index="0">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="1">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="2">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="3">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="4">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="5">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="6">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="7">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="8">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="9">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+      </DefaultAdditionalSymbols>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2026-02-15T05:26:40" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- nrOuVSgkPkjQ0JTb6HDs8E1Q7VKqEWYtXXK1//152YCgKZ3/51lg2WPs065u5oKpXT/XKyGGVlzVKBVJqLraqQ== -->

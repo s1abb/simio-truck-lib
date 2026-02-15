@@ -1,0 +1,255 @@
+<Fragment>
+  <ViewInfo ActiveModel="True" ActiveView="Facility">
+    <Facility FollowDistanceRatio="1">
+      <Camera Orientation="Perspective" Location="1678.8878897995023 632.0843875772118 786.5249798265651" Direction="-0.6998741703063457 -0.5773502691896393 -0.4205268272116004" Zoom="437.2916045342282" />
+      <ObjectDisplay Axis="False" Labels="False" NodeLabels="False" Queues="False" SnapToGrid="True" Background="0c0c0c" />
+      <Libraries Width="37">
+        <Library Name="Standard Library" Size="631" Expanded="True" />
+        <Library Name="Flow Library" Size="27" />
+        <Library Name="Extras Library" Size="27" />
+      </Libraries>
+    </Facility>
+    <StandardTables>
+      <DevExpressLayout>
+        <FileRef Name="Data\DevExpressLayout.xml" />
+      </DevExpressLayout>
+      <Tables SelectedTable="tbl_BatteryElectricTrucks">
+        <Table Name="tbl_Paths" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="98" />
+            <Column Name="ObjectType" Width="86" />
+            <Column Name="StartNode" Width="72" />
+            <Column Name="EndNode" Width="72" />
+            <Column Name="AllowPassing" Width="84" />
+            <Column Name="SpeedLimit" Width="176" />
+            <Column Name="LinkType" Width="73" />
+            <Column Name="RoadFrictionCoefficient" Width="138" />
+            <Column Name="TrolleyAssistEnabled" Width="124" />
+            <Column Name="TrolleySectionTotalPowerKw" Width="167" />
+            <Column Name="TrolleyMaxPowerPerTruckKw" Width="173" />
+            <Column Name="TrolleyMaxConcurrentTrucks" Width="166" />
+            <Column Name="TrolleyVoltageV" Width="100" />
+            <Column Name="TrolleyEfficiencyPct" Width="119" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_Vertices" FilterEnabled="True">
+          <Columns>
+            <Column Name="PathName" Width="85" />
+            <Column Name="x1" Width="73" />
+            <Column Name="y1" Width="67" />
+            <Column Name="z1" Width="67" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_LoadEntity" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="60" />
+            <Column Name="ObjectType" Width="79" />
+            <Column Name="x1" Width="49" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+            <Column Name="DestinationNode" Width="102" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_BatteryEntity" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="73" />
+            <Column Name="ObjectType" Width="79" />
+            <Column Name="x1" Width="49" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_BatterySwapChargeStations" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="146" />
+            <Column Name="ObjectType" Width="161" />
+            <Column Name="x1" Width="43" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+            <Column Name="InitialNode" Width="152" />
+            <Column Name="BatteryEntityReference" Width="140" />
+            <Column Name="BatteryType" Width="149" />
+            <Column Name="InitialQuantity" Width="91" />
+            <Column Name="InitialBatteryInventory" Width="136" />
+            <Column Name="MaxConcurrentChargingPorts" Width="171" />
+            <Column Name="ChargingPortMaxPowerKw" Width="159" />
+            <Column Name="ChargingEfficiencyPct" Width="130" />
+            <Column Name="ChargeDegradationActive" Width="150" />
+            <Column Name="OnRunInitialisedProcess" Width="251" />
+            <Column Name="OnRunInitialisedEvent" Width="277" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_BatteryStats" FilterEnabled="True">
+          <Columns>
+            <Column Name="EntityReference" Width="101" />
+            <Column Name="BatteryID" Width="75" />
+            <Column Name="OriginalObjectReference" Width="144" />
+            <Column Name="CurrentObjectReference" Width="145" />
+            <Column Name="BatteryType" Width="83" />
+            <Column Name="BatterySOCPct" Width="98" />
+            <Column Name="BatteryCumulativeThroughputKwh" Width="194" />
+            <Column Name="BatteryHealthPct" Width="108" />
+            <Column Name="BatteryResourceState" Width="133" />
+            <Column Name="ChargingCycleCount" Width="124" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_MineBlocks" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="67" />
+            <Column Name="ObjectType" Width="79" />
+            <Column Name="x1" Width="59" />
+            <Column Name="y1" Width="55" />
+            <Column Name="z1" Width="49" />
+            <Column Name="RideOnTransporter" Width="118" />
+            <Column Name="RideOnTransporterCondition" Width="166" />
+            <Column Name="TransporterType" Width="104" />
+            <Column Name="TransporterName" Width="107" />
+            <Column Name="TransporterListName" Width="126" />
+            <Column Name="SelectionConition" Width="105" />
+            <Column Name="EntityReference" Width="101" />
+            <Column Name="MineBlockOnEnteredProcess" Width="167" />
+            <Column Name="MineBlockOnExitedProcess" Width="159" />
+            <Column Name="BlockSequenceCount" Width="126" />
+            <Column Name="DiggerAllocated" Width="98" />
+            <Column Name="DiggerOnLocation" Width="111" />
+            <Column Name="MineBlockDepleted" Width="115" />
+            <Column Name="Tonnes" Width="121" />
+            <Column Name="DiggerReference" Width="104" />
+            <Column Name="TrucksAssigned" Width="97" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_Diggers" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="77" />
+            <Column Name="ObjectType" Width="89" />
+            <Column Name="x1" Width="33" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+            <Column Name="InitialNumberInSystem" Width="147" />
+            <Column Name="InitialNode" Width="74" />
+            <Column Name="InitialDesiredSpeed" Width="227" />
+            <Column Name="LoadTime" Width="123" />
+            <Column Name="DumpTime" Width="127" />
+            <Column Name="IdleAction" Width="81" />
+            <Column Name="NetworkTurnaroundMethod" Width="168" />
+            <Column Name="OnRunInitialisedProcess" Width="151" />
+            <Column Name="OnRunInitialisedEvent" Width="177" />
+            <Column Name="AssignMineBlockParcelToDiggerProcess" Width="224" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_MineSequence" FilterEnabled="True">
+          <Columns>
+            <Column Name="ParcelID" Width="82" />
+            <Column Name="MineBlockNode" Width="97" />
+            <Column Name="Index" Width="48" />
+            <Column Name="Fe" Width="37" />
+            <Column Name="Al" Width="37" />
+            <Column Name="Si" Width="31" />
+            <Column Name="P" Width="37" />
+            <Column Name="TonnesAvailable" Width="164" />
+            <Column Name="LumpYield" Width="70" />
+            <Column Name="BlendFactor" Width="80" />
+            <Column Name="Density" Width="56" />
+            <Column Name="DumpPoint" Width="74" />
+            <Column Name="RealProperty1" Width="92" />
+            <Column Name="DiggerCurrentlyAllocated" Width="146" />
+            <Column Name="TonnesLoaded" Width="159" />
+            <Column Name="TonnesRemaining" Width="173" />
+            <Column Name="TonnesDepleted" Width="101" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_TransferNodes" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="152" />
+            <Column Name="ObjectType" Width="96" />
+            <Column Name="x1" Width="76" />
+            <Column Name="y1" Width="76" />
+            <Column Name="z1" Width="75" />
+            <Column Name="OnRunInitialisedProcess" Width="144" />
+            <Column Name="OnRunInitialisedEvent" Width="135" />
+            <Column Name="OnEnteredProcess" Width="177" />
+            <Column Name="OnEnteredEvent" Width="106" />
+            <Column Name="OnExitedProcess" Width="107" />
+            <Column Name="OnExitedEvent" Width="98" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_Shift" FilterEnabled="True">
+          <Columns>
+            <Column Name="DateTime" Width="134" />
+            <Column Name="OnShift" Width="59" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_Trucks" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="66" />
+            <Column Name="ObjectType" Width="79" />
+            <Column Name="x1" Width="33" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+            <Column Name="TruckType" Width="146" />
+            <Column Name="InitialNumberInSystem" Width="137" />
+            <Column Name="InitialNode" Width="74" />
+            <Column Name="InitialDesiredSpeed" Width="217" />
+            <Column Name="LoadTime" Width="113" />
+            <Column Name="DumpTime" Width="117" />
+            <Column Name="IdleAction" Width="71" />
+            <Column Name="NetworkTurnaroundMethod" Width="158" />
+            <Column Name="AveragePayload" Width="155" />
+            <Column Name="PayloadDistribution" Width="115" />
+            <Column Name="OnRunInitialisedProcess" Width="146" />
+            <Column Name="OnRunInitialisedEvent" Width="172" />
+            <Column Name="OnLoadedProcess" Width="117" />
+            <Column Name="OnLoadedEvent" Width="157" />
+            <Column Name="OnUnloadedProcess" Width="127" />
+            <Column Name="OnUnloadedEvent" Width="160" />
+            <Column Name="OnReleasedProcess" Width="126" />
+            <Column Name="OnRunEndingProcess" Width="133" />
+            <Column Name="OnRunEndingEvent" Width="159" />
+            <Column Name="AssignTruckToMineBlockLoadPointProcess" Width="240" />
+            <Column Name="MTBF" Width="95" />
+            <Column Name="MTTR" Width="96" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_BatteryElectricTrucks" FilterEnabled="True">
+          <Columns>
+            <Column Name="Name" Width="105" />
+            <Column Name="ObjectType" Width="126" />
+            <Column Name="x1" Width="33" />
+            <Column Name="y1" Width="32" />
+            <Column Name="z1" Width="37" />
+            <Column Name="TruckType" Width="172" />
+            <Column Name="InitialNumberInSystem" Width="137" />
+            <Column Name="PowerDegradationActive" Width="145" />
+            <Column Name="ElectricAssistMode" Width="114" />
+            <Column Name="InitialNode" Width="74" />
+            <Column Name="InitialDesiredSpeed" Width="217" />
+            <Column Name="LoadTime" Width="113" />
+            <Column Name="DumpTime" Width="117" />
+            <Column Name="IdleAction" Width="71" />
+            <Column Name="NetworkTurnaroundMethod" Width="158" />
+            <Column Name="AveragePayload" Width="208" />
+            <Column Name="PayloadDistribution" Width="115" />
+            <Column Name="BatteryEntityReference" Width="140" />
+            <Column Name="OnRunInitialisedProcess" Width="216" />
+            <Column Name="OnRunInitialisedEvent" Width="242" />
+            <Column Name="OnLoadedProcess" Width="187" />
+            <Column Name="OnLoadedEvent" Width="227" />
+            <Column Name="OnUnloadedProcess" Width="197" />
+            <Column Name="OnUnloadedEvent" Width="230" />
+            <Column Name="OnReleasedProcess" Width="196" />
+            <Column Name="OnRunEndingProcess" Width="203" />
+            <Column Name="OnRunEndingEvent" Width="229" />
+            <Column Name="InitialSwapRefuelChargeNode" Width="175" />
+            <Column Name="AssignTruckToMineBlockLoadPointProcess" Width="240" />
+            <Column Name="MTBF" Width="95" />
+            <Column Name="MTTR" Width="96" />
+          </Columns>
+        </Table>
+      </Tables>
+    </StandardTables>
+    <InteractivePivotGrid>
+      <DevExpressIncantation Layout="&lt;XtraSerializer version=&quot;1.0&quot; application=&quot;PivotGrid&quot;&gt;&#xD;&#xA;  &lt;property name=&quot;#LayoutVersion&quot; /&gt;&#xD;&#xA;  &lt;property name=&quot;#LayoutScaleFactor&quot;&gt;@1,Width=1@1,Height=1&lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;FixedColumnFieldValues&quot; iskey=&quot;true&quot; value=&quot;0&quot; /&gt;&#xD;&#xA;  &lt;property name=&quot;Fields&quot; iskey=&quot;true&quot; value=&quot;14&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;Item1&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldScenarioName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;ScenarioName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;0&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;0&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;100&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item2&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldObjectType&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea, FilterArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;ObjectType&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;0&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;192&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item3&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldObjectName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;ObjectName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;2&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;188&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item4&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldDisplayName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;DisplayName&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;3&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;5&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;100&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item5&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldDataSource&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;DataSource&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;4&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;2&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;120&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item6&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldStatisticCategory&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea, FilterArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;StatisticCategory&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;5&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;3&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;100&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item7&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldDataItem&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;DataItem&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;6&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;4&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;164&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item8&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldTimePeriod&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea, FilterArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;TimePeriodForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;7&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;5&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;100&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item9&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldStatisticType&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;RowArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;RowArea, ColumnArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;StatisticTypeForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;TotalsVisibility&quot;&gt;None&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FilterValues&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ValuesCore&quot; iskey=&quot;true&quot; value=&quot;1&quot;&gt;&#xD;&#xA;          &lt;property name=&quot;Item1&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;            &lt;property name=&quot;Value&quot; type=&quot;System.String&quot;&gt;Minimum&lt;/property&gt;&#xD;&#xA;          &lt;/property&gt;&#xD;&#xA;        &lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;8&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;5&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;182&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item10&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;Options&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ShowGrandTotal&quot;&gt;false&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldValueAverage&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;AverageForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;CellFormat&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;FormatString&quot;&gt;N4&lt;/property&gt;&#xD;&#xA;        &lt;property name=&quot;FormatType&quot;&gt;Numeric&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;9&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;0&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;100&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item11&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;Options&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ShowGrandTotal&quot;&gt;false&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldValueMinimum&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;MinimumForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;CellFormat&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;FormatString&quot;&gt;N4&lt;/property&gt;&#xD;&#xA;        &lt;property name=&quot;FormatType&quot;&gt;Numeric&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;10&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;49&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item12&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;Options&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ShowGrandTotal&quot;&gt;false&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldValueMaximum&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;MaximumForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;CellFormat&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;FormatString&quot;&gt;N4&lt;/property&gt;&#xD;&#xA;        &lt;property name=&quot;FormatType&quot;&gt;Numeric&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;11&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;2&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;53&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item13&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;Options&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ShowGrandTotal&quot;&gt;false&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldValueHalfWidth&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;HalfWidthForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;CellFormat&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;FormatString&quot;&gt;N4&lt;/property&gt;&#xD;&#xA;        &lt;property name=&quot;FormatType&quot;&gt;Numeric&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;12&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;3&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;63&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Item14&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;      &lt;property name=&quot;Options&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;ShowGrandTotal&quot;&gt;false&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ImageIndex&quot;&gt;-1&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;ToolTips&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;HeaderText&quot; /&gt;&#xD;&#xA;        &lt;property name=&quot;ValueText&quot; /&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldEditName&quot; /&gt;&#xD;&#xA;      &lt;property name=&quot;Name&quot;&gt;fieldValueStandardDeviation&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Area&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AllowedAreas&quot;&gt;DataArea&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;FieldName&quot;&gt;StandardDeviationForDisplay&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;CellFormat&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;        &lt;property name=&quot;FormatString&quot;&gt;N4&lt;/property&gt;&#xD;&#xA;        &lt;property name=&quot;FormatType&quot;&gt;Numeric&lt;/property&gt;&#xD;&#xA;      &lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Index&quot;&gt;13&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;AreaIndex&quot;&gt;4&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;MinWidth&quot;&gt;20&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Width&quot;&gt;55&lt;/property&gt;&#xD;&#xA;      &lt;property name=&quot;Visible&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;Prefilter&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;ShowOperandTypeIcon&quot;&gt;false&lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Enabled&quot;&gt;true&lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;CriteriaString&quot; /&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;OptionsBehavior&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;ApplyBestFitOnFieldDragging&quot;&gt;true&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;OptionsFilterPopup&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;ToolbarButtons&quot;&gt;ShowOnlyAvailableItems, ShowNewValues, RadioMode, InvertFilter&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;OptionsCustomization&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;AllowExpand&quot;&gt;false&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;OptionsFilter&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;DefaultFilterEditorView&quot;&gt;VisualAndText&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;FixedLineWidth&quot;&gt;2&lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;Groups&quot; iskey=&quot;true&quot; value=&quot;0&quot; /&gt;&#xD;&#xA;&lt;/XtraSerializer&gt;" />
+    </InteractivePivotGrid>
+  </ViewInfo>
+</Fragment>
+<!-- jls0o1J3r6lqdDprzQza4U7NUjzR5TuRe7ZsbsSdIDpAgzoK3dGNjGpokQfMuHkFuqtkMKQW1xBhLj5Ok3DMQA== -->
