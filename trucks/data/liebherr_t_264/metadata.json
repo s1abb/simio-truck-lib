@@ -1,0 +1,20 @@
+{
+  "data_source": "",
+  "extraction_date": "",
+  "extracted_by": "automated",
+  "fitting_method": "rational",
+  "fitting_quality": {
+    "r_squared": 0.9964078186778332,
+    "rmse_kmh": 0.9078442058550803,
+    "max_error_kmh": 1.472315553431475,
+    "data_points": 8
+  },
+  "corrections_applied": [],
+  "validation_status": "draft",
+  "validation_method": "",
+  "comparison_equipment": [],
+  "notes": "",
+  "warnings": [],
+  "version": "1.0.0",
+  "last_updated": ""
+}

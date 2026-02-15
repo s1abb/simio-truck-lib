@@ -1,0 +1,115 @@
+================================================================================
+PAGE 1
+================================================================================
+
+Cat®
+793F AC
+Off-Highway Trucks
+Preliminary
+®Speciﬁ  cations
+Engine
+Engine Model Cat® C175-16
+Gross Power – SAE J1995 2051 kW 2,750 hpBore 175 mm 6.9 inStroke 220 mm 8.7 inDisplacement 85 L 5,187 in
+3
+Power ratings apply at 1,800 rpm when tested under the speciﬁ  ed condition for the 
+speciﬁ  ed standard.Ratings based on SAE J1995 standard air conditions of 25° C (77° F) and 99 kPa (29.61 Hg) dry barometer. Power based on fuel having API gravity of 35 at 16° C (60° F) and an LHV of 42 780 kJ/kg (18,390 Btu/lb) when engine used at 30° C (86° F).No engine derating required up to 3048 m (10,000 ft) altitude.Compliant with U.S. Environmental Protection Agency Tier 2 emissions standards.•
+•
+•
+•
+Weights – Approximate
+Gross Machine Operating 
+Weight (GMW)390 089 kg 860,000 lb
+Chassis Weight 132 558 kg 292,240 lbBody Weight Range26 862–47 627 kg
+59,220–105,000 lb
+GMW depends on tire selection. Consult your tire manufacturer for maximum loaded 
+top speed.Chassis weight with 100% fuel, hoist, body mounting group, rims and tires.Body weight varies depending on how body is equipped.•
+•
+•
+Operating Speciﬁ  cations
+Nominal Payload Capacity 218 tonnes 240 tons
+Top Speed – Loaded 64 km/h 40 mphSteer Angle 36 degreesTurning Diameter – Front 28 m 93 ftTurning Circle Clearance 
+Diameter33 m 107 ft
+Refer to the Caterpillar® Mining Truck 10/10/20 Overload Policy (AEXQ0250-02) for maximum 
+gross machine weight limitations.•
+Final Drives
+Total Reduction Ratio 35:1AC Drive System
+AlternatorBrushless, remote mounted, 
+dual bearing
+ControlsIGBT Inverter Technology, air 
+cooled, pressurized cabinet with ﬁ ltration
+Wheel MotorRear axle mounted Caterpillar 
+AC induction
+Cooling SystemVariable speed hydraulic 
+cooling system
+Suspension
+Effective Cylinder Stroke – Front130.5 mm 5.2 in
+Effective Cylinder Stroke 
+– Rear105.5 mm 4.2 in
+Rear Axle Oscillation ±4.9°
+Body Hoists
+Pump Flow – High Idle 846 L/min 224 gal/min
+Relief Valve Setting – Raise 20 370 kPa 2,955 psiBody Raise Time – High Idle 20 SecondsBody Lower Time – Float 19 SecondsBody Power Down – High Idle 17 Seconds
+Twin, two-stage hydraulic cylinders mounted inside main frame; double-acting cylinders 
+in second stage.Power raise in both stages; power down in second stage.Automatic body-lower modulation reduces impact on frame.•
+•
+•
+
+================================================================================
+PAGE 2
+================================================================================
+
+Braking System
+Oil Cooled Brakes
+  Outside Diameter 939.8 mm 37 in  Brake Surface – Front 134 665.2 cm
+220,873.14 in2
+  Brake Surface – Rear 155 382.9 cm224,084.4 in2
+  StandardsJ-ISO 3450 JAN88, 
+ISO3 450:1996
+Electric Retarding     Radial Grid Design     Brushless AC Motor      Dynamic Retarding Power 3550 kW 4,760 hpBlended Four Corner Retarding   
+Weight Distributions – Approximate
+Front Axle – Empty 48%Rear Axle – Empty 52%Front Axle – Loaded 33%Rear Axle – Loaded 67%
+Capacity – MSD II – 100% ﬁ  ll factor
+Struck112 m³–142 m³
+146 yd³–186 yd³
+Heaped (SAE 2:1)159 m³–191 m³
+208 yd³–250 yd³
+Contact your local Caterpillar dealer for body recommendation.•
+Service Reﬁ  ll Capacities
+Fuel Tank 2839 L 750 gal
+Fuel Tank (optional) 4922 L 1,300 galCooling System 1074 L 284 galCrankcase 312 L 82 galFinal Drives, each 260 L 68 galSteering Tank 200 L 53 galSteering System 
+(Includes Tank)300 L 79 gal
+Brake/Hoist Hydraulic Tank 470 L 124 gal
+Brake/Hoist System 
+(Includes Tank)1370 L 362 galDimensions
+All dimensions are approximate.
+Shown with 176 m3(230 yd3) MSD II Body.
+1 Height to Top of ROPS 5731 mm 18 ft 10 in
+2 Overall Length 13 768 mm 45 ft 2 in
+3 Wheelbase 5905 mm 19 ft 5 in
+4 Rear Axle to Tail 4257 mm 13 ft 11 in
+5 Ground Clearance 1084 mm  3 ft 6 in
+6 Dump Clearance 1263 mm 4 ft 2 in
+7 Loading Height – Empty 6559 mm 21 ft 7 in
+8 Overall Height – Body Raised 13 628 mm 44 ft 8 in
+9 Centerline Front Tire Width 5630 mm 18 ft 6 in
+10 Engine Guard Clearance 1354 mm 4 ft 5 in
+11 Overall Canopy Width 8297 mm 27 ft 2 in
+12 Outside Body Width 7778 mm 25 ft 6 in
+13 Inside Body Width 6946 mm 22 ft 9 in
+14 Front Canopy Height 6620 mm 21 ft 8 in
+15 Rear Axle Clearance 1099 mm 3 ft 7 in
+16 Centerline Rear Dual Tire Width 4963 mm 16 ft 3 in
+17 Overall Tire Width 7605 mm 24 ft 11 in
+171614910
+151
+23 45 678
+131211Cat Off-Highway Trucks
+For more complete information on Cat products, dealer services, and industry solutions, visit us 
+on the web at www.cat.com
+CAT, CATERPILLAR, SAFETY.CAT.COM, their respective logos, “Caterpillar Yellow” and the 
+POWER EDGE trade dress, as well as corporate and product identity used herein, are trademarks of Caterpillar and may not be used without permission.© 2008 Caterpillar Inc.
+All rights reserved
+Printed in the U.S.A.
+Materials and speciﬁ  cations are subject to change without notice. Featured machines in may 
+include additional equipment. See your Caterpillar dealer for available options.AEHQ6014 (09-2008)
+

@@ -1,0 +1,224 @@
+{
+    "model": "cat_794_ac",
+    "manufacturer": "Caterpillar",
+    "conditions": "Sea level, 30°C (86°F), 53/80 R63 tires",
+    "fitting_method": "rational",
+    "formula": "(a + b*v) / (1 + c*v + d*v^2)",
+    "max_rimpull_kn": 1400,
+    "gradeability_input": {
+        "unit": "kN",
+        "empty": {
+            "grade_percent": [
+                6,
+                10,
+                15,
+                20,
+                25,
+                30
+            ],
+            "speed_kmh": [
+                60,
+                37,
+                26,
+                18,
+                15,
+                13
+            ],
+            "rimpull": [
+                130,
+                220,
+                320,
+                420,
+                520,
+                620
+            ]
+        },
+        "loaded": {
+            "grade_percent": [
+                3,
+                5,
+                10,
+                15,
+                20,
+                25,
+                30
+            ],
+            "speed_kmh": [
+                60,
+                33,
+                16,
+                11,
+                8,
+                6,
+                0
+            ],
+            "rimpull": [
+                130,
+                250,
+                520,
+                720,
+                1000,
+                1260,
+                1400
+            ]
+        }
+    },
+    "retarding_input": {
+        "continuous_power_kw": 4086,
+        "efficiency": 0.85,
+        "max_retarding_kn": 8000,
+        "loaded": {
+            "grade_percent": [
+                4,
+                5,
+                10,
+                14
+            ],
+            "speed_kmh": [
+                60,
+                57,
+                28,
+                20
+            ],
+            "retarding_force_kn": [
+                2100,
+                2500,
+                5300,
+                7300
+            ]
+        },
+        "empty": {
+            "grade_percent": [
+                10,
+                15,
+                20,
+                25,
+                30
+            ],
+            "speed_kmh": [
+                60,
+                44,
+                33,
+                28,
+                24
+            ],
+            "retarding_force_kn": [
+                2200,
+                3400,
+                4200,
+                5500,
+                6200
+            ]
+        }
+    },
+    "specifications": {
+        "model": "cat_794_ac",
+        "manufacturer": "Caterpillar",
+        "truck_mode": "DieselElectric",
+        "category": "ultra_class_haul_truck",
+        "weights": {
+            "empty_kg": 222525,
+            "loaded_kg": 521631,
+            "payload_kg": 299106,
+            "payload_tonnes": 297,
+            "chassis_weight_kg": 193338,
+            "body_weight_kg": 29187
+        },
+        "dimensions": {
+            "wheelbase_mm": 6645,
+            "length_mm": 15464,
+            "width_mm": 9611,
+            "height_mm": 6779,
+            "dump_clearance_mm": 1516,
+            "loading_height_empty_mm": 6607,
+            "front_axle_clearance_mm": 969,
+            "rear_axle_clearance_mm": 934
+        },
+        "tires": {
+            "size": "53/80_R63",
+            "pressure_kpa": 620,
+            "type": "radial",
+            "rim_size": "36x63"
+        },
+        "drivetrain": {
+            "type": "AC_electric_drive",
+            "max_speed_kmh": 60,
+            "max_speed_kmh_loaded": 60,
+            "max_speed_kmh_empty": 64,
+            "total_reduction_ratio": "35:1",
+            "generator": "Cat_brushless_dual_bearing",
+            "motor": "Cat_AC_induction_rear_axle_mounted",
+            "inverter": "Cat_IGBT_Inverter",
+            "motor_efficiency_pct": 92.0,
+            "regen_efficiency_pct": 75.0,
+            "rolling_resistance": 0.02,
+            "auxiliary_power_kw": 20.0
+        },
+        "engine": {
+            "model": "Cat_C175-16",
+            "gross_power_kw": 2610,
+            "net_power_kw": 2539,
+            "rated_speed_rpm": 1800,
+            "emissions_rating": "Fuel_Optimized",
+            "bore_mm": 175,
+            "stroke_mm": 220,
+            "displacement_l": 85,
+            "selectable_power_ratings_kw": [
+                2051,
+                2312,
+                2539
+            ]
+        },
+        "diesel_system": {
+            "fuel_consumption_rate_l_kwh": 0.11,
+            "tank_capacity_l": 4922.0,
+            "initial_fuel_level_l": 4922.0,
+            "generator_max_power_kw": 2539.0,
+            "generator_efficiency_pct": 40.0,
+            "refuel_level_pct": 10.0
+        },
+        "braking_system": {
+            "service_brakes": "Four_corner_wet_disc_hydraulic",
+            "front_brake_area_cm2": 131473,
+            "rear_brake_area_cm2": 198388,
+            "parking_brake": "Four_corner_multi_disc_spring_applied",
+            "dynamic_retarding_continuous_kw": 4086,
+            "dynamic_retarding_continuous_hp": 5480
+        },
+        "weight_distribution": {
+            "empty": {
+                "front": 0.49,
+                "rear": 0.51
+            },
+            "loaded": {
+                "front": 0.33,
+                "rear": 0.67
+            }
+        },
+        "suspension": {
+            "type": "nitrogen_oil_cylinders",
+            "front_stroke_mm": 102.1,
+            "rear_stroke_mm": 50.5,
+            "rear_axle_oscillation_degrees": 5.32
+        },
+        "hydraulics": {
+            "body_hoist": "Twin_two_stage_hydraulic",
+            "pump_flow_l_min": 910,
+            "relief_valve_kpa": 20884,
+            "body_raise_time_s": 23.5,
+            "body_lower_time_s": 21.4,
+            "body_power_down_s": 17.5,
+            "hydraulic_tank_capacity_l": 1121,
+            "hydraulic_system_total_l": 1458
+        },
+        "steering": {
+            "steer_angle_degrees": 39,
+            "turning_diameter_m": 32.4
+        },
+        "test_conditions": {
+            "altitude_m": 0,
+            "temperature_c": 30,
+            "tire_specification": "53/80_R63"
+        }
+    }
+}

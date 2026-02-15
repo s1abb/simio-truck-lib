@@ -1,0 +1,634 @@
+================================================================================
+PAGE 1
+================================================================================
+
+830E-5
+ElEc tric Driv E tru ck
+Photos may include optional equipment.
+GROSS H ORSepOweR
+2,500 HP 1865 kW 
+ NOMINAL GV w
+901,400 lb 408875 kg
+
+================================================================================
+PAGE 2
+================================================================================
+
+WALK-AROUND
+Productivity Features
+• High performance Komatsu SDA16V160 engine Gross Horsepower  
+ 1865 kW 2,500 HP
+• 
+3207 kW 4,300 HP retarding
+• Traction (spin-slide) control
+• Cruise control• Komatsu designed application specific body• Tight turning radius 14 m 45' 9"
+• Payload Meter IV
+®environmentally Friendly
+• K
+omatsu SDA16V160 engine with after-treatment meets U.S. EPA  
+ Tier 
+4 Final emissions regulations
+• Fuel efficient engine• Less fluids compared to mechanical drive trucks
+Photos may include optional equipment.
+HORSepOweR
+Gross: 2,500 HP 1865 kW NOMINAL pAYLOAD
+250 us tons 227 metric tons
+2
+
+================================================================================
+PAGE 3
+================================================================================
+
+oPerator environment
+• Ergonomically 
+designed spacious cab with excellent visibility
+• Fully adjustable driving position settings
+• Four post ROPS/FOPS level 2 cab• User friendly display with payload information• Komatsu Hydrair
+® II suspensions designed for optimum ride comfort 
+• AM/FM/CD/MP3/USB/weather band radio
+reliability Fea
+tures
+• Frame design optimized for 227 metric tons 250 us tons
+• 
+Simple and reliable hydraulic system
+• Steering and brake accumulators• Hydraulically actuated dry disc brakes easy maintenance
+• 
+KOMTRA x 
+Plus 2® allows immediate diagnostics of key engine,  
+ chassis, 
+and drive system components
+• Automatic lubrication system• Eliminator
+® oil filtration system
+• Flange mounted rims with optional Komatsu Smart, speed type rims• In-tank fast fuel
+830E-5
+3
+
+================================================================================
+PAGE 4
+================================================================================
+
+PRODUCTIVITY FEATURES
+4Komatsu High Horsepower Engine
+Komatsu’s 2500 HP engine will operate in most of today’s 
+mining applications without experiencing power derate. Fuel efficiency is maximized due to optimized air handling. Standard features include:
+•	A standard pre-lube system designed to reduce start-
+up wear and increase overhaul life.
+•	CENSE
+® on board monitoring of engine performance 
+for each cylinder. 
+•	ELIMINATOR® filtration system reduces oil and filter 
+changes by one-third.
+Electric Dynamic Retarder
+The 3207 kW 4,300 HP retarding system provides state of the art braking capacity for navigating today’s mining applications which contain steep continuous descents and sharp switch-backs. Continuous retarding capacity enhances the productivity of the vehicle operator, while eliminating the need for excessive mechanical braking effort.IGBT AC Electric Drive System
+The GTA51 traction alternator coupled with GEB36 wheel-motors and Invertex IIe
+® AC control system provides reliable 
+performance and easy maintenance. Invertex IIe® offers  
+independent control of the rear wheelmotors, which in turn provides outstanding traction-ability during wet and slippery conditions, thus improving tire wear and operator  confidence.
+The air cooled Insulated Gate Bipolar Transistor (IGBT) 
+inverter system technology provides the highest available reliability. The IGBT inverter is more compact and much simpler than the design of its predecessor, the Gate Turn Off (GTO) inverter, which improves serviceability and routine maintenance.
+
+
+================================================================================
+PAGE 5
+================================================================================
+
+830E-5
+5Traction (Spin-Slide) Control
+During slippery conditions, the 830E-5 wheel traction control 
+technology detects and corrects wheel spin or slide events. Traction control operates automatically and independently of the service brakes. During propulsion, “wheel slip control” reduces non-productive wheel spin in low traction conditions. During retarding, “wheel slide control” prevents wheel lockup and potential subsequent sliding.
+Cruise Control
+Cruise control, both in propulsion and retarding, allows the operator to concentrate on steering and situational awareness while maintaining a constant speed. A set speed indicator provides confirmation the truck speed matches the desired speed selected by the operator, with simple automotive style controls.Komatsu Designed Application Specific Body
+Utilizing the required Body Worksheet (BW) process, Komatsu ensures that each body is designed to meet the requirements for each specific application while carrying its rated payload. Komatsu works with each customer to understand all of the material properties at a mine site and to identify the appropri-ate liner package.
+Komatsu offers a standard all-welded steel, flat floor body 
+with a full canopy and horizontal bolsters. This body includes a driver side eyebrow, body up sling, and rubber mounts on the frame.
+•
+	Standard	Body	SAE	Heaped	2:1:	158	m3 207 yd3
+•	Standard	Komatsu	Body	Weight:	29830	kg	65,762 lbs
+
+
+================================================================================
+PAGE 6
+================================================================================
+
+PRODUCTIVITY FEATURESHydrair II® Hydropneumatic Suspension
+Hydrair II® is a suspension system that utilizes four nitrogen-
+over-oil cylinders. This suspension system is designed to 
+maximize machine productivity by providing the operator with a smooth and comfortable ride.  By absorbing shocks to the chassis during operation, Hydrair II
+® contributes to the 
+durability of the machine’s frame and components.
+Payload Meter IV (PLM IV®)
+PLM IV® is an electronic system that monitors and records 
+payload information for Komatsu’s off-highway mining trucks. The accurate and reliable  payload measurement system is designed to help optimize payload, maximize  productivity and reduce the life cycle cost of the machine. PLM IV
+® tracks and records the following key production 
+parameters:
+•	Payload 
+•	Empty Carry-Back
+•	Operator Identification
+•	Haul Cycle, Loading, Dumping Time and Date
+•	Distance Traveled (Loaded and Empty)
+•	Cycle Time Information
+•	Maximum Speeds (Loaded and Empty)
+•	TMPH Estimate for Front and Rear Tires
+•	Average Speed (Loaded and Empty)
+Tight Turning Radius
+By using double acting hydraulic steering cylinders with a six-point articulation linkage, the 830E-5 power steering system provides positive steering control with minimal  operator effort. The turning radius of the 830E-5 is 14 m 46', which provides excellent maneuverability for tight loading and dumping conditions. The steering accumulators comply with ISO-5010 standards.
+14 m 46 feet
+6
+
+================================================================================
+PAGE 7
+================================================================================
+
+Ergonomically Designed Cab
+The Komatsu 830E-5 cab design provides a comfortable and 
+productive environment to meet today’s mining demands. The cab includes tinted safety glass windows, heating and air  conditioning, acoustical insulation, double sealed doors and filtered and pressurized air to reduce dust.
+Built-in ROPS and FOPS Structure
+These	structures	conform	to	ISO	standards	3471	and	3449.Operator Seat
+Komatsu recognizes that operator comfort is a key to  productivity in today’s mining environment.  The five-way adjustable operator seat and the tilt-telescopic steering  column provides an optimum driving posture for increased operator comfort and control over the machine. The air sus-pension seat absorbs vibrations transmitted from the machine, reducing operator fatigue. A 51 mm 2 in wide, blaze orange, three-point seat belt is provided as standard equipment.
+OPERATOR Envi R On mE nT
+User Friendly Display
+The 830E-5 comes with a new operator friendly dash configu-ration which includes lighted gauges, switches and information panel. This allows the operator to see the status of the machine during operation and informs them of any faults. An instructive message will appear after any fault is detected on the machine.
+Photo may include optional equipment.
+830E-5
+7
+
+================================================================================
+PAGE 8
+================================================================================
+
+Komatsu After-treatment
+Removal of NOx is accomplished by treating the exhaust 
+through Selective Catalytic Reduction (SCR). The introduc-tion of Diesel Exhaust Fluid (DEF) into the SCR canister  generates a chemical reaction which breaks down the oxides of nitrogen into oxygen and nitrogen, both non- pollutants. Internal cleaning of the SCR is performed through an automatic process.Evolutionary, not Revolutionary Design
+Komatsu’s Tier 4 solution begins with a base engine which is very similar to the previous Tier 2 platform. In keeping the basic operation of the engine the same, durability is assured. Utilizing High Pressure Common Rail fuel delivery ensures atomization of the fuel/air mixture to a level which reduces particulate matter, meeting U.S. EPA Tier 4  standards.
+Tier 4 And el ecTr ificA Tio n
+8
+
+================================================================================
+PAGE 9
+================================================================================
+
+On-Demand 
+Cooling 
+•	Separate	cooling	circuits	for		
+ control gr
+oup and wheel  
+ motor systems
+•	Allows	intelligent	control	of		
+ cooling
+•	Maintain	optimal	temperatures		
+ for each system
+Alternator Self-Cooling Only 
+•	Reduced	impeller	size	by	25%
+•	Reduced	cooling	housing/	
+ impeller
+•	500 lb 227 kg weight 
+ 
+ r
+eduction
+Uses Wheel Motor generator retarding energy for cooling 
+•	Control	Group
+•	Wheel	Motors
+•	Grid	Blower
+830E-5
+9
+
+================================================================================
+PAGE 10
+================================================================================
+
+Reliability Featu Re sProven Wheel Motor Design
+The GEB36 wheel motor builds on the success of its  
+predecessor. Held to the highest standards, the  transmission was subjected to extensive testing and quality confirmation. A full scale controlled durability and field test was conducted at Komatsu's Proving Grounds during  development to confirm design quality prior to production. By using planetary design, extensive machining is not required during a standard rebuild.Simple and Reliable Hydraulic System
+The hydraulic system is a proven and reliable design with fewer parts than other OEMs. The system utilizes a single tank, providing one common source of fluid for steering, braking, and hoisting. In-line, replaceable filtration elements provide protection from hydraulic system contamination, making the system easier to service.
+To keep downtime to a minimum, Komatsu developed a 
+sub-frame pump module that can be removed and replaced as a single unit. This reduces change-out time and allows easy access to the hydraulic pump module.
+Castings Used in High Stress Areas
+To increase frame reliability, steel castings have been  incorporated at key frame pivot points and critical load  bearing portions of the structure. This includes the rear body pivot and horsecollar sections.Structurally Enhanced Frame Design
+By using advanced computer-aided design, finite element analysis, and full-scale dynamic testing, the frame has  been designed to carry 227 metric tons 250 short tons  and provides the high structural  reliability Komatsu is known for.
+10
+
+================================================================================
+PAGE 11
+================================================================================
+
+All Hydraulically Actuated Dry Disc Brakes
+•	Front	47.75	in	(1213	mm)	Diameter	Wheel	Speed	Disc	with	a	3-Caliper	Design	on	each	Brake
+•	Rear	Dual	25	in	(635	mm)	Diameter	Disc	with	a	single	Caliper	per	disc
+•	Static	Dry	Disc	Park	Brakes
+•	Park	Brake	Protection	Logic
+•	Park	Brake	will	not	apply	at	truck	speeds	above	8km/h	or	5	mph
+•	If	park	brake	is	applied	while	the	truck	is	in	motion	the	system	will	reduce	speed	and	apply	service	brakes	until	the	machine	is		
+ below .48 km/h or .3 mph.
+•	Rated	to	Hold	Maximum	GVW	@15%	Grade
+System meets ISO 3450-2011
+830E-5
+11
+
+================================================================================
+PAGE 12
+================================================================================
+
+Easy Maint En ancEAccess, Service and Convenience
+Located on the front left bumper adjacent to the main 
+entry to the machine, Komatsu installs many service and convenience items. This central location simplifies main-tenance events, reducing the time the truck is out of ser -
+vice for routine upkeep.   
+1.
+ Auto-lubrication tank and controls
+2. Power, starter and drive system lockout (lock-out/
+tag-out capable switches)
+3. Emergency engine shut-down
+4. Fluid service center (coolant, engine oil, hydraulic oil, grease fill)
+5.
+ Hydraulic step up/down switch (Hydraulic stairs are optional)Komtrax Plus 2®
+As part of a complete service and support program, Komatsu equips every mining and quarry sized machine with K
+OMTRA x
+ Plus 2®. By using a satellite-based com-
+munication system, K OMTRA x
+ Plus 2® offers a new 
+vision of monitoring your valuable assets. By providing insight to critical operating metrics the user can manage increased availability, lower owning and operating costs and maximize fuel efficiency. 
+The information available through K
+OMTRA x
+ Plus 2® 
+allows service personnel to review faults and trends, 
+improve the quality of the troubleshooting process and reduce unscheduled machine downtime.
+1
+23
+45
+Handrail removed for clarity
+Flange type tire rims
+Komatsu Smart rim technology allows easy removal and installation of the tires to minimize the overall impact on downtime.
+12
+
+================================================================================
+PAGE 13
+================================================================================
+
+Drive Sy St emDrive System (Invertex IIe)
+•	Cooling	Blower	Inverters	(CBI)
+•	True	Quad	Chopper	Eliminates	RP	Contactors
+•	Only	Single	Stack	IGBT's
+•	From	24	to	12	Traction	IGBT's	Reduces	Weight	&	Size 
+•	Meets	IP54	for	Dust	&	Moisture	Control
+•	Increased	Cabinet	Rigidity
+•	Reduced	Rigid	Multi-axis	Joints 
+•	Fiber	Optic	Cards	Integrated	Into	Backplane
+•	Front	Placement	of	Indicator	&	Interface	Panels
+•	Front	Access	for	Maintenance
+•	All	LED	Lighting
+ Improved Bus Bar
+•	Close	Molded	Design-	Eliminates	Potting
+•	No	Soldered	Bushings
+•	Edge	Protection
+•	FR4	&	Abrasion	Protection
+•	Simplified,	More	Robust	Bus	Bar	Design
+830E-5
+13
+
+================================================================================
+PAGE 14
+================================================================================
+
+Drive Sy St emImproved Truck Performance
+•	Retains	Wheel	Slip/Slide	control	in	all	Modes	of		 	
+ Operation
+•	Cruise	Control	(Both	Motoring	&	Retarding)
+•	Fuel	Saver	2	Built-in
+Technology Advancements
+•	Supports	Data	Collection	&	Transmission	for
+ Remote Monitoring
+•	New	Generation	Technology	for	Faster	Processing	with		
+	 Higher	Capacity	(90%	Faster	Data	Transfer)
+•	Common	CAN	Network	Consists	of	Engine,	Truck	&		
+ Drive System
+•	Supports	CAN,	Ethernet	&	USB
+VID Display
+•	Replaces	DID	Panel
+•	In-cab	Touch	Screen	Display	for	Setup,	Maintenance	&		
+ T
+roubleshooting
+•	Access,	Download	&	Update	System	from	the		 	
+ Operators Cab
+•	Entry	to	Control	Cabinet	no	Longer	Required	for	Basic		
+ T
+roubleshooting
+WebP tU
+•	Replaces	wPTU
+•	Primary	Maintenance	&	Tr
+oubleshooting 	Tool	for	all			
+ Future Systems
+•	Browser	Based	Access	&	Visualization	of	Truck	System		
+ Data
+•	Eliminates	Dependency	on	Legacy	PC's	&	Operating		
+ Systems
+•	Accessible	in	Operators	Cab	via	Ethernet
+14
+
+================================================================================
+PAGE 15
+================================================================================
+
+Addition Al  FeAt uresEnvironmentally Friendly
+Less Fluids than Mechanical Drives
+Komatsu	electric	drive	trucks	contain	57%	less	 
+hydraulic fluid compared to similar class mechanical 
+drive trucks, cr
+eating a lower environmental impact and 
+makes fluid replacement simpler, quicker and more eco-nomical.U.S. EPA Compliant
+The Komatsu SDA16V160 engine is compliant with the U.S. EPA Tier 4 emissions regulations.
+Reduced Fuel Consumption
+The engine and drive system are specifically tuned together, providing efficient power usage and minimizing fuel  consumption.
+Komatsu Loading Policy for Mining Trucks
+Definitions: 
+•	Rated GVW (Gr oss Vehicle Weight) includes the chassis, body, tires, accessories (including local options), lube, fuel,  
+ operator, payload and any excess material build-up.
+•	Rated Payload is the r
+esultant difference of Rated GVW minus EVW.
+•	Overload r
+efers to any payload amount in excess of the Rated Payload.
+•	Never to exceed GVW is the maximum allow able GVW under the guidelines of this Policy
+.In normal loading operations, variations in payloads occur.  The loading policy identifies the guidelines and limitations for the loading of those Komatsu Mining Truck models specified. 
+Actual payloads greater than the Rated Payload are allowable, but shall not result in a GVW that is greater than the Never 
+to Exceed GVW.
+No single payload that results in a GVW in excess of the Never to Exceed GVW is allowed under any circumstances.The mean of all payloads for a rolling 30-day period shall not exceed the Rated Payload.
+truck model 830e-5
+specification lb kg
+Ra
+ted GVW 901,400 408,875
+Standard Tire Size 50/80R57
+Rated / Nominal Payload 500,000 226,800
+Never To Exceed GVW 1,001,367 454,211
+830E-5
+15
+
+================================================================================
+PAGE 16
+================================================================================
+
+SPECIFICATIONSBody
+All-welded steel flat floor body with horizontal bolsters and full canopy. 
+Rubber mounts on frame, eyebrow and body up sling are standard. Extended canopy and pivot exhaust heating are optional.Floor sheet ....................16 mm 0.63" Outer 19 mm 0.75" Center
+1379 MPa 200,000 psi tensile strength steel
+Front sheet ................... 12 mm 0.47" Outer 12 mm 0.47" Center
+1379 MPa 200,000 psi tensile strength steel
+Side sheet
+ ................................................ 8 mm 
+0.39" 1379 MPa
+1379 MPa 200,000 psi tensile strength steel
+Canopy sheet ............................................. 5 mm 0.19" 690 MPa
+689 MPa 100,000 psi tensile strength steel
+SAE heaped 2:1................................................... 158 m3 207 yd3
+Standard Komatsu body weight .................... 29830 kg 65,762 lb
+Engin E
+Make and model  ......................................... Komatsu SDA16V160
+Fuel .................................................................................... Diesel
+Number of cylinders  ................................................................. 16
+Operating cycle  ................................................................. 4 cycle
+Gr
+oss horsepower*  .................... 1865 kW 
+2,500 HP @ 1800 rpm
+Net flywheel power**  .................. 1778 kW 
+2,385 HP @ 1800 rpm
+Weight (wet)  .................................................... 8558 kg 
+18,867 lb
+Weight (dry)  ..................................................... 8099 kg 
+17,857 lb
+* Optional Tier 4 emissions compliant engine for North American market. Non-emissionized engine for markets outside of North America* Gross horsepower is the output of the engine as installed in this machine, at governed rpm and with engine manufacturer’s approved fuel setting. Accessory losses included are water pump, fuel pump and oil pump.**Net flywheel power is the rated power at the engine flywheel minus the average accessory losses. Accessories include fan and charging alternator. Rating(s) represent net engine performance in accordance with SAE J1349 conditions.
+Braking Sy StEm
+Service brakes  ........................................ All hydraulically actuated
+T
+raction system  ....................................... Wheel spin-slide contr
+ol
+Max. service apply pressure  ........................ 18960 kPa 
+2,750 psi
+Total friction area per brake  ...................... 103729 cm2 16,078 in2
+Auto apply system  ............ Automatically applied prior to hydraulic 
+ system pressur
+e dropping below level required to meet  
+ 
+ secondary stopping requir
+ements
+Secondary brake system  .......Complies with ISO-3450 Standar
+ds 
+Wheel brake lock  ................................................ Switch activated
+Parking brakes  ........................................................ Multiple disc, 
+ spring-applied, hydraulically-released, dry brakes on inboar
+d  
+ 
+ end of each wheel motor rotor shaft. Rated to hold on  
+ 
+ ±15% grade at maximum gross vehicle weight.
+Electric dynamic r
+etarder  ..................................  3207 kW 
+4,300 HP
+ ElEctric drivE
+AC/DC CURRENTAlternator
+ ......................................................................... GT
+A-51
+Dual impeller in-line blower  ....................... 71.2 m3/min 2,515 cfm
+Control  ............................................... AC T
+orque Control System
+Motorized wheels*  .................... GEB36 Induction T
+raction Motors
+Ratio  ................................................................................. 32.22:1
+Speed (maximum)  .......................................... 64.5 km/h 
+40 mph
+* Drive system performance depends upon gross vehicle weight, haul road grade, haul road length, rolling resistance and other parameters. Komatsu must analyze each job condition to assure proper application.
+tirES a nd rimS
+Rock service, tubeless, radial tires
+Standar
+d tire*.......................................................50/80 R57
+Flange mount, five piece rim
+813 mm x 1448 mm x 152 mm 32" x 57" x 5.5" rim assembly.
+Rims rated at 827 kPa 120 psi cold inflation pressure.
+Typical tire weight....................................... 23016 kg 50,750 lb
+* Tires should meet application requirements for tkph/tmph, tread, compound,  
+ inflation pressur
+e, ply rating or equivalent, etc.
+* Tires sold separately.
+caB
+Advanced Operator Environment with integral 4-post ROPS/FOPS Level 2 structur
+e (ISO 3449), adjustable air suspension seat w/
+lumbar support and arm rests, full-size passenger seat, maximum R-value insulation, tilt and telescoping steering column, electric windshield wipers w/washer, tinted safety glass, power windows, Payload Meter IV
+®, 55,000 Btu/hr heater and defroster, 21,600 
+Btu/hr air conditioning (HFC - 134A refrigerant) .Fram E
+Advanced technology, full butt-welded box sectional ladder
+-type
+frame with integral ROPS supports, integral front bumper, reartubular cross members, steel castings at all critical stress transition zones, rugged continuous horsecollar.Plate material
+ ............................................. 482.6 mPa 70,000 psi
+tensile str
+ength steel
+Casting material  ......................................... 620.5 mPa 90,000 psi
+tensile str
+ength steel
+Rail width  .................................................................. 305 mm 
+12"
+Rail depth (minimum)  ................................................ 864 mm 
+34"
+Top and bottom plate thickness  ............................... 32 mm 
+1.25"
+Side plate thickness  ................................................. 16 mm 
+0.62"
+Drive axle mounting  .............................. Pin and spherical bushing
+Drive axle alignment  ................ Swing link between frame and axle
+cooling Sy StEm
+L&M radiator assembly, split-flow
+, with deaerator-type top tank.
+Radiator frontal area ............................................6.24 m2 67.2 ft2SuSpEnSion
+Variable rate hydr
+o-pneumatic with integral rebound control
+Max. front stroke ................................................. 335 mm 13.2"Max. rear stroke ................................................... 279 mm 11.3"Max. rear axle oscillation .................................................. ±10.3°ENGINE
+TRANSMISSIONAXLESSUSPENSION SYSTEMSTEERING SYSTEMBRAKESMAIN FRAMEBODYHYDRAULIC SYSTEMCABWEIGHT (APPROXIMATE)TIRESSERVICE REFILL CAPACITIESDIMENSIONSSTANDARD EQUIPMENT FOR BASE MACHINEOPTIONAL EQUIPMENT
+16
+
+================================================================================
+PAGE 17
+================================================================================
+
+ElEctrical SyStEm
+4 x 8D 1400 CCA, 12 volt, in series/parallel, 275 ampere-hour
+, 
+bumper-mounted with disconnect switch & lock-out.
+Alternator .......................................... 24 volt, 275 amp
+Lighting ............................................................ 24 voltCranking motors ........................................Two/24 volthydraulic Sy StEm
+Steering  ......... Accumulator assisted with twin double acting cylinders
+pr
+ovide constant rate steering. 
+Secondary steering automatically supplied by accumulator.
+Turning circle diameter  (SAE)...........................................   29.3 m 96'Reservoir ..............................................................947 L 250 U.S. galFiltration
+ ................................................... In-line r
+eplaceable elements
+Suction  ........................................ Single, full-flow
+, 100 mesh
+Hoist and steering  ....................... Dual, in-line, high pr
+essure
+Brake component cabinet.................Above deck, easily accessible 
+with diagnostic test connections
+Hoist ...........Two 3-stage dual acting outboard cylinders, internal 
+cushion valve, over-center dampening
+Hoist times
+Power-up loaded  ...........................................................  23 sec
+Power
+-down  ................................................................... 16 sec
+Float-down empty  ........................................................... 17 sec
+Pumps  .......................................... T
+wo pumps, single package, in-line
+Hoist and brake cooling  ........................................ T
+andem gear pump
+with output of 931 lpm 246 gpm at 
+1900 rpm and 18960 kPa 2,750 psi
+Steering and brake ........Pressure-compensating piston pump with  
+output of 246 lpm 65 gpm at 1900 rpm
+System relief pressures
+Hoist  17237 kPa 2,500 psi
+Steering and brake  20685 kPa 3,000 psi
+Ports available for powering disabled truck and for system diagnostics*Exact load height may vary due to tire make, type, and inflation pressure.bodycapacityloading 
+  Height*struck 2:1 Heap
+Standard
+119 m3  156 yd3158 m3  207 yd3 6.26 m  21'
+SEr vic E rEFill  capaciti E S
+Cooling System  ...................................  568 L      150 U.S. gal
+Crankcase  ...........................................  363 L     96 U.S. gal
+Hydraulic system  ............................... 1325  L      350 U.S. gal
+Motor gear box (each)  ..........................  58  L        15 U.S. gal
+Fuel tank  ............................................ 4542 L  1,200 U.S. gal
+DEF tank  .............................................  288 L  76 U.S. galLoading Height= 6.36 m 20.87'
+4.11 m 13.48' 6.35 m 20.83' 4.19 m 13.75'14.65 m 48.06'
+7.15 m
+23.46'
+8.95 m 29.36' 
+8.87 m 29.10' 4.01 m 13.15'
+7.01 m 23'7.73 m 25.36'7.65 m 25.10'5.14 m 16.86'8.15 m 26.74'
+7.67 m 25.16'
+830E-5
+17
+
+================================================================================
+PAGE 18
+================================================================================
+
+SPECIFICATIONSTruck Performance Graph
+0 5 10 15 20 25 30 35 40 450 5 10 15 20 25 30 35 40 45 50 55 60 65 70400 500 600 700 800 900 1,000
+200 250 300 350 400 450
+ 2% 4% 6% 8%10%12%05010015020025001020304050607080901001101201,000 lbs
+1,000 kgsGross Vehicle Weight
+Speedkph
+mph Total ResistanceRimpull1,000 kgs 1,000 lbs150
+Continuous RetardingPropulsion 2500 HP830E-5 PERFORMANCE
+2500 HP - 50/80 R57 TIRES830E-5 PERFORMANCE
+2500 HP - 50/80 R57 TIRES
+18
+
+================================================================================
+PAGE 19
+================================================================================
+
+Empty Vehicle Weight*
+  Front Axle Distribution  
+ 92710 kg  204,393 lbs      48%
+  Rear Axle Distribution  
+ 89341 kg  196,965 lbs      52%
+  T
+otal EVW  
+   182051 kg
+     401,358 lbs     
+Gross Vehicle Weight  
+ 
+ Front Axle Distribution  
+ 134929 kg  297,486 lbs       33%
+  Rear Axle Distribution  
+ 273946 kg  603,914 lbs       67%
+  Nominal 
+GVW  
+  408875 kg
+     901,400 lbs      
+Payload 
+  Nominal 
+Payload  
+  226800  kg  
+ 500,000 lbs
+       227 metric tons     250 short tons
+Nominal payload is defined by Komatsu America Corp’s payload policy documentation. In general, the nominal 
+payload must be adjusted for the specific vehicle configuration and site application. The figures above are pro-vided for the basic product description purposes. Please contact your Komatsu distributor for specific applica-tion requirements.
+*Includes options allowance
+830E-5
+19
+
+================================================================================
+PAGE 20
+================================================================================
+
+www.komatsuamerica.comKomatsu America Corp. is an authorized licensee of Komatsu Ltd. 
+Materials and specifications are subject to change without notice  
+                       , Komatsu Care® KOMTRA x® and KOMTRA x Plus 2® are registered trademarks of Komatsu Ltd.  
+All other trademarks and service marks used herein are the property of Komatsu Ltd., Komatsu America Corp. or their respective owners or licensees. Standard  EQui pmEnt
+optional  EQui pmEnt
+• Air cleaners, Donaldson® SSG w/ auto
+  evacuators • Alternator (Charging 24 volt/250A)• Automatic lubrication system w/ground level   fill, level indicator & dynamic timing• Back-up alarm• Batteries–4 x 8D (1450 CCA’s)• Battery charging/jump start connector• Body over-center device• Body-up sling (w/KAC supplied body)• Cruise control• Electric start• Eliminator®, Cense®• Fast-fill fuel system (in tank and left side   remote)• Filters, high pressure hydraulic• Ground level radiator fill• Hydraulically actuated dry disc brakes• Mirrors, heated, multi-cambered convex LH & RH• Mud flaps• Muffled exhaust–deck-mounted• Power supply, 24 volt to 12 volt DC• Quick disconnects (steering, hoist and diagnostics)• Radiator sight gauge• Removable power module unit (radiator,   engine, alternator)• Reverse retarding• Service center–LH• Thermostatic fan clutch 
+oPEra
+tor ENVI r
+oNmENt & CoNtr
+oL:
+• All hydraulic service brakes with   auto apply• Battery disconnect switch• Brake lock and drive system interlock• Cir
+cuit breakers, 24 volt
+• Diagonal staircase across grille• Dynamic retarding with continuous   rated element grids• Engine shutdown at ground level• Hoist propulsion interlock• Horns (electric–front)• Integral ROPS/FOPS Cab Level 2• Maintenance and power lockout• Parking brakes with warning light & speed 
+application protection
+• Power steering w/auto secondary steering• Protective deck handrails• Pump driveline protector• Radiator fan guard• Seat belts
+- Operator 3-point 51 mm 2" retractable- Passenger lap 51 mm 2" retractable
+• Slip-resistant walkways
+StaNDarD HIGH VISIBILI tY DELU xE CaB:
+• AC drive interface display• Air conditioner HFC-134A• AM/FM radio with CD, USB & MP3• Dome light• Electronic Dash & Status Panel
+- Body up- Engine oil temperature (high)- Parking brake- Propulsion system not ready- No DC link voltage- No propel- Service brake applied- Wheel brake lock applied- Maintenance monitor
+• Engine hourmeter, oil pressure gauge, coolant     temperature gauge, hydraulic oil temperature
+gauge
+• Engine shutdown w/ “Smart Timer” delay• Floor mat (double barrier)• Fuel gauge in cab• Fuel low level light and buzzer• Gauges (w/backlight)• Headlight switch• Heater and defroster (heavy-duty)• Heater switch• High beam selector and indicator
+Note: Optional equipment may change operating weight.• Horn switch (center of steering wheel)• Indicator lights (blue)
+- Engine service- Komtrax Plus® snapshot (IM)
+• Komatsu Payload Meter IV• Komtrax Plus 2®• Operator seat, adjustable   w/air suspension,    lumbar support and arm rests• Panel lighting (adjustable)• Passenger seat, mechanical   suspension• Power windows• Pressurized cab air system w/fan on• Single brake/retarder pedal• Sunvisor (adjustable)• Tilt & telescoping steering column• Voltmeter (battery output)• Windshield (tinted safety glass)• Windshield wiper (dual) and    washer (electric) 
+LIGHtING:
+• Back-up lights–rear mount (2) halogen• Back-up lights–R and L-   deck mount (2) halogen• Brake and retard lights on top of cab• Clearance lights (LED)• Dynamic retarding, rear (2) (LED)• Engine compartment service lights• Fog lights (2) halogen• Headlights (8) halogen• Manual back-up light, switch   and indicator• Payload lights R and L (LED)• Stairway lights• Stop & tail lights (2) (LED)• Turn signals (LED)
+• Amber Beacon Light• Application Specific Body Structure• Body liners• Body up sling• Bumper Mounted Headlights• Double Wall Exhaust Tubes• Engine Access Platform-LH• Extended canopy• Eyebrow• Fire extinguisher 9 kg 20 lb• Heated body• Hot start engine oil (220V 2-500W)• Hot start hydraulic oil• Hot start engine coolant (220V 2-2500W)• Hubodometer• Komatsu Smart Rims• Komvision All-Around Monitoring System• LED Headlights• Lights (HID)• Mufflers between frame rails• PLM IV® scoreboards• Premium Operator Seat• Service center–RH• Shutters (radiator)• Spare Rim• Spare Smart Rim• Suspensions (cold weather)• Rock Ejectors
+Note: All comparisons and claims of  
+improved performance made herein are 
+made with respect to the prior Komatsu model unless otherwise specifically stated.
+AESS924-01 09/19	(EV -1)	 					 ©2019	Komatsu	America	Corp. AD009(POD)
+

@@ -1,0 +1,99 @@
+{
+  "specifications": {
+    "model": "example_truck",
+    "manufacturer": "Manufacturer Name",
+    "category": "ultra_class_haul_truck",
+    "weights": {
+      "empty_kg": 200000,
+      "loaded_kg": 500000,
+      "payload_kg": 300000,
+      "payload_tonnes": 300
+    },
+    "dimensions": {
+      "wheelbase_mm": 6500,
+      "length_mm": 14000,
+      "width_mm": 9000,
+      "height_mm": 7000
+    },
+    "tires": {
+      "size": "53/80_R63",
+      "pressure_kpa": 620,
+      "type": "radial"
+    },
+    "drivetrain": {
+      "type": "AC_electric_drive",
+      "max_speed_kmh": 60,
+      "total_reduction_ratio": "35:1",
+      "generator": "Manufacturer_model",
+      "motor": "AC_induction",
+      "inverter": "IGBT_type"
+    },
+    "weight_distribution": {
+      "empty": {
+        "front": 0.50,
+        "rear": 0.50
+      },
+      "loaded": {
+        "front": 0.35,
+        "rear": 0.65
+      }
+    },
+    "notes": "Additional specifications notes"
+  },
+  
+  "gradeability_input": {
+    "empty": {
+      "grade_percent": [5, 10, 15, 20, 25, 30],
+      "rimpull": [100, 200, 300, 400, 500, 600],
+      "speed_kmh": [60, 35, 24, 17, 14, 12]
+    },
+    "loaded": {
+      "grade_percent": [5, 10, 15, 20, 25],
+      "rimpull": [230, 480, 720, 950, 1150],
+      "speed_kmh": [30, 14, 9, 6, 5]
+    },
+    "unit": "kN",
+    "_comment": "Unit can be 'kN' or 'tf' (tonnes-force)"
+  },
+  
+  "retarding_input": {
+    "continuous_power_kw": 4000,
+    "continuous_power_hp": 5360,
+    "efficiency": 0.85,
+    "type": "dynamic_brake",
+    "max_retarding_kn": 2000,
+    "_comment": "Power rating from spec sheet, efficiency typically 0.85-0.90"
+  },
+  
+  "fitting_method": "rational",
+  "_fitting_options": ["rational", "polynomial", "power", "exponential"],
+  
+  "max_rimpull_kn": 1400,
+  "_max_rimpull_note": "Set based on physical constraints or comparison with similar equipment",
+  
+  "formula": "(a + b*v) / (1 + c*v + d*v^2)",
+  
+  "conditions": "Sea level, 30°C (86°F), standard tire pressure",
+  
+  "data_source": "Manufacturer Model Technical Specifications (Document Number)",
+  "extraction_date": "2025-11-26",
+  "extracted_by": "your_name",
+  
+  "corrections_applied": [
+    "List any corrections made to source data",
+    "E.g., Y-axis scaling correction, unit conversions"
+  ],
+  
+  "validation_status": "draft",
+  "_validation_options": ["draft", "needs_validation", "pending_review", "verified"],
+  
+  "validation_method": "Comparison with similar equipment",
+  "comparison_equipment": ["similar_model_1", "similar_model_2"],
+  
+  "notes": "General notes about the data extraction and processing",
+  
+  "warnings": [
+    "List any warnings or caveats",
+    "E.g., Limited data points, extrapolated values"
+  ]
+}

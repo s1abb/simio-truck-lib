@@ -1,0 +1,62 @@
+# Simio trace files
+*.csv
+*_trace.csv
+
+# Excel trace exports
+*.xlsx
+
+# Simio backup files
+*.backup
+
+# Simio project files
+*.spfx
+*.simproj
+
+# Simio 3D geometry and model files
+*.s3d
+*.obj
+
+# Simio statistics and results
+*.stats
+
+# Blender files
+*.blend
+*.blend1
+
+# Large media files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# Documentation PDFs (usually external/downloaded)
+trucks/specifications/*.pdf
+docs/*.pdf
+
+# Example and generated project directories
+example/
+simproj/*/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

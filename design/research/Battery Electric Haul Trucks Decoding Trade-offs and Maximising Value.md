@@ -1,0 +1,255 @@
+# Battery Electric Haul Trucks: Decoding Trade-offs and Maximising Value
+
+## Executive Summary
+
+This white paper provides a high-level overview of the trade-offs between the three most common operating models for battery electric haul trucks: plug-in charging, swappable batteries, and trolley assist. Plug-in and swappable approaches maintain much of the operational flexibility of conventional diesel haulage approaches but do so at materially lower levels of machine productivity.
+
+The trolley assist approach resolves the machine productivity issues but has reduced operational flexibility due to their dependency on overhead catenary systems and associated infrastructure. Trolley assist exposes batteries to a much higher number of charge-discharge cycles compared to other operating approaches. Operational conditions such as the per-cycle depth of discharge (DoD), charge rates, and trolley assist availability significantly impact battery life and overall asset lifecycle costs.
+
+The analysis of battery lifecycle impacts shows that the level of integration between mine operations and asset maintenance must be higher when compared to conventional fleets. Many operational decisions, e.g. to operate haul circuits with a high DoD, will have an opportunity cost due to the impact on asset lifecycle costs. Operational leaders must have visibility of these costs to make effective decisions.
+
+The impact between operational decisions and changes to the asset lifecycle cost does not have an analogous problem in conventional diesel fleets. Operations considering the deployment of battery electric haulage solutions should consider how to collect and attribute operational use data to major components of battery electric haulage (e.g. batteries, pantographs, and catenary systems). The difference between miners that can turn the decarbonisation of supply chains into a value-accruing opportunity and those for whom it is value-destroying will be heavily influenced by the effectiveness of integrating asset management and operational decision-making!
+
+## Introduction
+
+The mining industry is in a race to decarbonise supply chains. The emissions associated with mine haulage are attracting much attention from manufacturers. Almost all major suppliers of rigid-body dump trucks have announced plans to provide a battery electric haul truck in some form[1]–[4]. At the time of writing, whilst some are currently in trial phases, none are in full-time productive operation.
+
+Much of the attention has been focused on the technical challenges to battery electric haulage. However, little attention has been given to the asset management and operational impacts of battery electric haulage. This paper considers the operational and productivity implications of three of the most common operating models proposed for battery electric haulage and applies recent research[5] to estimate the impact on battery life given typical operating conditions experienced in mining to inform estimates of total costs of ownership.
+
+### A Representative Haul Cycle
+
+To illustrate the implications for battery life, we'll assume haulage cycle and truck properties as described below.
+
+![Representative haul cycle](Figure 1 – Representative haul cycle used in this analysis)
+
+**Table 1 – Base assumptions for haul truck performance**
+
+| Parameter                           | Value    |
+| ----------------------------------- | -------- |
+| Max Gross Vehicle Weight (m_loaded) | 400t     |
+| Max Payload                         | 230t     |
+| Tare Weight (m_empty)               | 170t     |
+| Average speed loaded - up ramp      | 15 km/hr |
+| Average speed empty - down ramp     | 40 km/hr |
+
+**Table 2 – Shift cycle performance assumptions**
+
+| Parameter          | Value          | Notes                    |
+| ------------------ | -------------- | ------------------------ |
+| Queue & Load Time  | 5 min          |                          |
+| Loaded Travel Time | 15.6 min       | ¹(3.9km/15km·hr⁻¹×60min) |
+| Queue & Dump Time  | 5 min          |                          |
+| Empty Travel Time  | 5.85 min       | ²(3.9km/40km·hr⁻¹×60min) |
+| Cycle Time         | Approx. 30 min |                          |
+
+## Haul Cycle Energy
+
+There is an established convention to account for the rolling resistance of the haul truck by adding a factor to the grade (slope) to come up with a total resistance factor. This factor can be used to calculate an equivalent vertical displacement that accounts for the additional energy loss due to rolling resistance.
+
+These energy requirements can be used to estimate the required battery size and other parameters for a given operating mode. In our example h_loaded (loaded vertical displacement) can be calculated as follows:
+
+$$h_{loaded} = h_t + h_{rr}$$
+
+Where $h_t$ is the vertical distance travelled, and $h_{rr}$ is the equivalent height to account for rolling resistance. $h_{empty}$ can be calculated as:
+
+$$h_{empty} = h_t - h_{rr}$$
+
+Where $h_t = 300m$, and $h_{rr} = 2\% \times 3900m = 78m$. This gives the following values:
+
+$$h_{loaded} = 378m$$
+$$h_{empty} = 222m$$
+
+The lower bound for the energy³ to travel the haul road is:
+
+$$U_{loaded} = m_{loaded} \times g \times h_{loaded}$$
+
+The amount of energy available to be recovered on the empty cycle $U_{empty}$, is equivalent to the potential energy of the truck less losses due to rolling resistance. This is given by:
+
+$$U_{empty} = m_{empty} \times g \times h_{empty}$$
+
+³ beyond rolling resistance, no other losses are considered in this simplified model
+
+## Batteries and Operating Modes
+
+For the purposes of this analysis, we will examine three operating models for electric haulage: "plug-in", "modular", and "trolley-assist". Battery size in each operating model is a trade-off between truck capacity, flexibility in use, and risk. The plug-in approach may be familiar to most readers as it aligns with the approach used by most electric cars (eg Tesla's). The modular approach involves a battery module that can be swapped, noteable examples include Sandvik's TH665B prototype[2]. This approach has the advantage of quickly returning haul trucks to service rather than tying up the asset while the battery charges. This approach however has only seen limited adoption in smaller truck classes. Trolley assist has been used in the mining industry for many years with diesel-electric trucks, notable examples here are Liebherr T264[6] and Komatsu[3].
+
+### Plug-in Haul Trucks
+
+Plug-in haul trucks offer the highest operational flexibility as, outside of charging stations, they are able to operate without additional infrastructure. The downside of this model is that periodically the truck must drive to a charge station and recharge.
+
+If we assume that trucks take 1.5hrs to recharge ($t_r$), and the cycle time ($t_c$) 0.5hrs then the number of cycles per shift $n_{shift}$ is:
+
+$$n_{shift} = \frac{12 - t_r}{t_c}$$
+
+The minimum required battery energy is⁴:
+
+$$U_{bat} = n_{shift} U_{loaded} - (n_{shift} - 1) U_{empty}$$
+
+In our example case for assuming a 400t gross weight, $U_{bat} \approx 22.4 GJ$ or $6.22 MWh$.
+
+In practice to achieve the fast charge rates required to support a 1.5hr charge time, only about 80% of the battery capacity will be available. This gives an expected battery size ($U_{bat}$) of approximately 7.775MWh:
+
+$$U_{bat} = \frac{U_{bat}}{80\%} = 1.25[(n_{shift} - 1)(1 - R) + 1]U_{loaded}$$
+
+⁴ Note: need to ensure that the last cycle has at least U_loaded capacity remaining to complete the haul cycle.
+⁵ Murata US21799VTC6A, US18650VTC6, Panasonic NCR18650B, Molicel INR21700P45B, INR18650P28B, INR18650P28A etc
+
+The two dominant chemistries used in electric vehicle applications are NCA (LiNiCoAlO₂[7], and LFP(LiFePO₄)[8], with energy densities of approximately 250Wh/kg and 125Wh/kg, respectively. Depending on the chemistry selected, this gives a battery mass of 31t to 62t.
+
+A typical 230t class haul truck today weighs about 400t, of which approximately 15t are associated with diesel engines and associated fluids and supporting equipment.
+
+This means that without significantly altering the design of the trucks, a 230t class truck would have a ~6.5% reduction in capacity for an NCA-based battery, and approximately 20% reduction in capacity for LFP-based batteries. Given that available time for the vehicle is also reduced by 12.5% to allow for charging, this would result in an overall reduction in productivity of ~19% for the NCA case and 33% for the LFP case.
+
+The counter-argument to this view is that electric drive trucks can have higher speeds than diesel-electric. This view is supported by higher speeds of trolley assist trucks observed on many operations today. However, this speed increase is generally only available on the loaded cycle. This means that the speed would need to increase by approximately double the productivity loss (i.e. ~38% to 66%) to offset the losses in productivity. This increased speed also increases the required discharge rate, which, as we shall see when considering the battery cycle life below, can reduce the overall life span.
+
+> **Plug-in Model Takeaways**
+> 
+> Whilst converting existing designs to plug-in electric may be possible, it can bring a loss of up to 1/3 of the productive output from the truck.
+
+### Modular Battery Systems
+
+Modular battery systems allow batteries to be swapped on the vehicle. This alleviates some of the productivity losses compared to the plug-in approach, as the time out of operations to charge batteries is substantially reduced. The ability to swap batteries means that the weight required for batteries can also be reduced, further reducing the losses in productivity.
+
+Whilst this approach has had some success in underground mining and on smaller classes of machines, applying it to surface mining brings a set of unique challenges. The increased size of surface equipment means that batteries must also be larger. Based on the calculations above, a 7.775MWh battery yields approximately 10.5 hours of operational time. Assuming a 4hr operating window under similar conditions, batteries would need to be approx. 3MWh. Which would weigh approximately 12t to 24t, depending on the battery chemistry used.
+
+Given the size and frequency of swaps, dedicated infrastructure would likely be required to support the swapping and charging of batteries. Haul trucks must travel off-circuit to access the battery swap facility. Assuming a 10min each-way travel time of the circuit and a 10min swap time, this approach would result in approximately 1.5 hours of loss each shift (12.5%).
+
+Assuming a 15t offset for the diesel-electric generation equipment the total productivity impact for a 230t class truck would be a reduction in productivity of approximately 11.2% for an NCR-based solution or 16.4% for LFP-based solutions.
+
+> **Modular Battery Model Takeaways**
+> 
+> Modular battery approaches provide a compromise between flexibility in operations and productivity losses. A significant investment in infrastructure would likely be required to enable safe and efficient swapping of the very large batteries needed for surface mining applications.
+
+### Trolley Assist
+
+Trolley Assist uses a system of overhead wires⁶ to provide power to recharge and/or propel the haul truck. An onboard battery provides energy whilst the haul truck is operating disconnected from the overhead system or if the overhead system cannot provide power. Due to the ability to recharge whilst in use trolley assist systems should have negligible productivity loss. Historically, trolley assist has been used without batteries to improve diesel electric haulage by providing additional power to accelerate haulage[3], [9].
+
+Given the relative maturity of trolley assist in the industry and its potential to negate the impact of battery charging on productivity, many OEMs are actively investing in developing a fully electric variant of their existing trolley assist enabled vehicles[1], [4], [6, p. 2], [10]. Batteries that replace diesel electric generators in trolley assist applications experience a charge-discharge cycle every haul cycle. Dependent on the depth of discharge and draw/recharge rates, the rapid cycling of the battery can result in accelerated wear on the battery itself[5], [11].
+
+Recent research[5] has developed a generic cycle life model for Li-Ion chemistries that estimates the battery life in charge cycles given typical operational parameters. This model, along with representative parameters for LFP battery types, is⁷:
+
+**Figure 2 - Li-Ion (LFP) battery life model**
+
+Model parameters (estimated)
+
+Given the information available for contemporary fully electric trolley assist haul trucks in the 230t payload range[4], we can estimate an LFP battery with a capacity of approximately 1.4MWh at a mass of approx. 15t. This size hits a sweet spot where no payload capacity is lost due to battery mass and time lost to charging can be eliminated entirely.
+
+Given our sample haulage circuit and the battery properties as described above, we can model the likely impact of trolley assist on lifecycle costs.
+
+⁶ strictly speaking it's a catenary system, but most readers will identify them as overhead wires
+⁷ NCR batteries, whilst having a higher gravimetric charge density and C rates, tend to have cycle counts in the order of 50%~20% that of LFP batteries. This makes LFP's (and related chemistries) the preferred choice for haulage applications
+
+### Scenario 1 – Minimal Trolley Coverage
+
+![Representative Haul Cycle with Regenerative Charging](Figure 3 - Representative Haul Cycle with Regenerative Charging)
+
+**Loaded Cycle:** Trolley Assist available  
+**Empty Cycle:** Regenerative Charging
+
+As discussed above, the energy for a given segment can be calculated in joules or kilowatt hours as:
+
+$$U = mgh \text{ (J)} = \frac{mgh}{3600 \times 1000} \text{ (kWh)}$$
+
+Dividing the energy required to traverse the segment by the travel time gives the power (W) required. Dividing the power by the battery's capacity in watt hours (Wh) gives the battery a nominal charge rate (C).
+
+$$P = \frac{mgh}{t}$$
+
+$$C = \frac{P}{B_{Capacity}}$$
+
+The remaining battery capacity after segment n is given by:
+
+$$B_n = B_{n-1} - U$$
+$$B_0 = B_{Capacity}$$
+$$DoD = \frac{\min(B_n)}{B_{Capacity}}$$
+
+Using this information, we can construct a set of linear equations to solve for the amount of power required from the overhead trolley assist system to ensure the haul truck is returned to 100% charge each cycle.
+
+Solving for this system we find:
+
+- $DoD = 15.1\%$ [Depth of Discharge]
+- $I_{ch} = 0.914 C$ [Average Charge Current]
+- $I_{dis} = 0.876 C$ [Average Discharge Current]
+- $P_{Trolley} = 3.1 MW$ [Power Required from Trolley Assist]
+
+Assuming an ambient operating temperature of 45°C and typical LFP battery parameters⁸, we can use the Li-Ion cycle life model above to compute the following relative de-rate impact factors:
+
+- $\theta_{DoD} = 10.6$ [Influence of Depth of Discharge]
+- $\theta_{idis} = 0.5$ [Influence of Discharge Rate]
+- $\theta_{ich} = 0.8$ [Influence of Charge Rate]
+- $\theta_T = 0.5$ [Influence of Temperature]
+
+This gives a predicted cycle life of:
+
+$$N_c = N_{c_{ref}} \theta_{DoD} \theta_{idis} \theta_{ich} \theta_T$$
+$$= 9000 \times 10.6 \times 0.5 \times 0.8 \times 0.5$$
+$$\approx 19,000 \text{ cycles}$$
+
+At a rate of 40 haul cycles and corresponding battery cycles per day, this gives an expected operational life of 477 days (approx. 1¼ years). Beyond the reduced battery life, this approach also increases trolley assist components' wear rate due to the higher power levels that must be transferred. Additionally, under this approach, a failure of the trolley assist system would leave the site with a window of no more than 2hrs to rectify the fault before all fully electric haul trucks are forced to stop due to low charge.
+
+⁸ 9000 Cycles at 0.5C Charge/Discharge
+
+### Scenario 2 – Minimal Depth of Discharge
+
+![Alternative haul cycle with additional trolley assist](Figure 4 - Alternative haul cycle with additional trolley assist)
+
+**Loaded Cycle:** Trolley Assist available  
+**Empty Cycle:** Regenerative Charging
+
+Consider the alternative trolley assist arrangement depicted in Figure 4 above; the length of the haul road where trolley assist is available has been doubled to include both ramps. Applying the same process as above, we can calculate the de-rate impact factors as follows:
+
+- $\theta_{DoD} = 820$ [Influence of Depth of Discharge]
+- $\theta_{idis} = 2.5$ [Influence of Discharge Rate]
+- $\theta_{ich} = 1.0$ [Influence of Charge Rate]
+- $\theta_T = 0.5$ [Influence of Temperature]
+
+At the same haul rate as scenario 1, this gives an expected operational life of 230,000 days, substantially more than the expected life of the haul truck, or even the mine.
+
+This approach trades off the capital cost of additional trolley assist infrastructure with the ability to sustain operations in the event of a failure of a single overhead system and significantly reduces the life triple bottom line life cycle cost of haulage.
+
+> **Trolley Assist Model Takeaways**
+> 
+> - Fully Electric Trolley Assist can largely mitigate the productivity losses intrinsic to other battery electric haulage approaches.
+> 
+> - Trolley Assist significantly increases the number of charge-discharge cycles the battery experiences, this can accelerate ageing effects that diminish battery capacities.
+> 
+> - Careful lifecycle analysis is required at the design stage to optimise the trade-offs between infrastructure costs, productivity, battery life, & operational risks to optimise the total cost of ownership for fully battery electric haul trucks, particularly for trolley assist battery electric haul trucks.
+> 
+> - Rather than thinking of fully electric trolley-assist haul trucks as battery electric trucks that recharge via an overhead trolley system, it may be better to think of them as continuously connected electric haul trucks with a battery that enables them to travel between power sources. This may result in materially lower lifecycle costs.
+
+## Conclusion
+
+Battery electric haul trucks are a credible way to reduce carbon emissions in the mining industry. However, all modes of battery electric haulage come with a set of trade-offs. Plug-in and swappable battery approaches maintain the operational flexibility of conventional diesel or diesel-electric fleets. However, these modes of battery-electric operation have reduced productivity rates on a per-truck basis when compared with a conventional fleet of comparable gross mass.
+
+Trolley-assisted battery electric haul trucks have comparable productivity rates to conventional trucks of similar size. But, this operational approach increases capital costs for overhead supply and on-truck pantograph systems. The reliance on this infrastructure, even if implemented as relocatable modular systems, reduces operational flexibility compared to conventional, plug-in, or swappable battery fleets.
+
+In addition to these operational considerations, the reduced capacity and frequent cycling of batteries from charge to discharge in trolley assist can significantly reduce the operational life of the battery. This premature battery ageing can further increase life cycle operating costs across the triple bottom line (financial, environmental, and social).
+
+The modelling of battery life cycles suggests that the level of integration between mine operations and asset maintenance will need to be higher when compared to conventional fleets. Many operational decisions, e.g. to operate haul circuits with a high DoD, will have an opportunity cost due to the impact on asset lifecycle costs. Unless operational leaders have visibility of these costs, decisions to solve operational needs will likely have a material impact on the lifecycle costs of major components.
+
+## References
+
+[1] "Rio Tinto Teams Up with Caterpillar for Zero-Emissions Autonomous Trucks." https://www.riotinto.com/en/news/releases/2021/rio-tinto-teams-up-with-caterpillar-for-zero-emissions-autonomous-trucks (accessed Apr. 11, 2023).
+
+[2] A. Rani, "Sandvik develops new battery-electric truck for underground mining," Mining Technology, Feb. 17, 2022. https://www.mining-technology.com/news/sandvik-battery-truck-mining/ (accessed Apr. 19, 2023).
+
+[3] "Trolley-Assist Technology | SMS Equipment Inc." https://www.smsequipment.com/en-ca/advanced-technologies/smart-mining/trolley-assist-technology/ (accessed Apr. 19, 2023).
+
+[4] "Fortescue welcomes the arrival of Australia's first prototype battery system designed for a zero-emission battery electric mining haul truck | Fortescue Metals Group Ltd." https://www.fmgl.com.au/in-the-news/media-releases/2023/01/16/fortescue-welcomes-the-arrival-of-australia%E2%80%99s-first-prototype-battery-system-designed-for-a-zero-emission-battery-electric-mining-haul-truck (accessed Apr. 11, 2023).
+
+[5] S. N. Motapon, E. Lachance, L.-A. Dessaint, and K. Al-Haddad, "A Generic Cycle Life Model for Lithium-Ion Batteries Based on Fatigue Theory and Equivalent Cycle Counting," IEEE Open J. Ind. Electron. Soc., vol. 1, pp. 207–217, 2020, doi: 10.1109/OJIES.2020.3015396.
+
+[6] "T 264 | Liebherr." https://www.liebherr.com/en/aus/products/mining-equipment/mining-trucks/details/t264.html (accessed Apr. 19, 2023).
+
+[7] "Tesla Now Has Multiple Battery Options: Which One Should You Choose?," InsideEVs. https://insideevs.com/news/575956/tesla-battery-chemistries-explained/ (accessed Apr. 18, 2023).
+
+[8] "Electric vehicle lithium-ion battery | Innovation |." https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ARCHIVE/LI_ION_EV/ (accessed Apr. 18, 2023).
+
+[9] First images of ABB eMineTM trolley system commissioned at Copper Mountain, (Apr. 12, 2022). Accessed: Apr. 26, 2023. [Online Video]. Available: https://www.youtube.com/watch?v=_RtDEbCsBE0
+
+[10] A. Hart, "Caterpillar tests massive battery electric mining truck destined for Australian mine," The Driven, Nov. 24, 2022. https://thedriven.io/2022/11/24/caterpillar-tests-massive-battery-electric-mining-truck-destined-for-australian-mine/ (accessed Apr. 11, 2023).
+
+[11] S. N. Motapon, A. Lupien-Bedard, L.-A. Dessaint, H. Fortin-Blanchette, and K. Al-Haddad, "A Generic Electrothermal Li-ion Battery Model for Rapid Evaluation of Cell Temperature Temporal Evolution," IEEE Trans. Ind. Electron., vol. 64, no. 2, pp. 998–1008, Feb. 2017, doi: 10.1109/TIE.2016.2618363.
+
+---
+
+*Visit idoba.com*

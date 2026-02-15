@@ -1,0 +1,963 @@
+================================================================================
+PAGE 1
+================================================================================
+
+ 
+T 236
+ 
+www.liebherr.com
+Mining truck
+Speed on grade*: 
+Diesel 15 km/h / 9.3 mph
+Trolley 21 km/h / 13 mphEngine power: 
+895 kW
+1,200 HPNominal payload: 100 t / 110 ton
+Gross Vehicle Weight (GVW): 180 t / 198 ton
+*Effective grade 10 %
+
+================================================================================
+PAGE 2
+================================================================================
+
+2
+Mining truck T 236Overview
+T 236  
+---
+
+================================================================================
+PAGE 3
+================================================================================
+
+Mining truck T 236 3Engine power  
+895 kW / 1,200 HP
+Gross Vehicle Weight 
+180 tonnes / 198 tons
+Nominal payload 
+100 tonnes / 110 tons
+
+================================================================================
+PAGE 4
+================================================================================
+
+4
+Mining truck T 236Productivity 
+Working harder  
+and faster  
+---
+
+================================================================================
+PAGE 5
+================================================================================
+
+Mining truck T 236 5Class leading payload capacity
+– Designed to carry up to 100 tonnes /  
+110 tons payload capacity
+– Highly efficient power train and 
+hydraulic system design ensures 
+the T 236 moves more material in 
+less timeContinuous drive system
+– The Liebherr T 236 Litronic Plus  Generation 2 AC drive system  
+enables constant application of 
+power to ground that is less  sensitive to grade and payload 
+variationsHigh horse power engine
+– Cummins QST30-C is fitted as  
+standard for the T 236
+– Engine delivers 895 kW / 1,200 hp gross power
+– Advanced airflow improves fuel economy, low-end torque  
+performance and emissions  capabilityEnhanced performance
+DrivabilityLiebherr is committed to designing mining trucks that operators want to drive. The ergo-
+nomic T 236 cab and superior properties of the front wheel suspension system fulfills this 
+commitment and promotes driver efficiency with superior comfort, safety, acceleration and handling.
+Drive system performance
+The Liebherr T 236 Litronic Plus AC drive system enables a constant application of power 
+to ground that is less sensitive to grade and payload variations. With a high take-off torque 
+capability, the T 236 is designed to meet the most challenging operating environments.
+Efficient engine and fuel system
+The Cummins QST30-C Quantum Electronic Control System governs the high pressure pump and unit injectors for precision injection pressure and timing, while swirl-port cylinder heads 
+optimize durability and combustion sealing. Advanced airflow improves fuel economy, low-
+end torque performance and emissions capability.The QST30-C fuel-spray pattern and piston bowl contour ensure optimized combustion with 
+fewer emissions, while maintaining structural integrity, reliability and durability.
+Optimal truck shovel match
+Together with the R 9100, R 9150, R 9200, R 9300 and R 9350 hydraulic excavators,  
+Liebherr offers the most complete high performance and scalable HEX / OHT match in  
+the world – always the right combination for production requirements.Intelligent design allows the Liebherr range of haul trucks to move more tons per hour by 
+maximising payload and minimising cycle times.
+Mining excavator R 9100 R 9150 R 9200 R 9300 R 9350
+Number of passes 8–9 7–8 5 4 3
+
+================================================================================
+PAGE 6
+================================================================================
+
+Efficiency is a key ingredient for a  
+successful mining operation. Liebherr mining equipment enables customers  to enjoy unrivalled performance while reducing cost per ton.
+
+================================================================================
+PAGE 7
+================================================================================
+
+Mining truck T 236 7Low parasitic powertrain losses
+– Optimized parasitic energy con-
+sumption during propulsion ensures 
+the Liebherr T 236 makes efficient 
+use of available engine power, providing the lowest possible fuel 
+consumption
+– During retard the power generated 
+by the wheels is used to eliminate 
+parasitic energy consumption 
+and reduce truck speed by engine friction while controlling the engine 
+speed at any timeWheel motors
+– The T 236 AC induction motors  
+efficiently convert electrical power 
+into stepless mechanical torque
+– Fewer electrical losses translate into 
+higher rimpull forces for faster cycle 
+times and increased fuel economy
+– Sealed traction motor end housing 
+design reduces potential for stator 
+contaminationEngine / fuel system
+– Highly reliable engine options
+– Safe and energy efficient
+– Reduced fuel consumption
+– Cummins QST30-CReducing cost per ton
+Generation 2 drive system technology
+The next evolution in electric drive system design, Liebherr’s 
+Litronic plus generation 2 AC drive system introduces  
+advanced active front end technology.
+By making efficient use of electrical energy during retarding 
+events, the drive system is able to deliver controlled engine speed with almost no fuel consumption.
+Powertrain efficiency optimisation 
+Vertical integration of Liebherr designed and manufactured  
+components ensures the T 236 powertrain components achieve optimal system efficiency and performance throughout the full range of applications.
+Innovative hydraulic system
+The T 236 innovative variable hydraulic system lowers  
+machine parasitic losses to provide maximum power to 
+ground, while lowering fuel consumption when power is  not required.Easy component access
+The T 236 reduces maintenance time by offering ground level service points whenever possible. This feature allows 
+more time to be spent in operation and less time spent in 
+the workshop. 
+Long-lasting components 
+All components are designed and built to perform and last in the most extreme mining conditions. As a result, Liebherr 
+trucks run much longer between component overhauls,  
+saving time and money.
+
+================================================================================
+PAGE 8
+================================================================================
+
+8
+Mining truck T 236Quality: the Liebherr trademark
+Quality management 
+Liebherr quality begins during machine design and simu-
+lations. Liebherr meets the highest standards for special 
+selections of steels and casting material. Based on the expertise of certified internal auditors and a highly qualified 
+workforce, all manufacturing process steps are devised to 
+provide the most comprehensive control, monitoring and traceability. Liebherr Mining Equipment Colmar SAS is  
+ISO 9001 certified.
+Liebherr component integration
+As an OEM, Liebherr has built a solid reputation for the  
+development and production of high quality strategic  mining components. The T 236 integrates robust and 
+reliable mining optimized components that are developed, 
+manufactured and controlled by Liebherr ensuring  reliability and high performance for the entire machine.
+Quality products
+With a long history of hydraulic excavators, haulage trucks 
+and support equipment operating in the harshest mining 
+environments, Liebherr has a proven record of providing  reliable products. The T 236 design is based on the  
+experience gained from millions of operating hours on  
+Liebherr mining machines.All weather reliability
+Four corner wet braking systemThe T 236 is the first diesel electric truck in class to incor -
+porate an oil immersed braking system with four corner retarding capabilities, providing reliable braking technology.
+In-line electrical powertrain layout 
+The revolutionary in-line electrical power train layout  minimizes cable lengths, while the maintenance free  
+IP-68 rated plug-and-drive power modules ensure  
+reliable operation in all weather situations.
+Traction control 
+The T 236 advanced traction control system has been  developed exclusively for mining truck applications.  
+With four-wheel speed sensing capability, torque is  
+automatically adjusted to the rear wheels to maximize  
+traction when cornering, accelerating from a standstill,  
+or travelling down wet or icy roads.
+The innovative control system provides enhanced steering 
+control and truck stability whilst maximising tire life in the 
+most challenging conditions.Liebherr draws upon a wealth of experience while incorporating 
+new technologies into products to provide customers with high quality equipment and services.Reliability
+Ready to work  
+when you need it 
+---
+
+================================================================================
+PAGE 9
+================================================================================
+
+Mining truck T 236 9Structurally built to last
+– For ultimate reliability and strength, 
+the T 236 main frame structure 
+provides castings in high stress 
+areas, reducing weld complexity and ensuring welded joints are strategi-
+cally located outside of load inter -
+face pointsAdvanced engineering tools and 
+field-testing methodsLiebherr’s structural design process 
+includes various techniques and 
+advanced software tools to ensure that the T 236 will perform reliably 
+under the most demanding operating 
+conditions.Some of the tools include:
+– Multi-body dynamic simulations
+– 3D modelling
+– Finite Element Analysis (FEA)
+– Structural fatigue life prediction software
+– Extensive field testing for product validationLiebherr machine control and service
+– The electronic machine controls are executed in heavy duty harness 
+and IP-68 connectors. The electrical 
+compartment is integrated inside the cab with superior service access
+
+================================================================================
+PAGE 10
+================================================================================
+
+10
+Mining truck T 236Extended component life
+– Liebherr designed service exchange units enable customers 
+to minimize the total lifecycle cost of owning and operating a 
+Liebherr mining truck or excavator
+– Maintains peak productivity and reliability
+– All exchange components are built to OEM standards, offering 
+as-new warranties
+Service excellence program 
+– Ground-level central service station
+– Sight glasses on major components
+– Ground-accessible hydraulic filters and manifolds
+– Easy access to check wear componentsAdvanced training capabilities
+– The Liebherr mining training system provides operator and field service technicians with world-class training
+– Simulator-based operator training
+– Basic and advanced service technician training
+– Hands-on troubleshooting trainingAs a global mining solutions provider, Liebherr is more than a mining equipment manufacturer. Ensuring a permanent  dialogue with each machine owner, Liebherr provides tailored assistance to customer specific project and site requirements.Service
+World-class support,
+everywhere, every day  
+---
+
+================================================================================
+PAGE 11
+================================================================================
+
+Mining truck T 236 11Customer support
+International service organization
+The Liebherr service support has 
+always been an important focus for 
+the company. Complete service during all operating phases from machinery 
+installation to problem solving, spare 
+parts inventory and technical service. 
+Our service team is close to our 
+customers, delivering the best specific 
+maintenance solution to reduce both equipment downtime and repair costs.
+Complete training programs
+The Liebherr mining training system 
+provides blended training sessions for 
+operator and maintenance staff to en-courage productive, cost-effective and 
+safe mining operation. The Liebherr 
+mining training system employs online learning programs, factory and on-site 
+sessions and simulator training.Remanufacturing
+Reduced costs and investment
+Over the course of a mining machine’s 
+lifetime, major components must be 
+replaced to ensure continued safety, productivity and reliability. The  
+Liebherr mining remanufacturing 
+program offers customers an OEM 
+alternative to purchasing brand new 
+replacement components. Enabling 
+customers to achieve lowest possible equipment lifecycle costs without 
+compromising quality, performance or 
+reliability.
+Fast availability
+With an international service network and component facilities world-wide, 
+component repair services and  
+exchange components are available to customers regardless of their location.Genuine parts
+PerformanceUsing genuine Liebherr components 
+ensures the best interaction within 
+your machine, encouraging optimal performance and most effective  
+machine operation. For all major  
+components, Liebherr relies on its Liebherr maintenance management 
+system to follow and monitor service 
+life while predicting maintenance activities. 
+Partnership
+Liebherr regularly reviews requirements 
+for parts and components for individual 
+machines, based on operating hours, consumption and planned maintenance, 
+resulting in minimized down time for 
+customers. With access to the global stock via all Liebherr mining ware-
+houses, you will improve productivity 
+by having the part you need, when you need it.
+
+================================================================================
+PAGE 12
+================================================================================
+
+12
+Mining truck T 236Liebherr is committed to providing a safe and healthy  
+working environment for the operator and service  
+personnel. Liebherr designs and builds safety into every 
+piece of mining equipment.
+Safe work environment for everyone 
+Machine isolationTo ensure the safety of maintenance technicians and 
+bystanders, the T 236 is equipped with double pole battery, 
+starter motor and hoist system isolators as standard. 
+In addition, the T 236 provides an innovative drive system  
+inhibit, electrically interlocked to grounding devices for each plug and drive power module. An industry first, Liebherr’s 
+Litronic plus isolation system ensures the safety of mainte-
+nance personnel through elimination of hazards by design.
+Four corner park brake system
+A four corner, spring-applied park brake system provides the Liebherr T 236 with a safe braking system.
+Operational safety 
+In order to maintain a safe working environment, the T 236 
+offers the following features:
+– Payload overload warnings
+– Anti-roll-back feature active in forward and reverse
+– Certified steering and braking accumulators
+– High visibility LED running and service lights
+– Engine shutdown switches in cab and at ground level 
+Service personnel safety
+Liebherr mining trucks are equipped with access systems, 
+strategically designed to support machine maintenance 
+tasks, including:
+– Access to the engine and alternator from both sides of the chassis
+– Ground filling for coolant is not present, statement shall  
+be removed
+– Hydraulic filters and machine isolation box accessible from ground level
+– Tie offs for safety harnesses
+– Centralized access to all cab electrical connections from the superstructure floor
+Enhanced ergonomicsWith superior comfort, safety, performance and reliability, 
+the Liebherr T 236 was created with operators and  
+customers in mind. The ergonomic design of the cab 
+provides maximum visibility for increased safety and performance.Safety
+Protecting your most  
+important assets 
+---
+
+================================================================================
+PAGE 13
+================================================================================
+
+Mining truck T 236 13Advanced traction control system
+– Advanced traction control system 
+with four wheel speed sensing 
+capability
+– Torque is automatically adjusted to 
+the rear wheels to maximize traction 
+when cornering, accelerating from a 
+standstill, or travelling down wet or icy roads
+– Traction control system developed by Liebherr exclusively for mining 
+trucks enables operators to consis-
+tently maintain steering control and truck stability Four corner wet disc braking system
+– Oil immersed braking system
+– Four corner retarding
+– Four corner spring-applied park brakes – fail-safe braking system
+– Hold brake actuation via shift  selectorSafety optimized cab
+– Roll Over Protection Structure (ROPS)
+– Fall On Protection Structure (FOPS)
+– Fire supression system (optional)
+– Enhanced ergonomics for operator and passenger
+
+================================================================================
+PAGE 14
+================================================================================
+
+14
+Mining truck T 236Optimized tire life
+– Double A-arm front suspensions to 
+keep an optimal ground contact of 
+the tyre within the whole suspension 
+stroke
+– Optimized camber and toe angle reduces tire wear
+– Improved operator ride quality and reduction of whole body vibration 
+exposureReducing consumables and fuel
+– The electrical power train  
+significantly reduces hydrocarbon 
+and filter usage throughout the 
+equipment maintenance lifecycle
+– Highly efficient powertrain reduces fuel consumption per ton movedSustainable manufacturing process 
+– With an ever-present green focus, Liebherr contributes to the  
+sustainable development of new  and existing products
+– Systematic risk analysis for new materials qualificationsEnvironment
+Mining responsibly  
+---
+
+================================================================================
+PAGE 15
+================================================================================
+
+Mining truck T 236 15In order to minimize environmental impact, Liebherr designs and builds mining 
+equipment with the smallest possible environmental footprint.
+Minimized impact on the environment
+Low emissions By partnering with leading providers of high-speed diesel engines, Liebherr is 
+able to offer engine options for the T 236 with the emission technology required 
+to satisfy national or local emissions requirements.
+Fuel efficiency 
+Liebherr’s Litronic plus drive system paired with the latest engine technology provides excellent fuel economy. Lowering the fuel consumption of the truck can 
+significantly reduce the carbon footprint of the entire operation.
+Extended service intervals
+With extended life service intervals, the T 236 reduces filter consumption as part 
+of the equipment maintenance lifecycle.
+Environmentally sustainable mining
+Component exchangeLiebherr reduces waste by overhauling components using original core parts.  
+The Liebherr exchange program extends component life cycles and is an  
+important contribution to environmental sustainability through substantial  material and energy savings. 
+Environmental awareness
+Liebherr is committed to the protection of the environment and takes necessary 
+steps to meet various regulatory requirements in our manufacturing process to 
+restrict the use of hazardous substances. This includes the use of alternative coatings and plating to reduce the overall impact on the environment.
+
+================================================================================
+PAGE 16
+================================================================================
+
+40 % faster
+Trolley vs diesel speed on grade (10 %)
+-75 % fuel consumption*
+*Based on a 11 km complete haul cycle  
+ with 3.6 km of trolley line used uphill
+
+
+================================================================================
+PAGE 17
+================================================================================
+
+Mining truck T 236 17Trolley Assist System
+ –Option for new truck units, all models
+ –Compatible and performance-enhancing  
+in combination with diesel powertrain
+ –Supports zero emissions powertrain  development
+Agnostic approach on power 
+supply and storage
+ –Diesel engine, batteries, hydrogen, ammonia, and methanol Liebherr AC drive system
+ –Maximize electrical power conversion into mechanical torque
+ –Deliver high speed on grade and higher rim pull forcesLow emissions solution
+The Liebherr Trolley Assist System is an effective first 
+step on the road to zero emission mine sites of the future. 
+Utilizing an overhead trolley catenary line to connect the 
+electric-drive system to the electrical network. The Trolley 
+Assist System offers:  
+– Increased truck fleet productivity, or reduction in fleet size while maintaining yearly production, versus standard 
+trucks
+– Reduction of carbon footprint by decreasing the truck 
+fleet CO2 emissions
+Zero emissions ready
+Liebherr AC drive technology readily supports future zero emissions technologies. Our approach is aligned with the 
+Liebherr company values to be environmentally responsible 
+by having a strong zero emission strategy built on Liebherr embedded core competencies. Liebherr can offer today  
+a solution to their mining customers to start their zero  
+emission journey.Increased productivity
+Liebherr has developed the Trolley system in which trucks are able to operate at higher speed on grade and reduce 
+cycle times. By augmenting speed on grade up to  
+21 km/h / 13 mph, the Trolley Assist System maximizes  productivity, offering higher production per hour.
+Proven field experience
+Liebherr delivers proven field experience of trucks fitted with the Trolley Assist System already in operation on  
+different sites.
+One-stop shop
+Liebherr has developed strategic partnership agreements  
+to support their customers with a complete solution.Efficiency
+Trolley Assist System 
+---
+
+================================================================================
+PAGE 18
+================================================================================
+
+The four pillars of  
+the Liebherr mining division 
+---
+With more than 50 years of experience in the mining industry, Liebherr has 
+identified four key factors of customer satisfaction: Performance, Safety, 
+Service, and Sustainability. These pillars provide structure and focus for all 
+our activities, and embody Liebherrʼs customer commitments. 
+
+================================================================================
+PAGE 19
+================================================================================
+
+Performance
+Productive, efficient and reliable
+Service
+Where you need it, when you need itSustainabilityCommitted to our futureSafety
+Protecting your most important assets
+
+
+================================================================================
+PAGE 20
+================================================================================
+
+20
+Mining truck T 236Technical data
+---
+Engine
+Model Cummins QST 30-C
+Type V configuration, 4-cycle, water-cooled
+Aspiration single stage turbocharged, air-to-air charge air cooling
+Air cleanerDonaldson STG16, dry-type double element, cyclonic pre-cleaner 
+and mechanical dust indicator
+Tier ratingavailable in fuel-optimized (FO) modes and emission-optimized 
+(EO), including US EPA Tier 2
+Engine speed 1,800 – 2,100 rpm
+Gross power1) 895 kW / 1,200 HP
+Number of cylinders 12
+Maximum t orque 5,086 Nm / 518.6 kg f-m at 1,400 rpm
+Torque rise 25 %
+Bore 140 mm / 5.51"
+Stroke 165 mm / 6.49"
+Displacement 30.5 l / 1,861 in3
+Starting dual parallel electric gear reduction starter motors
+Oil filtration 4X Fleetguard NanoNet lubrication filters
+Fan drive type variable speed hydraulic driven cooling fan
+Exhaust insulated muffler with insulated exhaust pipes
+Fuel filtration 2-stage filtration with water separation
+1)  Gr oss power definition according  to ISO 3046 (ratings also correspond t o SAE J1995 standard 
+conditions).
+Electric drive system
+Control systemLiebherr  Litronic Plus Generation 2 high efficiency drive system 
+with integrated active front end for engine retarding operation
+Control modulesLiebherr  liquid cooled IGBT frequency converters in modularized 
+configuration with integrated short circuiting and grounding 
+device, IP-68 protection class, maintenance-free
+AlternatorLiebherr  dual bearing AC synchronous brushless with external 
+excitation, forced air cooled
+Traction motors Liebherr  compact asynchronous motors, forced air cooled
+System voltage level 690 V AC / 900 V DC
+Alternator power rating 900 kW
+Traction motor power 
+rating500 kW
+Air cooling system variable speed hydraulic driven radial blower
+Electric drive systemalternator excitation inhibit system with lockout mechanism for 
+installation of personnel locks
+Max.  travel speed 55 km/h / 34 mph24 V Electric system
+24 V cabinetmain electrical compartment contained within operators cab, with machine isolation / lockout compartment at bumper level, 
+accessible from ground
+Wiringheavy duty harness design with IP-68 protection class for 
+exposed connectors
+LightsLED lighting in all locations as standard. Low and high beam 
+driving lights in accordance with ISO 12509. Standard lighting 
+configuration includes, driving lights,  turn indicators, hazard 
+lights, brake lights, reverse lights, access system lighting. 
+Access system lighting control from ground level
+Protection
+circuit protection provided for all electrical  s ystems
+Battery and starter 
+isolationdouble pole battery isolator, single pole starter isolator, lockout mechanism for installation for personnel locks
+Machine control decentralized CAN bus system
+Battery compartmentbattery assembly in stainless steel lifting frame and stainless 
+steel housing, 4 batteries 12 V / 180 Ah
+Camera system4 cameras covering front, rear and side views. Automatic view 
+selection subject t o driving situation mounted in isolation 
+compartment
+Auxiliary jump start accessible from ground level
+Braking systems
+Hydraulically controlled 4 corner oil cooled multiple wet disc brake system including  service 
+brakes and park brakes.
+Brake standards ISO 3450
+Service brake actuation hydraulic controlled
+Parking brake type spring applied, hydraulic released
+Retarderwet disc brake system in conjunction with active front end of 
+electric drive system
+Retarder capacity – 
+ continuous1,045 kW
+Retarder actuation 4 corner electro hydraulic actuation of front and rear brakes
+Secondary brake actuationelectronic controlled hydraulic release park brake actuation 
+pressure
+Steering and suspension
+Double A-arm front wheel arrangement with oil nitrogen suspension struts. Steering system with double acting full hydraulic power steering and central idler arm. Rear axle in a f our bar 
+linkage arrangement.
+Effective cylinder  
+stroke – front278 mm / 10.9"
+Effective cylinder  
+stroke – rear150 mm / 5.9"
+Rear axle oscillation 6°
+Steering system standards ISO 5010
+Turning radius 
+on front wheel  track  
+with standard tires according t o ISO 745711.1 m / 36'5"
+Machine clearance turning circle 
+according t o ISO 745713.2 m / 43'3"
+Steering angle,  
+left or right40°
+
+================================================================================
+PAGE 21
+================================================================================
+
+ Mining truck T 236 21Dump system
+Hydraulically controlled dump system with cylinders end position and stage change damping 
+function.
+Hoist cylinder  type two stage t elescopic cylinder with double acting  second s tage
+Dump cycle time 26 s
+Body raise time – 
+high idle13 s
+Body power down – 
+high idle13 s
+Tires
+Tires 27.00 R49
+Rims19.5" x 49" bolt-on rims
+single gutter rim as standard (optional double gutter rim)
+Frame
+Designwelded box  type structure with castings in high stress areas, 
+ensuring welded joints are strategically located outside of load 
+interface points
+Max. main frame width 2,500 m / 8'2"
+Frame rack angle 8°
+Axle boxsingle piece casted structure, suspension connection in force 
+and stroke optimized position
+Cab
+Ergonomic cab layout. Full size trainer seat in offset position. Large field of vision for opera-
+tor to front and side direction. Comfort access from driver side platform and central platform. 
+High performance air conditioning system.  Primary  machine controls in comfort reach of oper -
+ator. Ready for installation of customized add on systems. Equipped with 12 V and USB power sockets. Radio with 2 speakers. Sun blinds provided on front and side window as standard.
+Seatair suspended seats with integrated compressor and seat heat -
+ing, 3-point safety belt, armrest
+ROPS standard ISO 3471: 2008
+FOPS standard ISO 3449: 2005, level II
+Access and maintenance
+Primary accessISO 2867-2011 and AS 5327-2019, step ladder from bumper 
+level with 60° and 45°, access fully visible from operator position
+Secondary accessISO 2867-2011 and AS 5327-2019, rung ladder with handrails 
+from bumper level
+Service accessside doors and t op hatch access t o engine, air filter access from 
+platform, reservoirs and filling points accessible from ground level
+Top deck fully flat t op deck arrangement without stepsWeights
+Nominal payload 100 t / 110 t on
+Gross vehicle weight (GVW)180 t / 198 t on
+Empty vehicle weight (EVW)80 t / 88 t on
+Chassis weight
+1) 65 t / 71.7 t on
+Body weight2) 15 t / 16.5 t on
+Weight distributionempty – front 51 % / rear 49 %
+loaded – front 34.5 % / rear 65.5 %
+1)  Standard  truck (less options),  tires and rims, 100 % fluids (fuel  tank,  hydraulic  tank, gears, 
+ suspensions, crankcase, coolant, grease and charged accumulators).
+2)  Body  sizes are custom designed  to meet customer requirements and  specific conditions.  Dump 
+body weight reflects configuration as outlined within the t echnical data dump body section.
+Fluid capacities
+Standard fuel  tank 1,080 l / 285 gal
+Cooling system 370 l / 98 gal
+Engine oil / crankcase 133 l / 35 gal
+Final drives 140 l / 37 gal
+Steering system and 
+fan drives (tank volume)200 l / 53 gal
+Steering system 
+(includes t ank)360 l / 95 gal
+Brake / hoist hydraulic 
+system (tank volume)350 l / 92 gal
+Brake / hoist hydraulic 
+ system (including  tank)840 l / 222 gal
+Suspensions 53 l / 14 gal
+Pump drive splitterbox 10.5 l / 2.8 gal
+Front wheels 16.4 l / 4.3 gal
+Grease system 16 kg  / 35 lb
+Dump body
+Overburden body  
+for density 1.8 t/m3flat floor body with box  type bolsters on sidewalls and floor 
+plate. Canopy reaching t o front of  the cab. Eye brow cover over 
+driver side cab walkway. Lifting eyes integrated into sidewalls. 
+Freeboard allowance of approx. 200 mm incorporated into design
+Capacity heaped 2:1 (SAE) 62.5 m3 / 81.8 yd3
+Capacity cone model  
+@ 30° angle of repose 
+at remaining freeboard of 200 mm / 7.8"55.6 m
+3 / 72.7 yd3
+Rated payload 100 t / 110 t on
+Dumping angle 48°
+Please contact factory for further body configurations.
+
+================================================================================
+PAGE 22
+================================================================================
+
+22
+Mining truck T 236Dimensions
+---
+mm / ft in
+A Outside body width 5,752 / 18'10"
+B Overall truck width (operating width) 7,380 / 24' 3"
+C Centerline front tire width 4,518 / 14' 8"
+D Bumper to ground clearance 1,073 /  3' 5"
+E Overall (rear dual) tire width 5,484 / 18'
+F Dual spacing 2,824 /  9' 3"
+G Rear axle clearance   876 /  2' 9"
+(EVW): Empty Vehicle Weight
+Illustrations show  truck body optimized for 1.8 t/m3 density.mm / ft in
+H Front canopy height (EVW)  5,688 / 18'7"
+I Overall truck length 11,447 / 37'6"
+J Wheelbase  5,060 / 16'6"
+K Loading height (EVW)  4,792 / 15'7"
+L Dump clearance (EVW)  1,027 /  3'4"
+M Body raised height 10,087 / 33'1"
+J
+I
+B
+A
+CGK
+LM
+D
+M0120H
+F
+E
+
+================================================================================
+PAGE 23
+================================================================================
+
+ Mining truck T 236 23Performance curves
+---
+EVW GVWGross Vehicle Weight X 1000
+Speed
+Percent effective grade
+Wheel power (kW/HP)
+Rimpull (kN/Lbf)0200400600100012001400
+800
+08001000
+kW/kN
+HP
+400
+200600
+0 Lbf x 1000
+14
+10
+6
+2
+0 10 20 3016 20 24 28 32 36 12 8 4 0
+40 50 60 km/hmph kg0
+50
+100
+150
+200
+250
+300
+lb0
+100
+200
+300
+400
+500
+600
+ M0118200240
+160
+120
+80
+40EVW GVWGross Vehicle Weight X 1000
+Speed
+Percent effective grade
+Wheel power (kW/HP)Rimpull (kN/Lbf)0200400600100012001400
+800
+08001000
+kW/kN
+HP
+400
+200600
+0 Lbf x 1000
+14
+10
+6
+2
+0 10 20 3016 20 24 28 32 36 12 8 4 0
+40 50 60 km/hmph kg0
+50
+100
+150
+200
+250
+300
+lb0
+100
+200
+300
+400
+500
+600
+200240
+160
+120
+80
+40
+ M0119
+Performance chart parameters (Propulsion)
+Gross power 895 kW / 1,200 HP
+Net power 835 kW / 1,120 HP
+Tire size 27.00 R49
+Gear ratio 40 to 1
+Reference curves– – –Wheel power (kW / HP)
+Tractive effort (kN / Lbf)
+Note: The propulsion curve is calculated using net horsepower for a 25 °C / 77 °F ambient t em-
+perature,  therefore site specific and climatic variables will have an effect on the parasitic loss 
+estimations.
+Truck match
+Liebherr excavator  
+and configurationR 9100 B / BH R 9100 B / FS R 9150 B / BH R 9150 B / FS R 9200 / BH R 9200 / FS R 9250 / BH R 9250 / FS R 9350 / BH R 9350 / FS
+Standard bucket*m3
+yd37.5
+9.87.39.68.811.58.310.912.516.412.516.415.720.515.019.618.724.518.023.5
+Number of passes 8 9 7 8 5 5 4 4 3 3
+* 1.8 t/m
+3Performance chart parameters (Retard)
+Retard power (continuous) 1,045 kW / 1,400 HP
+Tire size 27.00 R49
+Gear ratio 40 to 1
+Reference curves – – –Continuous retard power at wheels (kW / HP)Continuous retard force (kN / Lbf)
+Note: The retard curve is calculated for a 32 °C / 90 °F ambient t emperature (as per ISO 1 0268).
+
+================================================================================
+PAGE 24
+================================================================================
+
+24
+Mining truck T 236Loading charts
+---
+T 236 Mining truck
+loaded by the Liebherr R 9100 B hydraulic excavator in face shovel configuration
+Maximum dump height 8.00 m / 26'2"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 7.3 m3 shovel capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)9 passes
+T 236 Mining truck
+loaded by the Liebherr R 9100 B hydraulic excavator in backhoe configuration
+Maximum dump height 8.65 m / 28'4"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 7.5 m3 bucket capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)8 passes
+0 2 4 6 8 10 12 14 16 18-40
+-8-6-22468101214
+0m
+ft 5 10 15 20 25 35 30 45 40 50 55 60-25-5
+-10
+-15
+-200510152025303545
+40m ft
+M0116
+0 2 4 6 8 10 12 1 3 5 7 9 11 13-20
+-4-3-124681012
+135791113
+0m
+ft 5 10 15 20 25 30 35 40-10-50510152025303540m ft
+M0110
+1500
+Illustrations show  truck body optimized for 1.8 t/m3 density.
+
+================================================================================
+PAGE 25
+================================================================================
+
+ Mining truck T 236 25
+0 2 4 6 8 10 12 14 16 18-40
+-8-6-22468101214
+0m
+ft 5 10 15 20 25 35 30 45 40 50 55 60-25-5
+-10
+-15
+-200510152025303545
+40m ft
+M0115
+0 2 4 6 8 10 12 14-20
+-42468101214
+0m
+ft 5 10 15 20 25 30 35 40 45-10
+-15-5051015202530354045m ft
+M0117
+1500T 236 Mining truck
+loaded by the Liebherr R 9150 B hydraulic excavator in face shovel configuration
+Maximum dump height 8.80 m / 28'9"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 8.3 m3 shovel capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)8 passes
+T 236 Mining truck
+loaded by the Liebherr R 9150 B hydraulic excavator in backhoe configuration
+Maximum dump height 8.84 m / 29'
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 8.8 m3 bucket capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)7 passes
+Illustrations show  truck body optimized for 1.8 t/m3 density.
+
+================================================================================
+PAGE 26
+================================================================================
+
+26
+Mining truck T 236Loading charts
+---
+9200
+0 2 4 6 8 10 12 14 16 18-40
+-8-6-22468101214
+0m
+ft 5 10 15 20 25 35 30 45 40 50 55 60-25-5
+-10
+-15
+-200510152025303545
+40m ft
+M0113
+92
+9200
+0 2 4 6 8 10 12 14-20
+-42468101214
+0m
+ft 5 10 15 20 25 30 35 45 50 40-10-5051015202530354045m ft
+M0112
+1500
+92
+Illustrations show  truck body optimized for 1.8 t/m3 density.T 236 Mining truck
+loaded by the Liebherr R 9200 hydraulic excavator in face shovel configuration
+Maximum dump height 8.37 m / 27'5"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 12.5 m3 shovel capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)5 passes
+T 236 Mining truck
+loaded by the Liebherr R 9200 hydraulic excavator in backhoe configurationMaximum dump height 9.71 m / 31'10"
+Truck loading height 5.07 m / 16' 7"
+Passes to fill with a 12.5 m
+3 bucket capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density5 passes
+
+================================================================================
+PAGE 27
+================================================================================
+
+ Mining truck T 236 27
+0 2 4 6 10 14 18 8 12 16 20-40
+-6
+-8-22468121416
+10
+0m
+ft 5 10 15 25 35 45 55 65 60 50 40 30 20-10
+-15
+-20
+-25
+-30-50510152025304050
+3545m ft
+M0111
+0 2 4 6 8 10 12 14-20
+-4246810121416
+0m
+ft 5 10 15 20 25 30 35 40 45-10-50510152025303540455055m ft
+M0114
+1500
+Illustrations show  truck body optimized for 1.8 t/m3 density.T 236 Mining truck
+loaded by the Liebherr R 9250 hydraulic excavator in face shovel configuration
+Maximum dump height 11.00 m / 36'1"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 15.0 m3 shovel capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)4 passes
+T 236 Mining truck
+loaded by the Liebherr R 9250 hydraulic excavator in backhoe configurationMaximum dump height 10.30 m / 33'9"
+Truck loading height 5.07 m / 16'7"
+Passes to fill with a 15.7 m
+3 bucket capacity  
+(given a 1.8 t/m3 / 3,000 lb/yd3 density)4 passes
+
+================================================================================
+PAGE 28
+================================================================================
+
+Liebherr-Mining Equipment Colmar SAS
+49 rue Frédéric Hartmann • 68025 Colmar Cedex, France • Phone +33 369 49 20 00 
+info.lec@liebherr.com • www.liebherr.com • www.facebook.com/LiebherrMiningSubject to technical modifications. All comparisons and claims of performance are made with respect to the prior Liebherr model unless specifically stated.Optional equipment
+---
+Additional
+Automatic fire suppression system
+Customized body options
+Double gutter rim
+High visibility night colour scheme
+Trolley Assist System
+Printed in Germany by DHW • RG-BK • LEC/SP-12210750-0.5-09.22_enGB-US
+

@@ -1,0 +1,366 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Equipment Specifications Schema",
+  "description": "Standard schema for mining equipment basic specifications",
+  "type": "object",
+  "required": ["model", "manufacturer", "category", "truck_mode", "weights", "dimensions", "tires", "drivetrain"],
+  "properties": {
+    "model": {
+      "type": "string",
+      "description": "Model identifier (lowercase with underscores)",
+      "pattern": "^[a-z0-9_]+$",
+      "examples": ["cat_794_ac", "komatsu_830e_5"]
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Equipment manufacturer name",
+      "examples": ["Caterpillar", "Komatsu", "TONLY"]
+    },
+    "truck_mode": {
+      "type": "string",
+      "description": "Truck operational mode",
+      "enum": [
+        "BatteryElectric",
+        "BatterySwap",
+        "DieselElectric",
+        "TrolleyAssist",
+        "Hybrid"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "Equipment classification",
+      "enum": [
+        "ultra_class_haul_truck",
+        "large_haul_truck",
+        "medium_haul_truck",
+        "small_haul_truck"
+      ]
+    },
+    "weights": {
+      "type": "object",
+      "required": ["empty_kg", "loaded_kg", "payload_kg"],
+      "properties": {
+        "empty_kg": {
+          "type": "number",
+          "description": "Empty operating weight in kilograms",
+          "minimum": 0
+        },
+        "loaded_kg": {
+          "type": "number",
+          "description": "Gross vehicle weight (loaded) in kilograms",
+          "minimum": 0
+        },
+        "payload_kg": {
+          "type": "number",
+          "description": "Rated payload capacity in kilograms",
+          "minimum": 0
+        },
+        "payload_tonnes": {
+          "type": "number",
+          "description": "Rated payload capacity in metric tonnes",
+          "minimum": 0
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "wheelbase_mm": {
+          "type": "number",
+          "description": "Wheelbase in millimeters",
+          "minimum": 0
+        },
+        "length_mm": {
+          "type": "number",
+          "description": "Overall length in millimeters",
+          "minimum": 0
+        },
+        "width_mm": {
+          "type": "number",
+          "description": "Overall width in millimeters",
+          "minimum": 0
+        },
+        "height_mm": {
+          "type": "number",
+          "description": "Overall height (body up) in millimeters",
+          "minimum": 0
+        },
+        "ground_clearance_mm": {
+          "type": "number",
+          "description": "Ground clearance in millimeters",
+          "minimum": 0
+        }
+      }
+    },
+    "tires": {
+      "type": "object",
+      "required": ["size"],
+      "properties": {
+        "size": {
+          "type": "string",
+          "description": "Tire size designation",
+          "examples": ["53/80_R63", "40.00_R57"]
+        },
+        "pressure_kpa": {
+          "type": "number",
+          "description": "Recommended tire pressure in kilopascals",
+          "minimum": 0
+        },
+        "type": {
+          "type": "string",
+          "description": "Tire type",
+          "examples": ["radial", "bias"]
+        }
+      }
+    },
+    "drivetrain": {
+      "type": "object",
+      "required": ["type", "max_speed_kmh"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Drivetrain type",
+          "enum": [
+            "AC_electric_drive",
+            "DC_electric_drive",
+            "mechanical_drive",
+            "hybrid"
+          ]
+        },
+        "max_speed_kmh_loaded": {
+          "type": "number",
+          "description": "Maximum speed when loaded in km/h",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "max_speed_kmh_empty": {
+          "type": "number",
+          "description": "Maximum speed when empty in km/h",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "max_speed_kmh": {
+          "type": "number",
+          "description": "Maximum design speed in km/h (legacy)",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "total_reduction_ratio": {
+          "type": "string",
+          "description": "Total reduction ratio",
+          "examples": ["35:1", "27.86:1"]
+        },
+        "generator": {
+          "type": "string",
+          "description": "Generator type/model"
+        },
+        "motor": {
+          "type": "string",
+          "description": "Motor type/model"
+        },
+        "inverter": {
+          "type": "string",
+          "description": "Inverter/controller type"
+        },
+        "motor_efficiency_pct": {
+          "type": "number",
+          "description": "Motor efficiency percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "regen_efficiency_pct": {
+          "type": "number",
+          "description": "Regenerative braking efficiency percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "rolling_resistance": {
+          "type": "number",
+          "description": "Rolling resistance coefficient",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "auxiliary_power_kw": {
+          "type": "number",
+          "description": "Auxiliary power demand in kilowatts",
+          "minimum": 0
+        }
+      }
+    },
+    "battery": {
+      "type": "object",
+      "description": "Battery specifications (for battery electric/swap)",
+      "properties": {
+        "battery_type": {
+          "type": "string",
+          "description": "Battery chemistry type",
+          "examples": ["Lithium_Iron_Phosphate", "NMC", "LTO"]
+        },
+        "rated_capacity_kwh": {
+          "type": "number",
+          "description": "Rated battery storage energy in kWh",
+          "minimum": 0
+        },
+        "rated_charging_cycles": {
+          "type": "number",
+          "description": "Rated number of charging cycles",
+          "minimum": 0
+        },
+        "rated_lifetime_throughput_kwh": {
+          "type": "number",
+          "description": "Rated lifetime energy throughput in kWh",
+          "minimum": 0
+        },
+        "end_of_life_health_pct": {
+          "type": "number",
+          "description": "Battery health percentage at end of life",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "initial_soc_pct": {
+          "type": "number",
+          "description": "Initial state of charge percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "initial_cumulative_throughput_kwh": {
+          "type": "number",
+          "description": "Initial cumulative throughput in kWh",
+          "minimum": 0
+        },
+        "initial_health_pct": {
+          "type": "number",
+          "description": "Initial battery health percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "initial_resource_state": {
+          "type": "string",
+          "description": "Initial battery resource state",
+          "enum": ["ReadyToDeploy", "InUse", "Charging", "Maintenance"]
+        },
+        "max_power_kw": {
+          "type": "number",
+          "description": "Maximum battery power in kilowatts",
+          "minimum": 0
+        },
+        "swap_soc_pct": {
+          "type": "number",
+          "description": "Battery swap SOC percentage threshold",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "diesel_system": {
+      "type": "object",
+      "description": "Diesel system specifications (for diesel electric/hybrid)",
+      "properties": {
+        "fuel_consumption_rate_l_kwh": {
+          "type": "number",
+          "description": "Fuel consumption rate in liters per kWh",
+          "minimum": 0
+        },
+        "tank_capacity_l": {
+          "type": "number",
+          "description": "Diesel tank capacity in liters",
+          "minimum": 0
+        },
+        "initial_fuel_level_l": {
+          "type": "number",
+          "description": "Initial fuel level in liters",
+          "minimum": 0
+        },
+        "generator_max_power_kw": {
+          "type": "number",
+          "description": "Diesel generator maximum power in kilowatts",
+          "minimum": 0
+        },
+        "generator_efficiency_pct": {
+          "type": "number",
+          "description": "Diesel generator efficiency percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "refuel_level_pct": {
+          "type": "number",
+          "description": "Refuel trigger level percentage",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "engine": {
+      "type": "object",
+      "description": "Engine specifications (for diesel/hybrid)",
+      "properties": {
+        "model": {
+          "type": "string",
+          "description": "Engine model"
+        },
+        "power_kw": {
+          "type": "number",
+          "description": "Rated power in kilowatts"
+        },
+        "power_hp": {
+          "type": "number",
+          "description": "Rated power in horsepower"
+        },
+        "displacement_liters": {
+          "type": "number",
+          "description": "Engine displacement in liters"
+        },
+        "configuration": {
+          "type": "string",
+          "description": "Engine configuration",
+          "examples": ["V16", "V12", "Inline-6"]
+        }
+      }
+    },
+    "weight_distribution": {
+      "type": "object",
+      "description": "Weight distribution percentages",
+      "properties": {
+        "empty": {
+          "type": "object",
+          "properties": {
+            "front": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Front axle weight fraction (empty)"
+            },
+            "rear": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Rear axle weight fraction (empty)"
+            }
+          }
+        },
+        "loaded": {
+          "type": "object",
+          "properties": {
+            "front": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Front axle weight fraction (loaded)"
+            },
+            "rear": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Rear axle weight fraction (loaded)"
+            }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or comments"
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+    "model": "liebherr_t_236",
+    "manufacturer": "Liebherr",
+    "conditions": "Sea level, standard temperature, 27.00 R49 tires",
+    "fitting_method": "rational",
+    "formula": "(a + b*v) / (1 + c*v + d*v^2)",
+    "max_rimpull_kn": 500,
+    "gradeability_input": {
+        "unit": "kN",
+        "empty": {
+            "grade_percent": [
+                2,
+                6,
+                10,
+                14,
+                15
+            ],
+            "speed_kmh": [
+                60,
+                45,
+                30,
+                25,
+                22
+            ],
+            "rimpull": [
+                40,
+                40,
+                80,
+                100,
+                110
+            ]
+        },
+        "loaded": {
+            "grade_percent": [
+                2,
+                6,
+                10,
+                14,
+                15
+            ],
+            "speed_kmh": [
+                60,
+                30,
+                13,
+                12,
+                10
+            ],
+            "rimpull": [
+                40,
+                80,
+                160,
+                200,
+                240
+            ]
+        }
+    },
+    "retarding_input": {
+        "continuous_power_kw": 1045,
+        "efficiency": 0.85,
+        "max_retarding_kn": 2500,
+        "loaded": {
+            "grade_percent": [
+                2,
+                6,
+                10,
+                14,
+                15
+            ],
+            "speed_kmh": [
+                60,
+                37,
+                24,
+                15,
+                10
+            ],
+            "retarding_force_kn": [
+                60,
+                100,
+                150,
+                220,
+                240
+            ]
+        },
+        "empty": {
+            "grade_percent": [
+                2,
+                6,
+                10,
+                14,
+                15
+            ],
+            "speed_kmh": [
+                60,
+                60,
+                45,
+                30,
+                28
+            ],
+            "retarding_force_kn": [
+                60,
+                60,
+                70,
+                120,
+                135
+            ]
+        }
+    },
+    "specifications": {
+        "model": "liebherr_t_236",
+        "manufacturer": "Liebherr",
+        "truck_mode": "DieselElectric",
+        "category": "mid_class_haul_truck",
+        "weights": {
+            "empty_kg": 80000,
+            "loaded_kg": 180000,
+            "payload_kg": 100000,
+            "payload_tonnes": 100
+        },
+        "drivetrain": {
+            "type": "AC_electric_drive",
+            "max_speed_kmh_loaded": 60,
+            "max_speed_kmh_empty": 60
+        },
+        "engine": {
+            "model": "Cummins_QST30-C_Quantum",
+            "gross_power_kw": 895,
+            "net_power_kw": 835
+        },
+        "braking_system": {
+            "dynamic_retarding_continuous_kw": 1045
+        }
+    }
+}

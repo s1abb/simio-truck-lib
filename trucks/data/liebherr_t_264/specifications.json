@@ -1,0 +1,25 @@
+{
+  "model": "liebherr_t_264",
+  "manufacturer": "Liebherr",
+  "truck_mode": "DieselElectric",
+  "category": "ultra_class_haul_truck",
+  "weights": {
+    "empty_kg": 176000,
+    "loaded_kg": 416000,
+    "payload_kg": 240000,
+    "payload_tonnes": 240
+  },
+  "drivetrain": {
+    "type": "AC_electric_drive",
+    "max_speed_kmh_loaded": 55,
+    "max_speed_kmh_empty": 55
+  },
+  "engine": {
+    "model": "Liebherr_D9812",
+    "gross_power_kw": 2013,
+    "displacement_l": 62
+  },
+  "braking_system": {
+    "dynamic_retarding_continuous_kw": 3500
+  }
+}

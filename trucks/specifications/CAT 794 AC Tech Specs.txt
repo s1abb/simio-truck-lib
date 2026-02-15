@@ -1,0 +1,471 @@
+================================================================================
+PAGE 1
+================================================================================
+
+UP TO 8% BETTER PAYLOAD
+ +Designed to deliver a true 297 tonnes (327 tons) 
+ +Lower empty weight
+ +Higher-rated gross machine weight (GMW)
+ +Higher-rated field payload than competitors
+BETTER PRODUCTIVITY    
+AND LOWER COST PER TON
+ +Faster speed on grade at any given power setting
+ +Lowest cost per ton – configurable to match application
+ +Ability to haul on max 28% grade (Gradeability)
+ +Product health, performance monitoring and   
+ diagnostics
+100% SINGLE SOURCE     
+FROM CATERPILLAR
+ +Designed, validated, and built by Caterpillar
+ +Integrated systems and controls provide superior   
+ performance
+ – Throttle response, slow speed controls
+ – Responsive maneuvering and turning
+ +Parts commonality with other Cat® trucks
+BEST IN CLASS RETARDING    
+AND BRAKING  
+ +34% more continuous retarding power
+ +Four corner wet disc brakes, with automatic slack adjusters
+ +Blended service brakes with retarding for traction control
+ +Slow speed blended retarding for positive stoppingSERVICEABILITY AND LOWER MAINTENANCE
+ +Modular design for easier removal and installation
+ – Engine and dual bearing drive alternator
+              can be serviced separately, eliminating shimming
+ – Modular wheel motors and final drives enable  
+             service on individual components
+ – Sealed and pressurized inverter cabinet requires 
+             no cleaning, eliminating recurring maintenance
+ +Ground level service access with grouped service points
+ +Service platform around engine, generator, 
+ and inverter for safety and convenience
+ +Extended component lives and filter change interval
+PROVEN IN THE FIELD  
+AND WORKING AROUND THE WORLD
+ +Variety of applications and ores
+ – Soft rock, hard rock, deep pit, and flat haul
+ – Low altitude, high altitude, high ambient,    
+      and cold weather
+ – Noncertified, Tier 2 equivalent, and Tier 4 emissions
+ +Operating worldwide – 4 Continents, 9 Countries
+RELIABLE CUSTOMER SUPPORT
+ +World-class customer support with Cat dealer network
+ +Parts availability and commonality
+ +Technical training 
+ +Customer Value Agreements (CVA)CAT® 794 AC
+MINING TRUCK
+
+================================================================================
+PAGE 2
+================================================================================
+
+2
+794 AC Mining Truck SpecificationsEngine
+Engine Model Cat® C175-16
+Gross Power – SAE J1995:2014 2610 kW 3,500 hp
+Net Power – SAE J1349:2011 2539 kW 3,405 hp
+Rated Speed 1,800 rpm
+Emissions Rating Fuel Optimized
+Bore 175 mm 6.9 in
+Stroke 220 mm 8.7 in
+Displacement 85 L 5,187 in3
+• Net Power advertised is the power available at the flywheel when 
+the engine is equipped with air intake system, exhaust system, 
+and alternator.
+• Fuel optimized selectable power ratings: 2312 kW/3,100 hp; 
+2051 kW/2,750 hp.
+• U.S. EPA Tier 4 Final/EU Stage V available for applicable markets. 
+with additional 3688 kW/2,750 hp selectable power rating.
+• High Altitude Engine Configuration option available with additional 
+2312 kW/3,100 hp selectable power rating.
+Weights – Approximate
+Rated Gross Machine Weight (RGMW) 521 631 kg 1,150,000 lb
+Chassis Weight (CW) 193 338 kg 426,237 lb
+Body Weight (BW) 29 187 kg 64,346 lb
+Nominal Rated Payload (NRP) 297 tonnes 327 tons
+• Consult your tire manufacturer for maximum tire load.
+• Chassis weight with full fuel and fluids, standard and mandatory 
+attachments, hoist, body mounting group, rims, and tires.
+• Refer to Cat Mining Truck 10/10/20 Overload Policy (AEXQ0250) for 
+maximum gross machine weight limitations.
+Weight Distributions – Approximate
+Front Axle – Empty 49%
+Rear Axle – Empty 51%
+Front Axle – Loaded 33%
+Rear Axle – Loaded 67%
+• Weight distributions optimized with Cat body.AC Drive System
+Total Reduction Ratio 35:1
+Top Speed – Loaded 60 km/h                        37 mph
+Generator/Alternator Cat brushless, engine 
+mounted, dual bearing
+Controls Cat Insulated-Gate Bipolar 
+Transistor (IGBT) Inverter 
+Technology, air cooled, 
+pressurized cabinet with 
+filtration
+Wheel Motor Cat AC induction, rear axle 
+mounted
+Cooling System Cat variable speed, 
+hydraulically driven cooling 
+system
+Tires and Rims
+53/80 R63
+36" × 63" Rims
+• Quick Change Rims optional.
+• Caterpillar recommends the customer evaluate all job conditions 
+and consult tire manufacturer for proper tire selection and Tonne 
+Kilometres Per Hour (TKPH)/Ton-Miles Per Hour (TMPH) capabilities.
+Braking System
+Service Brakes: Four-Corner, Wet Disc, Oil Cooled, Hydraulically Actuated
+Front Wet Disc Brake Surface Area 131 473 cm220,378 in2
+Rear Wet Disc Brake Surface Area 198 388 cm230,750 in2
+Standards (Service and Secondary) ISO 3450:2011
+Parking Brake: Four-corner, Multi-disc, Spring applied, Hydraulically 
+Released
+Load Brake – Rear service brakes
+Dynamic Retarding Power – Continuous 4086 kw 5,480 hp
+2
+
+================================================================================
+PAGE 3
+================================================================================
+
+3
+                         794  AC Mining Truck Specifications       Capacity – HE Body - 100% fill factor
+Struck 108–133 m3142–175 yd3
+Heaped (SAE 2:1) 180–222 m3236–290 yd3
+• Consult your local Cat dealer for body recommendations.
+Body Hoists
+Twin, two-stage hydraulic cylinders with snubbing valve.
+Pump Flow – High Idle 910 L/min 240 gal/min
+Relief Valve Setting – Raise 20 884 kPa 3,029 psi
+Body Raise Time – High Idle  23.5 Seconds
+Body Lower Time – Float 21.4 Seconds
+Body Power Down – High Idle 17.5 Seconds
+• Twin, two-stage hydraulic cylinders mounted inside main frame; 
+double-acting cylinders in both stages.
+• Power raise in both stages; power down in both stages possible.
+• Automatic body-lower modulation reduces impact on frame.
+Suspension
+Self-contained nitrogen/oil cylinders, pin-to-pin mounting, top and bottom 
+double shear clevis attachments
+Effective Cylinder Stroke – Front 102.1 mm 4 in
+Effective Cylinder Stroke – Rear 50.5 mm 2 in
+Rear Axle Oscillation           ± 5.32 degreesService Refill Capacities
+Fuel Tank 4922 L 1,300 gal
+Fuel Tank (Tier 4) 3785 L 1,000 gal
+Diesel Exhaust Fluid (DEF) Tank (Tier 4) 378 L 100 gal
+Cooling System 799 L 211 gal
+Crankcase 310 L 82 gal
+Front Wheels, each 28 L 7 gal
+Final Drives, each 254 L 67 gal
+Hydraulic Tank 1121 L 296 gal
+Hydraulic System (includes tank) 1458 L 385 gal
+Grease Tank Capacity 41 kg 90 lb
+Cab
+Air Conditioning (HFC – 134A refrigerant) 21,600 Btu/hr
+Heater/Defroster 24,600 Btu/hr
+• Ambient capabilities down to –30°C (–22°F) for heater/defroster and up 
+to 50°C (122°F) for air conditioning.
+• The operator sound pressure level, 75 dB(A), complies with ISO 6394 
+and ISO 6396. 
+• Rollover Protective Structure (ROPS) meets ISO 3471:2008 criteria for 
+operator and ISO 13459:2012 for trainer.
+• Falling Objects Protective Structure (FOPS) meets ISO 3449:2005 Level II 
+for operator and ISO 13459:2012 Level II for trainer.
+Steering
+Steer Angle 39 degrees
+Turning Diameter (ISO 7457:2009) 32.4 m 106.3 ft
+Steering Standards ISO 5010:2007
+
+================================================================================
+PAGE 4
+================================================================================
+
+4
+794 AC Mining Truck SpecificationsDimensions
+All dimensions are approximate. Shown with 193.6 m3 (253 yd3) High Efficiency (HE) Body. 
+1Height to Top of ROPS 6779 mm 22'3"
+2Overall Length 15 464 mm 50'9"
+3Wheelbase 6645 mm 21'10"
+4Rear Axle to Tail 4716 mm 15'6"
+5Dump Clearance 1516 mm 5'
+6Loading Height – Empty 6607 mm 21'8"
+7Overall Height – Body Raised 14 621 mm 48' 
+8Centerline Front Tire Width 7024 mm 23'1"
+9Front Axle Clearance 969 mm 3'2"
+10Overall Canopy Width (with rock deflectors) 9611 mm 31'6"
+11Outside Body/Canopy Width 9072 mm 29'9"
+12Inside Body Width 8560 mm 28'1"
+13Front Canopy Height 8024 mm 25'8" 
+14Rear Axle Clearance 934 mm 3'1"
+15Centerline Rear Dual Tire Width 5727 mm 18'10"
+16Overall Tire Width 8738 mm 28'8"
+1589
+141
+23 45671110
+13
+1612
+
+================================================================================
+PAGE 5
+================================================================================
+
+5
+                         794  AC Mining Truck Specifications       10 0 20 30 40 50 60 70
+5 10 15 20 25 30 35 40 4550 100 150 200 250 300 350 4004 50 5000 100 200 300 400 500 600 7008 00 9001 000 1100
+0
+E L
+5% 15% 
+10% 20% 25% 30% lb ×
+1000kg ×
+1000 
+5% 10% 15% 20% 25% 30% 
+10 20 30 40 50 60 70
+5 10 15 20 25 30 35 40 45150
+140
+130
+120
+110
+100
+90
+80
+70
+60
+50
+40
+30
+20
+10
+050 100 150 200 2503 00 350 4004 50 5000 100 200 300 400 500 600 7008 00 9001 000 1100
+15 45 75 105 135 165 195 225 255 285 315 0
+E L Gradeability/Speed/Rimpull*
+                             GROSS WEIGHT
+lb x 1000
+kg x 1000
+                 E  – Empty Operating Weight
+                       217 419 kg (479,327 lb)
+EFFECTIVE GRADE
+(Actual plus Rolling)                   L  – Rated Gross Machine Weight  
+                          521 631 kg (1,150,000 lb)
+*At sea level, 30° C (86° F). 
+Contact factory for performance 
+estimates based upon site specific 
+temperatures and altitudes.
+km/h
+mph
+Retarding Performance - Continuous Grade*
+   
+GROSS WEIGHT
+lb x 1000
+  kg x 1000
+EFFECTIVE GRADE
+(Actual minus Rolling)                  E – Empty Operating Weight
+                       217 419 kg (479,327 lb)
+                  L  – Rated Gross Machine Weight  
+                          521 631 kg (1,150,000 lb)
+*At sea level,  30° C (86° F).
+Contact factory for performance 
+estimates based upon site specific 
+temperatures and altitudes. km/h
+mphTo determine gradeability performance: Read from gross weight down to the percent of total resistance. Total resistance equals actual percent grade 
+plus 1% for each 10 kg/t (20 lb/ton) of rolling resistance. Usable rimpull will depend upon traction available and weight on drive wheels.
+To determine retarding performance: 
+Read from gross weight down to the 
+percent effective grade. Effective grade 
+equals % grade minus 1% for each 10 kg/t                     
+(20 lb/ton) of rolling resistance. 
+The following chart is based on 30° C (86° F)  
+ambient temperature, at sea level,               
+with 53/80 R63 tires.
+RIMPULL------———
+------———
+
+================================================================================
+PAGE 6
+================================================================================
+
+6
+794 AC Mining Truck Specifications6Standard and Optional Equipment
+Standard and optional equipment may vary. Consult your Cat dealer for details.
+Standard Optional
+ELECTRICAL
+Alarm, backup 
+Brushless alternator 150 amp charging 
+Batteries – 12V (8) 90 amp hour 
+Converter, 12V electrical 
+Electrical system, 24V, 10, 15, 20 amp fuses, breakers 
+Battery charge receptacle 
+Lighting, signals/service:
+• Halogen lighting package 
+• Backup and hazard lighting 
+• Directional signals (front and rear LED) 
+• Front stair access/service deck 
+• Stop/tail lights (LED) 
+• Engine compartment 
+• Inverter energy LED warning lights 
+• Fog lights 
+• LED work lights 
+• LED lighting package 
+• High Intensity Discharge (HID) lighting package 
+OPERATOR ENVIRONMENT
+Air conditioner 
+12V DC power supply (1) 
+Cab pedestal for additional display 
+Cup holder (2) 
+Diagnostic connection port 
+Dome courtesy light 
+Heated mirrors (Left Hand [LH] and 
+Right Hand [RH])
+English or Metric gauges 
+Entertainment radio ready:
+• 20 amp switched/10 amp memory converter 
+• Speakers, and wiring harnesses 
+Gauges/indicators 
+Gauge panel:
+• Hydraulic oil temperature 
+• Engine coolant temperature 
+• Fuel level 
+• Electric engine control fault indicator 
+• Electric hour meter 
+• Speedometer 
+• Tachometer 
+• VIMS™ message center advisor 
+Heater/defroster 
+Retarding indicator light (top of cab) 
+Radio/CD player Standard Optional
+ROPS cab, insulated/sound suppressed 
+Seat, operator, air suspension 
+Seat, trainer, air suspension  
+Seatbelt, trainer, two point 
+Storage space behind seat 
+Steering wheel, tilt, telescopic 
+Tinted glass 
+Window, electric powered, operator/passenger 
+Wiper, windshield, intermittent control, washer 
+Fixed access ladder 
+Language monitors – English, Spanish, Italian, Portuguese, 
+Dutch, Norwegian, Swedish, Estonian, Latin, Lithuanian, 
+Slovakian, Slovenian, Greek, Romanian, Russian, Polish, 
+Czech, Hungarian, Icelandic, Finnish, Danish, Thai, Indonesian, 
+Vietnam, Malaysian, Chinese
+POWER TRAIN
+Cat C175-16 Tier 2 Emissions Equivalent Engine:
+• Air cleaner with pre-cleaner (4) 
+• Air-to-Air Aftercooler (ATAAC) 
+• Elevated low idle control 
+• Engine Overspeed Protection 
+• Multi-point oil pressure sensing 
+• Pre-lubrication/engine 
+• Turbocharging (4)/Aftercooled 
+Braking system:
+• Automatic Retarder Control 
+• Brake Release Motor (towing) 
+• Extended Life Brake Disc Material 
+• Oil-cooled, Multi-disc (front and rear)
+   – Service, Retarding, Parking, Secondary
+• Electric dynamic retarding – blended low speed 
+Cat AC Drivetrain:
+• IGBT controlled AC induction motors – 
+AC generator
+• AC cooled radial grid 
+Body-up reverse neutralizer 
+Programmable top speed 
+Rear axle continuous lube/filtration 
+Reverse shift inhibitor 
+Directional shift management 
+Neutral coast inhibitor 
+Body-up shift inhibitor 
+Neutral start inhibitor 
+Contact factory for low HP, lower emissions tier configurations 
+and high altitude configurations.
+
+================================================================================
+PAGE 7
+================================================================================
+
+7
+                         794  AC Mining Truck Specifications       7Standard Optional
+OTHER EQUIPMENT
+Traction control system 
+Auxiliary “buddy” dumping quick connect 
+Auxiliary steering quick connect (towing) 
+Rotating component guards 
+Fast fill fuel system (LH and RH side) 
+Fuel filter with water separator 
+Ground level battery lockout 
+Machine lockout 
+Engine start lockout 
+Electronic Control Module (ECM) 
+cabinet lockout
+Ground level engine shut-down 
+Rock ejectors (chain) 
+Tow hooks and pin (front) 
+Tow pin (rear) (empty truck only) 
+Mudflaps 
+Coolant level gauge (on radiator) 
+Automatic lubrication system 
+Scheduled Oil Sampling (S·O·SSM) points 
+(hydraulic, cooling, engine)
+Rear axle oil cooler 
+Standard accumulators and Australia/Canada 
+certified accumulators
+Hot start, for cold weather 
+Diesel fuel warmer 
+Wheel chocks (ANSI or ISO) 
+Portable fire extinguisher 
+Canopy extension 
+Body rock box 
+Side profile lighting 
+Central service 
+Throttle lock 
+Timer, engine shutdown 
+Body heat exhaust 
+Gel batteries (8) 
+Inverter platform 
+Fast fill fuel system (front and right) 
+Rims: Six (6) position and quick change 
+ANSI and ISO service instructions 
+Front bumper center tow attachment 
+Brake wear indicator tool 
+Payload, digital display 
+Powered access ladder Standard Optional
+ANTIFREEZE
+Extended Life Coolant to –35° C (–30° F) 
+Antifreeze/coolant protects to –50° C (–58° F) 
+HIGH EFFICIENCY DUMP BODY
+1543 kg/m3 (2,600 lb/yd3) density body 
+1721 kg/m3 (2,900 lb/yd3) density body 
+1839 kg/m3 (3,100 lb/yd3) density body 
+2076 kg/m3 (3,500 lb/yd3) density body 
+HE dump body rock box liner 
+HE dump body canopy rock deflectors 
+CAT TECHNOLOGY PRODUCTS
+Cat® MineStar™  Detect (Radar and Camera) System 
+Cat MineStar Detect (Camera Only) System 
+Product Link™ Elite (Cellular) 
+Product Link Elite (Satellite) 
+Cat MineStar Health 
+Cat MineStar Fleet 
+Cat MineStar Terrain 
+Cat MineStar Command-Ready 
+Cat MineStar Command 
+Cat Trolley Assist Attachment Standard and Optional Equipment  (continued)
+Standard and optional equipment may vary. Consult your Cat dealer for details.
+
+================================================================================
+PAGE 8
+================================================================================
+
+AEHQ7083-09 (01-2024) 
+Replaces AEHQ7083-08 
+(Global)For more complete information on Cat products, dealer services, and industry solutions, visit us on the web at 
+www.cat.com
+© 2024 Caterpillar
+All rights reserved
+Materials and specifications are subject to change without notice. Featured machines in photos may include 
+additional equipment. See your Cat dealer for available options.
+CAT, CATERPILLAR, LET’S DO THE WORK, their respective logos, “Caterpillar Corporate Yellow,” the 
+“Power Edge” and Cat “Modern Hex” trade dress as well as corporate and product identity used herein, 
+are trademarks of Caterpillar and may not be used without permission.Φϑϩʔυ๏̎̌̍̐೥
+ج४ద߹
+

@@ -1,0 +1,108 @@
+{
+  "model": "cat_793_f_ac",
+  "manufacturer": "Caterpillar",
+  "truck_mode": "DieselElectric",
+  "category": "ultra_class_haul_truck",
+  "weights": {
+    "empty_kg": 169802,
+    "loaded_kg": 390089,
+    "payload_kg": 220287,
+    "payload_tonnes": 218,
+    "chassis_weight_kg": 132558,
+    "body_weight_kg": 37244
+  },
+  "dimensions": {
+    "wheelbase_mm": 5905,
+    "length_mm": 13768,
+    "width_mm": 8297,
+    "height_mm": 6620,
+    "dump_clearance_mm": 1263,
+    "loading_height_empty_mm": 6559,
+    "front_axle_clearance_mm": 1084,
+    "rear_axle_clearance_mm": 1099
+  },
+  "tires": {
+    "size": "standard",
+    "pressure_kpa": null,
+    "type": "radial",
+    "rim_size": null
+  },
+  "drivetrain": {
+    "type": "AC_electric_drive",
+    "max_speed_kmh": 64,
+    "max_speed_kmh_loaded": 64,
+    "max_speed_kmh_empty": 64,
+    "total_reduction_ratio": "35:1",
+    "generator": "Cat_brushless_dual_bearing",
+    "motor": "Cat_AC_induction_rear_axle_mounted",
+    "inverter": "Cat_IGBT_Inverter",
+    "motor_efficiency_pct": 92.0,
+    "regen_efficiency_pct": 75.0,
+    "rolling_resistance": 0.02,
+    "auxiliary_power_kw": 20.0
+  },
+  "engine": {
+    "model": "Cat_C175-16",
+    "gross_power_kw": 2051,
+    "net_power_kw": 2051,
+    "rated_speed_rpm": 1800,
+    "emissions_rating": "Tier_2",
+    "bore_mm": 175,
+    "stroke_mm": 220,
+    "displacement_l": 85,
+    "selectable_power_ratings_kw": [
+      2051
+    ]
+  },
+  "diesel_system": {
+    "fuel_consumption_rate_l_kwh": 0.11,
+    "tank_capacity_l": 4922.0,
+    "initial_fuel_level_l": 4922.0,
+    "generator_max_power_kw": 2051.0,
+    "generator_efficiency_pct": 40.0,
+    "refuel_level_pct": 10.0
+  },
+  "braking_system": {
+    "service_brakes": "Four_corner_wet_disc_hydraulic",
+    "front_brake_area_cm2": 134665,
+    "rear_brake_area_cm2": 155383,
+    "parking_brake": "Four_corner_multi_disc_spring_applied",
+    "dynamic_retarding_continuous_kw": 3550,
+    "dynamic_retarding_continuous_hp": 4760
+  },
+  "weight_distribution": {
+    "empty": {
+      "front": 0.48,
+      "rear": 0.52
+    },
+    "loaded": {
+      "front": 0.33,
+      "rear": 0.67
+    }
+  },
+  "suspension": {
+    "type": "nitrogen_oil_cylinders",
+    "front_stroke_mm": 130.5,
+    "rear_stroke_mm": 105.5,
+    "rear_axle_oscillation_degrees": 4.9
+  },
+  "hydraulics": {
+    "body_hoist": "Twin_two_stage_hydraulic",
+    "pump_flow_l_min": 846,
+    "relief_valve_kpa": 20370,
+    "body_raise_time_s": 20,
+    "body_lower_time_s": 19,
+    "body_power_down_s": 17,
+    "hydraulic_tank_capacity_l": 470,
+    "hydraulic_system_total_l": 1370
+  },
+  "steering": {
+    "steer_angle_degrees": 36,
+    "turning_diameter_m": 28.0
+  },
+  "test_conditions": {
+    "altitude_m": 0,
+    "temperature_c": 30,
+    "tire_specification": "standard"
+  }
+}

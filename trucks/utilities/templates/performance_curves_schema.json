@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Performance Curves Schema",
+  "description": "Standard schema for equipment performance curves (rimpull, retarding)",
+  "type": "object",
+  "required": ["rimpull_curve", "retarding_curve"],
+  "properties": {
+    "rimpull_curve": {
+      "type": "object",
+      "required": ["model_type", "data"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the rimpull curve"
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Test/rating conditions (temperature, altitude, tire type)"
+        },
+        "model_type": {
+          "type": "string",
+          "description": "Mathematical model type used for curve fitting",
+          "enum": ["rational_function", "polynomial", "exponential", "power", "piecewise", "interpolated"]
+        },
+        "formula": {
+          "type": "string",
+          "description": "Mathematical formula representation",
+          "examples": ["(a + b*v) / (1 + c*v + d*v^2)"]
+        },
+        "coefficients": {
+          "type": "object",
+          "description": "Model coefficients",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "max_rimpull_kn": {
+              "type": "number",
+              "description": "Maximum rimpull force in kilonewtons"
+            },
+            "max_speed_kmh": {
+              "type": "number",
+              "description": "Maximum speed in km/h"
+            },
+            "min_speed_kmh": {
+              "type": "number",
+              "description": "Minimum speed in km/h"
+            }
+          }
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "speed": {
+              "type": "string",
+              "enum": ["km/h", "mph", "m/s"]
+            },
+            "force_kn": {
+              "type": "string",
+              "enum": ["kilonewtons", "kN"]
+            },
+            "force_tf": {
+              "type": "string",
+              "enum": ["tonnes-force", "tf"]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "required": ["speed_kmh", "rimpull_kn"],
+          "properties": {
+            "speed_kmh": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Speed values in km/h"
+            },
+            "rimpull_kn": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Rimpull force values in kilonewtons"
+            },
+            "rimpull_tf": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Rimpull force values in tonnes-force"
+            }
+          }
+        }
+      }
+    },
+    "retarding_curve": {
+      "type": "object",
+      "required": ["data"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the retarding curve"
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Operating conditions for retarding"
+        },
+        "continuous_power_kw": {
+          "type": "number",
+          "description": "Continuous retarding power in kilowatts"
+        },
+        "continuous_power_hp": {
+          "type": "number",
+          "description": "Continuous retarding power in horsepower"
+        },
+        "efficiency": {
+          "type": "number",
+          "description": "Retarding system efficiency (0-1)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "Retarding system type",
+          "enum": ["dynamic_brake", "regenerative", "combination"]
+        },
+        "units": {
+          "type": "object",
+          "properties": {
+            "speed": {
+              "type": "string",
+              "enum": ["km/h", "mph", "m/s"]
+            },
+            "force_kn": {
+              "type": "string",
+              "enum": ["kilonewtons", "kN"]
+            },
+            "force_tf": {
+              "type": "string",
+              "enum": ["tonnes-force", "tf"]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "required": ["speed_kmh", "retarding_kn"],
+          "properties": {
+            "speed_kmh": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Speed values in km/h"
+            },
+            "retarding_kn": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Retarding force values in kilonewtons"
+            },
+            "retarding_tf": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "description": "Retarding force values in tonnes-force"
+            }
+          }
+        }
+      }
+    },
+    "gradeability_data": {
+      "type": "object",
+      "description": "Original gradeability data points from spec sheet",
+      "properties": {
+        "empty": {
+          "type": "object",
+          "properties": {
+            "weight_kg": {
+              "type": "number",
+              "description": "Empty truck weight in kg"
+            },
+            "grade_percent": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Grade percentages"
+            },
+            "rimpull_kn": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Rimpull values in kN"
+            },
+            "rimpull_tf": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Rimpull values in tonnes-force"
+            },
+            "speed_kmh": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Speed values in km/h"
+            }
+          }
+        },
+        "loaded": {
+          "type": "object",
+          "properties": {
+            "weight_kg": {
+              "type": "number",
+              "description": "Loaded truck weight in kg"
+            },
+            "grade_percent": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Grade percentages"
+            },
+            "rimpull_kn": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Rimpull values in kN"
+            },
+            "rimpull_tf": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Rimpull values in tonnes-force"
+            },
+            "speed_kmh": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "description": "Speed values in km/h"
+            }
+          }
+        }
+      }
+    }
+  }
+}

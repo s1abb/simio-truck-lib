@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Equipment Metadata Schema",
+  "description": "Standard schema for equipment data metadata and quality metrics",
+  "type": "object",
+  "required": ["data_source", "extraction_date", "fitting_method", "validation_status"],
+  "properties": {
+    "data_source": {
+      "type": "string",
+      "description": "Source document reference",
+      "examples": ["CAT 794 AC Technical Specifications (AEHQ7083-09)"]
+    },
+    "extraction_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when data was extracted (YYYY-MM-DD)"
+    },
+    "extracted_by": {
+      "type": "string",
+      "description": "Person or tool that extracted the data"
+    },
+    "fitting_method": {
+      "type": "string",
+      "description": "Curve fitting method used",
+      "enum": [
+        "rational_curve_fit",
+        "polynomial_fit",
+        "exponential_fit",
+        "power_fit",
+        "piecewise_linear",
+        "manual_interpolation"
+      ]
+    },
+    "fitting_quality": {
+      "type": "object",
+      "description": "Statistical quality metrics for curve fitting",
+      "properties": {
+        "r_squared": {
+          "type": "number",
+          "description": "R-squared value (coefficient of determination)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rmse_kn": {
+          "type": "number",
+          "description": "Root mean square error in kilonewtons",
+          "minimum": 0
+        },
+        "max_error_kn": {
+          "type": "number",
+          "description": "Maximum absolute error in kilonewtons"
+        },
+        "mean_error_kn": {
+          "type": "number",
+          "description": "Mean absolute error in kilonewtons"
+        },
+        "note": {
+          "type": "string",
+          "description": "Notes about fitting quality"
+        }
+      }
+    },
+    "corrections_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of corrections applied to source data",
+      "examples": [
+        "Y-axis mislabeling correction (10x multiplier)",
+        "Unit conversion from hp to kW",
+        "Tire size correction"
+      ]
+    },
+    "validation_status": {
+      "type": "string",
+      "description": "Validation status of the data",
+      "enum": [
+        "verified",
+        "pending_review",
+        "needs_validation",
+        "draft"
+      ]
+    },
+    "validation_method": {
+      "type": "string",
+      "description": "How the data was validated",
+      "examples": [
+        "Cross-checked with CAT 793F",
+        "Compared to manufacturer field data",
+        "Physics-based sanity checks"
+      ]
+    },
+    "comparison_equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Equipment used for comparison/validation",
+      "examples": [
+        "cat_793f",
+        "komatsu_830e_5"
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "description": "General notes about the data"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Important warnings or caveats",
+      "examples": [
+        "Extrapolated beyond measured range",
+        "Limited data points available",
+        "Unverified against field data"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "description": "Data version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "1.1.0"]
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "Last update date (YYYY-MM-DD)"
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "version": {
+            "type": "string"
+          },
+          "changes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Version history"
+    }
+  }
+}

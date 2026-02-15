@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  simio-electric-truck-lib-dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: simio-electric-truck-lib-dev
+    volumes:
+      - ..:/workspace
+      - python-packages:/home/vscode/.local
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: /bin/bash
+
+volumes:
+  python-packages:

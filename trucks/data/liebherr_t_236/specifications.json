@@ -1,0 +1,25 @@
+{
+  "model": "liebherr_t_236",
+  "manufacturer": "Liebherr",
+  "truck_mode": "DieselElectric",
+  "category": "mid_class_haul_truck",
+  "weights": {
+    "empty_kg": 80000,
+    "loaded_kg": 180000,
+    "payload_kg": 100000,
+    "payload_tonnes": 100
+  },
+  "drivetrain": {
+    "type": "AC_electric_drive",
+    "max_speed_kmh_loaded": 60,
+    "max_speed_kmh_empty": 60
+  },
+  "engine": {
+    "model": "Cummins_QST30-C_Quantum",
+    "gross_power_kw": 895,
+    "net_power_kw": 835
+  },
+  "braking_system": {
+    "dynamic_retarding_continuous_kw": 1045
+  }
+}

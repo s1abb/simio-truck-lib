@@ -1,0 +1,30 @@
+{
+	"name": "Simio Electric Truck Library",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "simio-electric-truck-lib-dev",
+	"workspaceFolder": "/workspace",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"yzhang.markdown-all-in-one",
+				"mechatroner.rainbow-csv"
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.provider": "black",
+				"editor.formatOnSave": true,
+				"files.associations": {
+					"*.csv": "csv"
+				}
+			}
+		}
+	},
+
+	"remoteUser": "vscode"
+}
