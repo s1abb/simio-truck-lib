@@ -1,0 +1,206 @@
+<Fragment>
+  <Process Name="RoutingOutLogic" BeginStepID="2">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectDestroyed">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Decide" Name="IfDestinationTypeContinue" ExclusionExpression="Math.If(DestinationType==List.EntityDestinationType.Continue,1,2)" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">DestinationType==List.EntityDestinationType.Continue</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="12" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfDestinationTypeSpecific" ExclusionExpression="Math.If(DestinationType==List.EntityDestinationType.Specific,1,2)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">DestinationType==List.EntityDestinationType.Specific</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="11" />
+        <Exit Name="False" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Decide" Name="IfDestinationTypeBySequence" ExclusionExpression="Math.If(DestinationType==List.EntityDestinationType.BySequence,1,2)" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">DestinationType==List.EntityDestinationType.BySequence</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="10" />
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Decide" Name="IfDestinationTypeSelectFromList" ExclusionExpression="Math.If(DestinationType==List.EntityDestinationType.SelectFromList,1,2)" ID="5">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">DestinationType==List.EntityDestinationType.SelectFromList</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="9" />
+        <Exit Name="False" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="IfDestinationTypeCustomRoutingGroup" ExclusionExpression="Math.If(DestinationType==List.EntityDestinationType.UseCustomRoutingGroup,1,2)" ID="6">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">DestinationType==List.EntityDestinationType.UseCustomRoutingGroup</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="8" />
+        <Exit Name="False" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Destroy" Name="Entity" ID="7">
+        <Properties />
+      </Step>
+      <Step Type="Route" Name="NextDestination" ID="8">
+        <Properties>
+          <Property Name="RoutingGroupName">
+            <Value>DestinationRoutingGroupName</Value>
+          </Property>
+          <Property Name="SelectionGoal">DestinationSelectionGoal</Property>
+          <Property Name="SelectionValueExpression">DestinationSelectionValueExpression</Property>
+          <Property Name="BlockedDestinationRule">BlockedDestinationRule</Property>
+          <Property Name="SelectionCondition">DestinationSelectionCondition</Property>
+          <Property Name="RouteConstraintLogic">
+            <Value>RouteConstraintLogic</Value>
+            <Rows>
+              <Properties>
+                <Property Name="ConstraintLogicName">
+                  <Value>RouteConstraintLogic.RouteConstraintLogicName</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+          <Property Name="RequiredMaterials">
+            <Value>RoutingOutRequiredMaterials</Value>
+            <Rows>
+              <Properties>
+                <Property Name="RequiredMaterialConsumptionType">RoutingOutRequiredMaterials.RequiredMaterialConsumptionType</Property>
+                <Property Name="RequiredMaterialName">
+                  <Value>RoutingOutRequiredMaterials.RequiredMaterialName</Value>
+                </Property>
+                <Property Name="RequiredMaterialInventorySiteType">RoutingOutRequiredMaterials.RequiredMaterialInventorySiteType</Property>
+                <Property Name="RequiredMaterialSiteObjectName">RoutingOutRequiredMaterials.RequiredMaterialSiteObjectName</Property>
+                <Property Name="RequiredMaterialQuantity">RoutingOutRequiredMaterials.RequiredMaterialQuantity</Property>
+                <Property Name="RequiredMaterialLotID">RoutingOutRequiredMaterials.RequiredMaterialLotID</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="Route" Name="NextDestination" ID="9">
+        <Properties>
+          <Property Name="RoutingGroupName">
+            <Value>RoutingOut</Value>
+          </Property>
+          <Property Name="SelectionGoal">DestinationSelectionGoal</Property>
+          <Property Name="SelectionValueExpression">DestinationSelectionValueExpression</Property>
+          <Property Name="BlockedDestinationRule">BlockedDestinationRule</Property>
+          <Property Name="SelectionCondition">DestinationSelectionCondition</Property>
+          <Property Name="RouteConstraintLogic">
+            <Value>RouteConstraintLogic</Value>
+            <Rows>
+              <Properties>
+                <Property Name="ConstraintLogicName">
+                  <Value>RouteConstraintLogic.RouteConstraintLogicName</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+          <Property Name="RequiredMaterials">
+            <Value>RoutingOutRequiredMaterials</Value>
+            <Rows>
+              <Properties>
+                <Property Name="RequiredMaterialConsumptionType">RoutingOutRequiredMaterials.RequiredMaterialConsumptionType</Property>
+                <Property Name="RequiredMaterialName">
+                  <Value>RoutingOutRequiredMaterials.RequiredMaterialName</Value>
+                </Property>
+                <Property Name="RequiredMaterialInventorySiteType">RoutingOutRequiredMaterials.RequiredMaterialInventorySiteType</Property>
+                <Property Name="RequiredMaterialSiteObjectName">RoutingOutRequiredMaterials.RequiredMaterialSiteObjectName</Property>
+                <Property Name="RequiredMaterialQuantity">RoutingOutRequiredMaterials.RequiredMaterialQuantity</Property>
+                <Property Name="RequiredMaterialLotID">RoutingOutRequiredMaterials.RequiredMaterialLotID</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="SetNode" Name="NextDestination" ID="10">
+        <Properties>
+          <Property Name="DestinationType">BySequence</Property>
+          <Property Name="RouteConstraintLogic">
+            <Value>RouteConstraintLogic</Value>
+            <Rows>
+              <Properties>
+                <Property Name="ConstraintLogicName">
+                  <Value>RouteConstraintLogic.RouteConstraintLogicName</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="SetNode" Name="NextDestination" ID="11">
+        <Properties>
+          <Property Name="NodeName">DestinationNodeName</Property>
+          <Property Name="RouteConstraintLogic">
+            <Value>RouteConstraintLogic</Value>
+            <Rows>
+              <Properties>
+                <Property Name="ConstraintLogicName">
+                  <Value>RouteConstraintLogic.RouteConstraintLogicName</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="Decide" Name="IfRideTransporter" ExclusionExpression="Math.If(RideOnTransporter==List.RideOnTransporterType.Never, 2, RideOnTransporter==List.RideOnTransporterType.Always, 1, 0)" ID="12">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">RideOnTransporterCondition</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="13" />
+      </Step>
+      <Step Type="Fire" Name="RiderWaitingEvent" ID="13">
+        <Properties>
+          <Property Name="EventName">RiderWaiting</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="14" />
+      </Step>
+      <Step Type="Ride" Name="Transporter" ID="14">
+        <Properties>
+          <Property Name="TransporterType">TransporterType</Property>
+          <Property Name="TransporterName">TransporterName</Property>
+          <Property Name="TransporterListName">TransporterListName</Property>
+          <Property Name="ReservationMethod">TransporterReservationMethod</Property>
+          <Property Name="SelectionGoal">TransporterSelectionGoal</Property>
+          <Property Name="SelectionValueExpression">TransporterSelectionValueExpression</Property>
+          <Property Name="SelectionCondition">TransporterSelectionCondition</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="15" />
+      </Step>
+      <Step Type="Decide" Name="IfReserveTransporter" ID="15">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">TransporterStatusOnDropOffKeepReservedCondition</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="16" />
+      </Step>
+      <Step Type="Notify" Name="IfReservationWarning" ID="16">
+        <Properties>
+          <Property Name="NotificationType">Warning</Property>
+          <Property Name="MessageHeading">"Skipping attempt by entity '" + Entity.Name + "' to reserve transporter '" + Entity.CurrentTransporter.Name + "'."</Property>
+          <Property Name="MessageContent">"The transport logic option at node '" + Entity.PreviousNode.Name + "' to keep the selected transporter reserved on entity drop-off is not supported for transporters with ride capacity greater than one."</Property>
+          <Property Name="NotifyCondition">Entity.CurrentTransporter.RideStation.Capacity &gt; 1</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="17" />
+      </Step>
+      <Step Type="Reserve" Name="Transporter" ID="17">
+        <Properties>
+          <Property Name="ResourceName">Entity.CurrentTransporter</Property>
+          <Property Name="ReservationTimeout">Math.If(Entity.CurrentTransporter.RideStation.Capacity &gt; 1, 0.0, Infinity)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- aV5OPInoDJHfOXq5WOFAA4dZ9UGs7+Ghug4/X5cw36//P3DYEW/tPtHOxWiGYRZYQgZ2+0LRVH4JuTlsjlMPlw== -->

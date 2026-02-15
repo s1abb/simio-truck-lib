@@ -1,0 +1,37 @@
+<Fragment>
+  <Process Name="proc_DP15_DP25_OnExited" BeginStepID="5" Category="10 TransferNode Processes" Description="**Purpose:** Handles load entity departure from final dump points, destroying the load after dumping.&#xD;&#xA;**Decide LoadEntity:** Check if exiting entity is a ModelEntity (load object)&#xD;&#xA;**Fire OnExitedEvent:** Trigger OnExited event from tbl_TransferNodes for this node&#xD;&#xA;**Destroy LoadEntity:** Remove load entity from simulation (material dumped)">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnExitedEvent" Description="**Fire OnExitedEvent:** Trigger OnExited event from tbl_TransferNodes for this node" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnExitedEvent</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="LoadEntity" Description="**Decide LoadEntity:** Check if exiting entity is a ModelEntity (load object)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Load</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Destroy" Name="LoadEntity" Description="**Destroy LoadEntity:** Remove load entity from simulation (material dumped)" ID="4">
+        <Properties />
+      </Step>
+      <Step Type="Decide" Name="BatteryElectricTruck" ID="5">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Truck</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="2" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Fire" Name="SpeedUpdatesTrue" Description="**Fire OnEnteredEvent:** Trigger OnEntered event from tbl_TransferNodes for this node" Color="fca09f" ID="6">
+        <Properties>
+          <Property Name="EventName">obj_Truck.event_SpeedUpdates_True</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- DaXAi9JWdFVUIveSaCuw79LvXnASSgkZRtIi5GlfJfy3RKMvla8ztACxZhViVTSHBLNSiWK1dMg4KXpJzRgnjg== -->

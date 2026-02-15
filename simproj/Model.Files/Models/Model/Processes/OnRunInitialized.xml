@@ -1,0 +1,99 @@
+<Fragment>
+  <Process Name="OnRunInitialized" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnRunInitialized" BeginStepID="6" Category="00 OnRunInitialised Processes">
+    <Properties>
+      <Property Name="TokenClassName">tkn_OnRunInitialized</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Search" Name="tbl_MineBlocks" ID="2">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineBlocks</Property>
+          <Property Name="Limit">Infinity</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="9" />
+        <Exit Name="Found" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineSequence" ID="3">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineSequence</Property>
+          <Property Name="Limit">Infinity</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="Tonnes" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tbl_MineBlocks.Tonnes</Value>
+          </Property>
+          <Property Name="NewValue">tbl_MineBlocks.Tonnes + tbl_MineSequence.TonnesAvailable</Property>
+        </Properties>
+      </Step>
+      <Step Type="Subscribe" Name="tmr_MineSequence" ID="5">
+        <Properties>
+          <Property Name="EventName">tmr_MineSequence.Event</Property>
+          <Property Name="ProcessName">
+            <Value>proc_MineSequence</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="11" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineBlocks" ID="6">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineBlocks</Property>
+          <Property Name="SearchRelatedRowsOnly">False</Property>
+          <Property Name="Limit">Infinity</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="2" />
+        <Exit Name="Found" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineSequence" ID="7">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineSequence</Property>
+          <Property Name="Limit">Infinity</Property>
+          <Property Name="SaveNumberFound">
+            <Value>tkn_OnRunInitialized.var_NumberFound</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Assign" Name="BlockSequenceCount" ID="8">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tbl_MineBlocks.BlockSequenceCount</Value>
+          </Property>
+          <Property Name="NewValue">tkn_OnRunInitialized.var_NumberFound</Property>
+        </Properties>
+      </Step>
+      <Step Type="Subscribe" Name="tmr_AllocateDiggers" ID="9">
+        <Properties>
+          <Property Name="EventName">tmr_AllocateDiggers.Event</Property>
+          <Property Name="ProcessName">
+            <Value>proc_AllocateDigger</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="10" />
+      </Step>
+      <Step Type="Subscribe" Name="tmr_AllocateTrucks" ID="10">
+        <Properties>
+          <Property Name="EventName">tmr_AllocateTrucks.Event</Property>
+          <Property Name="ProcessName">
+            <Value>proc_AllocateTruck</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="11">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- kG6i3fi4KfMM2uM2PFgrO/53q3wykFc1UZ8uDQIiIWR8K3Z9SXi9bO+fnFNlamWCYGT25PELxp2km6py75qSFA== -->

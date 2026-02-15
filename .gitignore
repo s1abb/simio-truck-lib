@@ -11,6 +11,7 @@
 # Simio project files
 *.spfx
 *.simproj
+!simproj/*.simproj
 
 # Simio 3D geometry and model files
 *.s3d
@@ -34,9 +35,8 @@
 trucks/specifications/*.pdf
 docs/*.pdf
 
-# Example and generated project directories
+# Example project directories
 example/
-simproj/*/
 
 # Python cache
 __pycache__/

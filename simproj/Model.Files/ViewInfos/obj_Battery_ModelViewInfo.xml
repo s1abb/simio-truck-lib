@@ -1,0 +1,38 @@
+<Fragment>
+  <ViewInfo>
+    <External>
+      <Camera Orientation="Top" Location="1.187506287140641 17.857142857142865 -0.247907946819596" Direction="-0 -1.0000000000000002 2.220446049250313E-16" Zoom="17.857142857142865" />
+      <ObjectDisplay SnapToGrid="True" Background="ffffff" />
+    </External>
+    <StandardTables>
+      <DevExpressLayout>
+        <FileRef Name="Data\DevExpressLayout1.xml" />
+      </DevExpressLayout>
+      <Tables SelectedTable="tbl_BatteryTypes">
+        <Table Name="tbl_BatteryTypes" FilterEnabled="True">
+          <Columns>
+            <Column Name="BatteryType" Width="149" />
+            <Column Name="RatedStorageEnergyKwh" Width="150" />
+            <Column Name="RatedLifetimeThroughputKwh" Width="171" />
+            <Column Name="EndOfLifeBatteryHealthPct" Width="164" />
+            <Column Name="InitialBatterySOCPct" Width="127" />
+            <Column Name="InitialBatteryCumulativeThroughputKwh" Width="223" />
+            <Column Name="InitialBatteryHealthPct" Width="137" />
+            <Column Name="ReferenceLifeChargingCycles" Width="170" />
+            <Column Name="ReferenceDOD" Width="95" />
+            <Column Name="ReferenceDischargeCRate" Width="153" />
+            <Column Name="ReferenceChargeCRate" Width="141" />
+            <Column Name="ReferenceTemperatureK" Width="144" />
+            <Column Name="OperatingTemperatureK" Width="142" />
+            <Column Name="CycleLife_Xi" Width="80" />
+            <Column Name="CycleLife_Gamma1" Width="113" />
+            <Column Name="CycleLife_Gamma2" Width="113" />
+            <Column Name="CycleLife_Psi" Width="85" />
+            <Column Name="CycleLife_Alpha" Width="99" />
+          </Columns>
+        </Table>
+      </Tables>
+    </StandardTables>
+  </ViewInfo>
+</Fragment>
+<!-- Ak3BSB21BpuVdK3pWFh2mXL65dsG8fwufYQp8ztcpaXSDX+Wm/sFM5FWavaZ9hqF9zQukx8sH9rdGQYw4MWIGA== -->

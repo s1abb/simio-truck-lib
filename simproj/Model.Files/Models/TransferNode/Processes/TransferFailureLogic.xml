@@ -1,0 +1,42 @@
+<Fragment>
+  <Process Name="TransferFailureLogic" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="IfEntityDestroyable" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Entity.Destroyable</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Notify" Name="ParkingEntity" ID="3">
+        <Properties>
+          <Property Name="NotificationType">Warning</Property>
+          <Property Name="MessageHeading">"Entity '" + Entity.Name + "' failed to initiate transfer from node"</Property>
+          <Property Name="MessageContent">"Entity '" + Entity.Name + "' failed to initiate transfer from node '" + Name + "'. The entity is being automatically parked. However, this warning may indicate a problem in the modeled logic.
+
+It is recommended to verify that the entity is using the intended travel mode. If the travel mode is 'Network Only', then verify that a followable network path has been drawn from the node to the entity's assigned destination '" + Math.If(Entity.DestinationNode!=Nothing &amp;&amp; Entity.DestinationNode!=Node, Entity.DestinationNode.Name, "No Destination") + "' using network '" + Math.If(Entity.CurrentNetwork!=Nothing, Entity.CurrentNetwork.Name, "No Network") +  "'."</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Park" Name="Entity" ID="4">
+        <Properties />
+      </Step>
+      <Step Type="Notify" Name="DestroyingEntity" ID="5">
+        <Properties>
+          <Property Name="NotificationType">Warning</Property>
+          <Property Name="MessageHeading">"Entity '" + Entity.Name + "' failed to initiate transfer from node"</Property>
+          <Property Name="MessageContent">"Entity '" + Entity.Name + "' failed to initiate transfer from node '" + Name + "'. The entity is being automatically destroyed. However, this warning may indicate a problem in the modeled logic.
+
+It is recommended to verify that the entity is using the intended travel mode. If the travel mode is 'Network Only', then verify that a followable network path has been drawn from the node to the entity's assigned destination '" + Math.If(Entity.DestinationNode!=Nothing &amp;&amp; Entity.DestinationNode!=Node, Entity.DestinationNode.Name, "No Destination") + "' using network '" + Math.If(Entity.CurrentNetwork!=Nothing, Entity.CurrentNetwork.Name, "No Network") +  "'."</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Destroy" Name="Entity" ID="6">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- dsvDdXAUR0PhkqBs/il+fqm2M9pmxOfU/U8nkSszfQ0+UOAGzf8vcdqzicdSbKucW2RnRbWHy9eCoqiS3evm4w== -->

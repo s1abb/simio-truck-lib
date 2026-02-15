@@ -1,0 +1,9 @@
+<Fragment>
+  <Process Name="proc_PhysicsUpdates_BatteryElectric_RechargeBattery" Category="33 Time Step Processes  (BatteryElectricTruck)">
+    <Properties>
+      <Property Name="TokenClassName">tkn_Physics</Property>
+    </Properties>
+    <Steps />
+  </Process>
+</Fragment>
+<!-- 58JxLR29ihjj5udoFMRDEA8UgMkzIokmVbwRMXt+irhahd2WnncNjU23Qcmh1+g3uMD89n1LPdKcEUvwq/pjuw== -->

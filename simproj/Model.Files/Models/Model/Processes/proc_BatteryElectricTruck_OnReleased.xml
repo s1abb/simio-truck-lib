@@ -1,0 +1,59 @@
+<Fragment>
+  <Process Name="proc_BatteryElectricTruck_OnReleased" BeginStepID="2" Category="30 BatteryElectricTruck Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="SwapRefuelCharge" Description="Check if obj_BatteryElectricTruck.var_SwapBatteryFlag is True (battery swap required)" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">obj_BatteryElectricTruck.var_SwapRefuelChargeFlag</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="6" />
+        <Exit Name="False" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Seize" Name="BatteryElectricTruck" Description="Seize truck resource to prevent other operations during swap routing" ID="3">
+        <Properties>
+          <Property Name="ResourceSeizes">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceName">obj_Truck</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="SetNode" Name="SwapRefuelCharge" Description="Route truck to assigned battery swap charge station node (obj_BatteryElectricTruck.var_AssignBatterySwapChargeStationNode)" Color="fac08f" ID="4">
+        <Properties>
+          <Property Name="NodeName">obj_BatteryElectricTruck.var_SwapRefuelChargeNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="5">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="ResourceState" Color="c6d9f0" ID="6">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.var_TruckResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck.List.list_TruckResourceStates.SwapRefuelCharge</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="ResourceState" Color="c6d9f0" ID="7">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.var_TruckResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck.List.list_TruckResourceStates.ReadyToAllocate</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 3IRhuU0vYLUnfa/sVs7+bBjDzwYh+qEFoKkmZm4NQO/W84Cjl7gmFnGcQB81AF3VvoNZA2rsFWrzDWFKbxiu/w== -->

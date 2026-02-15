@@ -1,0 +1,663 @@
+<Fragment>
+  <Process Name="proc_BatteryUpdates" BeginStepID="20" Category="30 Time Step Processes" Description="**Trigger:** `tmr_TimeStep` | **Token:** `tkn_proc_BatteryUpdates`&#xD;&#xA;&#xD;&#xA;**Purpose:** Core charging simulation process that manages the complete battery lifecycle at the swap station. Executed every timestep, it performs inventory counting, charges batteries up to available port capacity, monitors for end-of-life conditions, and automatically replaces failed batteries with fresh ones to maintain station inventory.&#xD;&#xA;&#xD;&#xA;**Process Flow Overview:**&#xD;&#xA;1. Check if battery updates are enabled&#xD;&#xA;2. Count batteries by state (inventory management)&#xD;&#xA;3. Allocate available charging ports to waiting batteries&#xD;&#xA;4. Update SOC and health for batteries currently charging&#xD;&#xA;5. Detect and handle end-of-life batteries (log and replace)&#xD;&#xA;&#xD;&#xA;**Key Process Characteristics:**&#xD;&#xA;- **Concurrent Charging:** Distributes available ports using FIFO queue&#xD;&#xA;- **Automatic Replacement:** Failed batteries logged and replaced immediately&#xD;&#xA;- **Health-Based Power:** Degraded batteries charge slower (if enabled)&#xD;&#xA;- **State Machine:** Manages transitions: ReadyToCharge → Charging → ReadyToDeploy → OutOfService&#xD;&#xA;- **Inventory Tracking:** Real-time counts for operational monitoring">
+    <Properties>
+      <Property Name="TokenClassName">tkn_proc_BatteryUpdates</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Search" Name="Charging" Description="**Collection:** `BatteryStation.Contents`&#xD;&#xA;**Match Condition:** `Candidate.obj_Battery.var_BatteryResourceState == Charging`&#xD;&#xA;**Limit:** `BatteryStation.Contents.NumberWaiting`&#xD;&#xA;**Exit Original:** No charging batteries found → (ReadyToCharge search)&#xD;&#xA;**Exit Found:** For each charging battery → (UpdateBatteries)&#xD;&#xA;**Purpose:** Find all batteries currently in Charging state for SOC/health updates" ID="2">
+        <Properties>
+          <Property Name="CollectionType">QueueState</Property>
+          <Property Name="QueueStateName">
+            <Value>BatteryStation.Contents</Value>
+          </Property>
+          <Property Name="MatchCondition">Candidate.obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging</Property>
+          <Property Name="Limit">BatteryStation.Contents.Numberwaiting</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="7" />
+        <Exit Name="Found" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="Search" Name="BatteryStation" Description="**Collection:** `BatteryStation.Contents` (all batteries in station)&#xD;&#xA;**Limit:** `BatteryStation.Contents.NumberWaiting`&#xD;&#xA;**Search Type:** Default (iterate all)&#xD;&#xA;**Exit Original:** After processing all batteries → (Charging search)&#xD;&#xA;**Exit Found:** For each battery found → (UpdateCounters)&#xD;&#xA;**Purpose:** Iterate through entire battery inventory to count by state" ID="3">
+        <Properties>
+          <Property Name="CollectionType">QueueState</Property>
+          <Property Name="QueueStateName">
+            <Value>BatteryStation.Contents</Value>
+          </Property>
+          <Property Name="Limit">BatteryStation.Contents.NumberWaiting</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="2" />
+        <Exit Name="Found" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="UpdateCounters" Description="**Conditional Increments:**&#xD;&#xA;  - `var_BatteriesReadyToDeploy += 1` IF `var_BatteryResourceState == ReadyToDeploy`&#xD;&#xA;  - `var_BatteriesReadyToCharge += 1` IF `var_BatteryResourceState == ReadyToCharge`&#xD;&#xA;  - `var_BatteriesCharging += 1` IF `var_BatteryResourceState == Charging`&#xD;&#xA;  - `var_ChargingPortsInUse = var_BatteriesCharging`&#xD;&#xA;**Purpose:** Accumulate counts for each battery state to track inventory status" ID="4">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToDeploy</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==List.list_BatteryResourceState.ReadyToDeploy,var_BatteriesReadyToDeploy+1,var_BatteriesReadyToDeploy)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToCharge</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==List.list_BatteryResourceState.ReadyToCharge,var_BatteriesReadyToCharge+1,var_BatteriesReadyToCharge)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesCharging</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==List.list_BatteryResourceState.Charging,var_BatteriesCharging+1,var_BatteriesCharging)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_ChargingPortsInUse</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_BatteriesCharging</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="ResetCounters" Description="**Assignments:**&#xD;&#xA;  - `var_BatteriesReadyToDeploy = 0`&#xD;&#xA;  - `var_BatteriesReadyToCharge = 0`&#xD;&#xA;  - `var_BatteriesCharging = 0`&#xD;&#xA;**Purpose:** Clear inventory counters before recounting to ensure accuracy" ID="5">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToDeploy</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">0</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToCharge</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">0</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesCharging</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">0</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="UpdateBatteries" Description="**Get Current Battery State:**&#xD;&#xA;**Calculate Charging Power (with optional degradation):**&#xD;&#xA;**Calculate Energy Added This Timestep:**&#xD;&#xA;**Calculate Effective Capacity:**&#xD;&#xA;**Update State of Charge:**&#xD;&#xA;**Update Degradation (Throughput &amp; Health):**&#xD;&#xA;**Write Updated Values to Battery:**&#xD;&#xA;**Handle Charge Completion (SOC → 100%):**&#xD;&#xA;**Update Visual Symbol:**" Color="c3d69b" ID="6">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.CurrentBatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.RatedBatteryStorageEnergyKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_RatedStorageEnergyKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.EndOfLifeBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_EndOfLifeBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.CurrentBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.ChargingSupplyPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(prop_ChargeDegradationActive,prop_ChargingPortMaxPowerKw*Math.Max(tkn_proc_BatteryUpdates.CurrentBatteryHealthPct,tkn_proc_BatteryUpdates.EndOfLifeBatteryHealthPct)/100,prop_ChargingPortMaxPowerKw)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.ChargeDeltaKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_BatteryUpdates.ChargingSupplyPowerKw*(prop_ChargingEfficiencyPct/100)*prop_TimeStepSeconds</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.EffectiveBatteryCapacityKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(prop_ChargeDegradationActive,tkn_proc_BatteryUpdates.RatedBatteryStorageEnergyKwh*Math.Max(tkn_proc_BatteryUpdates.CurrentBatteryHealthPct,tkn_proc_BatteryUpdates.EndOfLifeBatteryHealthPct)/100,tkn_proc_BatteryUpdates.RatedBatteryStorageEnergyKwh)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.NewBatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(0, Math.Min(100,tkn_proc_BatteryUpdates.CurrentBatterySOCPct+100*tkn_proc_BatteryUpdates.ChargeDeltaKwh/tkn_proc_BatteryUpdates.EffectiveBatteryCapacityKwh))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.AbsoluteEnergyThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Abs(tkn_proc_BatteryUpdates.ChargeDeltaKwh)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.CurrentCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.NewCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_BatteryUpdates.CurrentCumulativeThroughputKwh+tkn_proc_BatteryUpdates.AbsoluteEnergyThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.RatedLifetimeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_RatedLifetimeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_BatteryUpdates.NewBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(tkn_proc_BatteryUpdates.EndOfLifeBatteryHealthPct,100-(tkn_proc_BatteryUpdates.NewCumulativeThroughputKwh/tkn_proc_BatteryUpdates.RatedLifetimeThroughputKwh*(100-tkn_proc_BatteryUpdates.EndOfLifeBatteryHealthPct)))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_BatteryUpdates.NewBatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_BatteryUpdates.NewCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_BatteryUpdates.NewBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_TotalEnergyDeliveredKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_TotalEnergyDeliveredKwh+tkn_proc_BatteryUpdates.AbsoluteEnergyThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatterySOCPct&gt;=100,obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,obj_Battery.var_BatteryResourceState)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_CurrentStateEntryTimeHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,TimeNow,obj_Battery.var_CurrentStateEntryTimeHrs)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_TimeInCurrentStateHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==List.list_BatteryResourceState.ReadyToDeploy,0,obj_Battery.var_TimeInCurrentStateHrs+prop_TimeStepSeconds)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_ChargingCycleCount</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,obj_Battery.var_ChargingCycleCount+1,obj_Battery.var_ChargingCycleCount)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_ChargingPortsInUse</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,var_ChargingPortsInUse-1,var_ChargingPortsInUse)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_CurrentSymbolIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_proc_BatteryUpdates.NewBatterySOCPct&gt;=80,0,Math.If(tkn_proc_BatteryUpdates.NewBatterySOCPct&gt;=60,1,Math.If(tkn_proc_BatteryUpdates.NewBatterySOCPct&gt;=40,2,Math.If(tkn_proc_BatteryUpdates.NewBatterySOCPct&gt;=20,3,4))))</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="22" />
+      </Step>
+      <Step Type="Search" Name="ReadyToCharge" Description="**Collection:** `BatteryStation.Contents`&#xD;&#xA;**Match Condition:** `Candidate.obj_Battery.var_BatteryResourceState == ReadyToCharge`&#xD;&#xA;**Search Type:** MinimizeExpression&#xD;&#xA;**Search Expression:** `Candidate.obj_Battery.var_CurrentStateEntryTimeHrs` (FIFO: oldest first)&#xD;&#xA;**Limit:** `BatteryStation.Contents.NumberWaiting`&#xD;&#xA;**Exit Original:** No batteries waiting to charge → (OutOfService check)&#xD;&#xA;**Exit Found:** Battery found waiting to charge → (UpdateBatteries - Port Allocation)&#xD;&#xA;**Purpose:** Find next battery waiting for charge slot, prioritize by wait time (first-in-first-out)" ID="7">
+        <Properties>
+          <Property Name="CollectionType">QueueState</Property>
+          <Property Name="QueueStateName">
+            <Value>BatteryStation.Contents</Value>
+          </Property>
+          <Property Name="SearchType">MinimizeExpression</Property>
+          <Property Name="MatchCondition">Candidate.obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToCharge</Property>
+          <Property Name="SearchExpression">Candidate.obj_Battery.var_CurrentStateEntryTimeHrs</Property>
+          <Property Name="Limit">BatteryStation.Contents.Numberwaiting</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="9" />
+        <Exit Name="Found" Type="Alternate" NextID="8" />
+      </Step>
+      <Step Type="Assign" Name="UpdateBatteries" Description="**Check Port Availability &amp; Transition to Charging:**&#xD;&#xA;  - IF `(prop_MaxConcurrentChargingPorts - var_ChargingPortsInUse) &gt; 0`:&#xD;&#xA;    - `obj_Battery.var_BatteryResourceState = Charging`&#xD;&#xA;    - `var_ChargingPortsInUse += 1`&#xD;&#xA;    - `obj_Battery.var_CurrentStateEntryTimeHrs = TimeNow`&#xD;&#xA;    - `obj_Battery.var_TimeInCurrentStateHrs = 0`&#xD;&#xA;    - `obj_Battery.var_ChargeStartSOC = obj_Battery.var_BatterySOCPct`&#xD;&#xA;    - `obj_Battery.var_ChargeStartTimeHrs = TimeNow`&#xD;&#xA;  - ELSE:&#xD;&#xA;    - Battery remains in ReadyToCharge state&#xD;&#xA;    - `obj_Battery.var_TimeInCurrentStateHrs += prop_TimeStepSeconds`&#xD;&#xA;**Purpose:** Allocate available charging port to waiting battery (if ports available)" Color="c3d69b" ID="8">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(prop_MaxConcurrentChargingPorts-var_ChargingPortsInUse&gt;0,obj_Battery.List.list_BatteryResourceState.Charging,obj_Battery.var_BatteryResourceState)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_ChargingPortsInUse</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging,var_ChargingPortsInUse+1,var_ChargingPortsInUse)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_CurrentStateEntryTimeHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging,TimeNow,obj_Battery.var_CurrentStateEntryTimeHrs)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_TimeInCurrentStateHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging,0,obj_Battery.var_TimeInCurrentStateHrs+prop_TimeStepSeconds)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_ChargeStartSOC</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_ChargeStartTimeHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">TimeNow</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Search" Name="BatteryStation" Description="**Collection:** `BatteryStation.Contents`&#xD;&#xA;**Search Expression:** `obj_Battery.var_TimeInCurrentStateHrs` (default expression, not used for filtering)&#xD;&#xA;**Limit:** `BatteryStation.Contents.NumberWaiting`&#xD;&#xA;**Exit Found:** For each battery → (UpdateCounters - EOL Check)&#xD;&#xA;**Purpose:** Iterate all batteries to check for end-of-life conditions" ID="9">
+        <Properties>
+          <Property Name="CollectionType">QueueState</Property>
+          <Property Name="QueueStateName">
+            <Value>BatteryStation.Contents</Value>
+          </Property>
+          <Property Name="SearchExpression">obj_Battery.var_TimeInCurrentStateHrs</Property>
+          <Property Name="Limit">BatteryStation.Contents.Numberwaiting</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="10" />
+      </Step>
+      <Step Type="Assign" Name="UpdateCounters" Description="**Detect EOL Batteries &amp; Adjust Counters:**&#xD;&#xA;  - IF `obj_Battery.var_BatteryHealthPct &lt; obj_Battery.var_EndOfLifeBatteryHealthPct`:&#xD;&#xA;    - Decrement appropriate state counter:&#xD;&#xA;      - `var_BatteriesCharging -= 1` IF currently Charging&#xD;&#xA;      - `var_BatteriesReadyToDeploy -= 1` IF currently ReadyToDeploy&#xD;&#xA;      - `var_BatteriesReadyToCharge -= 1` IF currently ReadyToCharge&#xD;&#xA;    - `var_ChargingPortsInUse = var_BatteriesCharging`&#xD;&#xA;    - `obj_Battery.var_BatteryResourceState = OutOfService`&#xD;&#xA;**Purpose:** Mark batteries that have degraded below EOL threshold as OutOfService" ID="10">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesCharging</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryHealthPct&lt;obj_Battery.var_EndOfLifeBatteryHealthPct&amp;&amp;obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging,var_BatteriesCharging-1,var_BatteriesCharging)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_ChargingPortsInUse</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_BatteriesCharging</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToDeploy</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryHealthPct&lt;obj_Battery.var_EndOfLifeBatteryHealthPct&amp;&amp;obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,var_BatteriesReadyToDeploy-1,var_BatteriesReadyToDeploy)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToCharge</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryHealthPct&lt;obj_Battery.var_EndOfLifeBatteryHealthPct&amp;&amp;obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToCharge,var_BatteriesReadyToCharge-1,var_BatteriesReadyToCharge)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryHealthPct&lt;obj_Battery.var_EndOfLifeBatteryHealthPct,obj_Battery.List.list_BatteryResourceState.OutOfService,obj_Battery.var_BatteryResourceState)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="11" />
+      </Step>
+      <Step Type="Decide" Name="OutOfService" Description="**Condition:** `obj_Battery.var_BatteryResourceState == OutOfService`&#xD;&#xA;**True Exit:** Battery is EOL → (AddRow to output table)&#xD;&#xA;**False Exit:** Battery still serviceable → End process&#xD;&#xA;**Purpose:** Branch to handle failed battery logging and replacement" ID="11">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.OutOfService</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="AddRow" Name="OutputTable" Description="**Table:** `tbl_BatteriesOutOfService`&#xD;&#xA;**Purpose:** Create new row in out-of-service log table&#xD;&#xA;**Exit:** → (Assign output table values)" ID="12">
+        <Properties>
+          <Property Name="TableName">tbl_BatteriesOutOfService</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="17" />
+      </Step>
+      <Step Type="Create" Name="BatteryEntity" Description="**Entity Type:** `prop_BatteryEntityReference`&#xD;&#xA;**Number:** 1 replacement battery&#xD;&#xA;**Exit Original:** After creation → (var_Debug toggle, end)&#xD;&#xA;**Exit Created:** New battery created → (BatteryIndex increment)&#xD;&#xA;**Purpose:** Create new battery entity to replace the failed one" ID="13">
+        <Properties>
+          <Property Name="EntityType">prop_BatteryEntityReference</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="18" />
+        <Exit Name="Created" Type="Alternate" NextID="21" />
+      </Step>
+      <Step Type="Destroy" Name="BatteryEntity" Description="**Destroy Type:** SpecificObject&#xD;&#xA;**Entity:** `obj_Battery` (the failed battery entity)&#xD;&#xA;**Purpose:** Remove failed battery entity from simulation&#xD;&#xA;**Exit:** → (Create replacement battery)" ID="14">
+        <Properties>
+          <Property Name="DestroyType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Battery</Value>
+          </Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="13" />
+      </Step>
+      <Step Type="Assign" Name="BatteryEntityInstance" Description="**Assignment:** `tkn_proc_BatteryUpdates.var_BatteryEntityInstance = obj_Battery`&#xD;&#xA;**Purpose:** Store reference to newly created battery for configuration&#xD;&#xA;**Exit:** → (BatteryVariables)" ID="15">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tkn_proc_BatteryUpdates.var_BatteryEntityInstance</Value>
+          </Property>
+          <Property Name="NewValue">obj_Battery</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="23" />
+      </Step>
+      <Step Type="Transfer" Name="BatteryStation" Description="**From:** Any (current location of created battery)&#xD;&#xA;**To:** Station → `BatteryStation`&#xD;&#xA;**Purpose:** Move replacement battery into station inventory&#xD;&#xA;**Exit:** → (UpdateCounters for replacement)" ID="16">
+        <Properties>
+          <Property Name="FromType">Any</Property>
+          <Property Name="ToType">Station</Property>
+          <Property Name="StationName">
+            <Value>BatteryStation</Value>
+          </Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="19" />
+      </Step>
+      <Step Type="Assign" Name="OutputTable" Description="**Record Battery End-of-Life Data:**&#xD;&#xA;**Purpose:** Log all critical battery data for post-simulation analysis" ID="17">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.DateTime</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">TimeNow</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.RunTime</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">TimeNow</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.OriginalObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_OriginalObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_CurrentObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatteryID</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryID</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatteryType</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryType</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryResourceState</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.ChargingCycleCount</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_ChargingCycleCount</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteriesOutOfService.BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryCumulativeThroughputKwh</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="14" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="18">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="UpdateCounters" Description="**Update State Counters for New Battery:**&#xD;&#xA;  - `var_BatteriesCharging += 1` IF `var_BatteryResourceState == Charging`&#xD;&#xA;  - `var_BatteriesReadyToDeploy += 1` IF `var_BatteryResourceState == ReadyToDeploy`&#xD;&#xA;  - `var_BatteriesReadyToCharge += 1` IF `var_BatteryResourceState == ReadyToCharge`&#xD;&#xA;  - `var_ChargingPortsInUse = prop_MaxConcurrentChargingPorts - var_BatteriesCharging`&#xD;&#xA;**Purpose:** Update inventory counters to reflect replacement battery&#xD;&#xA;**Exit:** → Process end" ID="19">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesCharging</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.Charging,var_BatteriesCharging+1,var_BatteriesCharging)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_ChargingPortsInUse</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">prop_MaxConcurrentChargingPorts-var_BatteriesCharging</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToDeploy</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToDeploy,var_BatteriesReadyToDeploy+1,var_BatteriesReadyToDeploy)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteriesReadyToCharge</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(obj_Battery.var_BatteryResourceState==obj_Battery.List.list_BatteryResourceState.ReadyToCharge,var_BatteriesReadyToCharge+1,var_BatteriesReadyToCharge)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Decide" Name="BatteryUpdatesTrue" Description="**Condition:** `var_BatteryUpdates == True`&#xD;&#xA;**True Exit:** Proceed to Step 2&#xD;&#xA;**False Exit:** Skip all updates (process ends)&#xD;&#xA;**Purpose:** Master enable/disable switch for all battery update operations" ID="20">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_BatteryUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="BatteryIndex" Description="**Assignment:** `var_BatteryIndex = var_BatteryIndex + 1`&#xD;&#xA;**Purpose:** Increment battery counter for unique ID generation&#xD;&#xA;**Exit:** → (BatteryEntityInstance)" ID="21">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryIndex</Value>
+          </Property>
+          <Property Name="NewValue">var_BatteryIndex+1</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="15" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="22">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="BatteryVariables" Description="Initialize battery state variables from `tbl_BatteryTypes`:&#xD;&#xA;   - `var_OriginalObjectReference = obj_BatteryElectricTruck`&#xD;&#xA;   - `var_CurrentObjectReference = var_OriginalObjectReference`&#xD;&#xA;   - `var_BatteryID = TruckName + &quot;_&quot; + BatteryType + &quot;_&quot; + Index`&#xD;&#xA;   - `var_BatteryType`, `var_RatedStorageEnergyKwh`, `var_RatedChargingCycles`&#xD;&#xA;   - `var_RatedLifetimeThroughputKwh`, `var_EndOfLifeBatteryHealthPct`&#xD;&#xA;   - `var_BatterySOCPct`, `var_BatteryCumulativeThroughputKwh`, `var_BatteryHealthPct`" Color="c3d69b" ID="23">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_BatterySwapChargeStation</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryID</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference.Object.Name + "_" + tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryType + "_" + String.FromReal(var_BatteryIndex)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes.BatteryType.RowForKey(String.FromList(list_BatteryTypes,prop_BatteryType))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_RatedStorageEnergyKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].RatedStorageEnergyKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_RatedLifetimeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].RatedLifetimeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_EndOfLifeBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].EndOfLifeBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatteryCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceLifeChargingCycles</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceLifeChargingCycles</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceDOD</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceDOD</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceDischargeCRate</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceDischargeCRate</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceTemperatureK</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceTemperatureK</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OperatingTemperatureK</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].OperatingTemperatureK</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Xi</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Xi</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Gamma1</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Gamma1</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Gamma2</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Gamma2</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Psi</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Psi</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Alpha</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Alpha</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="16" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- YPit/j1GEIKmGpgj7TsQ/MO2YO75m8w2YheIGFfS73AX+hV9Z4FMQX96WSNMK3RV/l2K/Iu6h+9DYvViXkqZ1w== -->

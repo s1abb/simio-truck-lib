@@ -1,0 +1,157 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock01</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">990.625</Property>
+      <Property Name="y1">77.18309</Property>
+      <Property Name="z1">381.25</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock02</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">746.875</Property>
+      <Property Name="y1">77.18309</Property>
+      <Property Name="z1">509.375</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock03</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">-915.625</Property>
+      <Property Name="y1">7.30366</Property>
+      <Property Name="z1">659.375</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock04</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">-918.75</Property>
+      <Property Name="y1">7.30366</Property>
+      <Property Name="z1">418.75</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock05</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">-995.3125</Property>
+      <Property Name="y1">37.10582</Property>
+      <Property Name="z1">78.125</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock06</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">-818.75</Property>
+      <Property Name="y1">37.10582</Property>
+      <Property Name="z1">-18.75</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">MineBlock07</Property>
+      <Property Name="ObjectType">obj_MineBlock</Property>
+      <Property Name="x1">-165</Property>
+      <Property Name="y1">7.369217</Property>
+      <Property Name="z1">-332.5</Property>
+      <Property Name="RideOnTransporter">Always</Property>
+      <Property Name="RideOnTransporterCondition">True</Property>
+      <Property Name="TransporterType">FromList</Property>
+      <Property Name="TransporterName"></Property>
+      <Property Name="TransporterListName">list_Trucks</Property>
+      <Property Name="SelectionConition">True</Property>
+      <Property Name="EntityReference">LoadEntity</Property>
+      <Property Name="MineBlockOnEnteredProcess">
+        <Value>proc_MineBlock_OnEntered</Value>
+      </Property>
+      <Property Name="MineBlockOnExitedProcess">
+        <Value>proc_MineBlock_OnExited</Value>
+      </Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- feYo0kzfDcVHbjRyERUA+alYtCFQERfBAoW953A5GPQJOR+8SWmdKytRiCknhgKFe5EYABSH/LNquYo6R9Miog== -->

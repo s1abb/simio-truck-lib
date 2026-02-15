@@ -1,0 +1,41 @@
+<Fragment>
+  <Process Name="proc_110_LowerTray" BeginStepID="6" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Completes the battery swap operation by lowering the truck's tray, re-enabling physics and battery calculations, and resuming the truck's movement so it can continue operations.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;**TaskDuration** (Delay) - Delay for task duration&#xD;&#xA;**LowerTray** (Fire) - Fire truck's `event_SymbolUpdate_LowerTray`&#xD;&#xA;**SpeedUpdatesTrue** (Fire) - Fire truck's `event_SpeedUpdates_True`&#xD;&#xA;**BatteryUpdatesTrue** (Fire) - Fire truck's `event_BatteryUpdates_True`&#xD;&#xA;**Movement** (Resume) - Resume movement of truck object&#xD;&#xA;">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="LowerTray" Description="Fire truck's `event_SymbolUpdate_LowerTray`" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_SymbolUpdate_LowerTray</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Fire" Name="SpeedUpdatesTrue" Description="Fire truck's `event_SpeedUpdates_True`" Color="fca09f" ID="3">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_SpeedUpdates_True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Fire" Name="BatteryUpdatesTrue" Description="Fire truck's `event_BatteryUpdates_True`" Color="fca09f" ID="4">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_BatteryUpdates_True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Resume" Name="Movement" Description="Resume movement of truck object" ID="5">
+        <Properties>
+          <Property Name="ResumeType">ObjectMovement</Property>
+          <Property Name="ObjectType">SpecificObject</Property>
+          <Property Name="Object">
+            <Value>var_BatteryElectricTruckObjectReference</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="6">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- AOkk1Rkw6b5QkZmaBFGjknKc34TxfgWwJeuEouAqK8RiZmhHUpVNhK0kVf5i8KLVsMaN5c7a7jn0r12Rc4mgYQ== -->

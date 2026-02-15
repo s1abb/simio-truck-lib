@@ -1,0 +1,419 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB01_1</Property>
+      <Property Name="MineBlockNode">MineBlock01</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">63.11</Property>
+      <Property Name="Al">3.68</Property>
+      <Property Name="Si">0.74</Property>
+      <Property Name="P">0.083</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.492</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB01_2</Property>
+      <Property Name="MineBlockNode">MineBlock01</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">64.26</Property>
+      <Property Name="Al">2.72</Property>
+      <Property Name="Si">0.67</Property>
+      <Property Name="P">0.088</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.49</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB01_3</Property>
+      <Property Name="MineBlockNode">MineBlock01</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">58.31</Property>
+      <Property Name="Al">7.78</Property>
+      <Property Name="Si">1.15</Property>
+      <Property Name="P">0.088</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.384</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB01_4</Property>
+      <Property Name="MineBlockNode">MineBlock01</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">59.24</Property>
+      <Property Name="Al">6.89</Property>
+      <Property Name="Si">1.08</Property>
+      <Property Name="P">0.093</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.5</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB02_1</Property>
+      <Property Name="MineBlockNode">MineBlock02</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">58.83</Property>
+      <Property Name="Al">7.15</Property>
+      <Property Name="Si">0.98</Property>
+      <Property Name="P">0.094</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.264</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB02_2</Property>
+      <Property Name="MineBlockNode">MineBlock02</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">59.09</Property>
+      <Property Name="Al">6.68</Property>
+      <Property Name="Si">0.88</Property>
+      <Property Name="P">0.129</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.484</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB02_3</Property>
+      <Property Name="MineBlockNode">MineBlock02</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">46.01</Property>
+      <Property Name="Al">18.81</Property>
+      <Property Name="Si">1.04</Property>
+      <Property Name="P">0.135</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.623</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB02_4</Property>
+      <Property Name="MineBlockNode">MineBlock02</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">64.15</Property>
+      <Property Name="Al">2.82</Property>
+      <Property Name="Si">0.78</Property>
+      <Property Name="P">0.091</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.465</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB03_1</Property>
+      <Property Name="MineBlockNode">MineBlock03</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">53.64</Property>
+      <Property Name="Al">11.48</Property>
+      <Property Name="Si">2.05</Property>
+      <Property Name="P">0.113</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.91</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB03_2</Property>
+      <Property Name="MineBlockNode">MineBlock03</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">63.73</Property>
+      <Property Name="Al">3.14</Property>
+      <Property Name="Si">1.02</Property>
+      <Property Name="P">0.083</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.476</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB03_3</Property>
+      <Property Name="MineBlockNode">MineBlock03</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">49.92</Property>
+      <Property Name="Al">14.78</Property>
+      <Property Name="Si">2.18</Property>
+      <Property Name="P">0.11</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.911</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB03_4</Property>
+      <Property Name="MineBlockNode">MineBlock03</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">58.65</Property>
+      <Property Name="Al">7.45</Property>
+      <Property Name="Si">1.28</Property>
+      <Property Name="P">0.089</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.43</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB04_1</Property>
+      <Property Name="MineBlockNode">MineBlock04</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">64.4</Property>
+      <Property Name="Al">2.58</Property>
+      <Property Name="Si">0.97</Property>
+      <Property Name="P">0.084</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.456</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB04_2</Property>
+      <Property Name="MineBlockNode">MineBlock04</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">47.01</Property>
+      <Property Name="Al">17.18</Property>
+      <Property Name="Si">2.36</Property>
+      <Property Name="P">0.132</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.846</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB04_3</Property>
+      <Property Name="MineBlockNode">MineBlock04</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">60.37</Property>
+      <Property Name="Al">5.89</Property>
+      <Property Name="Si">1.31</Property>
+      <Property Name="P">0.093</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.508</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB04_4</Property>
+      <Property Name="MineBlockNode">MineBlock04</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">46.25</Property>
+      <Property Name="Al">17.31</Property>
+      <Property Name="Si">4.12</Property>
+      <Property Name="P">0.093</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.75</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB05_1</Property>
+      <Property Name="MineBlockNode">MineBlock05</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">64.47</Property>
+      <Property Name="Al">2.6</Property>
+      <Property Name="Si">0.92</Property>
+      <Property Name="P">0.079</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.426</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB05_2</Property>
+      <Property Name="MineBlockNode">MineBlock05</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">59.71</Property>
+      <Property Name="Al">6.55</Property>
+      <Property Name="Si">0.75</Property>
+      <Property Name="P">0.093</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.48</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB05_3</Property>
+      <Property Name="MineBlockNode">MineBlock05</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">59.37</Property>
+      <Property Name="Al">6.77</Property>
+      <Property Name="Si">1.08</Property>
+      <Property Name="P">0.097</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.488</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB05_4</Property>
+      <Property Name="MineBlockNode">MineBlock05</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">49.64</Property>
+      <Property Name="Al">15.37</Property>
+      <Property Name="Si">1.84</Property>
+      <Property Name="P">0.113</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.02</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB06_1</Property>
+      <Property Name="MineBlockNode">MineBlock06</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">46.02</Property>
+      <Property Name="Al">17.06</Property>
+      <Property Name="Si">4.62</Property>
+      <Property Name="P">0.101</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.868</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB06_2</Property>
+      <Property Name="MineBlockNode">MineBlock06</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">43.1</Property>
+      <Property Name="Al">18.73</Property>
+      <Property Name="Si">4.1</Property>
+      <Property Name="P">0.083</Property>
+      <Property Name="TonnesAvailable">15000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.914</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB07_1</Property>
+      <Property Name="MineBlockNode">MineBlock07</Property>
+      <Property Name="Index">1</Property>
+      <Property Name="Fe">63.72</Property>
+      <Property Name="Al">3.19</Property>
+      <Property Name="Si">0.9</Property>
+      <Property Name="P">0.085</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.445</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB07_2</Property>
+      <Property Name="MineBlockNode">MineBlock07</Property>
+      <Property Name="Index">2</Property>
+      <Property Name="Fe">50.14</Property>
+      <Property Name="Al">14.72</Property>
+      <Property Name="Si">2.44</Property>
+      <Property Name="P">0.112</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.927</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB07_3</Property>
+      <Property Name="MineBlockNode">MineBlock07</Property>
+      <Property Name="Index">3</Property>
+      <Property Name="Fe">48.61</Property>
+      <Property Name="Al">14.79</Property>
+      <Property Name="Si">4.7</Property>
+      <Property Name="P">0.096</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">2.973</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="ParcelID">MB07_4</Property>
+      <Property Name="MineBlockNode">MineBlock07</Property>
+      <Property Name="Index">4</Property>
+      <Property Name="Fe">62.48</Property>
+      <Property Name="Al">4.32</Property>
+      <Property Name="Si">0.66</Property>
+      <Property Name="P">0.093</Property>
+      <Property Name="TonnesAvailable">10000</Property>
+      <Property Name="LumpYield">0.437</Property>
+      <Property Name="BlendFactor">0</Property>
+      <Property Name="Density">3.522</Property>
+      <Property Name="DumpPoint">DumpPoint00</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- YlJIMicXyB6rOlzq4C7HOyD7xJmT/uGcTtURkbyG7rGv+J2fyOdRQEcxpA4Y+CkyOf9f6A264q8r3vRvP5fRLg== -->

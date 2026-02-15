@@ -1,0 +1,89 @@
+<Fragment>
+  <Process Name="OnRepaired" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Resume" Name="Processing" ID="2">
+        <Properties>
+          <Property Name="ResumeType">ObjectMovement</Property>
+          <Property Name="ObjectType">ParentObject</Property>
+          <Property Name="ResumeActions">
+            <Rows>
+              <Properties>
+                <Property Name="ResumeActionsProcessName">
+                  <Value>OnVisitingNode</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="ResourceState" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>ResourceState</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(Capacity==0, Math.If(ResourceOwners.Contains(ParentObject), List.ResourceStateName.OffShiftTransporting, (ResourceOwners&gt;0)&amp;&amp;!ResourceOwners.AllProcessingSuspended, List.ResourceStateName.OffShiftBusy, List.ResourceStateName.OffShift), ResourceState)</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="OnRepairedAssignments" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnEvaluatingRiderReservation.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">(ResourceState==List.ResourceStateName.Idle)||(ResourceState==List.ResourceStateName.Transporting &amp;&amp; (RideStation.Capacity &gt; RideStationLoad))</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">(ResourceState==List.ResourceStateName.Idle)||(ResourceState==List.ResourceStateName.Transporting &amp;&amp; (RideStation.Capacity &gt; RideStationLoad))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle || ResourceState==List.ResourceStateName.Transporting || ResourceState==List.ResourceStateName.OffShiftTransporting</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle || ResourceState==List.ResourceStateName.Transporting || ResourceState==List.ResourceStateName.OffShiftTransporting</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Fire" Name="RepairedEvent" ID="5">
+        <Properties>
+          <Property Name="EventName">Repaired</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Execute" Name="RepairedAddOnProcess" ID="6">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>RepairedAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- TYK8A7KJuYVa2Zfkj3zlw+l0I6zITQs7rwhe4VI+LUhW2IxnUzj0jf2aD/OssNYiX9UCQ+8ivFsG4qWBvpc7wA== -->

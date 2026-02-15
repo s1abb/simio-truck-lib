@@ -1,0 +1,27 @@
+<Fragment>
+  <Process Name="OnTrailingEdgeEntered" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnTrailingEdgeEntered" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="IfPassingAllowed" ExclusionExpression="Math.If(AllowPassing, 1, 2)" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">AllowPassing</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="EndTransfer" Name="OntoPath" ID="3">
+        <Properties />
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Execute" Name="TrailingEdgeEnteredAddOnProcess" ID="4">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>TrailingEdgeEnteredAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- hGFgguJf+7dwlLXy7RSZm9YO6ZcgStqi9p/ykj/GgJ7SwfHFkQtSJzg/WtllR7nv+GfUMTPxOtYVzjpRL4OGrA== -->

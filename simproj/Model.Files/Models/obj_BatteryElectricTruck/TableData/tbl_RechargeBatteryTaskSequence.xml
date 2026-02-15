@@ -1,0 +1,63 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">101</Property>
+      <Property Name="Name">101_PositionAtCharger</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_101_PositionAtCharger</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">102</Property>
+      <Property Name="Name">102_ConnectChargingCable</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_102_ConnectChargingCable</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">103</Property>
+      <Property Name="Name">103_RechargeBattery</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_103_RechargeBattery</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">104</Property>
+      <Property Name="Name">104_WaitBatteryRecharged</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_104_WaitBatteryRecharged</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">105</Property>
+      <Property Name="Name">105_DisconnectChargingCable</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_105_DisconnectChargingCable</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- Ybt99n/ryryEUDrBL8mforjrHiNo5HCzN59lnOIS11/zSda3X/2HvdzGLQXYbr+HfIZ5wUxsHPDtJB5Z8Twd8A== -->

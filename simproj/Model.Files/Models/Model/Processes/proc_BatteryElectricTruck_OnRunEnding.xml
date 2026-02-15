@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_BatteryElectricTruck_OnRunEnding" BeginStepID="2" Category="30 BatteryElectricTruck Processes" Description="**Purpose:**  Trigger OnRunEnding event for each configured truck in tbl_BatteryElectricTrucks">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnRunEndingEvent" Description="**Fire OnRunEndingEvent:** Trigger OnRunEnding event for each configured truck in tbl_BatteryElectricTrucks" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_BatteryElectricTrucks.OnRunEndingEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- KiadCIJx/HCU6H6WdKSUTZbDtpFzyFMuO8MfrYWQe7ek7C4etUP6Rrrn5yUxKeaiOtdBv0KuQbUqI9t03msuUg== -->

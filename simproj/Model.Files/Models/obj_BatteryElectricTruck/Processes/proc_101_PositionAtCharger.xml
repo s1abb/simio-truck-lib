@@ -1,0 +1,22 @@
+<Fragment>
+  <Process Name="proc_101_PositionAtCharger" BeginStepID="3" Category="42 TaskSequence Processes (BatteryElectricTruck)">
+    <Properties />
+    <Steps>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle `var_Debug` flag (debugging aid)" Color="ffffff" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Fire" Name="Idle" Color="fca09f" ID="3">
+        <Properties>
+          <Property Name="EventName">event_SetResourceState_Idle</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- bzHrMTYoA+9Ev0ncUBzyKH3GnJMPIzXCA8u2u1Y+DGSpL0im3EAVZLpYnKphPD7YMG0pV0C+394Sy8hbLFjlBA== -->

@@ -1,0 +1,49 @@
+<Fragment>
+  <ViewInfo>
+    <External>
+      <Camera Orientation="Top" Location="-1.2312396678011452 28.528727508319346 2.3672760655850444" Direction="-0 -1.0000000000000002 2.220446049250313E-16" Zoom="36.44314868804665" />
+      <ObjectDisplay SnapToGrid="True" Background="ffffff" />
+    </External>
+    <Dashboard>
+      <Camera Orientation="Top" Location="1.8189894035458565E-12 12.500000000001819 5.4569682106375694E-12" Direction="-0 -1.0000000000000002 2.220446049250313E-16" Zoom="12.5" />
+      <ObjectDisplay SnapToGrid="True" Background="ffffff" />
+    </Dashboard>
+    <StandardTables>
+      <DevExpressLayout>
+        <FileRef Name="Data\DevExpressLayout2.xml" />
+      </DevExpressLayout>
+      <Tables SelectedTable="tbl_TruckTypes">
+        <Table Name="tbl_TruckTypes" FilterEnabled="True">
+          <Columns>
+            <Column Name="TruckType" Width="172" />
+            <Column Name="TruckMode" Width="79" />
+            <Column Name="BatteryType" Width="155" />
+            <Column Name="EmptyOperatingWeightKg" Width="200" />
+            <Column Name="RatedGrossMachineWeightKg" Width="217" />
+            <Column Name="RimpullForceN" Width="550" />
+            <Column Name="RetardForceN" Width="550" />
+            <Column Name="MaxSpeedKmh_Loaded" Width="800" />
+            <Column Name="MaxSpeedKmh_Empty" Width="795" />
+            <Column Name="RollingResistance" Width="106" />
+            <Column Name="MotorEfficiencyPct" Width="115" />
+            <Column Name="RegenEfficiencyPct" Width="118" />
+            <Column Name="AuxiliaryPowerDemandKw" Width="153" />
+            <Column Name="MaxBatteryPowerKw" Width="129" />
+            <Column Name="MaxBatteryChargePowerKw" Width="167" />
+            <Column Name="SwapBatterySOCPct" Width="127" />
+            <Column Name="DieselFuelConsumptionRateLKwh" Width="190" />
+            <Column Name="DieselTankCapacityL" Width="127" />
+            <Column Name="InitialDieselLevelL" Width="113" />
+            <Column Name="DieselGeneratorMaxPowerKw" Width="173" />
+            <Column Name="DieselGeneratorEfficiencyPct" Width="167" />
+            <Column Name="RefuelDieselLevelPct" Width="128" />
+            <Column Name="MaxMotorPowerKw_Continuous" Width="181" />
+            <Column Name="MaxMotorPowerKw_Peak" Width="150" />
+            <Column Name="MaxMotorPeakDurationSec" Width="200" />
+          </Columns>
+        </Table>
+      </Tables>
+    </StandardTables>
+  </ViewInfo>
+</Fragment>
+<!-- +0n/HGTHnraXilv6qNSwZyQU8xKZNq9itHvFVXQtPGZRh+GUGyZgiTNfbHaL9TDJVgnHoIb3Y5luXqB675HpqA== -->

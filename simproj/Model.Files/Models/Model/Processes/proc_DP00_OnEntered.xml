@@ -1,0 +1,81 @@
+<Fragment>
+  <Process Name="proc_DP00_OnEntered" BeginStepID="7" Category="10 TransferNode Processes" Description="**Purpose:** Handles truck arrival at dump point 00, implementing load balancing logic across two dump point paths (DP01 and DP02 routes) to minimize congestion.&#xD;&#xA;**Decide LoadedTruck:** Check if this is a loaded truck (Object.Is.obj_BatteryElectricTruck AND obj_BatteryElectricTruck.RideStation.Contents &gt; 0)&#xD;&#xA;**Decide DP01&amp;DP02 (Loaded):** Check if both dump paths are empty (all path segments have NumberWaiting == 0):&#xD;&#xA;**Decide DP01 (Loaded):** Check if only DP01 path is empty&#xD;&#xA;**SetNode DP23:** Route load entity to DP23 (obj_BatteryElectricTruck.RideStation.Contents.FirstItem.ModelEntity destination ← DP23)&#xD;&#xA;**SetNode DP13:** Route load entity to DP13 (obj_BatteryElectricTruck.RideStation.Contents.FirstItem.ModelEntity destination ← DP13)&#xD;&#xA;**Delay 1min:** Wait 1 minute before rechecking path availability&#xD;&#xA;**Decide DP01&amp;DP02 (Empty):** Re-check if both paths are empty after delay&#xD;&#xA;**SetNode DP26:** Route empty truck destination to DP26 (obj_BatteryElectricTruck.DestinationNode ← DP26)">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="DP01" Description="**Decide DP01 (Loaded):** Check if only DP01 path is empty" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(DP00_DP11.Contents.NumberWaiting+DP11_DP16.Contents.NumberWaiting+DP11_DP12.Contents.NumberWaiting+DP12_DP13.Contents.NumberWaiting+DP12_DP14.Contents.NumberWaiting+DP14_DP15.Contents.NumberWaiting+DP14_DP16.Contents.NumberWaiting)==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+        <Exit Name="False" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="DP01&amp;DP02" Description="**Decide DP01&amp;DP02 (Loaded):** Check if both dump paths are empty (all path segments have NumberWaiting == 0)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(DP00_DP11.Contents.NumberWaiting+DP11_DP16.Contents.NumberWaiting+DP11_DP12.Contents.NumberWaiting+DP12_DP13.Contents.NumberWaiting+DP12_DP14.Contents.NumberWaiting+DP14_DP15.Contents.NumberWaiting+DP14_DP16.Contents.NumberWaiting)==0
+
+&amp;&amp;
+
+(DP16_DP21.Contents.NumberWaiting+DP21_DP26.Contents.NumberWaiting+DP21_DP22.Contents.NumberWaiting+DP22_DP23.Contents.NumberWaiting+DP22_DP24.Contents.NumberWaiting+DP24_DP25.Contents.NumberWaiting+DP24_DP26.Contents.NumberWaiting)==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+        <Exit Name="False" Type="Alternate" NextID="2" />
+      </Step>
+      <Step Type="SetNode" Name="DP23" Description="**SetNode DP23:** Route load entity to DP23 (obj_BatteryElectricTruck.RideStation.Contents.FirstItem.ModelEntity destination ← DP23)" Color="fac08f" ID="4">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Truck.RideStation.Contents.FirstItem.obj_Load</Value>
+          </Property>
+          <Property Name="NodeName">DumpPoint23</Property>
+        </Properties>
+      </Step>
+      <Step Type="SetNode" Name="DP13" Description="**SetNode DP13:** Route load entity to DP13 (obj_BatteryElectricTruck.RideStation.Contents.FirstItem.ModelEntity destination ← DP13)" Color="fac08f" ID="5">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Truck.RideStation.Contents.FirstItem.obj_Load</Value>
+          </Property>
+          <Property Name="NodeName">DumpPoint13</Property>
+        </Properties>
+      </Step>
+      <Step Type="Delay" Name="1min" Description="**Delay 1min:** Wait 1 minute before retrying station search, then return to step 1" ID="6">
+        <Properties>
+          <Property Name="DelayTime" Units="Minutes">1</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Decide" Name="LoadedTruck" Description="**Decide LoadedTruck:** Check if this is a loaded truck (Object.Is.obj_BatteryElectricTruck AND obj_BatteryElectricTruck.RideStation.Contents &gt; 0)" ID="7">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Truck &amp;&amp; obj_Truck.RideStation.Contents&gt;0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="3" />
+        <Exit Name="False" Type="Alternate" NextID="8" />
+      </Step>
+      <Step Type="Decide" Name="DP01&amp;DP02" Description="**Decide DP01&amp;DP02 (Empty):** Re-check if both paths are empty after delay" ID="8">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(DP00_DP11.Contents.NumberWaiting+DP11_DP16.Contents.NumberWaiting+DP11_DP12.Contents.NumberWaiting+DP12_DP13.Contents.NumberWaiting+DP12_DP14.Contents.NumberWaiting+DP14_DP15.Contents.NumberWaiting+DP14_DP16.Contents.NumberWaiting)==0
+
+&amp;&amp;
+
+(DP16_DP21.Contents.NumberWaiting+DP21_DP26.Contents.NumberWaiting+DP21_DP22.Contents.NumberWaiting+DP22_DP23.Contents.NumberWaiting+DP22_DP24.Contents.NumberWaiting+DP24_DP25.Contents.NumberWaiting+DP24_DP26.Contents.NumberWaiting)==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="9" />
+        <Exit Name="False" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="SetNode" Name="DP26" Description="**SetNode DP26:** Route empty truck destination to DP26 (obj_BatteryElectricTruck.DestinationNode ← DP26)" Color="fac08f" ID="9">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Truck.DestinationNode</Value>
+          </Property>
+          <Property Name="NodeName">DumpPoint26</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 7zz1d23NVZyvPjfsEqrimHvYkr40/8i4lv+TvoYf48lCnJLrKUIKsBOFKEJFiyRweYaHHVdLqStkYgR9379Ylg== -->

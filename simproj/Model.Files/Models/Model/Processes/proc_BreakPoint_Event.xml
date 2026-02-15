@@ -1,0 +1,19 @@
+<Fragment>
+  <Process Name="proc_BreakPoint_Event" BeginStepID="2" Category="90 Debugging Processes">
+    <Properties>
+      <Property Name="TriggeringEventName">tmr_BreakPoint.Event</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="var_Debug" Color="ffffff" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+        <Breakpoint Enabled="True" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- u/GFUK6323Z6zUXqQwgh13vgnDtDdDRdQ7eLyYmNbBu8LdLNw6RyUX/vo0kpYEavuoXT6/wc/XHgr8DSMdKlqw== -->

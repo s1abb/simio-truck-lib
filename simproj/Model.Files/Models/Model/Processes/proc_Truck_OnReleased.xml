@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_Truck_OnReleased" BeginStepID="2" Category="20 Truck Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="event_AssignTruckToMineBlockLoadPoint" Color="fbd5b5" ID="2">
+        <Properties>
+          <Property Name="EventName">obj_Truck.event_AllocateTruck</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- hRTew7lun+AocXXXpqlAa7lP/U3ma3xIxXM8K8DF4vgqW73MzPFrZBJHafLA246CQX3L0ekIPZwMemaZtweO6Q== -->

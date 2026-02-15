@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_BatterySwapChargeStation_OnRunInitialised" BeginStepID="2" Category="40 BatterSwapChargeStation Processes" Description="**Purpose:** Fires the OnRunInitialised event from tbl_BatterySwapChargeStations configuration table to initialize swap station instances.">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnRunInitialised" Description="**Fire OnRunInitialised:** Trigger OnRunInitialised event for each configured swap station in tbl_BatterySwapChargeStations" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_BatterySwapChargeStations.OnRunInitialisedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- m0dBrCdbHzDOKtiJOZVWo642Q4nUi4+aoPsjrrMNEQPKFw+O30tH9IuYpT60GvMRQQ01i9/xKJcziz/0lZ82uA== -->

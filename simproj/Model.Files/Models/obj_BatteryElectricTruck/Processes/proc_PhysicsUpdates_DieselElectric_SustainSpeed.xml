@@ -1,0 +1,466 @@
+<Fragment>
+  <Process Name="proc_PhysicsUpdates_DieselElectric_SustainSpeed" BeginStepID="2" Category="32 Time Step Processes  (DieselElectricTruck)">
+    <Properties>
+      <Property Name="TokenClassName">tkn_Physics</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Decide" Name="SpeedUpdates" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_SpeedUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="FuelUpdates" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_FuelUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="FuelUpdates" Color="ffe8a1" ID="4">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RowIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes, prop_TruckType))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.AuxiliaryPowerDemandKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].AuxiliaryPowerDemandKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MotorEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].MotorEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselFuelConsumptionRateLKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselFuelConsumptionRateLKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RefuelDieselLevelPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RefuelDieselLevelPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselTankCapacityL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselTankCapacityL</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselGeneratorMaxPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselGeneratorMaxPowerKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.OnTrolleyPath</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Location.Parent.Object.Is.obj_ElectricPath &amp;&amp; Location.Parent.obj_ElectricPath.prop_TrolleyAssistEnabled</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MotorMechanicalPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_SpeedUpdates,
+	(tkn_Physics.TractiveForceN / 1000) * (tkn_Physics.CurrentSpeedKmh / 3600),
+	0
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MotorElectricalDemandKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tkn_Physics.MotorMechanicalPowerKw &gt; 0,
+	tkn_Physics.MotorMechanicalPowerKw / (tkn_Physics.MotorEfficiencyPct / 100),
+	0
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.ActualDrivingDemandKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.MotorElectricalDemandKw+tkn_Physics.AuxiliaryPowerDemandKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Min(
+	tkn_Physics.ActualDrivingDemandKw,
+	tkn_Physics.DieselGeneratorMaxPowerKw
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselContributionKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.DieselPowerKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyDrivingPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tkn_Physics.OnTrolleyPath,
+	Math.Min(
+		Math.Max(0, tkn_Physics.ActualDrivingDemandKw - tkn_Physics.DieselPowerKw),
+		tkn_Physics.TrolleyAvailablePowerKw
+		),
+	0
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyContributionKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.TrolleyDrivingPowerKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselConsumedL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.DieselPowerKw * prop_TimeStepSeconds * tkn_Physics.DieselFuelConsumptionRateLKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.NewDieselLevelL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(
+	0,
+	var_DieselLevelL - tkn_Physics.DieselConsumedL
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RefuelThresholdL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.DieselTankCapacityL * tkn_Physics.RefuelDieselLevelPct / 100</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_SwapRefuelChargeFlag</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tkn_Physics.NewDieselLevelL &lt; tkn_Physics.RefuelThresholdL,
+	True,
+	False
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_DieselLevelL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.NewDieselLevelL</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_DieselLevelPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">100 * tkn_Physics.NewDieselLevelL / tkn_Physics.DieselTankCapacityL</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_DieselConsumedL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_DieselConsumedL + tkn_Physics.DieselConsumedL</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="SpeedUpdates" Color="c3d69b" ID="5">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.CurrentGrade</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Movement.Pitch</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.CurrentSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Movement.Rate</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RowIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes, prop_TruckType))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.EmptyWeightKg</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].EmptyOperatingWeightKg</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.CurrentWeightKg</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_Loaded, var_Payload, tkn_Physics.EmptyWeightKg)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.BaseRimpullForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RimpullForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.BaseRetardForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RetardForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MaxSpeedKmh_Loaded</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].MaxSpeedKmh_Loaded</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MaxSpeedKmh_Empty</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].MaxSpeedKmh_Empty</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RollingResistance</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RollingResistance</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MotorEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].MotorEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RegenEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RegenEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.AuxiliaryPowerDemandKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].AuxiliaryPowerDemandKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselFuelConsumptionRateLKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselFuelConsumptionRateLKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselTankCapacityL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselTankCapacityL</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselGeneratorMaxPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselGeneratorMaxPowerKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.DieselGeneratorEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].DieselGeneratorEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RefuelDieselLevelPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tkn_Physics.RowIndex].RefuelDieselLevelPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.PowerDegradationFactor</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">1</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.OnTrolleyPath</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Location.Parent.Object.Is.obj_ElectricPath &amp;&amp; Location.Parent.obj_ElectricPath.prop_TrolleyAssistEnabled</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleySectionTotalPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,Location.Parent.obj_ElectricPath.prop_TrolleySectionTotalPowerKw,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyMaxPowerPerTruckKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,Location.Parent.obj_ElectricPath.prop_TrolleyMaxPowerPerTruckKw,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,Location.Parent.obj_ElectricPath.prop_TrolleyEfficiencyPct,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyActiveTrucksOnSection</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,Location.Parent.obj_ElectricPath.NumberTravelers,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleySharedPowerPerTruckKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.TrolleyActiveTrucksOnSection&gt;0,tkn_Physics.TrolleySectionTotalPowerKw/tkn_Physics.TrolleyActiveTrucksOnSection,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TrolleyAvailablePowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Min(tkn_Physics.TrolleySharedPowerPerTruckKw,tkn_Physics.TrolleyMaxPowerPerTruckKw) * (tkn_Physics.TrolleyEfficiencyPct/100)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TotalAvailablePowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,tkn_Physics.DieselGeneratorMaxPowerKw+tkn_Physics.TrolleyAvailablePowerKw,tkn_Physics.DieselGeneratorMaxPowerKw)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.MaxSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_Loaded, tkn_Physics.MaxSpeedKmh_Loaded, tkn_Physics.MaxSpeedKmh_Empty)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.PathSpeedLimitKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	Location.Parent.Is.obj_ElectricPath,
+	Location.Parent.obj_ElectricPath.SpeedLimit,
+	DesiredSpeed
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TargetSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Min(tkn_Physics.PathSpeedLimitKmh, tkn_Physics.MaxSpeedKmh)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.GradeResistanceForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.CurrentWeightKg * 9.81 * Math.Sin(Math.Atan(tkn_Physics.CurrentGrade / 100))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.RollingResistanceForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.CurrentWeightKg * 9.81 * tkn_Physics.RollingResistance</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TotalResistanceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.GradeResistanceForceN + tkn_Physics.RollingResistanceForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.PowerLimitForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tkn_Physics.CurrentSpeedKmh &gt; 0,
+	tkn_Physics.TotalAvailablePowerKw * 1000 * (tkn_Physics.MotorEfficiencyPct / 100) / (tkn_Physics.CurrentSpeedKmh / 3600),
+	tkn_Physics.BaseRimpullForceN
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.CurveLimitForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(tkn_Physics.BaseRimpullForceN,tkn_Physics.PowerLimitForceN)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.TractiveForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tkn_Physics.CurrentSpeedKmh &lt; tkn_Physics.TargetSpeedKmh - 3000,
+	tkn_Physics.CurveLimitForceN * tkn_Physics.PowerDegradationFactor,
+	Math.If(
+		tkn_Physics.CurrentSpeedKmh &gt; tkn_Physics.TargetSpeedKmh + 3000,
+		-tkn_Physics.BaseRetardForceN * tkn_Physics.PowerDegradationFactor,
+		0
+	)
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.NetTractiveForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.TractiveForceN - tkn_Physics.TotalResistanceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.AccelerationMs2</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_Physics.NetTractiveForceN / tkn_Physics.CurrentWeightKg</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_Physics.NewSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(
+	0,
+	Math.Min(
+		tkn_Physics.TargetSpeedKmh,
+		tkn_Physics.CurrentSpeedKmh + tkn_Physics.AccelerationMs2* 3600 * prop_TimeStepSeconds * 3600
+	)
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_CurrentSymbolIndex_BatteryElectricTruck</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_Physics.OnTrolleyPath,List.list_CurrentSymbolIndex_BatteryElectricTruck.DieselElectricTrayDownPantographUp,List.list_CurrentSymbolIndex_BatteryElectricTruck.DieselElectricTrayDownPantographDown)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>Movement.Rate</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">tkn_Physics.NewSpeedKmh</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Bk/RmZMRHk76jWkxdOHe0W0UW++c76OJcACJWLH4fu5mKXWUpBxUN3DoYWHnUYseETEMSRrOLSLuTTgqFK14Og== -->

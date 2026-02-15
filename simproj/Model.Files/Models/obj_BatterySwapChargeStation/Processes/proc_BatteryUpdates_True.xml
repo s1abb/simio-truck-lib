@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_BatteryUpdates_True" BeginStepID="2" Category="20 Interface" Description="**Trigger:** `event_BatteryUpdates_True`&#xD;&#xA;&#xD;&#xA;**Purpose:** Enables battery charging calculations in the main update loop, allowing batteries in the Charging state to have their SOC updated.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **Assign** - Set `var_BatteryUpdates = True`">
+    <Properties>
+      <Property Name="TriggeringEventName">event_BatteryUpdates_True</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="BatteryUpdatesTrue" Description="Set `var_BatteryUpdates = True`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryUpdates</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- NuqNzC+mn0IhLjyQzPslb5QHpFFnqIl4YvlpDvuZLGvXGsnMQTZ3SKtk0nyaUbudQwjAjf15uEkE7R5Wajl68A== -->

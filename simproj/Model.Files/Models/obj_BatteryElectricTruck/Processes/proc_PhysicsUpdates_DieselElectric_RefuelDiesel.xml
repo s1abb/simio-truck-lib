@@ -1,0 +1,9 @@
+<Fragment>
+  <Process Name="proc_PhysicsUpdates_DieselElectric_RefuelDiesel" Category="32 Time Step Processes  (DieselElectricTruck)">
+    <Properties>
+      <Property Name="TokenClassName">tkn_Physics</Property>
+    </Properties>
+    <Steps />
+  </Process>
+</Fragment>
+<!-- iqawhmHTHgl5ajBWKJK7YqfcI0pm3+slQ+i/XJzhdGpQSK3hpJ5xUeUrpCZGxBWJgqQ9zL17B0SXIiLps+gqIg== -->

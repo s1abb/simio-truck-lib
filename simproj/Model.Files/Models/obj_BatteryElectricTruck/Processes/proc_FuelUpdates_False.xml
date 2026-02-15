@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_FuelUpdates_False" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_FuelUpdates_False</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="FuelUpdatesFalse" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_FuelUpdates</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Dkn9VQW5Ui5k1Fi+jNUNlupgHbWfw4anz68+Ys/oBS4Dn0v92vMxDhXlf4157mjiN5S44CoQIOH1YViZ8oENQA== -->

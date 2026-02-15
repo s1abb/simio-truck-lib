@@ -1,0 +1,1373 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP12_DP13</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint12</Property>
+      <Property Name="EndNode">DumpPoint13</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="LinkType">Bidirectional</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP12_DP14</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint12</Property>
+      <Property Name="EndNode">DumpPoint14</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP14_DP15</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint14</Property>
+      <Property Name="EndNode">DumpPoint15</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="LinkType">Bidirectional</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP21_DP26</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint21</Property>
+      <Property Name="EndNode">DumpPoint26</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP21_DP22</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint21</Property>
+      <Property Name="EndNode">DumpPoint22</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP24_DP26</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint24</Property>
+      <Property Name="EndNode">DumpPoint26</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP22_DP23</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint22</Property>
+      <Property Name="EndNode">DumpPoint23</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="LinkType">Bidirectional</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP22_DP24</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint22</Property>
+      <Property Name="EndNode">DumpPoint24</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP24_DP25</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint24</Property>
+      <Property Name="EndNode">DumpPoint25</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="LinkType">Bidirectional</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_9</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_12</Property>
+      <Property Name="EndNode">node_13</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_10</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_12</Property>
+      <Property Name="EndNode">node_14</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_11</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_16</Property>
+      <Property Name="EndNode">node_13</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_12</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_14</Property>
+      <Property Name="EndNode">node_15</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_13</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_14</Property>
+      <Property Name="EndNode">node_19</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_14</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_15</Property>
+      <Property Name="EndNode">node_16</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_15</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_21</Property>
+      <Property Name="EndNode">node_15</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_16</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_15</Property>
+      <Property Name="EndNode">node_64</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_17</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_2</Property>
+      <Property Name="EndNode">node_3</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_18</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">HomeNode</Property>
+      <Property Name="EndNode">node_2</Property>
+      <Property Name="SpeedLimit">20</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_19</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_2</Property>
+      <Property Name="EndNode">node_9</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_20</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_3</Property>
+      <Property Name="EndNode">node_4</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_21</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_8</Property>
+      <Property Name="EndNode">node_3</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_22</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_3</Property>
+      <Property Name="EndNode">node_9</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_23</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_13</Property>
+      <Property Name="EndNode">node_65</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_24</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_4</Property>
+      <Property Name="EndNode">DumpPoint00</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_25</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_64</Property>
+      <Property Name="EndNode">node_16</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_26</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_17</Property>
+      <Property Name="EndNode">HomeNode</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_27</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation11</Property>
+      <Property Name="EndNode">node_17</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_28</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation10</Property>
+      <Property Name="EndNode">BatterySwapChargeStation11</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_29</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_0</Property>
+      <Property Name="EndNode">node_17</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_30</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation22</Property>
+      <Property Name="EndNode">node_0</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_31</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation21</Property>
+      <Property Name="EndNode">node_0</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_32</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_19</Property>
+      <Property Name="EndNode">TrolleyAssistEndNode</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_33</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_19</Property>
+      <Property Name="EndNode">node_60</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_34</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">TrolleyAssistEndNode</Property>
+      <Property Name="EndNode">node_21</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_35</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_48</Property>
+      <Property Name="EndNode">node_62</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">TrolleyBypassPath</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">TrolleyAssistStartNode</Property>
+      <Property Name="EndNode">TrolleyAssistEndNode</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_37</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_63</Property>
+      <Property Name="EndNode">node_49</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_38</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_62</Property>
+      <Property Name="EndNode">MineBlock05</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_41</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint00</Property>
+      <Property Name="EndNode">node_46</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP00_DP11</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint00</Property>
+      <Property Name="EndNode">DumpPoint11</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP11_DP12</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint11</Property>
+      <Property Name="EndNode">DumpPoint12</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP11_DP16</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint11</Property>
+      <Property Name="EndNode">DumpPoint16</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP14_DP16</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint14</Property>
+      <Property Name="EndNode">DumpPoint16</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DP16_DP21</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint16</Property>
+      <Property Name="EndNode">DumpPoint21</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_49</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">DumpPoint26</Property>
+      <Property Name="EndNode">node_8</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_50</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_66</Property>
+      <Property Name="EndNode">node_47</Property>
+      <Property Name="SpeedLimit">20</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_51</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_9</Property>
+      <Property Name="EndNode">node_10</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_52</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_64</Property>
+      <Property Name="EndNode">MineBlock07</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_53</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_10</Property>
+      <Property Name="EndNode">node_12</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BSCS10_BSCS20</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation10</Property>
+      <Property Name="EndNode">BatterySwapChargeStation20</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_56</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation20</Property>
+      <Property Name="EndNode">BatterySwapChargeStation22</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_57</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">BatterySwapChargeStation20</Property>
+      <Property Name="EndNode">BatterySwapChargeStation21</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_58</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_60</Property>
+      <Property Name="EndNode">MineBlock03</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_61</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_47</Property>
+      <Property Name="EndNode">HomeNode</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_55</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_47</Property>
+      <Property Name="EndNode">BatterySwapChargeStation10</Property>
+      <Property Name="SpeedLimit">10</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_62</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_60</Property>
+      <Property Name="EndNode">node_61</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">TrolleyAssistPath</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">TrolleyAssistStartNode</Property>
+      <Property Name="EndNode">node_48</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleyAssistEnabled">True</Property>
+      <Property Name="TrolleySectionTotalPowerKw">10000</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">5000</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">6</Property>
+      <Property Name="TrolleyVoltageV">1200</Property>
+      <Property Name="TrolleyEfficiencyPct">93</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_64</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_48</Property>
+      <Property Name="EndNode">node_49</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_65</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_49</Property>
+      <Property Name="EndNode">node_21</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_66</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">TrolleyAssistEndNode</Property>
+      <Property Name="EndNode">node_48</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_67</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_51</Property>
+      <Property Name="EndNode">node_52</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_68</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_52</Property>
+      <Property Name="EndNode">node_53</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_69</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_52</Property>
+      <Property Name="EndNode">node_57</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_70</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_53</Property>
+      <Property Name="EndNode">node_12</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_71</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_56</Property>
+      <Property Name="EndNode">node_53</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_72</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">RechargeBatteryNode</Property>
+      <Property Name="EndNode">node_56</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_73</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">RefuelDieselNode</Property>
+      <Property Name="EndNode">node_56</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_74</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_57</Property>
+      <Property Name="EndNode">RechargeBatteryNode</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_75</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_57</Property>
+      <Property Name="EndNode">RefuelDieselNode</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_77</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_51</Property>
+      <Property Name="EndNode">node_58</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_78</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_58</Property>
+      <Property Name="EndNode">node_59</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_79</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_58</Property>
+      <Property Name="EndNode">MineBlock01</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_81</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_10</Property>
+      <Property Name="EndNode">node_51</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_82</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_59</Property>
+      <Property Name="EndNode">node_52</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_83</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_59</Property>
+      <Property Name="EndNode">MineBlock02</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_84</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_61</Property>
+      <Property Name="EndNode">TrolleyAssistStartNode</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_85</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_61</Property>
+      <Property Name="EndNode">MineBlock04</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_86</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_62</Property>
+      <Property Name="EndNode">node_63</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_87</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_63</Property>
+      <Property Name="EndNode">MineBlock06</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_88</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock01</Property>
+      <Property Name="EndNode">node_58</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_89</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock02</Property>
+      <Property Name="EndNode">node_59</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_90</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock03</Property>
+      <Property Name="EndNode">node_60</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_91</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock04</Property>
+      <Property Name="EndNode">node_61</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_92</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock05</Property>
+      <Property Name="EndNode">node_62</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_93</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock06</Property>
+      <Property Name="EndNode">node_63</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_94</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">MineBlock07</Property>
+      <Property Name="EndNode">node_64</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_95</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_65</Property>
+      <Property Name="EndNode">node_3</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_96</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_3</Property>
+      <Property Name="EndNode">node_66</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_97</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_8</Property>
+      <Property Name="EndNode">node_66</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">2147483647</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">edge_98</Property>
+      <Property Name="ObjectType">obj_ElectricPath</Property>
+      <Property Name="StartNode">node_65</Property>
+      <Property Name="EndNode">node_4</Property>
+      <Property Name="SpeedLimit">55</Property>
+      <Property Name="RoadFrictionCoefficient">0.7</Property>
+      <Property Name="TrolleySectionTotalPowerKw">0</Property>
+      <Property Name="TrolleyMaxPowerPerTruckKw">0</Property>
+      <Property Name="TrolleyMaxConcurrentTrucks">Infinity</Property>
+      <Property Name="TrolleyVoltageV">0</Property>
+      <Property Name="TrolleyEfficiencyPct">0</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- 5KmYqaf8RRJNHTZ4zeLBQ3mInRMSssvjo/2aRqu2pz1QfkpS5xbw3HNRqlSL73MLfDKJJpzvsKLtcKhS0pd4Gw== -->

@@ -1,0 +1,63 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation1</Property>
+      <Property Name="ObjectType">obj_BatterySwapChargeStation</Property>
+      <Property Name="x1">1227.5</Property>
+      <Property Name="y1">94</Property>
+      <Property Name="z1">297.5</Property>
+      <Property Name="InitialNode">BatterySwapChargeStation11</Property>
+      <Property Name="BatteryEntityReference">BatteryEntity</Property>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_801</Property>
+      <Property Name="InitialBatteryInventory">7</Property>
+      <Property Name="MaxConcurrentChargingPorts">7</Property>
+      <Property Name="ChargingPortMaxPowerKw">1000</Property>
+      <Property Name="ChargingEfficiencyPct">92.5</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_BatterySwapChargeStation_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_BatterySwapChargeStation.event_OnRunInitialised</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation2</Property>
+      <Property Name="ObjectType">obj_BatterySwapChargeStation</Property>
+      <Property Name="x1">1227.5</Property>
+      <Property Name="y1">94</Property>
+      <Property Name="z1">277.5</Property>
+      <Property Name="InitialNode">BatterySwapChargeStation21</Property>
+      <Property Name="BatteryEntityReference">BatteryEntity</Property>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_801</Property>
+      <Property Name="InitialBatteryInventory">7</Property>
+      <Property Name="MaxConcurrentChargingPorts">7</Property>
+      <Property Name="ChargingPortMaxPowerKw">1000</Property>
+      <Property Name="ChargingEfficiencyPct">92.5</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_BatterySwapChargeStation_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_BatterySwapChargeStation.event_OnRunInitialised</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation3</Property>
+      <Property Name="ObjectType">obj_BatterySwapChargeStation</Property>
+      <Property Name="x1">1227.5</Property>
+      <Property Name="y1">94</Property>
+      <Property Name="z1">257.5</Property>
+      <Property Name="InitialNode">BatterySwapChargeStation22</Property>
+      <Property Name="BatteryEntityReference">BatteryEntity</Property>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_801</Property>
+      <Property Name="InitialBatteryInventory">7</Property>
+      <Property Name="MaxConcurrentChargingPorts">7</Property>
+      <Property Name="ChargingPortMaxPowerKw">1000</Property>
+      <Property Name="ChargingEfficiencyPct">92.5</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_BatterySwapChargeStation_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_BatterySwapChargeStation.event_OnRunInitialised</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- DnLiXvAhh6Q54F2DYSyaQBroQ1TDRBBMjaOdXhmaTz6U9mn67ue+z7eB9S1W7e5NHKy8GP6LUJlUS9KiyYj69w== -->

@@ -1,0 +1,87 @@
+<Fragment>
+  <Lists>
+    <StringList Name="FreeSpaceSteeringBehaviorType">
+      <Items>
+        <Item Value="DirectToDestination" />
+        <Item Value="FollowNetworkPathIfPossible" />
+      </Items>
+    </StringList>
+  </Lists>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+    </Categories>
+    <ListProperty Name="FreeSpaceSteeringBehavior" DisplayName="Free Space Steering Behavior" Description="The behavior used to steer an entity of this type when traveling in free space to a destination.&#xD;&#xA;&#xD;&#xA;'Direct To Destination' will steer an entity in a straight line to its destination.&#xD;&#xA;&#xD;&#xA;'Follow Network Path If Possible' will prefer to steer an entity along a path following its currently assigned network, staying within the boundaries of the drawn path width. The Entity will travel based on the drawn length of the path even if a different logical length is specified. However, if no followable network path exists to the entity's destination then the entity will be steered in a straight line. Note: In order to use this steering behavior, make sure the entity's travel mode is set to 'Free Space Only'." Category="Travel Logic" DefaultValue="Direct To Destination" NullString="null" List="FreeSpaceSteeringBehaviorType">
+      <Captions>
+        <Caption Value="DirectToDestination" Display="Direct To Destination" />
+        <Caption Value="FollowNetworkPathIfPossible" Display="Follow Network Path If Possible" />
+      </Captions>
+    </ListProperty>
+    <ExpressionProperty Name="FreeSpaceSteeringUpdateInterval" DisplayName="Update Interval" Description="The time interval between steering adjustments to maintain adherence to the network path and avoid collisions." Category="Travel Logic" DefaultValue="0.1" Parent="FreeSpaceSteeringBehavior" NullString="null" UnitType="Time" DefaultUnits="Seconds">
+      <Switch Property="FreeSpaceSteeringBehavior" Value="FollowNetworkPathIfPossible" />
+    </ExpressionProperty>
+    <BooleanProperty Name="FreeSpaceSteeringAvoidCollisions" DisplayName="Avoid Collisions" Description="Indicates whether the steering behavior will attempt to avoid collisions with other entities that are following the same network path." Category="Travel Logic" DefaultValue="False" Parent="FreeSpaceSteeringBehavior" NullString="null">
+      <Switch Property="FreeSpaceSteeringBehavior" Value="FollowNetworkPathIfPossible" />
+    </BooleanProperty>
+    <Overrides>
+      <Override Name="ResourceIdleCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceCostPerUse" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceUsageCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="LogResourceUsage" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayCategory" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DisplayColor" Visible="False" InheritDefaultValue="True" />
+      <Override Name="IncludeInPlanResourceConstraints" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CapacityType" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialWorkSchedule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="WorkDayExceptions" Visible="False" InheritDefaultValue="True" />
+      <Override Name="WorkPeriodExceptions" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialCapacity" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingRule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="RankingExpression" Visible="False" InheritDefaultValue="True" />
+      <Override Name="DynamicSelectionRule" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CurrentSizeIndex" DefaultValue="$(DefinitionName).Picture" />
+      <Override Name="InitialDesiredSpeed" DefaultValue="1.4" />
+    </Overrides>
+  </PropertyDefinitions>
+  <States>
+    <DiscreteState Name="Picture" Description="A utility state to hold a picture index. This state can then be referenced in an expression for Current Symbol Index." />
+    <StringState Name="Animation" Description="A utility state to hold the name of an animation. This state can then be referenced in an expression for Current Animation Index." />
+    <ElementReferenceState Name="var_CreatedNodeReference" ElementType="Node" />
+  </States>
+  <Events />
+  <Elements />
+  <Processes>
+    <FileRef Name="Models\ModelEntity\Processes\OnEnteredFreeSpace.xml" />
+  </Processes>
+  <Tokens>
+    <Token Name="FreeSpaceSteeringToken">
+      <States>
+        <BooleanState Name="EnteredFreeSpaceFromNode" />
+        <ElementReferenceState Name="NetworkPathNextLink" ElementType="Link" />
+        <ElementReferenceState Name="NetworkPathNextNode" ElementType="Node" />
+        <ElementReferenceState Name="DestinationNode" ElementType="Node" />
+      </States>
+    </Token>
+  </Tokens>
+  <External>
+    <Graphics>
+      <SymbolInstance Center="1 0 0" Scale="61.38784150644752" ExternallyVisible="True">
+        <SymbolRef Id="7a4ad64f-fdbf-4081-8789-b13ec6b1228b" />
+      </SymbolInstance>
+      <DefaultFlowMaterial>
+        <MaterialRef Id="b9339f1f-919b-4404-8ce1-4e5b1caeb5bc" />
+      </DefaultFlowMaterial>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2025-11-20T00:51:45" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- bNw9Dq0blwlnyGrbcN7ocrok0Fe9ddprHxcg5KJCjR19cIdyZUBg2UfI4rumMjk4DbvJyMuuqgAf8SLdI9d+cg== -->

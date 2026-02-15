@@ -1,0 +1,37 @@
+<Fragment>
+  <Process Name="OnCollided" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnCollided" BeginStepID="2" Category="User Defined">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="IfPassingAllowed" ExclusionExpression="Math.If(AllowPassing, 1, 2)" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">AllowPassing</Property>
+        </Properties>
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="EntityMovementRate" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>Entity.Movement.Rate</Value>
+          </Property>
+          <Property Name="NewValue">Entity.NextEntityAheadOnLink.Movement.Rate</Property>
+        </Properties>
+      </Step>
+      <Step Type="Fire" Name="SpeedUpdatesFalse" Color="fca09f" ID="4">
+        <Properties>
+          <Property Name="EventName">obj_Truck.event_SpeedUpdates_False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="Truck" ID="5">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Truck &amp;&amp; Entity.NextEntityAheadOnLink.Movement.Rate==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- P3Y6XYZuAEn9VijlWetm+9gcj2lbVgWF8tIB0o02LmPY+5VpdfqDxFiGgT57Mrt/tKIkyq7ztvzmLms3ESBE3Q== -->

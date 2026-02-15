@@ -1,0 +1,50 @@
+<Fragment>
+  <ViewInfo>
+    <Process PanelWidth="133" DefaultCategoryExpanded="True">
+      <Categories>
+        <Category Name="10 OnRunInitialised Processes" Expanded="True" />
+        <Category Name="20 Interface" Expanded="True" />
+        <Category Name="30 Time Step Processes" Expanded="True" />
+        <Category Name="40 TaskSequence Processes (BatterySwapTruck)" Expanded="True" />
+        <Category Name="Deprecated Processes" />
+      </Categories>
+    </Process>
+    <External>
+      <Camera Orientation="Perspective" Location="42.10247210689365 35.186713169062266 32.009596803117944" Direction="-0.5773502691896258 -0.577350269189626 -0.5773502691896255" Zoom="60.94517496016874" />
+      <ObjectDisplay SnapToGrid="True" Background="ffffff" />
+    </External>
+    <StandardTables>
+      <DevExpressLayout>
+        <FileRef Name="Data\DevExpressLayout4.xml" />
+      </DevExpressLayout>
+      <Tables SelectedTable="tbl_Tasks">
+        <Table Name="tbl_Tasks" FilterEnabled="True">
+          <Columns>
+            <Column Name="SequenceNumber" Width="107" />
+            <Column Name="Name" Width="149" />
+            <Column Name="TaskBranchType" Width="105" />
+            <Column Name="TaskConditionOrProbability" Width="158" />
+            <Column Name="TaskProcessName" Width="166" />
+            <Column Name="TaskDuration" Width="141" />
+          </Columns>
+        </Table>
+        <Table Name="tbl_BatteriesOutOfService" FilterEnabled="True">
+          <Columns>
+            <Column Name="DateTime" Width="75" />
+            <Column Name="RunTime" Width="75" />
+            <Column Name="OriginalObjectReference" Width="144" />
+            <Column Name="CurrentObjectReference" Width="145" />
+            <Column Name="BatteryID" Width="75" />
+            <Column Name="BatteryType" Width="83" />
+            <Column Name="BatteryHealthPct" Width="108" />
+            <Column Name="BatteryResourceState" Width="133" />
+            <Column Name="BatterySOCPct" Width="98" />
+            <Column Name="ChargingCycleCount" Width="124" />
+            <Column Name="BatteryCumulativeThroughputKwh" Width="194" />
+          </Columns>
+        </Table>
+      </Tables>
+    </StandardTables>
+  </ViewInfo>
+</Fragment>
+<!-- R53efSB00T4UAF8yNnJzuv9uXbJo2tBY78S/MrrvC8A0Mb++yuh+WhpFohCHRtjFGdBJKobgZGne4sXNAL6sIg== -->

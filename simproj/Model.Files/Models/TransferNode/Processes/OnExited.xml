@@ -1,0 +1,39 @@
+<Fragment>
+  <Process Name="OnExited" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Node.OnExited" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Tally" Name="OnExitedTallies" ID="2">
+        <Properties>
+          <Property Name="Tallies">
+            <Value>TalliesOnExited</Value>
+            <Rows>
+              <Properties>
+                <Property Name="TalliesTallyStatisticName">
+                  <Value>TalliesOnExitedTallyStatisticName</Value>
+                </Property>
+                <Property Name="TalliesValueType">TalliesOnExitedValueType</Property>
+                <Property Name="TalliesValueExpression">TalliesOnExitedValueExpression</Property>
+                <Property Name="TalliesNumberOfObservations">Math.If(TalliesOnExited.TalliesOnExitedTallyConditionType==List.ActionConditionType.NoCondition,1,TalliesOnExited.TalliesOnExitedTallyConditionType==List.ActionConditionType.IsEntity, !Entity.Is.Transporter,TalliesOnExited.TalliesOnExitedTallyConditionType==List.ActionConditionType.IsTransporter, Entity.Is.Transporter, TalliesOnExited.TalliesOnExitedTallyCondition&gt;0.0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Execute" Name="ExitedAddOnProcess" ID="3">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitedAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Fire" Name="ExitedEvent" ID="4">
+        <Properties>
+          <Property Name="EventName">Exited</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- PIVfnQz6ULgn4t5dr1I7QSVPQ2vSAeFwbcd9bq8I9a4M5Rwhg/FJhcCTiWjNiCbpuLjqcGZkQAMFcF6fzc4p6A== -->

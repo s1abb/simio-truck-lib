@@ -1,0 +1,33 @@
+<Fragment>
+  <Process Name="OnMinimumDwellTimeExpired" BeginStepID="2">
+    <Properties>
+      <Property Name="TriggeringEventName">MinimumDwellTimeExpirationTimer.Event</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="MinimumDwellTimeExpiredFlag" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>MinimumDwellTimeExpired</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="UnSubscribe" Name="FromMinimumDwellTimeExpirationEvent" ExclusionExpression="MinimumDwellTimeType!=List.VehicleMinimumDwellTimeType.DwellUntilEvent" ID="3">
+        <Properties>
+          <Property Name="EventName">MinimumDwellTimeExpirationEventName</Property>
+          <Property Name="ProcessName">
+            <Value>OnMinimumDwellTimeExpired</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Fire" Name="RemainInPlaceEndedEvent" ID="4">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- a3ASir9daBOP1uS42rV85IquTatw0a9oiL4g342EcNxMUkqriKdQowPMcd/bzio2qLx4k7LJg5gWM5r7As2SOQ== -->

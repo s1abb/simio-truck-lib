@@ -1,0 +1,60 @@
+<Fragment>
+  <Process Name="OnMoveRequestAccepted" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Entity.OnMoveRequestAccepted" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="SelectVisit" Name="ToAcceptedDestination" ID="2">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfInFreeSpace" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(CurrentNode==Nothing)&amp;&amp;(CurrentLink==Nothing)&amp;&amp;(CurrentStation==Nothing)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="7" />
+        <Exit Name="False" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Decide" Name="IfUnpark" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IsParked &amp;&amp; (OnVisitingNode.TokensInProcess==0)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="6" />
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Fire" Name="RemainInPlaceEndedEvent" ID="5">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+      </Step>
+      <Step Type="UnPark" Name="Vehicle" ID="6">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+        </Properties>
+      </Step>
+      <Step Type="Travel" Name="ToDestinationNode" ID="7">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SteeringBehavior" BehaviorGuid="2b2ac6d5-73de-4ac8-bfc8-8b0ea2fdbe1e">
+            <Value>Direct To Destination</Value>
+            <Properties>
+              <Property Name="DestinationObject">DestinationNode</Property>
+              <Property Name="MaximumMovementRate">DesiredSpeed</Property>
+            </Properties>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Transfer" Name="ToDestinationNode" ID="8">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">DestinationNode</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- hGPTgDUAmnw/rSeiXc3nEMU+t2AEjkpZ78UdMBBMhezkAEvQiTniVNHwxHP1cNlyJp3xTHv537uLM60UUqm9Cw== -->

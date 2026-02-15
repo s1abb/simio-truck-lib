@@ -1,0 +1,516 @@
+<Fragment>
+  <Process Name="OnVisitingNode" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Entity.OnVisitingNode" BeginStepID="2">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectTransferRequested">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Execute" Name="EnteredNodeAddOnProcess" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>EnteredNodeAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfNotVisitingNode" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Math.If(IgnoreVisitingCurrentNode, True, ResourceState==List.ResourceStateName.Idle, False, ResourceState==List.ResourceStateName.OffShift, ((OffShiftAction==List.VehicleOffShiftAction.GoToHome)||(OffShiftAction==List.VehicleOffShiftAction.ParkAtHome))&amp;&amp;(HomeNode!=Nothing)&amp;&amp;(DestinationNode==HomeNode)&amp;&amp;(CurrentNode!=HomeNode),(DestinationNode!=Nothing)&amp;&amp;(CurrentNode!=DestinationNode), True, False)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="39" />
+        <Exit Name="False" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Decide" Name="IfBusy" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(ResourceState==List.ResourceStateName.Busy)||(ResourceState==List.ResourceStateName.OffShiftBusy)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="31" />
+        <Exit Name="False" Type="Alternate" NextID="34" />
+      </Step>
+      <Step Type="Arrive" Name="AtDestination" ID="5">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="41" />
+      </Step>
+      <Step Type="Wait" Name="UntilRemainInPlaceEnded" ID="6">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Delay" Name="Epsilon" ID="7">
+        <Properties>
+          <Property Name="DelayTime">Math.Epsilon</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Execute" Name="ExitingNodeAddOnProcess" ID="8">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitingNodeAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Dropoff" Name="Rider" ID="9">
+        <Properties>
+          <Property Name="TransporterType">ParentObject</Property>
+          <Property Name="UnloadTime">UnloadTime</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="10" />
+        <Exit Name="Failed" Type="Alternate" NextID="60" />
+      </Step>
+      <Step Type="Decide" Name="IfWaitUntilRiderUnloaded" ExclusionExpression="Math.If(!UnloadedAddOnProcess.HasValue,2,0)" ID="10">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">OnRiderUnloaded.TokensInProcess &gt; 0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="11" />
+        <Exit Name="False" Type="Alternate" NextID="9" />
+      </Step>
+      <Step Type="Wait" Name="UntilRiderUnloaded" ExclusionExpression="!UnloadedAddOnProcess.HasValue" ID="11">
+        <Properties>
+          <Property Name="EventName">RiderUnloaded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="9" />
+      </Step>
+      <Step Type="Pickup" Name="Rider" ID="12">
+        <Properties>
+          <Property Name="TransporterType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+          <Property Name="LoadTime">LoadTime</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="13" />
+        <Exit Name="Failed" Type="Alternate" NextID="53" />
+      </Step>
+      <Step Type="Decide" Name="IfWaitUntilRiderLoaded" ExclusionExpression="Math.If(!LoadedAddOnProcess.HasValue,2,0)" ID="13">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">OnRiderLoaded.TokensInProcess &gt; 0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="14" />
+        <Exit Name="False" Type="Alternate" NextID="12" />
+      </Step>
+      <Step Type="Wait" Name="UntilRiderLoaded" ExclusionExpression="!LoadedAddOnProcess.HasValue" ID="14">
+        <Properties>
+          <Property Name="EventName">RiderLoaded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="Decide" Name="IfFixedRouting" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.FixedRoute,1,2)" ID="15">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">RoutingType==List.VehicleRoutingType.FixedRoute</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="48" />
+        <Exit Name="False" Type="Alternate" NextID="17" />
+      </Step>
+      <Step Type="SetNode" Name="ToNextSequenceDestination" ID="16">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="DestinationType">BySequence</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="39" />
+      </Step>
+      <Step Type="SelectDropoff" Name="NextTransportDropoff" ID="17">
+        <Properties>
+          <Property Name="TransporterType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="39" />
+        <Exit Name="Failed" Type="Alternate" NextID="18" />
+      </Step>
+      <Step Type="SelectVisit" Name="ToAcceptedDestination" ID="18">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="59" />
+        <Exit Name="Failed" Type="Alternate" NextID="19" />
+      </Step>
+      <Step Type="Release" Name="Vehicle" ID="19">
+        <Properties>
+          <Property Name="OwnerType">ParentObject</Property>
+          <Property Name="ResourceReleases">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceType">ParentObject</Property>
+                <Property Name="QuantityType">All</Property>
+              </Properties>
+            </Rows>
+          </Property>
+          <Property Name="ImmediatelyTryAllocate">False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="20" />
+      </Step>
+      <Step Type="Delay" Name="Epsilon" ID="20">
+        <Properties>
+          <Property Name="DelayTime">Math.Epsilon</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="29" />
+      </Step>
+      <Step Type="PlanVisit" Name="NewTransportRequests" ID="21">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="21" />
+        <Exit Name="Failed" Type="Alternate" NextID="22" />
+      </Step>
+      <Step Type="Decide" Name="IfIdle" ID="22">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState==List.ResourceStateName.Idle</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="23" />
+        <Exit Name="False" Type="Alternate" NextID="39" />
+      </Step>
+      <Step Type="Decide" Name="IfParking" ExclusionExpression="Math.If(IdleAction==List.VehicleIdleAction.ParkAtNode,1,IdleAction!=List.VehicleIdleAction.ParkAtHome,2,0)" ID="23">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(HomeNode==CurrentNode)||(HomeNode==Nothing)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="38" />
+        <Exit Name="False" Type="Alternate" NextID="24" />
+      </Step>
+      <Step Type="Decide" Name="IfHoming" ExclusionExpression="Math.If(IdleAction==List.VehicleIdleAction.ParkAtHome,1,IdleAction!=List.VehicleIdleAction.GoToHome,2,0)" ID="24">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(HomeNode!=Nothing)&amp;&amp;(HomeNode!=CurrentNode)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="26" />
+        <Exit Name="False" Type="Alternate" NextID="25" />
+      </Step>
+      <Step Type="Decide" Name="IfRoaming" ExclusionExpression="Math.If(IdleAction==List.VehicleIdleAction.Roam,1,2)" ID="25">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IdleAction==List.VehicleIdleAction.Roam</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="39" />
+        <Exit Name="False" Type="Alternate" NextID="28" />
+      </Step>
+      <Step Type="SetNode" Name="ToHome" ID="26">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">HomeNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="39" />
+      </Step>
+      <Step Type="Park" Name="AtCurrentNode" ID="27">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">CurrentNode</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="42" />
+      </Step>
+      <Step Type="Wait" Name="UntilRemainInPlaceEnded" ID="28">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfIdle" ID="29">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState==List.ResourceStateName.Idle</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="21" />
+        <Exit Name="False" Type="Alternate" NextID="45" />
+      </Step>
+      <Step Type="Execute" Name="ExitingNodeAddOnProcess" ID="30">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitingNodeAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="27" />
+      </Step>
+      <Step Type="Decide" Name="IfParked" ExclusionExpression="!ParkWhileBusy" ID="31">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+        <Exit Name="False" Type="Alternate" NextID="32" />
+      </Step>
+      <Step Type="Execute" Name="ExitingNodeAddOnProcess" ID="32">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitingNodeAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="33" />
+      </Step>
+      <Step Type="Park" Name="AtCurrentNode" ID="33">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">CurrentNode</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Decide" Name="IfLoadingUnloading" ID="34">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Math.If(ResourceState==List.ResourceStateName.OffShift, False, (ResourceState==List.ResourceStateName.Transporting)||(ResourceState==List.ResourceStateName.OffShiftTransporting), True, Node.RidePickupQueue.NumberWaiting&gt;0)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="50" />
+        <Exit Name="False" Type="Alternate" NextID="29" />
+      </Step>
+      <Step Type="Decide" Name="IfParking" ExclusionExpression="Math.If(ParkToLoadUnload, 0, 2)" ID="35">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ParkToLoadUnload &amp;&amp; !IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="36" />
+        <Exit Name="False" Type="Alternate" NextID="9" />
+      </Step>
+      <Step Type="Execute" Name="ExitingNodeAddOnProcess" ID="36">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitingNodeAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="37" />
+      </Step>
+      <Step Type="Park" Name="AtCurrentNode" ID="37">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">CurrentNode</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="9" />
+      </Step>
+      <Step Type="Decide" Name="IfParked" ID="38">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="28" />
+        <Exit Name="False" Type="Alternate" NextID="30" />
+      </Step>
+      <Step Type="Decide" Name="IfParked" ID="39">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="43" />
+        <Exit Name="False" Type="Alternate" NextID="44" />
+      </Step>
+      <Step Type="UnPark" Name="Vehicle" ID="40">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+        </Properties>
+      </Step>
+      <Step Type="SelectVisit" Name="ToAcceptedDestination" ID="41">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="3" />
+        <Exit Name="Failed" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="IfIdleOrOffShift" ID="42">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(ResourceState==List.ResourceStateName.Idle)||(ResourceState==List.ResourceStateName.OffShift)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="28" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="IgnoreVisitingCurrentNodeFlag" ID="43">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>IgnoreVisitingCurrentNode</Value>
+          </Property>
+          <Property Name="NewValue">CurrentNode!=DestinationNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="40" />
+      </Step>
+      <Step Type="Assign" Name="IgnoreVisitingCurrentNodeFlag" ID="44">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>IgnoreVisitingCurrentNode</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Decide" Name="IfOffShift" ID="45">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState==List.ResourceStateName.OffShift</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="46" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfParking" ExclusionExpression="Math.If(OffShiftAction==List.VehicleOffShiftAction.ParkAtNode,1,OffShiftAction!=List.VehicleOffShiftAction.ParkAtHome,2,0)" ID="46">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(HomeNode==CurrentNode)||(HomeNode==Nothing)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="38" />
+        <Exit Name="False" Type="Alternate" NextID="47" />
+      </Step>
+      <Step Type="Decide" Name="IfHoming" ExclusionExpression="Math.If(OffShiftAction==List.VehicleOffShiftAction.ParkAtHome,1,OffShiftAction!=List.VehicleOffShiftAction.GoToHome,2,0)" ID="47">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(HomeNode!=Nothing)&amp;&amp;(HomeNode!=CurrentNode)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="26" />
+        <Exit Name="False" Type="Alternate" NextID="28" />
+      </Step>
+      <Step Type="Release" Name="Vehicle" ID="48">
+        <Properties>
+          <Property Name="OwnerType">ParentObject</Property>
+          <Property Name="ResourceReleases">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceType">ParentObject</Property>
+                <Property Name="UnitsPerResource">(ResourceState==List.ResourceStateName.OffShiftTransporting)&amp;&amp;(RideStation.Contents==0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="49" />
+      </Step>
+      <Step Type="Decide" Name="IfOffShift" ID="49">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState==List.ResourceStateName.OffShift</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="46" />
+        <Exit Name="False" Type="Alternate" NextID="58" />
+      </Step>
+      <Step Type="Assign" Name="MinimumDwellTimeExpiredFlag" ExclusionExpression="MinimumDwellTimeType==List.VehicleMinimumDwellTimeType.NoRequirement" ID="50">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>MinimumDwellTimeExpired</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="51" />
+      </Step>
+      <Step Type="Fire" Name="MinimumDwellTimeExpirationResetEvent" ExclusionExpression="MinimumDwellTimeType!=List.VehicleMinimumDwellTimeType.SpecificTime" ID="51">
+        <Properties>
+          <Property Name="EventName">MinimumDwellTimeExpirationReset</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="52" />
+      </Step>
+      <Step Type="Subscribe" Name="ToMinimumDwellTimeExpirationEvent" ExclusionExpression="MinimumDwellTimeType!=List.VehicleMinimumDwellTimeType.DwellUntilEvent" ID="52">
+        <Properties>
+          <Property Name="EventName">MinimumDwellTimeExpirationEventName</Property>
+          <Property Name="ProcessName">
+            <Value>OnMinimumDwellTimeExpired</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="35" />
+      </Step>
+      <Step Type="Decide" Name="IfMinimumDwellTimeExpired" ExclusionExpression="MinimumDwellTimeType==List.VehicleMinimumDwellTimeType.NoRequirement" ID="53">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">MinimumDwellTimeExpired</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="15" />
+        <Exit Name="False" Type="Alternate" NextID="54" />
+      </Step>
+      <Step Type="Decide" Name="IfMinimumDwellTimeCondition" ID="54">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Math.If(MinimumDwellTimeCondition.HasValue, MinimumDwellTimeCondition, True)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="61" />
+        <Exit Name="False" Type="Alternate" NextID="56" />
+      </Step>
+      <Step Type="Wait" Name="UntilRemainInPlaceEnded" ID="55">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="Assign" Name="MinimumDwellTimeExpiredFlag" ID="56">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>MinimumDwellTimeExpired</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="57" />
+      </Step>
+      <Step Type="UnSubscribe" Name="FromMinimumDwellTimeExpirationEvent" ExclusionExpression="MinimumDwellTimeType!=List.VehicleMinimumDwellTimeType.DwellUntilEvent" ID="57">
+        <Properties>
+          <Property Name="EventName">MinimumDwellTimeExpirationEventName</Property>
+          <Property Name="ProcessName">
+            <Value>OnMinimumDwellTimeExpired</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="15" />
+      </Step>
+      <Step Type="Assign" Name="BeforeNextDestinationAssignments" ID="58">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnEvaluatingRiderReservation.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="16" />
+      </Step>
+      <Step Type="Decide" Name="IfBusyAndDestinationIsCurrentNode" ID="59">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState==List.ResourceStateName.Busy &amp;&amp; DestinationNode==CurrentNode</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="31" />
+        <Exit Name="False" Type="Alternate" NextID="39" />
+      </Step>
+      <Step Type="Assign" Name="ToClearPreferredOwner" ExclusionExpression="RoutingType==List.VehicleRoutingType.FixedRoute" ID="60">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>PreferredOwner</Value>
+          </Property>
+          <Property Name="NewValue">Nothing</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnNewSeizeRequest.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="12" />
+      </Step>
+      <Step Type="Assign" Name="DwellingAssignments" ID="61">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnEvaluatingRiderReservation.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="55" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Ml6WQibn55HlLYBOCVpoR2xsKovSf6Jr0I+Js44qlLN/hs2FUrpmfQwQzNk3Smsu+X30KH3VSPZiVKeXtcnS7w== -->

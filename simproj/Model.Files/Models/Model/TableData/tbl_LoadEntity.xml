@@ -1,0 +1,13 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">LoadEntity</Property>
+      <Property Name="ObjectType">obj_Load</Property>
+      <Property Name="x1">1323.75</Property>
+      <Property Name="y1">96</Property>
+      <Property Name="z1">272.5</Property>
+      <Property Name="DestinationNode">DumpPoint00</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- VkKGcNMYFvoA6KbdYdQ2LtH/BZJKMuxdcr3bcfV/70uxlrF+p67pB6Ng3H02fwy6ctfr3gnB4/NAZI3hg2Wh9Q== -->

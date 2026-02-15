@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_Shift" BeginStepID="2" Category="80 Loop Processes">
+    <Properties>
+      <Property Name="TriggeringEventName">tmr_Shift.Event</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="var_OnShift" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_OnShift</Value>
+          </Property>
+          <Property Name="NewValue">tbl_Shift.OnShift</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Gpw8++E8+UUh0L80Hd+tzHUjJIElolXGlWulAZjH3//uWvnoGOsDyYX34ZFqRu12VGYctTJZzphr+35mR+IIAw== -->

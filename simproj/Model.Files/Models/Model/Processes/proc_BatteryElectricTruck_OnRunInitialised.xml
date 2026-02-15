@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_BatteryElectricTruck_OnRunInitialised" BeginStepID="2" Category="30 BatteryElectricTruck Processes" Description="**Purpose:**  Fires the OnRunInitialised event from tbl_BatteryElectricTrucks configuration table to initialize truck instances.">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnRunInitialised" Description="**Fire OnRunInitialised:** Trigger OnRunInitialised event for each configured truck in tbl_BatteryElectricTrucks" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_BatteryElectricTrucks.OnRunInitialisedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- oP24omBBF6xA+J0UfbCSFRmJx2TZDZNW1fJnW2crB7QYTfkMjoHip7ulMa/atiUdsUlAJxomNRTcn4Tk3bUHfA== -->

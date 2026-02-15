@@ -1,0 +1,53 @@
+<Fragment>
+  <Process Name="OnRunInitialized" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnRunInitialized" BeginStepID="5">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectTransferRequested">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Park" Name="AtInitialNode" ID="2">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="NodeName">InitialNode</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="6" />
+        <Exit Name="Failed" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="IfUnpark" ExclusionExpression="Math.If((RoutingType==List.VehicleRoutingType.FixedRoute)||(IdleAction==List.VehicleIdleAction.Roam),0,2)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="UnPark" Name="Vehicle" ID="4">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+        </Properties>
+      </Step>
+      <Step Type="Execute" Name="RunInitializedAddOnProcess" ID="5">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>RunInitializedAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+      <Step Type="Decide" Name="IfOnShift" ID="6">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">ResourceState!=List.ResourceStateName.OffShift</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="PlanVisit" Name="InitialMoveOrTransportRequests" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.OnDemand,0,2)" ID="7">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="7" />
+        <Exit Name="Failed" Type="Alternate" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- dGMpC/z2j0hCqqRlZGjTenSUShTtIGRIMvSZkEKuJSPGNMNDP6Z41IFXsRHm2guAeF9yCgcZy0k/5QwfEdwHhg== -->

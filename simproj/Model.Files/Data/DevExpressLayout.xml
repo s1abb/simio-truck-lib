@@ -1,0 +1,258 @@
+<XtraSerializer version="1.0" application="TabbedView">
+  <property name="#LayoutVersion" />
+  <property name="#LayoutScaleFactor">@1,Width=1@1,Height=1</property>
+  <property name="DocumentProperties" isnull="true" iskey="true">
+    <property name="AllowClose">false</property>
+  </property>
+  <property name="Orientation">Vertical</property>
+  <property name="DocumentGroupProperties" isnull="true" iskey="true">
+    <property name="CloseTabOnMiddleClick">Never</property>
+  </property>
+  <property name="EnableFreeLayoutMode">Default</property>
+  <property name="EnableStickySplitters">Default</property>
+  <property name="CustomResizeZoneThickness">0</property>
+  <property name="Style">Default</property>
+  <property name="FloatDocumentsAlwaysOnTop">Default</property>
+  <property name="FloatingDocumentContainer">Default</property>
+  <property name="LoadingIndicatorProperties" isnull="true" iskey="true" />
+  <property name="DocumentSelectorProperties" isnull="true" iskey="true">
+    <property name="ShowPreview">false</property>
+  </property>
+  <property name="WindowsDialogProperties" isnull="true" iskey="true" />
+  <property name="Items" iskey="true" value="18">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">1</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=591@3,Height=419</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_Paths</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">2</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_Vertices</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">6</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_LoadEntity</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">4</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_BatteryEntity</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">3</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_BatterySwapChargeStations</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">5</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_BatteryStats</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">3</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_MineBlocks</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">2</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_Diggers</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">4</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@1,X=0@1,Y=0</property>
+      <property name="Size">@3,Width=589@3,Height=393</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_MineSequence</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup1</property>
+      <property name="IsSelected">true</property>
+      <property name="Index">0</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@4,X=1982@3,Y=615</property>
+      <property name="Size">@4,Width=1287@3,Height=385</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_TransferNodes</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">5</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@4,X=2292@3,Y=185</property>
+      <property name="Size">@4,Width=1287@3,Height=300</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_Shift</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">false</property>
+      <property name="Index">0</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@4,X=2063@3,Y=188</property>
+      <property name="Size">@4,Width=1287@3,Height=300</property>
+      <property name="IsActive">false</property>
+      <property name="Name">tbl_Trucks</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="ParentName">DocumentGroup0</property>
+      <property name="IsSelected">true</property>
+      <property name="Index">1</property>
+      <property name="WindowState">Normal</property>
+      <property name="Pinned">false</property>
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="IsFloating">false</property>
+      <property name="Location">@4,X=2093@3,Y=192</property>
+      <property name="Size">@4,Width=1287@3,Height=300</property>
+      <property name="IsActive">true</property>
+      <property name="Name">tbl_BatteryElectricTrucks</property>
+      <property name="TypeName">Document</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="Parent">Root</property>
+      <property name="Element" isnull="true" />
+      <property name="Orientation">Vertical</property>
+      <property name="Index">0</property>
+      <property name="Length" isnull="true" iskey="true">
+        <property name="UnitValue">1</property>
+        <property name="UnitType">Star</property>
+      </property>
+      <property name="Name">DockingContainer0</property>
+      <property name="TypeName">DockingContainer</property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="Parent">DockingContainer0</property>
+      <property name="Element">DocumentGroup0</property>
+      <property name="Orientation">Horizontal</property>
+      <property name="Index">0</property>
+      <property name="Length" isnull="true" iskey="true">
+        <property name="UnitValue">1.01395119087914</property>
+        <property name="UnitType">Star</property>
+      </property>
+      <property name="Name">DockingContainer1</property>
+      <property name="TypeName">DockingContainer</property>
+    </property>
+    <property name="Item16" isnull="true" iskey="true">
+      <property name="Parent">DockingContainer0</property>
+      <property name="Element">DocumentGroup1</property>
+      <property name="Orientation">Horizontal</property>
+      <property name="Index">1</property>
+      <property name="Length" isnull="true" iskey="true">
+        <property name="UnitValue">0.9916553867011911</property>
+        <property name="UnitType">Star</property>
+      </property>
+      <property name="Name">DockingContainer2</property>
+      <property name="TypeName">DockingContainer</property>
+    </property>
+    <property name="Item17" isnull="true" iskey="true">
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="Length">405</property>
+      <property name="HasLength">false</property>
+      <property name="Index">0</property>
+      <property name="Name">DocumentGroup0</property>
+      <property name="TypeName">DocumentGroup</property>
+    </property>
+    <property name="Item18" isnull="true" iskey="true">
+      <property name="Properties" isnull="true" iskey="true" />
+      <property name="Length">397</property>
+      <property name="HasLength">false</property>
+      <property name="Index">1</property>
+      <property name="Name">DocumentGroup1</property>
+      <property name="TypeName">DocumentGroup</property>
+    </property>
+  </property>
+</XtraSerializer>

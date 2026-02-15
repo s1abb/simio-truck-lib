@@ -1,0 +1,47 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_801</Property>
+      <Property Name="RatedStorageEnergyKwh">801</Property>
+      <Property Name="RatedLifetimeThroughputKwh">4005000</Property>
+      <Property Name="EndOfLifeBatteryHealthPct">70</Property>
+      <Property Name="InitialBatterySOCPct">100</Property>
+      <Property Name="InitialBatteryCumulativeThroughputKwh">0</Property>
+      <Property Name="InitialBatteryHealthPct">100</Property>
+      <Property Name="ReferenceLifeChargingCycles">5000</Property>
+      <Property Name="ReferenceDOD">1</Property>
+      <Property Name="ReferenceDischargeCRate">1</Property>
+      <Property Name="ReferenceChargeCRate">1</Property>
+      <Property Name="ReferenceTemperatureK">298</Property>
+      <Property Name="OperatingTemperatureK">0</Property>
+      <Property Name="CycleLife_Xi">0</Property>
+      <Property Name="CycleLife_Gamma1">0</Property>
+      <Property Name="CycleLife_Gamma2">0</Property>
+      <Property Name="CycleLife_Psi">0</Property>
+      <Property Name="CycleLife_Alpha">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_1700</Property>
+      <Property Name="RatedStorageEnergyKwh">1700</Property>
+      <Property Name="RatedLifetimeThroughputKwh">10200000</Property>
+      <Property Name="EndOfLifeBatteryHealthPct">70</Property>
+      <Property Name="InitialBatterySOCPct">100</Property>
+      <Property Name="InitialBatteryCumulativeThroughputKwh">0</Property>
+      <Property Name="InitialBatteryHealthPct">100</Property>
+      <Property Name="ReferenceLifeChargingCycles">6000</Property>
+      <Property Name="ReferenceDOD">0.8</Property>
+      <Property Name="ReferenceDischargeCRate">1</Property>
+      <Property Name="ReferenceChargeCRate">0.5</Property>
+      <Property Name="ReferenceTemperatureK">298</Property>
+      <Property Name="OperatingTemperatureK">298</Property>
+      <Property Name="CycleLife_Xi">0.55</Property>
+      <Property Name="CycleLife_Gamma1">0.9</Property>
+      <Property Name="CycleLife_Gamma2">0.9</Property>
+      <Property Name="CycleLife_Psi">0.5</Property>
+      <Property Name="CycleLife_Alpha">0.4</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- iYJoqMhaUeQJZ+btVsP9yFVMkbAZjDOGTE+pTYpy4lZ0vHjdP6/XFiPIkP/7R1t1ciEgUfFCrdIRI3dG2vJY6A== -->

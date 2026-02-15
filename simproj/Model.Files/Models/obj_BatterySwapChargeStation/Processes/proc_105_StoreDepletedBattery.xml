@@ -1,0 +1,60 @@
+<Fragment>
+  <Process Name="proc_105_StoreDepletedBattery" BeginStepID="4" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Transfers the depleted battery from the truck's battery station to the swap station's inventory, updating its resource state to ReadyToCharge so it can be queued for the next available charging port.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **BatteryVariables** (Assign) - Prepare depleted battery for transfer:&#xD;&#xA;   - Set `var_CurrentObjectReference = obj_BatterySwapChargeStation`&#xD;&#xA;   - Set `var_BatteryResourceState = ReadyToCharge`&#xD;&#xA;   - Set `var_CurrentStateEntryTimeHrs = TimeNow`&#xD;&#xA;   - Reset `var_TimeInCurrentStateHrs = 0`&#xD;&#xA;2. **TruckBattery** (Transfer) - Transfer battery from truck's `BatteryStation` to station's `BatteryStation`&#xD;&#xA;3. **TaskDuration** (Delay) - Delay for task duration">
+    <Properties />
+    <Steps>
+      <Step Type="Transfer" Name="TruckBattery" Description="Transfer battery from truck's `BatteryStation` to station's `BatteryStation`" ID="2">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation.Contents.FirstItem.obj_Battery</Value>
+          </Property>
+          <Property Name="FromType">CurrentStation</Property>
+          <Property Name="ToType">Station</Property>
+          <Property Name="StationName">
+            <Value>BatteryStation</Value>
+          </Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="3">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="BatteryVariables" Description="Prepare depleted battery for transfer:&#xD;&#xA;   - Set `var_CurrentObjectReference = obj_BatterySwapChargeStation`&#xD;&#xA;   - Set `var_BatteryResourceState = ReadyToCharge`&#xD;&#xA;   - Set `var_CurrentStateEntryTimeHrs = TimeNow`&#xD;&#xA;   - Reset `var_TimeInCurrentStateHrs = 0`" Color="c3d69b" ID="4">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation.Contents.FirstItem.obj_Battery.var_CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_BatterySwapChargeStation</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">List.list_BatteryResourceState.ReadyToCharge</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation.Contents.FirstItem.obj_Battery.var_CurrentStateEntryTimeHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">TimeNow</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation.Contents.FirstItem.obj_Battery.var_TimeInCurrentStateHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">0</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- ifGpdhaS/yo4Qp+IahybK7XNFkWE4+sWRK/Pf9pzdyz/pJux7TcZfc4HbXyN+MMidcCVPcGkiv0rxT0riNS9ww== -->

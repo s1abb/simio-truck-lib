@@ -1,0 +1,27 @@
+<Fragment>
+  <Process Name="OnTurnedAround" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnTurnedAround" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Assign" Name="EntityMovementRate" ExclusionExpression="SpeedLimit==Infinity" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>Entity.Movement.Rate</Value>
+          </Property>
+          <Property Name="NewValue">Math.Min(Entity.DesiredSpeed, SpeedLimit)</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfPassingAllowed" ExclusionExpression="Math.If(AllowPassing, 1, 2)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">AllowPassing</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="EndTransfer" Name="OntoPath" ID="4">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- O1wK+8FqSHx1t46zjuCwWX/X9Pdo/tdJ0OD1VFEq9TNTvs+osKu3QsW3cObobfcBcwR1qKv/+iwdGV1XJJOHAQ== -->

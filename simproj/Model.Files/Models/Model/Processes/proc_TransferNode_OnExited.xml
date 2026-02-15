@@ -1,0 +1,20 @@
+<Fragment>
+  <Process Name="proc_TransferNode_OnExited" BeginStepID="3" Category="10 TransferNode Processes" Description="**Purpose:** Generic exit handling for all transfer nodes in the network, firing exit events for ModelEntity types only.">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnExitedEvent" Description="**Fire OnExitedEvent:** Trigger OnExited event from tbl_TransferNodes for this node" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnExitedEvent</Property>
+        </Properties>
+      </Step>
+      <Step Type="Decide" Name="LoadEntity" Description="**Decide ModelEntity:** Check if exiting entity is a ModelEntity (load object)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Load</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="2" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- RNA1RaBYWNj5iSCJMdfTCHGxNbfSAKWy+8zeq15r/VTn6M8H4jFZ4FavSZcWmeGtNP9NA/KDNzr/Rv5tenPi5Q== -->

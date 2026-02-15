@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_StartRefuelDieselTaskSequence" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_StartRefuelDieselTaskSequence</Property>
+    </Properties>
+    <Steps>
+      <Step Type="StartTasks" Name="RefuelDiesel" ID="2">
+        <Properties>
+          <Property Name="TaskSequenceName">
+            <Value>RefuelDieselTaskSequence</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- RiSZMMErSL3LhG/47S5+JVBeD4AeSNCnhwjlJI3HHvHohnSVy897Ms0AqDiccxnjp4EatA+Il9Jq2K1HoQvRiQ== -->

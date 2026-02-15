@@ -1,0 +1,289 @@
+<Fragment>
+  <Process Name="proc_OnRunInitialised" IsOverride="True" BeginStepID="2" Category="10 OnRunInitialised Processes" Description="**Trigger:** `event_OnRunInitialised` | **Token:** `tkn_proc_OnRunInitialised`&#xD;&#xA;&#xD;&#xA;**Purpose:** Initializes truck at simulation start by creating a new battery entity, configuring its initial state from the battery types table, transferring it to the truck's battery station, and subscribing to the timestep timer for continuous physics/battery updates.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_OnRunInitialised</Property>
+      <Property Name="TokenClassName">tkn_proc_OnRunInitialised</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="TruckVariables" Description="Assign `var_AssignBatterySwapChargeStationNode = prop_InitialAssignBatterySwapChargeStationNode`" Color="c3d69b" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_CurrentSymbolIndex_BatteryElectricTruck</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatterySwap,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatterySwapTrayDown,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.DieselElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.DieselElectricTrayDownPantographDown,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatteryElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatteryElectricTrayDownPantographDown,
+	0
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_SwapRefuelChargeNode</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">prop_InitialSwapRefuelChargeNode</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_SpeedUpdates</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">True</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_BatteryUpdates</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode!= List.list_TruckMode.DieselElectric</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_FuelUpdates</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.DieselElectric</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_DieselLevelL</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.DieselElectric,tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].InitialDieselLevelL,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_DieselLevelPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.DieselElectric,tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].InitialDieselLevelL/tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].DieselTankCapacityL,0)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>mntr_SpeedUpdates.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Create" Name="BatteryEntity" Description="Create 1 battery entity of type `prop_BatteryEntityReference`, save reference to `tkn_proc_OnRunInitialised.var_BatteryEntityInstance`" ExclusionExpression="tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.DieselElectric" ID="3">
+        <Properties>
+          <Property Name="EntityType">prop_BatteryEntityReference</Property>
+          <Property Name="SaveCreatedEntityReference">
+            <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="7" />
+        <Exit Name="Created" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="BatteryIndex" Description="Increment `var_BatteryIndex = var_BatteryIndex + 1`" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryIndex</Value>
+          </Property>
+          <Property Name="NewValue">var_BatteryIndex+1</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="BatteryVariables" Description="Initialize battery state variables from `tbl_BatteryTypes`:&#xD;&#xA;   - `var_OriginalObjectReference = obj_BatteryElectricTruck`&#xD;&#xA;   - `var_CurrentObjectReference = var_OriginalObjectReference`&#xD;&#xA;   - `var_BatteryID = TruckName + &quot;_&quot; + BatteryType + &quot;_&quot; + Index`&#xD;&#xA;   - `var_BatteryType`, `var_RatedStorageEnergyKwh`, `var_RatedChargingCycles`&#xD;&#xA;   - `var_RatedLifetimeThroughputKwh`, `var_EndOfLifeBatteryHealthPct`&#xD;&#xA;   - `var_BatterySOCPct`, `var_BatteryCumulativeThroughputKwh`, `var_BatteryHealthPct`" Color="c3d69b" ID="5">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_BatteryElectricTruck</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.tbl_Trucks_RowIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryType</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">String.FromList(list_BatteryTypes,tbl_TruckTypes[tkn_proc_OnRunInitialised.tbl_Trucks_RowIndex].BatteryType)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryID</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OriginalObjectReference.Object.Name + "_" + tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryType + "_" + String.FromReal(var_BatteryIndex)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes.BatteryType.RowForKey(String.FromList(list_BatteryTypes,tbl_TruckTypes[tkn_proc_OnRunInitialised.tbl_Trucks_RowIndex].BatteryType))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_RatedStorageEnergyKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].RatedStorageEnergyKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_RatedLifetimeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].RatedLifetimeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_EndOfLifeBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].EndOfLifeBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatteryCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].InitialBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceLifeChargingCycles</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceLifeChargingCycles</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceDOD</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceDOD</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceDischargeCRate</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceDischargeCRate</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_ReferenceTemperatureK</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].ReferenceTemperatureK</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_OperatingTemperatureK</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].OperatingTemperatureK</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Xi</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Xi</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Gamma1</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Gamma1</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Gamma2</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Gamma2</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Psi</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Psi</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_OnRunInitialised.var_BatteryEntityInstance.obj_Battery.var_CycleLife_Alpha</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.tbl_BatteryTypes[tkn_proc_OnRunInitialised.tbl_Batteries_RowIndex].CycleLife_Alpha</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Transfer" Name="BatteryStation" Description="Transfer created battery entity to truck's `BatteryStation`" ID="6">
+        <Properties>
+          <Property Name="FromType">Any</Property>
+          <Property Name="ToType">Station</Property>
+          <Property Name="StationName">
+            <Value>BatteryStation</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Subscribe" Name="SpeedBatteryUpdate" Description="Subscribe to `tmr_TimeStep.Event` to execute `proc_SpeedBatteryUpdates` every timestep" ID="7">
+        <Properties>
+          <Property Name="EventName">tmr_TimeStep.Event</Property>
+          <Property Name="Events">
+            <Rows>
+              <Properties>
+                <Property Name="EventsEventName">tmr_TimeStep.Event</Property>
+                <Property Name="EventsEventCondition">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.BatterySwap</Property>
+                <Property Name="EventsProcessName">
+                  <Value>proc_PhysicsUpdates_BatterySwap</Value>
+                </Property>
+              </Properties>
+              <Properties>
+                <Property Name="EventsEventName">tmr_TimeStep.Event</Property>
+                <Property Name="EventsEventCondition">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.DieselElectric&amp;&amp;prop_ElectricAssistMode==List.list_ElectricAssistMode.SustainSpeed</Property>
+                <Property Name="EventsProcessName">
+                  <Value>proc_PhysicsUpdates_DieselElectric_SustainSpeed</Value>
+                </Property>
+              </Properties>
+              <Properties>
+                <Property Name="EventsEventName">tmr_TimeStep.Event</Property>
+                <Property Name="EventsEventCondition">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.DieselElectric&amp;&amp;prop_ElectricAssistMode==List.list_ElectricAssistMode.PreserveEnergy</Property>
+                <Property Name="EventsProcessName">
+                  <Value>proc_PhysicsUpdates_DieselElectric_PreserveEnergy</Value>
+                </Property>
+              </Properties>
+              <Properties>
+                <Property Name="EventsEventName">tmr_TimeStep.Event</Property>
+                <Property Name="EventsEventCondition">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.BatteryElectric&amp;&amp;prop_ElectricAssistMode==List.list_ElectricAssistMode.SustainSpeed</Property>
+                <Property Name="EventsProcessName">
+                  <Value>proc_PhysicsUpdates_BatteryElectric_SustainSpeed</Value>
+                </Property>
+              </Properties>
+              <Properties>
+                <Property Name="EventsEventName">tmr_TimeStep.Event</Property>
+                <Property Name="EventsEventCondition">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode==List.list_TruckMode.BatteryElectric&amp;&amp;prop_ElectricAssistMode==List.list_ElectricAssistMode.PreserveEnergy</Property>
+                <Property Name="EventsProcessName">
+                  <Value>proc_PhysicsUpdates_BatteryElectric_PreserveEnergy</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- sBiJz9dnxTSYU3GSaZWc64/x0NTLjadGsvlULvejnaK4uBJfAbwoZaw+anrVcPgyyTp+Qr0qQqatOnqbZbVhtw== -->

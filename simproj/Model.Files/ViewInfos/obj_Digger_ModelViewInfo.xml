@@ -1,0 +1,21 @@
+<Fragment>
+  <ViewInfo>
+    <Properties>
+      <Groups>
+        <Group Name="Properties (Inherited)" Expanded="False" />
+        <Group Name="WorkDayExceptions.Properties (Inherited)" Expanded="False" />
+        <Group Name="WorkPeriodExceptions.Properties (Inherited)" Expanded="False" />
+      </Groups>
+    </Properties>
+    <States>
+      <Groups>
+        <Group Name="State Variables (Inherited)" Expanded="False" />
+      </Groups>
+    </States>
+    <External>
+      <Camera Orientation="Top" Location="11.36496104874697 87.06453565738246 0.10191276592362364" Direction="-0 -1.0000000000000002 2.220446049250313E-16" Zoom="87.06453565738246" />
+      <ObjectDisplay SnapToGrid="True" Background="ffffff" />
+    </External>
+  </ViewInfo>
+</Fragment>
+<!-- a3icYtv8LhGy798k/GH9KE/KDGWfVWqzA/nQQRnc7MQgEjL3O0bBQFhIrOVFkYxyXXgrzFUkXZ/zGrmCbFHwcQ== -->

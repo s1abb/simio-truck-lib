@@ -1,0 +1,103 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">101</Property>
+      <Property Name="Name">101_RaiseTray</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_101_RaiseTray</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">102</Property>
+      <Property Name="Name">102_ExtendLiftingArm</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_102_ExtendLiftingArm</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">103</Property>
+      <Property Name="Name">103_LiftDepletedBattery</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_103_LiftDepletedBattery</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">104</Property>
+      <Property Name="Name">104_RetractLiftingArm</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_104_RetractLiftingArm</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">105</Property>
+      <Property Name="Name">105_StoreDepletedBattery</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_105_StoreDepletedBattery</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">106</Property>
+      <Property Name="Name">106_LiftChargedBattery</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_106_LiftChargedBattery</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">107</Property>
+      <Property Name="Name">107_ExtendLiftingArm</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_107_ExtendLiftingArm</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">108</Property>
+      <Property Name="Name">108_InstallChargedBattery</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_108_InstallChargedBattery</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">109</Property>
+      <Property Name="Name">109_RetractLiftingArm</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_109_RetractLiftingArm</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">110</Property>
+      <Property Name="Name">110_LowerTray</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_110_LowerTray</Value>
+      </Property>
+      <Property Name="TaskDuration">1</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- zKlJBrC9ef30VwHJwsHh2WNp05AlG0LWnwO12uFHl3QKmN9fDAwf18QAnLR+ngT/J6CHt71vmSCeSLNv7Ne+MQ== -->

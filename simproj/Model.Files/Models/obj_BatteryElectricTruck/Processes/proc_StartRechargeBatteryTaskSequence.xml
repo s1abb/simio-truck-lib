@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_StartRechargeBatteryTaskSequence" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_StartRechargeBatteryTaskSequence</Property>
+    </Properties>
+    <Steps>
+      <Step Type="StartTasks" Name="RechargeBattery" ID="2">
+        <Properties>
+          <Property Name="TaskSequenceName">
+            <Value>RechargeBatteryTaskSequence</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- DT+aGpDCJ4N3Y3HWjem16GAMx0ctOL08Q5dhj+lJeY/hlcqEvYJ0ogApjBfGIs9eP7gEqNrIQTtcAdOMXr8yRQ== -->

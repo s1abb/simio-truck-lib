@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_BatteryElectricTruck_OnLoaded" BeginStepID="2" Category="30 BatteryElectricTruck Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnLoadedEvent" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_BatteryElectricTrucks.OnLoadedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- xliKdKdBlXqp0V4Dc36mW78NvcFZ0ufP3dE8YAKy78JPqWyVLeVWknxivI1m7S/G66UE+gHnfUiil+wHBdtoiw== -->

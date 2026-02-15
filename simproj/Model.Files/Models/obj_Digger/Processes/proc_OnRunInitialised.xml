@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_OnRunInitialised" BeginStepID="2" Category="10 OnRunInitialised Processes">
+    <Properties>
+      <Property Name="TriggeringEventName">event_OnRunInitialised</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Execute" Name="prop_proc_AllocateDigger" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>prop_proc_AllocateDigger</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 2D0boycFoHzQuv6J4vVOEE/tgFH1g2wh6ShZGnyeQcOviC3jcmTfrnwXlCMCQV13Kon8tjFQeHyFa2Vrp3mowQ== -->

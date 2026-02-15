@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SpeedUpdates_True" BeginStepID="2" Category="20 Interface" Description="Enables battery state-of-charge and degradation calculations in the main update loop, resuming energy accounting after paused operations.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SpeedUpdates_True</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="SpeedUpdatesTrue" Description="Set `var_BatteryUpdates = True`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_SpeedUpdates</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 9VU7CKhqmhuy7T9B7elYfNfxnqzF1osr62irdKqq7seZH0ZbmmdbVey/TH+G3uFi+gOsK7i/bw3M2Ve7yZZ7Dg== -->

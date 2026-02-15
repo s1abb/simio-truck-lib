@@ -1,0 +1,323 @@
+<Fragment>
+  <Process Name="proc_SpeedBatteryFuelUpdates" BeginStepID="5" Category="30 Time Step Processes" Description="Core simulation process that executes every second to perform physics-based speed calculations (forces, acceleration, speed updates) and battery state updates (power consumption/regeneration, SOC changes, health degradation). This is the heart of the battery-electric truck simulation, integrating vehicle dynamics with energy modeling.">
+    <Properties>
+      <Property Name="TokenClassName">tkn_proc_SpeedBatteryFuelUpdates</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="SpeedUpdate" Description="**Physics Calculations**&#xD;&#xA;   - Get current state (speed, grade, weight, battery health)&#xD;&#xA;   - Calculate target speed and degraded tractive forces&#xD;&#xA;   - Compute resistances (grade, rolling)&#xD;&#xA;   - Calculate net force and acceleration&#xD;&#xA;   - Update speed (clamped to [0, MaxSpeed])&#xD;&#xA;   - Assign `Movement.Rate = NewSpeedKmh`" Color="c3d69b" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">Movement.Rate</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentGrade</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Movement.Pitch</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentWeightKg</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_Loaded,var_Payload,tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].EmptyOperatingWeightKg)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_BatteryIndex==0,100,BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryHealthPct)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.PowerDegradationFactor</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(var_BatteryIndex==0,1,Math.If(prop_PowerDegradationActive,Math.Max(BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryHealthPct/100,BatteryStation.Contents.FirstItem.obj_Battery.var_EndOfLifeBatteryHealthPct/100),1))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.MaxSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">Math.If(var_Loaded,tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].MaxSpeedKmh_Loaded,tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].MaxSpeedKmh_Empty)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.TargetSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Min(Math.If(Location.Parent.Is.obj_ElectricPath,Location.Parent.obj_ElectricPath.SpeedLimit,DesiredSpeed),tkn_proc_SpeedBatteryFuelUpdates.MaxSpeedKmh)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.BaseRimpullForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].RimpullForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.BaseRetardForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].RetardForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.TractiveForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_proc_SpeedBatteryFuelUpdates.CurrentSpeedKmh&lt;tkn_proc_SpeedBatteryFuelUpdates.TargetSpeedKmh,tkn_proc_SpeedBatteryFuelUpdates.BaseRimpullForceN*tkn_proc_SpeedBatteryFuelUpdates.PowerDegradationFactor,-tkn_proc_SpeedBatteryFuelUpdates.BaseRetardForceN*tkn_proc_SpeedBatteryFuelUpdates.PowerDegradationFactor)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.RollingResistance</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].RollingResistance</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.GradeResistanceForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.CurrentWeightKg*9.81*tkn_proc_SpeedBatteryFuelUpdates.CurrentGrade/100</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.RollingResistanceForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.CurrentWeightKg*9.81*tkn_proc_SpeedBatteryFuelUpdates.RollingResistance</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.NetTractiveForceN</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.TractiveForceN-tkn_proc_SpeedBatteryFuelUpdates.GradeResistanceForceN-tkn_proc_SpeedBatteryFuelUpdates.RollingResistanceForceN</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.AccelerationMs2</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.NetTractiveForceN/tkn_proc_SpeedBatteryFuelUpdates.CurrentWeightKg</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.NewSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">Math.Max(0,Math.Min(tkn_proc_SpeedBatteryFuelUpdates.MaxSpeedKmh,tkn_proc_SpeedBatteryFuelUpdates.CurrentSpeedKmh + 3600*tkn_proc_SpeedBatteryFuelUpdates.AccelerationMs2*prop_TimeStepSeconds*3600))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>Movement.Rate</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">tkn_proc_SpeedBatteryFuelUpdates.NewSpeedKmh</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="BatteryUpdate" Description="**Battery Calculations**&#xD;&#xA;   - Calculate motor power (Force × Velocity)&#xD;&#xA;   - Determine battery power with efficiency (motoring vs regen)&#xD;&#xA;   - Compute energy delta this timestep&#xD;&#xA;   - Update battery SOC (with degraded capacity)&#xD;&#xA;   - Calculate throughput and update battery health&#xD;&#xA;   - Write battery SOC, throughput, and health to battery object&#xD;&#xA;   - Set `var_SwapBatteryFlag` if SOC &lt; threshold&#xD;&#xA;   - Update battery symbol index based on SOC" Color="c3d69b" ID="3">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentSpeedKmh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue" Units="Kilometers per Hour">Movement.Rate</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.PowerDegradationFactor</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(prop_PowerDegradationActive,Math.Max(BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryHealthPct/100,BatteryStation.Contents.FirstItem.obj_Battery.var_EndOfLifeBatteryHealthPct/100),1)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.SpeedMs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.CurrentSpeedKmh/3600</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.MotorMechanicalPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.TractiveForceN*tkn_proc_SpeedBatteryFuelUpdates.SpeedMs/1000</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.MotorEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].MotorEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.RegenEfficiencyPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].RegenEfficiencyPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.AuxiliaryPowerDemandKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].AuxiliaryPowerDemandKw</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.BatteryPowerKw</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(
+    tkn_proc_SpeedBatteryFuelUpdates.MotorMechanicalPowerKw &gt; 0,
+    tkn_proc_SpeedBatteryFuelUpdates.MotorMechanicalPowerKw / (tkn_proc_SpeedBatteryFuelUpdates.MotorEfficiencyPct / 100),
+    Math.If(
+        tkn_proc_SpeedBatteryFuelUpdates.MotorMechanicalPowerKw &lt; 0,
+        tkn_proc_SpeedBatteryFuelUpdates.MotorMechanicalPowerKw * (tkn_proc_SpeedBatteryFuelUpdates.RegenEfficiencyPct / 100),
+        tkn_proc_SpeedBatteryFuelUpdates.AuxiliaryPowerDemandKw
+    )
+)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.EnergyDeltaKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.BatteryPowerKw*prop_TimeStepSeconds</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentBatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_BatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.RatedBatteryStorageEnergyKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_RatedStorageEnergyKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.EffectiveBatteryCapacityKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.RatedBatteryStorageEnergyKwh*tkn_proc_SpeedBatteryFuelUpdates.PowerDegradationFactor</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(0, Math.Min(100,tkn_proc_SpeedBatteryFuelUpdates.CurrentBatterySOCPct-100*tkn_proc_SpeedBatteryFuelUpdates.EnergyDeltaKwh/tkn_proc_SpeedBatteryFuelUpdates.EffectiveBatteryCapacityKwh))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.AbsoluteEnergyThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Abs(tkn_proc_SpeedBatteryFuelUpdates.EnergyDeltaKwh)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.CurrentCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.NewCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.CurrentCumulativeThroughputKwh+tkn_proc_SpeedBatteryFuelUpdates.AbsoluteEnergyThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.RatedLifetimeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_RatedLifetimeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.EndOfLifeBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">BatteryStation.Contents.FirstItem.obj_Battery.var_EndOfLifeBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tkn_proc_SpeedBatteryFuelUpdates.NewBatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.Max(tkn_proc_SpeedBatteryFuelUpdates.EndOfLifeBatteryHealthPct,100-(tkn_proc_SpeedBatteryFuelUpdates.NewCumulativeThroughputKwh/tkn_proc_SpeedBatteryFuelUpdates.RatedLifetimeThroughputKwh*(100-tkn_proc_SpeedBatteryFuelUpdates.EndOfLifeBatteryHealthPct)))</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>BatteryStation.Contents.FirstItem.obj_Battery.var_BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.NewCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>BatteryStation.Contents.FirstItem.obj_Battery.var_BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tkn_proc_SpeedBatteryFuelUpdates.NewBatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_SwapRefuelChargeFlag</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(BatteryStation.Contents.FirstItem.obj_Battery.var_BatterySOCPct&lt;tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].SwapBatterySOCPct,True,False)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>BatteryStation.Contents.FirstItem.obj_Battery.var_CurrentSymbolIndex</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">Math.If(tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct&gt;=80,0,Math.If(tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct&gt;=60,1,Math.If(tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct&gt;=40,2,Math.If(tkn_proc_SpeedBatteryFuelUpdates.NewBatterySOCPct&gt;=20,3,4))))</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Decide" Name="BatteryUpdates" Description="Check if `var_BatteryUpdates == True`, exit if False" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_BatteryUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="3" />
+        <Exit Name="False" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Decide" Name="SpeedUpdates" Description="Check if `var_SpeedUpdates == True`, exit if False" ID="5">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_SpeedUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="2" />
+        <Exit Name="False" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle `var_Debug` flag (debugging aid)" Color="ffffff" ID="6">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Decide" Name="FuelUpdates" ID="7">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">var_FuelUpdates</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Assign" Name="FuelUpdate" Color="c3d69b" ID="8">
+        <Properties />
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- AJTp5APv9s9PWyK1P53w16835ooZusGLZ6ngCz/ZwW+8t2/7TNZ6GlF5sFukr7udazOejMo6xPjyARg7q7r1hQ== -->

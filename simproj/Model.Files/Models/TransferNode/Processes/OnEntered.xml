@@ -1,0 +1,127 @@
+<Fragment>
+  <Process Name="OnEntered" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Node.OnEntered" BeginStepID="2">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectDestroyed">EndProcess</Property>
+      <Property Name="TokenActionOnAssociatedObjectTransferRequested">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="OnEnteringAssignments" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Value>AssignmentsOnEntering</Value>
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>AssignmentsOnEnteringStateVariableName</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">AssignmentsOnEnteringNewValue</Property>
+                <Property Name="AssignmentsSkipAssignmentCondition">Math.If(AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.NoCondition,False,AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.IsEntity, Entity.Is.Transporter,AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.IsTransporter, !Entity.Is.Transporter, AssignmentsOnEntering.AssignmentsOnEnteringAssignCondition&lt;=0.0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Tally" Name="OnEnteringTallies" ID="3">
+        <Properties>
+          <Property Name="Tallies">
+            <Value>TalliesOnEntering</Value>
+            <Rows>
+              <Properties>
+                <Property Name="TalliesTallyStatisticName">
+                  <Value>TalliesOnEnteringTallyStatisticName</Value>
+                </Property>
+                <Property Name="TalliesValueType">TalliesOnEnteringValueType</Property>
+                <Property Name="TalliesValueExpression">TalliesOnEnteringValueExpression</Property>
+                <Property Name="TalliesNumberOfObservations">Math.If(TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.NoCondition,1,TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.IsEntity, !Entity.Is.Transporter,TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.IsTransporter, Entity.Is.Transporter, TalliesOnEntering.TalliesOnEnteringTallyCondition&gt;0.0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="9" />
+      </Step>
+      <Step Type="Decide" Name="IfNoBoundExternalOutputNode" ExclusionExpression="Math.If(!BoundExternalOutputNode.HasValue,1,2)" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">BoundExternalOutputNode.HasValue==False</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="6" />
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Transfer" Name="ToBoundExternalOutputNode" ID="5">
+        <Properties>
+          <Property Name="FromType">CurrentNode</Property>
+          <Property Name="ToType">ParentExternalNode</Property>
+          <Property Name="ExternalNodeName">BoundExternalOutputNode</Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="VisitNode" Name="Entity" ID="6">
+        <Properties />
+        <Exit Name="Exit" Type="Primary" NextID="10" />
+      </Step>
+      <Step Type="Execute" Name="EnteredAddOnProcess" ID="7">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>EnteredAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Execute" Name="RoutingOutLogic" ID="8">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>RoutingOutLogic</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="14" />
+      </Step>
+      <Step Type="Fire" Name="EnteredEvent" ID="9">
+        <Properties>
+          <Property Name="EventName">Entered</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Decide" Name="IfTransporter" ExclusionExpression="(DestinationType==List.EntityDestinationType.Continue)&amp;&amp;(RideOnTransporter==List.RideOnTransporterType.Never)" ID="10">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Entity.Is.Transporter</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="11" />
+        <Exit Name="False" Type="Alternate" NextID="8" />
+      </Step>
+      <Step Type="Transfer" Name="ToOutboundLink" ID="11">
+        <Properties>
+          <Property Name="FromType">CurrentNode</Property>
+          <Property Name="ToType">OutboundLink</Property>
+          <Property Name="PathPlannerName">
+            <Value>PathPlannerName</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="12" />
+      </Step>
+      <Step Type="Transfer" Name="ToFreeSpace" ID="12">
+        <Properties>
+          <Property Name="FromType">CurrentNode</Property>
+          <Property Name="ToType">FreeSpace</Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="13" />
+      </Step>
+      <Step Type="Execute" Name="TransferFailureLogic" ID="13">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>TransferFailureLogic</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Decide" Name="IfRidingTransporter" ExclusionExpression="Math.If(RideOnTransporter==List.RideOnTransporterType.Never,2,0)" ID="14">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Entity.CurrentTransporter!=Nothing &amp;&amp; !Entity.IsUnloadingFromTransporter</Property>
+        </Properties>
+        <Exit Name="False" Type="Alternate" NextID="11" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- SuQDRm3L1SpzJ6qHH7zndxK4VvqHO4+TarQxbdJ4BdB8FI1xNftQZUsItY3dMHYu6cQkG5gqqQWP+eZ4usuXlA== -->

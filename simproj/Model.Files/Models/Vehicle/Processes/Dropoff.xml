@@ -1,0 +1,14 @@
+<Fragment>
+  <Process Name="Dropoff" BeginStepID="2" Category="Deprecated Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Dropoff" Name="Rider" ID="2">
+        <Properties>
+          <Property Name="TransporterType">ParentObject</Property>
+          <Property Name="UnloadTime">UnloadTime</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 8AGWkkCz+7fhHXhVXG0oM4xCO9OEQ3GBDyef+MOoII4BZazB0UOUx9rV/D5sewhshUrTYEjxajMIhzKE2m8tNw== -->

@@ -1,0 +1,74 @@
+<Fragment>
+  <Process Name="proc_MineSequence" BeginStepID="6" Category="80 Loop Processes">
+    <Properties>
+      <Property Name="TokenClassName">tkn_proc_MineSequence</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="ResourceState" Color="c6d9f0" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tbl_MineBlocks.DiggerReference.obj_Digger.var_DiggerResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Digger.List.list_DiggerResourceStates.ReadyToAllocate</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineSequence" ID="4">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineSequence</Property>
+          <Property Name="MatchCondition">tbl_MineSequence.DiggerCurrentlyAllocated &amp;&amp; tbl_MineSequence.TonnesDepleted</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="CurrentlyAllocated" ID="5">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tbl_MineSequence.DiggerCurrentlyAllocated</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineBlocks" ID="6">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineBlocks</Property>
+          <Property Name="SearchRelatedRowsOnly">False</Property>
+          <Property Name="Limit">Infinity</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="4" />
+        <Exit Name="Found" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineSequence" ID="7">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineSequence</Property>
+          <Property Name="MatchCondition">tbl_MineSequence.TonnesDepleted</Property>
+          <Property Name="Limit">Infinity</Property>
+          <Property Name="SaveNumberFound">
+            <Value>tkn_proc_MineSequence.var_NumberFound</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Assign" Name="MineBlockDepleted" ID="8">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>tbl_MineBlocks.MineBlockDepleted</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(tkn_proc_MineSequence.var_NumberFound&gt;=tbl_MineBlocks.BlockSequenceCount,True,False)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- LoWSfMBGpfGR0hHISEMPh5bLA4oLWSto+2Kw8fWWg6F55BlV0a6hnZT2BsHvimeFLUvDcnxlf2Pp36mTzfu8kQ== -->

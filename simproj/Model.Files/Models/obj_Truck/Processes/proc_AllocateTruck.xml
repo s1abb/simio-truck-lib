@@ -1,0 +1,9 @@
+<Fragment>
+  <Process Name="proc_AllocateTruck" Category="40 Dispatch Processes">
+    <Properties>
+      <Property Name="TriggeringEventName">event_AllocateTruck</Property>
+    </Properties>
+    <Steps />
+  </Process>
+</Fragment>
+<!-- HK1zFj9PeGLJhYizVh9hCu5MZzEmpwxmq/AMYmMSrA30AslC1Mkimp6UUSAbQ8SuEiDPJR2kBw89H3ovE2ouTg== -->

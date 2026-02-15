@@ -1,0 +1,27 @@
+<Fragment>
+  <Process Name="proc_Loaded_True" BeginStepID="2" Category="20 Interface" Description="Sets the truck to loaded state and assigns a payload weight based on the configured average and distribution, affecting physics calculations (weight, max speed, tractive force requirements).">
+    <Properties>
+      <Property Name="TriggeringEventName">event_Loaded_True</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="LoadedTrue" Description="Set `var_Loaded = True`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Loaded</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="Payload" Description="Assign `var_Payload = prop_AveragePayload × prop_PayloadDistribution`" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Payload</Value>
+          </Property>
+          <Property Name="NewValue" Units="Metric Tons">prop_AveragePayload*prop_PayloadDistribution</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- t5hh1TsudzQlVlu0Xce/kBStKNVRERN4SxARIFXdkAA0pqhmXWOwEr6asXsP5KS9o+tnkAF+VRU4Z3C81DWxRA== -->

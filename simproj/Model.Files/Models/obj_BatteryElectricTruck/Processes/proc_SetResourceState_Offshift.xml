@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SetResourceState_Offshift" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SetResourceState_Offshift</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="Offshift" Color="8db3e2" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_BatteryElectricTruck.ResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_BatteryElectricTruck.List.ResourceStateName.OffShift</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- EXS/6IgtX2DTRjSVzVOKxpvut+TIrzeluqg+J9C5ueY0ueIZ1HNhxueJ8aH2ihQXl2O9HQzCA8aO3uzoY8Sc7g== -->

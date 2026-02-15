@@ -1,0 +1,157 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">TONLY_DTE145_BatterySwap</Property>
+      <Property Name="TruckMode">BatterySwap</Property>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_801</Property>
+      <Property Name="EmptyOperatingWeightKg">61000</Property>
+      <Property Name="RatedGrossMachineWeightKg">152000</Property>
+      <Property Name="RimpullForceN">ltbl_TONLY_DTE145_BatterySwap_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_TONLY_DTE145_BatterySwap_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_TONLY_DTE145_BatterySwap_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_TONLY_DTE145_BatterySwap_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">15</Property>
+      <Property Name="MaxBatteryPowerKw">1240</Property>
+      <Property Name="MaxBatteryChargePowerKw">528</Property>
+      <Property Name="SwapBatterySOCPct">80</Property>
+      <Property Name="DieselFuelConsumptionRateLKwh">0</Property>
+      <Property Name="DieselGeneratorMaxPowerKw">0</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">1240</Property>
+      <Property Name="MaxMotorPowerKw_Peak">1800</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">CAT_793F_AC_DieselElectric</Property>
+      <Property Name="TruckMode">DieselElectric</Property>
+      <Property Name="BatteryType"></Property>
+      <Property Name="EmptyOperatingWeightKg">169802</Property>
+      <Property Name="RatedGrossMachineWeightKg">390089</Property>
+      <Property Name="RimpullForceN">ltbl_CAT_793F_AC_DieselElectric_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_CAT_793F_AC_DieselElectric_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_CAT_793F_AC_DieselElectric_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_CAT_793F_AC_DieselElectric_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">20</Property>
+      <Property Name="DieselFuelConsumptionRateLKwh">0.11</Property>
+      <Property Name="DieselTankCapacityL">4922</Property>
+      <Property Name="InitialDieselLevelL">4922</Property>
+      <Property Name="DieselGeneratorMaxPowerKw">1950</Property>
+      <Property Name="DieselGeneratorEfficiencyPct">40</Property>
+      <Property Name="RefuelDieselLevelPct">10</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">1950</Property>
+      <Property Name="MaxMotorPowerKw_Peak">2730</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">CAT_794_AC_DieselElectric</Property>
+      <Property Name="TruckMode">DieselElectric</Property>
+      <Property Name="BatteryType"></Property>
+      <Property Name="EmptyOperatingWeightKg">222525</Property>
+      <Property Name="RatedGrossMachineWeightKg">521631</Property>
+      <Property Name="RimpullForceN">ltbl_CAT_794_AC_DieselElectric_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_CAT_794_AC_DieselElectric_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_CAT_794_AC_DieselElectric_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_CAT_794_AC_DieselElectric_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">25</Property>
+      <Property Name="SwapBatterySOCPct">80</Property>
+      <Property Name="DieselFuelConsumptionRateLKwh">0.11</Property>
+      <Property Name="DieselTankCapacityL">5678</Property>
+      <Property Name="InitialDieselLevelL">5678</Property>
+      <Property Name="DieselGeneratorMaxPowerKw">2539</Property>
+      <Property Name="DieselGeneratorEfficiencyPct">40</Property>
+      <Property Name="RefuelDieselLevelPct">10</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">2539</Property>
+      <Property Name="MaxMotorPowerKw_Peak">3554</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">Liebherr_T236_DieselElectric</Property>
+      <Property Name="TruckMode">DieselElectric</Property>
+      <Property Name="BatteryType"></Property>
+      <Property Name="EmptyOperatingWeightKg">80000</Property>
+      <Property Name="RatedGrossMachineWeightKg">180000</Property>
+      <Property Name="RimpullForceN">ltbl_Liebherr_T236_DieselElectric_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_Liebherr_T236_DieselElectric_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_Liebherr_T236_DieselElectric_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_Liebherr_T236_DieselElectric_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">15</Property>
+      <Property Name="DieselFuelConsumptionRateLKwh">0.11</Property>
+      <Property Name="DieselTankCapacityL">2000</Property>
+      <Property Name="InitialDieselLevelL">2000</Property>
+      <Property Name="DieselGeneratorMaxPowerKw">895</Property>
+      <Property Name="DieselGeneratorEfficiencyPct">40</Property>
+      <Property Name="RefuelDieselLevelPct">10</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">895</Property>
+      <Property Name="MaxMotorPowerKw_Peak">1253</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">Liebherr_T264_DieselElectric</Property>
+      <Property Name="TruckMode">DieselElectric</Property>
+      <Property Name="BatteryType"></Property>
+      <Property Name="EmptyOperatingWeightKg">176000</Property>
+      <Property Name="RatedGrossMachineWeightKg">416000</Property>
+      <Property Name="RimpullForceN">ltbl_Liebherr_T264_DieselElectric_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_Liebherr_T264_DieselElectric_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_Liebherr_T264_DieselElectric_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_Liebherr_T264_DieselElectric_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">20</Property>
+      <Property Name="MaxBatteryPowerKw">0</Property>
+      <Property Name="DieselFuelConsumptionRateLKwh">0.11</Property>
+      <Property Name="DieselTankCapacityL">4500</Property>
+      <Property Name="InitialDieselLevelL">4500</Property>
+      <Property Name="DieselGeneratorMaxPowerKw">2013</Property>
+      <Property Name="DieselGeneratorEfficiencyPct">40</Property>
+      <Property Name="RefuelDieselLevelPct">10</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">2013</Property>
+      <Property Name="MaxMotorPowerKw_Peak">2818</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="TruckType">Liebherr_T264_BE_BatteryElectric</Property>
+      <Property Name="TruckMode">BatteryElectric</Property>
+      <Property Name="BatteryType">Lithium_Iron_Phosphate_1700</Property>
+      <Property Name="EmptyOperatingWeightKg">176000</Property>
+      <Property Name="RatedGrossMachineWeightKg">416000</Property>
+      <Property Name="RimpullForceN">ltbl_Liebherr_T264_DieselElectric_SpeedKmh_RimpullForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="RetardForceN">ltbl_Liebherr_T264_DieselElectric_SpeedKmh_RetardForceN[tkn_Physics.CurrentSpeedKmh/1000]</Property>
+      <Property Name="MaxSpeedKmh_Loaded">ltbl_Liebherr_T264_DieselElectric_GradePct_MaxSpeedKmh_Loaded[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="MaxSpeedKmh_Empty">ltbl_Liebherr_T264_DieselElectric_GradePct_MaxSpeedKmh_Empty[tkn_Physics.CurrentGrade + (tkn_Physics.RollingResistance * 100)]</Property>
+      <Property Name="RollingResistance">0.02</Property>
+      <Property Name="MotorEfficiencyPct">93</Property>
+      <Property Name="RegenEfficiencyPct">75</Property>
+      <Property Name="AuxiliaryPowerDemandKw">25</Property>
+      <Property Name="MaxBatteryPowerKw">2013</Property>
+      <Property Name="MaxBatteryChargePowerKw">1000</Property>
+      <Property Name="SwapBatterySOCPct">20</Property>
+      <Property Name="MaxMotorPowerKw_Continuous">2013</Property>
+      <Property Name="MaxMotorPowerKw_Peak">2818</Property>
+      <Property Name="MaxMotorPeakDurationSec">60</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- StGl66iVD3DfrpVmXUgny6iVkRsN7+L54395Q0XAjn93qnkcfafqkuCWSz3kbLsjPk5EVd3d+VpfPyzbATX+Ow== -->

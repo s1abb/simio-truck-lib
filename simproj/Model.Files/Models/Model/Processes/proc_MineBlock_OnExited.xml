@@ -1,0 +1,55 @@
+<Fragment>
+  <Process Name="proc_MineBlock_OnExited" BeginStepID="2" Category="70 Mine Block Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="obj_Digger" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Digger</Property>
+        </Properties>
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="obj_Truck" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Truck</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Decide" Name="RS.Contents=0" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">obj_Truck.RideStation.Contents.NumberWaiting==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="6" />
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="ResourceState" Color="c6d9f0" ID="5">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.var_TruckResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck.List.list_TruckResourceStates.TravellingToDump</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="ResourceState" Color="c6d9f0" ID="6">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.var_TruckResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck.List.list_TruckResourceStates.ReadyToAllocate</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="7">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- MrRsL3WFhp/7cfWPaD41so/8aFQVGKsXh70tAm9P3ExsN1SLIqIjcl8PloKY7hY1TG7HDa19QqnxbgRvtMtWrQ== -->

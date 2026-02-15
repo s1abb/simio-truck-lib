@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_FuelUpdates_True" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_FuelUpdates_True</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="FuelUpdatesTrue" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_FuelUpdates</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- RnVZKobX9vr55zTcJn44zWkZoBhrMBdmNEbGt53HhIZSJJcyg1lKbvl4XAFhFJXeqZXYekeY08RlEXt+/92iNA== -->

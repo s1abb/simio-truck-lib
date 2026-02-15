@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_TransferNode_OnRunInitialised" BeginStepID="2" Category="10 TransferNode Processes" Description="**Purpose:** Fires the OnRunInitialised event from tbl_TransferNodes configuration table to initialize all network nodes.">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnRunInitialised" Description="**Fire OnRunInitialised:** Trigger OnRunInitialised event for each configured transfer node in tbl_TransferNodes" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnRunInitialisedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- w9JGxFvZhgavX5jqQo8ea+dDgI224ThF6OtUcIPztt37PPvhvuL1AXFBsMTF4YS+/FbxC/c2+4TCrDFqO7N6xg== -->

@@ -1,0 +1,15 @@
+<Fragment>
+  <Process Name="OnRunInitialized" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnRunInitialized" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Execute" Name="RunInitializedAddOnProcess" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>RunInitializedAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- HxzjVEzTLKm3XzdKqjQGuguAX1FHRoynJakM5fGbkSa3O8ZQCB8VkU3GwMeCCDSJg4yP1a78T50aGIirlX6JMQ== -->

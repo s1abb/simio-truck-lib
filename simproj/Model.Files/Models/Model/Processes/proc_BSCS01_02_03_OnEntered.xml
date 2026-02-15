@@ -1,0 +1,28 @@
+<Fragment>
+  <Process Name="proc_BSCS01_02_03_OnEntered" BeginStepID="4" Category="10 TransferNode Processes" Description="**Purpose:** Handles truck arrival at battery swap charge station nodes 01-03, assigning truck reference to station and routing to home node.&#xD;&#xA;**SetNode HomeNode:** Route truck to its home node (obj_BatteryElectricTruck.HomeNode)&#xD;&#xA;**Assign BatteryElectricTruck:** Assign truck object reference to swap station (obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.var_BatteryElectricTruckObjectReference ← obj_BatteryElectricTruck)&#xD;&#xA;**Fire OnEnteredEvent:** Trigger OnEntered event from tbl_TransferNodes for this node&#xD;&#xA;">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnEnteredEvent" Description="**Fire OnEnteredEvent:** Trigger OnEntered event from tbl_TransferNodes for this node" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnEnteredEvent</Property>
+        </Properties>
+      </Step>
+      <Step Type="Assign" Name="BatteryElectricTruck" Description="**Assign BatteryElectricTruck:** Assign truck object reference to swap station (obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.var_BatteryElectricTruckObjectReference ← obj_BatteryElectricTruck)" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.var_BatteryElectricTruckObjectReference</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+      <Step Type="SetNode" Name="HomeNode" Description="**SetNode HomeNode:** Route truck to its home node (obj_BatteryElectricTruck.HomeNode)" Color="fac08f" ID="4">
+        <Properties>
+          <Property Name="NodeName">Node.OutboundLinks.FirstItem.EndingNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- ddkEtuR9zF2hBGA3Kow1GtKHKMMgWNXOgFyxVinDjZcbQ/aedPLmWFY6Y+tMpJ9gOgPJWOLQwliXGKdiOUC0Kg== -->

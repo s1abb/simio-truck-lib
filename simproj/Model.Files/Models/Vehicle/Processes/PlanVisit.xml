@@ -1,0 +1,14 @@
+<Fragment>
+  <Process Name="PlanVisit" BeginStepID="2" Category="Deprecated Processes">
+    <Properties />
+    <Steps>
+      <Step Type="PlanVisit" Name="NewMoveOrTransportRequests" ID="2">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- rvXJnGRxLmdlOhvCF5q7Cx422Ewx2VHuz1SxlSkc7Z3M3L/HrPRg3OxTL46uJUrGHhglQUaLskqrYEHgl+RG9A== -->

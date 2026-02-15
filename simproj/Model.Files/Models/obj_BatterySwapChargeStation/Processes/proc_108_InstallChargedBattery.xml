@@ -1,0 +1,78 @@
+<Fragment>
+  <Process Name="proc_108_InstallChargedBattery" BeginStepID="4" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Installs the charged battery into the truck by transferring it to the truck's battery station, updating its resource state to Deployed, and incrementing the total batteries swapped counter.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **BatteryStation** (Search) - Find battery with highest health where `var_BatteryResourceState == ReadyToDeploy` (MaximizeExpression: `var_BatteryHealthPct`)&#xD;&#xA;2. **BatteryVariables** (Assign) - Update charged battery:&#xD;&#xA;   - Set `obj_Battery.var_CurrentObjectReference = TruckObject`&#xD;&#xA;   - Set `obj_Battery.var_BatteryResourceState = Deployed`&#xD;&#xA;   - Set `obj_Battery.var_CurrentStateEntryTimeHrs = TimeNow`&#xD;&#xA;   - Reset `obj_Battery.var_TimeInCurrentStateHrs = 0`&#xD;&#xA;   - Increment `var_TotalBatteriesSwapped`&#xD;&#xA;3. **BSCSBattery** (Transfer) - Transfer battery from station's `BatteryStation` to truck's `BatteryStation`&#xD;&#xA;4. **TaskDuration** (Delay) - Delay for task duration">
+    <Properties />
+    <Steps>
+      <Step Type="Transfer" Name="BSCSBattery" ID="2">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Battery</Value>
+          </Property>
+          <Property Name="FromType">CurrentStation</Property>
+          <Property Name="ToType">Station</Property>
+          <Property Name="StationName">
+            <Value>var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.BatteryStation</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="3">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+      </Step>
+      <Step Type="Search" Name="BatteryStation" Description="Find battery with highest health where `var_BatteryResourceState == ReadyToDeploy` (MaximizeExpression: `var_BatteryHealthPct`)" ID="4">
+        <Properties>
+          <Property Name="CollectionType">QueueState</Property>
+          <Property Name="QueueStateName">
+            <Value>BatteryStation.Contents</Value>
+          </Property>
+          <Property Name="SearchType">MaximizeExpression</Property>
+          <Property Name="MatchCondition">Candidate.obj_Battery.var_BatteryResourceState==List.list_BatteryResourceState.ReadyToDeploy</Property>
+          <Property Name="SearchExpression">Candidate.obj_Battery.var_BatteryHealthPct</Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="3" />
+        <Exit Name="Found" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Assign" Name="BatteryVariables" Description="Update charged battery:&#xD;&#xA;   - Set `obj_Battery.var_CurrentObjectReference = TruckObject`&#xD;&#xA;   - Set `obj_Battery.var_BatteryResourceState = Deployed`&#xD;&#xA;   - Set `obj_Battery.var_CurrentStateEntryTimeHrs = TimeNow`&#xD;&#xA;   - Reset `obj_Battery.var_TimeInCurrentStateHrs = 0`&#xD;&#xA;   - Increment `var_TotalBatteriesSwapped`" Color="c3d69b" ID="5">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_BatteryElectricTruckObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">List.list_BatteryResourceState.Deployed</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_CurrentStateEntryTimeHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">TimeNow</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Battery.var_TimeInCurrentStateHrs</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">0</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_TotalBatteriesSwapped</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">var_TotalBatteriesSwapped+1</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- ARx15AYKaqtYywmdXHzLq9dX/G5J5Ha66P41Y4gZ4ImSC6ZCqTvJL3YJNZMgXFD/dixqj5Ns2W7ePCWmg/0f4A== -->

@@ -1,0 +1,26 @@
+<Fragment>
+  <Process Name="proc_StartBatterySwapTaskSequence" BeginStepID="2" Category="20 Interface" Description="**Trigger:** `event_StartBatterySwapTaskSequence`&#xD;&#xA;&#xD;&#xA;**Purpose:** Initiates the automated 10-step battery swap sequence when a truck arrives at the station with a depleted battery, coordinating the physical exchange process.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **TaskSequence** (StartTasks) - Start execution of `TaskSequence` element&#xD;&#xA;2. **var_Debug** (Assign) - Toggle debug flag">
+    <Properties>
+      <Property Name="TriggeringEventName">event_StartBatterySwapTaskSequence</Property>
+    </Properties>
+    <Steps>
+      <Step Type="StartTasks" Name="TaskSequence" Description="Start execution of `TaskSequence` element" ID="2">
+        <Properties>
+          <Property Name="TaskSequenceName">
+            <Value>TaskSequence</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- cvENpDMcSydcOZHnBEQfAsZxYxLde+gPB5FHiPR5Zc+SDb5tfrVBGamoqx4huTpSLU788pt0tN7UBoA+xkzJQA== -->

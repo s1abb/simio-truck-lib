@@ -1,0 +1,46 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">Truck</Property>
+      <Property Name="ObjectType">obj_Truck</Property>
+      <Property Name="x1">1285</Property>
+      <Property Name="y1">97</Property>
+      <Property Name="z1">238.5</Property>
+      <Property Name="TruckType">Liebherr_T264_DieselElectric</Property>
+      <Property Name="InitialNumberInSystem">2</Property>
+      <Property Name="InitialNode">HomeNode</Property>
+      <Property Name="InitialDesiredSpeed">50</Property>
+      <Property Name="LoadTime">3</Property>
+      <Property Name="DumpTime">3</Property>
+      <Property Name="IdleAction">ParkAtHome</Property>
+      <Property Name="NetworkTurnaroundMethod">Reverse</Property>
+      <Property Name="AveragePayload">fx_obj_Truck_AvgPayLoad</Property>
+      <Property Name="PayloadDistribution">dist_Pert_09_1_11</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_Truck_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_Truck.event_OnRunInitialised</Property>
+      <Property Name="OnLoadedProcess">
+        <Value>proc_Truck_OnLoaded</Value>
+      </Property>
+      <Property Name="OnLoadedEvent">obj_Truck.event_Loaded_True</Property>
+      <Property Name="OnUnloadedProcess">
+        <Value>proc_Truck_OnUnloaded</Value>
+      </Property>
+      <Property Name="OnUnloadedEvent">obj_Truck.event_Loaded_False</Property>
+      <Property Name="OnReleasedProcess">
+        <Value>proc_Truck_OnReleased</Value>
+      </Property>
+      <Property Name="OnRunEndingProcess">
+        <Value>proc_Truck_OnRunEnding</Value>
+      </Property>
+      <Property Name="OnRunEndingEvent">obj_Truck.event_OnRunEnding</Property>
+      <Property Name="AssignTruckToMineBlockLoadPointProcess">
+        <Value>proc_AllocateTruck</Value>
+      </Property>
+      <Property Name="MTBF">6</Property>
+      <Property Name="MTTR">1</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- 8RhgJqGeUTALWDTl5Rdf6JNh3KsiIRxgcgpWbWDUY7Jsz9RVYU3y42j2VURXmGMfqWmF59p8hvhFMIlmWzqv5g== -->

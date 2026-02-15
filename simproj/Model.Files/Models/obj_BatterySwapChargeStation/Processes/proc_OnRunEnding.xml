@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_OnRunEnding" BeginStepID="2" Category="10 OnRunInitialised Processes" Description="**Trigger:** `event_OnRunEnding`&#xD;&#xA;&#xD;&#xA;Unsubscribe `proc_SpeedBatteryUpdates` from `tmr_TimeStep.Event`">
+    <Properties>
+      <Property Name="TriggeringEventName">event_OnRunEnding</Property>
+    </Properties>
+    <Steps>
+      <Step Type="UnSubscribe" Name="BatteryUpdates" Description="Unsubscribe `proc_SpeedBatteryUpdates` from `tmr_TimeStep.Event`" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>proc_BatteryUpdates</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- H6TtBqoaLVeojVXAIxbEYJAwkSv7gFvsMBzbQI8C7xN9++fP51k4QhQ3oDcEoZYzb5ZSbsh0BWANq9/j0vutzA== -->

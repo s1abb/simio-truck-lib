@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_Truck_OnUnloaded" BeginStepID="2" Category="20 Truck Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnUnloadedEvent" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_Trucks.OnUnloadedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- S+qFKpqfTYsgxhSRiWD62/i2NNCc+bcvg4fVEGJcsSmDstb4casOGklTafwrob7UQhsbc/22kL7YfJua8NcieA== -->

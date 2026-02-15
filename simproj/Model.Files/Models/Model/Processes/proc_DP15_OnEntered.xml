@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_DP15_OnEntered" BeginStepID="2" Category="10 TransferNode Processes">
+    <Properties />
+    <Steps>
+      <Step Type="SetNode" Name="DP15" Description="Route load entity to DP15 (obj_Truck.RideStation.Contents.FirstItem.ModelEntity destination ? DP15)" Color="fac08f" ID="2">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Truck.RideStation.Contents.FirstItem.obj_Load</Value>
+          </Property>
+          <Property Name="NodeName">DumpPoint15</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- dxww9UFJQu0xLac2siF2nTqc2mBV2FijWeX4ETXEziaAmyZ2wukzxBsVLjPxIcByapjtH38nJhlD0Rrq+xJZcA== -->

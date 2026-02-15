@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_BatteryUpdates_True" BeginStepID="2" Category="20 Interface" Description="Enables battery state-of-charge and degradation calculations in the main update loop, resuming energy accounting after paused operations.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_BatteryUpdates_True</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="BatteryUpdatesTrue" Description="Set `var_BatteryUpdates = True`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryUpdates</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- FCQK3iK7y2r28ljoENhlVDcwJI/7U8V4kK9Krp9OuF7bK3lsTwMRa1qFfYE6QGz3aoC9/1Q6BN5/cAB6RpaGaQ== -->

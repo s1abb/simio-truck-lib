@@ -1,0 +1,95 @@
+<Fragment>
+  <Process Name="proc_AssignDiggerToMineBlockParcel" BeginStepID="2" Category="60 Digger Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Search" Name="tbl_MineBlocks" ID="2">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineBlocks</Property>
+          <Property Name="MatchCondition">!tbl_MineBlocks.DiggerAllocated &amp;&amp; !tbl_MineBlocks.MineBlockDepleted</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="6" />
+      </Step>
+      <Step Type="SetNode" Name="DestinationNode" ID="3">
+        <Properties>
+          <Property Name="NodeName">obj_Digger.var_ManualControlDestinationNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="UnPark" Name="obj_Digger" ID="4">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Digger</Value>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Seize" Name="obj_Digger" ID="5">
+        <Properties>
+          <Property Name="ResourceSeizes">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceName">obj_Digger</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Search" Name="tbl_MineParcels" ID="6">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineParcels</Property>
+          <Property Name="MatchCondition">(tbl_MineParcels.Tonnes - tbl_MineParcels.TonnesMined) &gt; 0</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Assign" Name="Variables" Color="d7e3bc" ID="7">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Digger.var_MineBlockNodeReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_MineBlocks.MineBlock</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_MineBlocks.DiggerReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Digger</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_MineBlocks.DiggerAllocated</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">True</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_MineParcels.CurrentlyAllocated</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">True</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Digger.var_ManualControlDestinationNode</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_MineBlocks.MineBlock</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Digger.var_DiggerResourceStates</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">List.list_DiggerResourceStates.Travelling</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- mt9eKcXW7ex7l2zOR2iCwqjIx6AK7sleNFDsikuiikb0bTk3TVDijGUeNtgujGxWGySDRmx84XmIIRcRNaGjog== -->

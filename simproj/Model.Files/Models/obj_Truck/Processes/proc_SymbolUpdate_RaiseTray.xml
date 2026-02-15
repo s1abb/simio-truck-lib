@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SymbolUpdate_RaiseTray" BeginStepID="2" Category="20 Interface" Description="Updates the truck's visual symbol to show the tray in raised position, indicating loading or battery swap operations in progress.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SymbolUpdate_RaiseTray</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="CurrentSymbolIndex" Description="Set `var_CurrentSymbolIndex = 1` (tray raised symbol)" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_CurrentSymbolIndex_Truck</Value>
+          </Property>
+          <Property Name="NewValue">List.list_CurrentSymbolIndex_Truck.DieselElectricTrayUp</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- qujwgB6jeha5icz7tW9oLz5NazVxfcJRHl+AhANi+aA/+cwcOJt2xxITIjlAuXiE32NE5BkUWciLd3DTyZw9ow== -->

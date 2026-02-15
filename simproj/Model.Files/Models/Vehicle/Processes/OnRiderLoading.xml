@@ -1,0 +1,56 @@
+<Fragment>
+  <Process Name="OnRiderLoading" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Transporter.OnRiderLoading" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Seize" Name="Vehicle" ExclusionExpression="RoutingType==List.VehicleRoutingType.FixedRoute" ID="2">
+        <Properties>
+          <Property Name="OwnerType">ParentObject</Property>
+          <Property Name="ResourceSeizes">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceType">ParentObject</Property>
+                <Property Name="SelectionGoal"></Property>
+                <Property Name="SelectionValueExpression"></Property>
+                <Property Name="RecordResourceCost">False</Property>
+                <Property Name="PerUseCostAccrualMethod"></Property>
+                <Property Name="RandomNumberStream"></Property>
+                <Property Name="SkipSeizeCondition">Capacity.Allocated&gt;0</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="OnRiderLoadingAssignments" ExclusionExpression="RoutingType==List.VehicleRoutingType.FixedRoute" ID="3">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">RideStation.Capacity &gt; RideStationLoad</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="MinimumDwellTimeExpiredFlag" ExclusionExpression="MinimumDwellTimeType!=List.VehicleMinimumDwellTimeType.DwellUntilFull" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>MinimumDwellTimeExpired</Value>
+          </Property>
+          <Property Name="NewValue">RideStationLoad &gt;= RideStation.Capacity</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- oMHcETOiJvNa5CvbKZwg3Up8C+7MNIoicKMy+QlAp7jjSaN3LXvAMaHD7S4F/glrpv+RI95l+rbIW1NL2+PyDw== -->

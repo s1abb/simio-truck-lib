@@ -1,0 +1,97 @@
+<Fragment>
+  <Process Name="OnFailed" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Suspend" Name="Processing" ID="2">
+        <Properties>
+          <Property Name="SuspendType">ObjectMovement</Property>
+          <Property Name="ObjectType">ParentObject</Property>
+          <Property Name="SuspendActions">
+            <Rows>
+              <Properties>
+                <Property Name="SuspendActionsProcessName">
+                  <Value>OnVisitingNode</Value>
+                </Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="ResourceState" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>ResourceState</Value>
+          </Property>
+          <Property Name="NewValue">Math.If((Capacity==0)&amp;&amp;((ResourceOwners==0)||(!ResourceOwners.Contains(ParentObject)&amp;&amp;ResourceOwners.AllProcessingSuspended)), List.ResourceStateName.OffShift, (Capacity==0)&amp;&amp;(ResourceOwners&gt;0)&amp;&amp;!ResourceOwners.Contains(ParentObject)&amp;&amp;(VisitRequestQueue==0), List.ResourceStateName.OffShiftBusy, (ResourceOwners&gt;0)&amp;&amp;!ResourceOwners.Contains(ParentObject)&amp;&amp;(VisitRequestQueue==0), List.ResourceStateName.FailedBusy, List.ResourceStateName.Failed)</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="OnFailedAssignments" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnEvaluatingRiderReservation.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">False</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Fire" Name="FailedEvent" ID="5">
+        <Properties>
+          <Property Name="EventName">Failed</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Execute" Name="FailedAddOnProcess" ID="6">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>FailedAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Execute" Name="RepairingAddOnProcess" ID="7">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>RepairingAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- fP8bBXkk34y2WjIOMy8cIVFjDqzwB+1UmFze1+oLdojHxX4lGsqtW1fXPR9g8kPUUQXPQTil3KMfOjaMGLa02g== -->

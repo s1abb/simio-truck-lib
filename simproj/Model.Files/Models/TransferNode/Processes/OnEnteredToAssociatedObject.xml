@@ -1,0 +1,82 @@
+<Fragment>
+  <Process Name="OnEnteredToAssociatedObject" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Node.OnEnteredToAssociatedObject" BeginStepID="2">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectDestroyed">EndProcess</Property>
+      <Property Name="TokenActionOnAssociatedObjectTransferRequested">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="OnEnteringAssignments" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Value>AssignmentsOnEntering</Value>
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>AssignmentsOnEnteringStateVariableName</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">AssignmentsOnEnteringNewValue</Property>
+                <Property Name="AssignmentsSkipAssignmentCondition">Math.If(AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.NoCondition,False,AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.IsEntity, Entity.Is.Transporter,AssignmentsOnEntering.AssignmentsOnEnteringAssignConditionType==List.ActionConditionType.IsTransporter, !Entity.Is.Transporter, AssignmentsOnEntering.AssignmentsOnEnteringAssignCondition&lt;=0.0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Tally" Name="OnEnteringTallies" ID="3">
+        <Properties>
+          <Property Name="Tallies">
+            <Value>TalliesOnEntering</Value>
+            <Rows>
+              <Properties>
+                <Property Name="TalliesTallyStatisticName">
+                  <Value>TalliesOnEnteringTallyStatisticName</Value>
+                </Property>
+                <Property Name="TalliesValueType">TalliesOnEnteringValueType</Property>
+                <Property Name="TalliesValueExpression">TalliesOnEnteringValueExpression</Property>
+                <Property Name="TalliesNumberOfObservations">Math.If(TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.NoCondition,1,TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.IsEntity, !Entity.Is.Transporter,TalliesOnEntering.TalliesOnEnteringTallyConditionType==List.ActionConditionType.IsTransporter, Entity.Is.Transporter, TalliesOnEntering.TalliesOnEnteringTallyCondition&gt;0.0)</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Decide" Name="IfNoBoundExternalOutputNode" ExclusionExpression="Math.If(!BoundExternalOutputNode.HasValue,1,2)" ID="4">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">BoundExternalOutputNode.HasValue==False</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="8" />
+        <Exit Name="False" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="Transfer" Name="ToBoundExternalOutputNode" ID="5">
+        <Properties>
+          <Property Name="FromType">CurrentNode</Property>
+          <Property Name="ToType">ParentExternalNode</Property>
+          <Property Name="ExternalNodeName">BoundExternalOutputNode</Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="8" />
+      </Step>
+      <Step Type="Execute" Name="EnteredAddOnProcess" ID="6">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>EnteredAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Fire" Name="EnteredEvent" ID="7">
+        <Properties>
+          <Property Name="EventName">Entered</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Transfer" Name="ToAssociatedObject" ID="8">
+        <Properties>
+          <Property Name="FromType">CurrentNode</Property>
+          <Property Name="ToType">AssociatedObject</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- e8Qp3Z88MBpbKFgwZWf58toAiBN1Wnws32uOTKIU6WVq75uzRo+Cd0oUsYQL2D+OdhQ7FSklFXgbLwxcnvpAEg== -->

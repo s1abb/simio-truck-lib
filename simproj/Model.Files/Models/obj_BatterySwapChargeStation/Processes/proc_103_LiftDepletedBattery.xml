@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_103_LiftDepletedBattery" BeginStepID="2" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Physically lifts and disconnects the depleted battery from the truck, securing it on the robotic arm for removal.">
+    <Properties />
+    <Steps>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="2">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Ltml6Ysp085u6Lj7iwNJq1sJ2/uA+HPHUZK9lwzGXGMOZywsGomivx/iZK+NsyZLvf6fZA3no0t1eY6rWxT2jw== -->

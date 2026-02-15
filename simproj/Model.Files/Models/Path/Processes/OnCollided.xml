@@ -1,0 +1,23 @@
+<Fragment>
+  <Process Name="OnCollided" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnCollided" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="IfPassingAllowed" ExclusionExpression="Math.If(AllowPassing, 1, 2)" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">AllowPassing</Property>
+        </Properties>
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="EntityMovementRate" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>Entity.Movement.Rate</Value>
+          </Property>
+          <Property Name="NewValue">Entity.NextEntityAheadOnLink.Movement.Rate</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- vQdYyKZ+HCZ9MwgFHbTQF606R8l09BSUPLtMWn6i+jLdlGzGsb2qtDjRo2RXXTbDbc/GSEcHSAXt86iINpgOvg== -->

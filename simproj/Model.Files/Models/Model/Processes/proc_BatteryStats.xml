@@ -1,0 +1,112 @@
+<Fragment>
+  <Process Name="proc_BatteryStats" BeginStepID="2" Category="50 Battery Processes" Description="**Purpose:** Periodically collects battery statistics from all batteries in the system and logs to tbl_BatteryStats output table.&#xD;&#xA;**Search BatteryEntity:** Find all obj_Battery instances in system (limit: BatteryEntity.obj_Battery.Population.NumberInSystem)&#xD;&#xA;**Search tbl_BatteryStats:** Check if current battery already has a row in stats table (match: tbl_BatteryStats.EntityReference == obj_Battery), save count to tkn_proc_BatteryStats.var_NumberFound&#xD;&#xA;**Decide NumberFound&gt;0:** Check if battery row exists in stats table&#xD;&#xA;   - If True (&gt;0): (update existing row)&#xD;&#xA;   - If False (=0): (create new row)&#xD;&#xA;**AddRow tbl_BatteryStats:** Add new row to statistics table for this battery&#xD;&#xA;**Assign BatteryStats:** Update/populate statistics row with current battery data&#xD;&#xA;**Loop:** Return to step 1 for next battery">
+    <Properties>
+      <Property Name="TriggeringEventName">tmr_BatteryStats.Event</Property>
+      <Property Name="TokenClassName">tkn_proc_BatteryStats</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Search" Name="BatteryEntity" Description="**Search BatteryEntity:** Find all obj_Battery instances in system (limit: BatteryEntity.obj_Battery.Population.NumberInSystem)" ID="2">
+        <Properties>
+          <Property Name="EntityType">BatteryEntity</Property>
+          <Property Name="ObjectInstanceName">obj_Battery</Property>
+          <Property Name="Limit">BatteryEntity.obj_Battery.Population.NumberInSystem</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="5" />
+      </Step>
+      <Step Type="AddRow" Name="tbl_BatteryStats" Description="**AddRow tbl_BatteryStats:** Add new row to statistics table for this battery" ID="3">
+        <Properties>
+          <Property Name="TableName">tbl_BatteryStats</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="BatteryStats" Description="**Assign BatteryStats:** Update/populate statistics row with current battery data" ID="4">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.EntityReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.OriginalObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_OriginalObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.CurrentObjectReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_CurrentObjectReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatteryID</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryID</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatteryType</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryType</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatterySOCPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatterySOCPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatteryCumulativeThroughputKwh</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryCumulativeThroughputKwh</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatteryHealthPct</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_BatteryHealthPct</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.BatteryResourceState</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">String.FromList(obj_Battery.list_BatteryResourceState,obj_Battery.var_BatteryResourceState)</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_BatteryStats.ChargingCycleCount</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Battery.var_ChargingCycleCount</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+      <Step Type="Search" Name="tbl_BatteryStats" Description="**Search tbl_BatteryStats:** Check if current battery already has a row in stats table (match: tbl_BatteryStats.EntityReference == obj_Battery), save count to tkn_proc_BatteryStats.var_NumberFound" ID="5">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_BatteryStats</Property>
+          <Property Name="MatchCondition">tbl_BatteryStats.EntityReference==obj_Battery</Property>
+          <Property Name="SaveNumberFound">
+            <Value>tkn_proc_BatteryStats.var_NumberFound</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Decide" Name="NumberFound&gt;0" Description="**Decide NumberFound&gt;0:** Check if battery row exists in stats table&#xD;&#xA;   - If True (&gt;0): (update existing row)&#xD;&#xA;   - If False (=0): (create new row)" ID="6">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">tkn_proc_BatteryStats.var_NumberFound&gt;0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- DaV1fptJT8tJwtdI59dlawXdz7fFWeTi5V3/gaRAvNVw5QrifAGpTHzkAoWMx1LiEY2iwH9ASU0PpagBVHeQYg== -->

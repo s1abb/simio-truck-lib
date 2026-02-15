@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_BatteryUpdates_False" BeginStepID="2" Category="20 Interface" Description="**Trigger:** `event_BatteryUpdates_False`&#xD;&#xA;&#xD;&#xA;**Purpose:** Disables battery charging calculations, typically used during initialization or when the station needs to pause charging operations.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **Assign** - Set `var_BatteryUpdates = False`">
+    <Properties>
+      <Property Name="TriggeringEventName">event_BatteryUpdates_False</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="BatteryUpdatesFalse" Description="Set `var_BatteryUpdates = False`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryUpdates</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 8EvxKNoEt2hI1/rk4pJIlrjdCm++0z67Gc2cqKv2FOcSLQw2h0Ej2RoWngMkuU9MIquycN5Otk/bS7nxqrEU+g== -->

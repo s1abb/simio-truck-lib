@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_RechargeBatteryNode_Entered" BeginStepID="2" Category="10 TransferNode Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnEnteredEvent" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnEnteredEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- vJsciKry81gVxVpOxR2Nv76YFaWX/BUyw2mwvAR7WrDiNe8h1KZlW7ak8XbLRu35gBU0UOOrMAC4rInRKjrKaA== -->

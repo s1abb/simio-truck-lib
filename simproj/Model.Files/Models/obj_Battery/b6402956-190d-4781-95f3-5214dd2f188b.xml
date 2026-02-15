@@ -1,0 +1,259 @@
+<Fragment>
+  <Lists>
+    <StringList Name="list_BatteryResourceState">
+      <Items>
+        <Item Value="ReadyToDeploy" />
+        <Item Value="Deployed" />
+        <Item Value="ReadyToCharge" />
+        <Item Value="Charging" />
+        <Item Value="OutOfService" />
+      </Items>
+    </StringList>
+    <StringList Name="list_CurrentSymbolIndex">
+      <Items>
+        <Item Value="Green" />
+        <Item Value="Yellow" />
+        <Item Value="Orange" />
+        <Item Value="DarkOrange" />
+        <Item Value="Red" />
+      </Items>
+    </StringList>
+    <StringList Name="list_BatteryTypes">
+      <Items>
+        <Item Value="Lithium_Iron_Phosphate_801" />
+        <Item Value="Lithium_Iron_Phosphate_1700" />
+      </Items>
+    </StringList>
+  </Lists>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Basic Logic" />
+      <Category Name="Process Logic" Description="Process Logic" />
+      <Category Name="Crossing Logic" Description="Crossing Logic" />
+      <Category Name="Transport Logic" Description="Transport Logic" />
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Routing Logic/Destination" Description="Routing Logic/Destination" />
+      <Category Name="Routing Logic/Network Path" Description="Routing Logic/Network Path" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Statistic Element" Description="Statistic Element" />
+      <Category Name="Time Period Pattern" Description="Time Period Pattern" />
+      <Category Name="Reporting &amp; Logging" Description="Reporting &amp; Logging" InitiallyExpanded="False" />
+      <Category Name="Stopping Conditions" Description="Stopping Conditions" InitiallyExpanded="False" />
+      <Category Name="Input Flow Control" Description="Input Flow Control" />
+      <Category Name="Handling &amp; Storage Characteristics" Description="Handling &amp; Storage Characteristics" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Financials/Transport Costs" Description="Transport Costs" InitiallyExpanded="False" />
+      <Category Name="Financials/Resource Costs" Description="Resource Costs" InitiallyExpanded="False" />
+      <Category Name="Shortest Paths Logic" Description="Shortest Paths Logic" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+    </Categories>
+    <Overrides>
+      <Override Name="ResourceIdleCostRate" Visible="True" InheritDefaultValue="True" />
+      <Override Name="ResourceCostPerUse" Visible="True" InheritDefaultValue="True" />
+      <Override Name="ResourceUsageCostRate" Visible="True" InheritDefaultValue="True" />
+      <Override Name="LogResourceUsage" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DisplayCategory" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DisplayColor" Visible="True" InheritDefaultValue="True" />
+      <Override Name="IncludeInPlanResourceConstraints" Visible="True" InheritDefaultValue="True" />
+      <Override Name="CapacityType" Visible="True" InheritDefaultValue="True" />
+      <Override Name="InitialWorkSchedule" Visible="True" InheritDefaultValue="True" />
+      <Override Name="WorkDayExceptions" Visible="True" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="WorkPeriodExceptions" Visible="True" DefaultValue="0 Rows">
+        <DefaultTuples UseZeroTuplesWhenInstantiating="True" />
+      </Override>
+      <Override Name="InitialCapacity" Visible="True" InheritDefaultValue="True" />
+      <Override Name="RankingRule" Visible="True" InheritDefaultValue="True" />
+      <Override Name="RankingExpression" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DynamicSelectionRule" Visible="True" InheritDefaultValue="True" />
+    </Overrides>
+  </PropertyDefinitions>
+  <States>
+    <IntegerState Name="var_CurrentSymbolIndex" Description="Visual symbol index (0=green 80-100%, 1=yellow 60-79%, 2=orange 40-59%, 3=red 20-39%, 4=critical &lt;20%)" />
+    <ElementReferenceState Name="var_OriginalObjectReference" Description="Original parent object that created this battery" ElementType="Object" />
+    <ElementReferenceState Name="var_CurrentObjectReference" Description="Current parent object holding this battery" ElementType="Object" />
+    <StringState Name="var_BatteryID" Description="Unique battery identifier" />
+    <StringState Name="var_BatteryType" Description="Battery type key (e.g., &quot;Lithium_Iron_Phosphate_801&quot;)" />
+    <DiscreteState Name="var_RatedStorageEnergyKwh" Description="Nominal battery capacity in kWh (e.g., 801)" />
+    <DiscreteState Name="var_RatedLifetimeThroughputKwh" Description="Total lifetime energy throughput threshold (capacity × cycles)" />
+    <DiscreteState Name="var_EndOfLifeBatteryHealthPct" Description="End-of-life capacity threshold percentage (typically 80%)" />
+    <DiscreteState Name="var_BatterySOCPct" Description="Current state of charge percentage (0-100%)" />
+    <DiscreteState Name="var_BatteryCumulativeThroughputKwh" Description="Total energy cycled through battery (charge + discharge, kWh)" />
+    <DiscreteState Name="var_BatteryHealthPct" Description="Current battery health percentage (100% new, degrades to EOL threshold)" />
+    <ListState Name="var_BatteryResourceState" Description="Current resource state (0=ReadyToDeploy, 1=Deployed, 2=ReadyToCharge, 3=Charging, 4=OutOfService)" List="list_BatteryResourceState" AutomaticAssignment="ResourceAutoStates" ResourceUtilizationCalculation="Default">
+      <ResourceUtilizationCalculationSettings>
+        <ResourceUtilizationCalculationSetting StateName="ReadyToDeploy" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="Deployed" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="ReadyToCharge" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="Charging" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="OutOfService" Setting="NotUtilized" />
+      </ResourceUtilizationCalculationSettings>
+    </ListState>
+    <IntegerState Name="var_ReferenceLifeChargingCycles" Description="Rated lifetime charging cycles (e.g., 5000)" />
+    <DiscreteState Name="var_ReferenceDOD" />
+    <DiscreteState Name="var_ReferenceDischargeCRate" />
+    <DiscreteState Name="var_ReferenceChargeCRate" />
+    <DiscreteState Name="var_ReferenceTemperatureK" />
+    <DiscreteState Name="var_OperatingTemperatureK" />
+    <DiscreteState Name="var_CycleLife_Xi" />
+    <DiscreteState Name="var_CycleLife_Gamma1" />
+    <DiscreteState Name="var_CycleLife_Gamma2" />
+    <DiscreteState Name="var_CycleLife_Psi" />
+    <DiscreteState Name="var_CycleLife_Alpha" />
+    <IntegerState Name="var_ChargingCycleCount" Description="Number of complete charging cycles experienced" />
+    <DiscreteState Name="var_ChargeStartSOC" Description="SOC percentage when current charging cycle started" />
+    <DiscreteState Name="var_ChargeStartTimeHrs" Description="Simulation time when current charging cycle started (hours)" InitialValueUnits="Hours" UnitType="Time" />
+    <DiscreteState Name="var_CurrentStateEntryTimeHrs" Description="Simulation time when battery entered current resource state (hours)" InitialValueUnits="Hours" UnitType="Time" />
+    <DiscreteState Name="var_TimeInCurrentStateHrs" Description="Duration in current resource state (hours)" InitialValueUnits="Hours" UnitType="Time" />
+    <DiscreteState Name="var_BatteryStationEntryTimeHrs" Description="Simulation time when battery entered current station (hours)" InitialValueUnits="Hours" UnitType="Time" />
+    <BooleanState Name="var_CycleInProgress" />
+    <DiscreteState Name="var_CurrentCycleStartSOCPct" />
+    <DiscreteState Name="var_CurrentCycleMinSOCPct" />
+    <DiscreteState Name="var_CurrentCycleMaxSOCPct" />
+    <DiscreteState Name="var_CurrentCycleDischargeEnergyKwh" />
+    <DiscreteState Name="var_CurrentCycleDischargeTimeHrs" InitialValueUnits="Meters per Hour" UnitType="TravelRate" />
+    <DiscreteState Name="var_CurrentCycleChargeEnergyKwh" />
+    <DiscreteState Name="var_CurrentCycleChargeTimeHrs" InitialValueUnits="Hours" UnitType="Time" />
+    <DiscreteState Name="var_EquivalentCyclesAccumulated" />
+  </States>
+  <Events />
+  <Elements />
+  <Processes />
+  <External>
+    <Graphics>
+      <SymbolInstance Center="0 0 0" Scale="3.258480189560647" ExternallyVisible="True">
+        <SymbolRef Id="bd844d88-e3f4-4357-a633-28f31ad3a578" />
+        <Decorations>
+          <Decoration SurfaceId="0">
+            <MaterialRef Id="dd52c43c-9998-4369-bb81-ed433ac64b75" />
+          </Decoration>
+        </Decorations>
+        <FlowDecoration>
+          <MaterialRef Id="dd52c43c-9998-4369-bb81-ed433ac64b75" />
+        </FlowDecoration>
+      </SymbolInstance>
+      <DefaultAdditionalSymbols DefaultCurrentSymbolIndex="obj_Battery.var_CurrentSymbolIndex">
+        <DefaultAdditionalSymbol Index="0">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="9ae4aae0-36bf-4122-a8cb-8c6b61673403" />
+            <Decorations>
+              <Decoration SurfacePath="0,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="f7c14301-9fad-4074-8dd9-7671780282a2" />
+              </Decoration>
+            </Decorations>
+            <FlowDecoration>
+              <MaterialRef Id="f7c14301-9fad-4074-8dd9-7671780282a2" />
+            </FlowDecoration>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="1">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="32be7392-aae6-4338-9d15-ff3fdc52d631" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="2">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="06491426-9932-4ba0-8fb2-9eef89176e29" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="3">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="27577e17-0488-449b-bae0-cda83b34932f" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="4">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="d6bee527-c515-432a-92b2-0baefb9955d5" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+      </DefaultAdditionalSymbols>
+    </Graphics>
+  </External>
+  <TableStatesDbStore>
+    <FileRef Name="Results\obj_Battery\TableStates.sqlite" />
+  </TableStatesDbStore>
+  <Tables>
+    <Table Name="tbl_BatteryTypes">
+      <Schema>
+        <PropertyDefinitions>
+          <ListProperty Name="BatteryType" DefaultValue="null" NullString="null" List="list_BatteryTypes" />
+          <RealProperty Name="RatedStorageEnergyKwh" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="RatedLifetimeThroughputKwh" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="EndOfLifeBatteryHealthPct" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="InitialBatterySOCPct" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="InitialBatteryCumulativeThroughputKwh" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="InitialBatteryHealthPct" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="ReferenceLifeChargingCycles" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="ReferenceDOD" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="ReferenceDischargeCRate" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="ReferenceChargeCRate" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="ReferenceTemperatureK" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="OperatingTemperatureK" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="CycleLife_Xi" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="CycleLife_Gamma1" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="CycleLife_Gamma2" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="CycleLife_Psi" DefaultValue="0.0" NullString="null" />
+          <RealProperty Name="CycleLife_Alpha" DefaultValue="0.0" NullString="null" />
+          <Overrides />
+        </PropertyDefinitions>
+        <Keys>
+          <Key Column="BatteryType" />
+        </Keys>
+        <ExtendedAttributeSets>
+          <ExtendedAttributeSet Name="BatteryType" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="RatedStorageEnergyKwh" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="RatedLifetimeThroughputKwh" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="EndOfLifeBatteryHealthPct" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="InitialBatterySOCPct" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="InitialBatteryCumulativeThroughputKwh" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="InitialBatteryHealthPct" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="ReferenceLifeChargingCycles" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="ReferenceDOD" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="ReferenceDischargeCRate" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="ReferenceChargeCRate" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="ReferenceTemperatureK" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="OperatingTemperatureK" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="CycleLife_Xi" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="CycleLife_Gamma1" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="CycleLife_Gamma2" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="CycleLife_Psi" OperationalPlanningEditable="True" />
+          <ExtendedAttributeSet Name="CycleLife_Alpha" OperationalPlanningEditable="True" />
+        </ExtendedAttributeSets>
+      </Schema>
+      <Rows>
+        <FileRef Name="Models\obj_Battery\TableData\tbl_BatteryTypes.xml" />
+      </Rows>
+      <DataBindings ImportMode="Automatic" />
+    </Table>
+  </Tables>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2026-02-15T04:44:05" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- NEmd6w9zXnPAr6WKJReVnEBJzN5NX3a6N3v42mdnLHM4m4qTTbEOaisX/wRywH36QvbmZi33dF6pT8RRYVpvZg== -->

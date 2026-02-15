@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_Digger_OnRunInitialised" BeginStepID="2" Category="60 Digger Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnRunInitialised" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_Diggers.OnRunInitialisedEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 4rIkCmlNxgPEI5DrW8igxBE8zsqsXos2CLvSfoV5vD3SnvS9VvzHNVkDPTYMj8imcpVBtr4C/UJhPcTSK3ZeLg== -->

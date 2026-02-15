@@ -1,0 +1,800 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_0</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1418.65918</Property>
+      <Property Name="y1">97.149887</Property>
+      <Property Name="z1">265.362793</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation20</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1345.704346</Property>
+      <Property Name="y1">97.109879</Property>
+      <Property Name="z1">170.301147</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_2</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1147.932861</Property>
+      <Property Name="y1">97.25882</Property>
+      <Property Name="z1">248.101196</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_3</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1135.760986</Property>
+      <Property Name="y1">97.325302</Property>
+      <Property Name="z1">191.531128</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_4</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1143.75</Property>
+      <Property Name="y1">97.369972</Property>
+      <Property Name="z1">182.8125</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint00</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1891.04541</Property>
+      <Property Name="y1">136.977005</Property>
+      <Property Name="z1">73.700439</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_DP00_OnEntered</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint11</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1861.30542</Property>
+      <Property Name="y1">137.039825</Property>
+      <Property Name="z1">78.146729</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_8</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1166.652588</Property>
+      <Property Name="y1">97.579727</Property>
+      <Property Name="z1">178.185303</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_9</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1077.696289</Property>
+      <Property Name="y1">97.247513</Property>
+      <Property Name="z1">187.308472</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_10</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">585.34668</Property>
+      <Property Name="y1">87.691597</Property>
+      <Property Name="z1">195.024902</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_12</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">565.609375</Property>
+      <Property Name="y1">87.598755</Property>
+      <Property Name="z1">197.730225</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_13</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">582.015869</Property>
+      <Property Name="y1">87.556839</Property>
+      <Property Name="z1">181.371338</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_14</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">541.116211</Property>
+      <Property Name="y1">87.453583</Property>
+      <Property Name="z1">197.621338</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_15</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">523.214844</Property>
+      <Property Name="y1">87.409279</Property>
+      <Property Name="z1">191.790771</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_16</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">542.542236</Property>
+      <Property Name="y1">87.324203</Property>
+      <Property Name="z1">184.952881</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_17</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1372.777832</Property>
+      <Property Name="y1">97.149643</Property>
+      <Property Name="z1">293.374146</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation10</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1301.432129</Property>
+      <Property Name="y1">97.205978</Property>
+      <Property Name="z1">197.864746</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_BSCS00_OnEntered</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_19</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-283.77869756034306</Property>
+      <Property Name="y1">86.99619935083913</Property>
+      <Property Name="z1">-78.76570561788388</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">TrolleyAssistEndNode</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-293.42856031894956</Property>
+      <Property Name="y1">87.58888675201831</Property>
+      <Property Name="z1">-84.86000375931015</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_21</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-280.70326233464846</Property>
+      <Property Name="y1">87.575668</Property>
+      <Property Name="z1">-84.68283814929849</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation22</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1462.5</Property>
+      <Property Name="y1">97.193367</Property>
+      <Property Name="z1">175</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_BSCS01_02_03_OnEntered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.event_StartBatterySwapTaskSequence</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation21</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1420</Property>
+      <Property Name="y1">97.27417</Property>
+      <Property Name="z1">201.25</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_BSCS01_02_03_OnEntered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.event_StartBatterySwapTaskSequence</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">HomeNode</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1328.399658</Property>
+      <Property Name="y1">97.119576</Property>
+      <Property Name="z1">318.548462</Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint16</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1844.840088</Property>
+      <Property Name="y1">137.049759</Property>
+      <Property Name="z1">79.436348</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">BatterySwapChargeStation11</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1375</Property>
+      <Property Name="y1">97.250854</Property>
+      <Property Name="z1">228.75</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_BSCS01_02_03_OnEntered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_TransferNode.ParkingStation.Contents.FirstItem.obj_BatterySwapChargeStation.event_StartBatterySwapTaskSequence</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint12</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1849.411865</Property>
+      <Property Name="y1">137.037384</Property>
+      <Property Name="z1">71.740105</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint13</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1836.3557215642043</Property>
+      <Property Name="y1">137.037048</Property>
+      <Property Name="z1">38.331585692612144</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_Digger_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint14</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1854.952881</Property>
+      <Property Name="y1">137.040634</Property>
+      <Property Name="z1">86.844185</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint15</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1866.972980188291</Property>
+      <Property Name="y1">137.039993</Property>
+      <Property Name="z1">120.53595646573743</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_DP15_DP25_OnEntered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_Truck.event_SymbolUpdate_RaiseTray</Property>
+      <Property Name="OnExitedProcess">
+        <Value>proc_DP15_DP25_OnExited</Value>
+      </Property>
+      <Property Name="OnExitedEvent">obj_Truck.event_SymbolUpdate_LowerTray</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint21</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1830.255615</Property>
+      <Property Name="y1">137.056824</Property>
+      <Property Name="z1">80.096718</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint26</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1813.790283</Property>
+      <Property Name="y1">137.056763</Property>
+      <Property Name="z1">80.786339</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnEnteredProcess">
+        <Value>null</Value>
+      </Property>
+      <Property Name="OnExitedProcess">
+        <Value>null</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint22</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1818.362061</Property>
+      <Property Name="y1">137.040771</Property>
+      <Property Name="z1">73.690094</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint23</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1805.4765663562866</Property>
+      <Property Name="y1">137.039734</Property>
+      <Property Name="z1">41.30547544510729</Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_DP23_OnEntered</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint24</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1823.903076</Property>
+      <Property Name="y1">137.042084</Property>
+      <Property Name="z1">88.794174</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">DumpPoint25</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1834.7285116437133</Property>
+      <Property Name="y1">137.041107</Property>
+      <Property Name="z1">122.65659425781995</Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_DP15_DP25_OnEntered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_Truck.event_SymbolUpdate_RaiseTray</Property>
+      <Property Name="OnExitedProcess">
+        <Value>proc_DP15_DP25_OnExited</Value>
+      </Property>
+      <Property Name="OnExitedEvent">obj_Truck.event_SymbolUpdate_LowerTray</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_46</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1889.395386</Property>
+      <Property Name="y1">136.977005</Property>
+      <Property Name="z1">66.650452</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_47</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1263.577393</Property>
+      <Property Name="y1">97.319122</Property>
+      <Property Name="z1">220.673096</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">TrolleyAssistStartNode</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-755</Property>
+      <Property Name="y1">8.37133</Property>
+      <Property Name="z1">460</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_48</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-299.81675846251636</Property>
+      <Property Name="y1">87.589836</Property>
+      <Property Name="z1">-89.19593881328143</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_49</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-288.64312558625403</Property>
+      <Property Name="y1">87.58773</Property>
+      <Property Name="z1">-89.76671904109065</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_51</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">806.493652</Property>
+      <Property Name="y1">77.262825</Property>
+      <Property Name="z1">226.396851</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_52</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">787.798584</Property>
+      <Property Name="y1">77.119568</Property>
+      <Property Name="z1">248.884033</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_53</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">789.121826</Property>
+      <Property Name="y1">77.238007</Property>
+      <Property Name="z1">224.706909</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_56</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">649.143677</Property>
+      <Property Name="y1">76.944359</Property>
+      <Property Name="z1">320.263184</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_57</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">722.840759</Property>
+      <Property Name="y1">77.117958</Property>
+      <Property Name="z1">414.75061</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">RechargeBatteryNode</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">611.541992</Property>
+      <Property Name="y1">77.140091</Property>
+      <Property Name="z1">420.84671</Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_RechargeBatteryNode_Entered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_Truck.event_SetResourceState_Offshift</Property>
+      <Property Name="OnExitedProcess">
+        <Value>proc_RechargeBatteryNode_Exited</Value>
+      </Property>
+      <Property Name="OnExitedEvent">obj_BatteryElectricTruck.event_StartRechargeBatteryTaskSequence</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">RefuelDieselNode</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">653.210632</Property>
+      <Property Name="y1">77.008835</Property>
+      <Property Name="z1">393.295471</Property>
+      <Property Name="OnEnteredProcess">
+        <Value>proc_RefuelDieselNode_Entered</Value>
+      </Property>
+      <Property Name="OnEnteredEvent">obj_Truck.event_SetResourceState_Offshift</Property>
+      <Property Name="OnExitedProcess">
+        <Value>proc_RefuelDieselNode_Exited</Value>
+      </Property>
+      <Property Name="OnExitedEvent">obj_BatteryElectricTruck.event_StartRefuelDieselTaskSequence</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_58</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">931.25</Property>
+      <Property Name="y1">77.18309</Property>
+      <Property Name="z1">400</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_59</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">833.59375</Property>
+      <Property Name="y1">77.18309</Property>
+      <Property Name="z1">456.25</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_60</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-910</Property>
+      <Property Name="y1">7.30366</Property>
+      <Property Name="z1">592.5</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_61</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-910</Property>
+      <Property Name="y1">7.30366</Property>
+      <Property Name="z1">468.75</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_62</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-973.75</Property>
+      <Property Name="y1">37.10582</Property>
+      <Property Name="z1">62.5</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_63</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-818.75</Property>
+      <Property Name="y1">37.10582</Property>
+      <Property Name="z1">23.75</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_64</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">-138.75</Property>
+      <Property Name="y1">7.369217</Property>
+      <Property Name="z1">-345</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_65</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1101.5625</Property>
+      <Property Name="y1">96.82481249525445</Property>
+      <Property Name="z1">181.25</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">node_66</Property>
+      <Property Name="ObjectType">obj_TransferNode</Property>
+      <Property Name="x1">1159.375</Property>
+      <Property Name="y1">97.579727</Property>
+      <Property Name="z1">214.0625</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- ql4Ft03h5OJzO1+/AfEEx42aLowPuN3tGxe/5rZeP9LpEesFnSCH2GaOXM4+SMXywZ2F7zskkPsjGrksPcTU5g== -->

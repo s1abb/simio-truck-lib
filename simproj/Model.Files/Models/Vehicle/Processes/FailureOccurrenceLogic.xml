@@ -1,0 +1,68 @@
+<Fragment>
+  <Process Name="FailureOccurrenceLogic" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Fail" Name="Vehicle" ID="2">
+        <Properties>
+          <Property Name="FailureName">
+            <Value>Failure</Value>
+          </Property>
+          <Property Name="TokenWaitAction">WaitUntilOnFailedProcessCompleted</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Delay" Name="TimeToRepair" ID="3">
+        <Properties>
+          <Property Name="DelayTime">TimeToRepair</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Repair" Name="Vehicle" ID="4">
+        <Properties>
+          <Property Name="FailureName">
+            <Value>Failure</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Fire" Name="FailuresTimerResetEvent" ID="5">
+        <Properties>
+          <Property Name="EventName">FailuresTimerReset</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Seize" Name="Vehicle" ExclusionExpression="RoutingType==List.VehicleRoutingType.OnDemand" ID="6">
+        <Properties>
+          <Property Name="OwnerType">ParentObject</Property>
+          <Property Name="ResourceSeizes">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceType">ParentObject</Property>
+                <Property Name="SelectionGoal"></Property>
+                <Property Name="SelectionValueExpression"></Property>
+                <Property Name="RecordResourceCost">False</Property>
+                <Property Name="PerUseCostAccrualMethod"></Property>
+                <Property Name="RandomNumberStream"></Property>
+                <Property Name="SkipSeizeCondition">ResourceState!=List.ResourceStateName.Idle</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Allocate" Name="Vehicle" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.OnDemand,0,2)" ID="7">
+        <Properties>
+          <Property Name="ResourceType">ParentObject</Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="8" />
+      </Step>
+      <Step Type="PlanVisit" Name="NewTransportRequests" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.OnDemand,0,2)" ID="8">
+        <Properties>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="8" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- MDegLQpuf0QXc6Mp8i6ADoTu+PO2RrQ968YS64EK8cuMIpCBjD1xrGATcdwRD/HT3Fk3h+WR6JSUJmoKg7uP6w== -->

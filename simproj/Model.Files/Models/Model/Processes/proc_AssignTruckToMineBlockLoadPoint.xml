@@ -1,0 +1,93 @@
+<Fragment>
+  <Process Name="proc_AssignTruckToMineBlockLoadPoint" BeginStepID="2" Category="20 Truck Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Search" Name="tbl_MineBlocks" ID="2">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_MineBlocks</Property>
+          <Property Name="SearchType">MinimizeExpression</Property>
+          <Property Name="MatchCondition">tbl_MineBlocks.DiggerAllocated</Property>
+          <Property Name="SearchExpression">tbl_MineBlocks.TrucksAssigned</Property>
+        </Properties>
+        <Exit Name="Found" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="Variables" Color="d7e3bc" ID="3">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>tbl_MineBlocks.TrucksAssigned</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_MineBlocks.TrucksAssigned+1</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Truck.var_MineBlockNodeReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_MineBlocks.MineBlock</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Truck.var_DiggerReference</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">tbl_MineBlocks.DiggerReference</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>obj_Truck.var_ManualControlDestinationNode</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">obj_Truck.var_MineBlockNodeReference</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Seize" Name="obj_Truck" ID="4">
+        <Properties>
+          <Property Name="ResourceSeizes">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceName">obj_Truck</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="SetNode" Name="ManualControlDestinationNode" ID="5">
+        <Properties>
+          <Property Name="NodeName">obj_Truck.var_ManualControlDestinationNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="UnPark" Name="obj_Digger" ID="6">
+        <Properties>
+          <Property Name="EntityType">SpecificObject</Property>
+          <Property Name="EntityObject">
+            <Value>obj_Truck</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="7">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Decide" Name="IsParked" ID="8">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">obj_Truck.IsParked</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="6" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- fbL1h3qZa9vC5RlUUFutSa1Rskd2Nx4CQLtgv6NSkSKxIcT6g2az8A22Ru8RqCTyc3pcUCmcYKGkLC83ADpaKg== -->

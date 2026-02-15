@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_BatteryStationEntered" BeginStepID="2" Category="10 OnRunInitialised Processes" Description="**Trigger:** `BatteryStation.Entered`&#xD;&#xA;&#xD;&#xA;**Purpose:** Completes the transfer operation when a battery entity enters the station's battery inventory, finalizing storage or retrieval operations.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **EndTransfer** - Complete transfer of battery entity into station's BatteryStation">
+    <Properties>
+      <Property Name="TriggeringEventName">BatteryStation.Entered</Property>
+    </Properties>
+    <Steps>
+      <Step Type="EndTransfer" Name="BatteryEntity" Description="Complete transfer of battery entity into station's BatteryStation" ID="2">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 2DKTyhSujI4mUE6Cj2mUHA8GLlsJrqm60Y7lmuEEEPfApWt5CPPzkAQDm3plV6CYhYSqX0zBVZlEjLhkaGOUjg== -->

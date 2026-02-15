@@ -1,0 +1,85 @@
+<Fragment>
+  <Process Name="OnCapacityReleased" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnCapacityReleased" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Assign" Name="ResourceState" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>ResourceState</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(Capacity==0, List.ResourceStateName.OffShift, Failure.Active, List.ResourceStateName.Failed, ResourceState)</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="OnCapacityReleasedAssignments" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnEvaluatingRiderReservation.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">ResourceState==List.ResourceStateName.Idle</Property>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderReservation.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingSeizeRequest.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.Enabled</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>OnEvaluatingRiderAtPickup.ReturnValue</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">ResourceState==List.ResourceStateName.Idle</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="SetNode" Name="ToClearDestination" ID="4">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Fire" Name="RemainInPlaceEndedEvent" ID="5">
+        <Properties>
+          <Property Name="EventName">RemainInPlaceEnded</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Fire" Name="ReleasedEvent" ID="6">
+        <Properties>
+          <Property Name="EventName">Released</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Execute" Name="ReleasedAddOnProcess" ID="7">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ReleasedAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- NoAd2hOc6RBe//IFgpWIj2UU61sKnZcyeShdyAqqIHX5S5AzCh9kx+rVRqEPS80gJLcL4fdN77RA31cTsU3WRQ== -->

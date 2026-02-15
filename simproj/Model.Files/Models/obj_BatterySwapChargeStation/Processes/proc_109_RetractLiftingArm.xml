@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_109_RetractLiftingArm" BeginStepID="2" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Retracts the robotic arm back to the station after successfully installing the charged battery in the truck.">
+    <Properties />
+    <Steps>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="2">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- oKmIiNzEDXPk3pVKwNUX6sv7qmzL4p9oIrd8FzSycWjcZ+SxVj9vuA0zlohd+uN4PUUwiTabeqqiG+N5fLDpgg== -->

@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SymbolUpdate_LowerTray" BeginStepID="2" Category="20 Interface" Description="Updates the truck's visual symbol to show the tray in lowered position, indicating normal operational state.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SymbolUpdate_LowerTray</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="CurrentSymbolIndex" Description="Set `var_CurrentSymbolIndex = 0` (tray down symbol)" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_CurrentSymbolIndex_Truck</Value>
+          </Property>
+          <Property Name="NewValue">List.list_CurrentSymbolIndex_Truck.DieselElectricTrayDown</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- QBvwL4rW4g4zKqc94Z+3RWrI6LSZ2AJy0KfMZuamkoMcPCPS1O6dA4ezZ8MIT8e6uAQqFYskpMnXqLOKBmbDkw== -->

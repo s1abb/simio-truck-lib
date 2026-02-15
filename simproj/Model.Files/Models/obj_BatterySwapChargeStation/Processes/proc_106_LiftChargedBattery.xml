@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_106_LiftChargedBattery" BeginStepID="2" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Retrieves a fully charged battery from the ReadyToDeploy inventory, selecting the battery with the highest health percentage for installation.">
+    <Properties />
+    <Steps>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="2">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- roZv0CT4tWQbPuoGVju4bZydyaPjMuaRNeij8mNDSAfLwQWkPWlRy4n6DLGlH358WSp02xN4aZ2JRMaVUbJYJw== -->

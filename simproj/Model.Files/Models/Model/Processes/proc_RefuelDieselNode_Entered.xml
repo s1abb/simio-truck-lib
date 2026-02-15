@@ -1,0 +1,13 @@
+<Fragment>
+  <Process Name="proc_RefuelDieselNode_Entered" BeginStepID="2" Category="10 TransferNode Processes">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="OnEnteredEvent" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnEnteredEvent</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 2klrrJLP/nMKyWJQsZYHjpkWM3XyldcAVjlLDqmG85MjAdtLKZxjpB5F629MyAWB04dVad4OZB7vCbx38Bhd4Q== -->

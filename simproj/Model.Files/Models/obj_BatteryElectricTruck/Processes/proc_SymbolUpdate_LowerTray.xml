@@ -1,0 +1,26 @@
+<Fragment>
+  <Process Name="proc_SymbolUpdate_LowerTray" IsOverride="True" BeginStepID="2" Category="20 Interface" Description="Updates the truck's visual symbol to show the tray in lowered position, indicating normal operational state.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SymbolUpdate_LowerTray</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="CurrentSymbolIndex" Description="Set `var_CurrentSymbolIndex = 0` (tray down symbol)" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_CurrentSymbolIndex_BatteryElectricTruck</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatterySwap,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatterySwapTrayDown,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.DieselElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.DieselElectricTrayDownPantographDown,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatteryElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatteryElectricTrayDownPantographDown,
+	0
+)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- LrMPbFGdNaSRpI5GBCwj1queXwdIZAfLlZ+JCw8bodf6miqBghCE59erQGibhm1TwodHn3aM749uk07D0sPj5w== -->

@@ -1,0 +1,26 @@
+<Fragment>
+  <Process Name="proc_DP15_DP25_OnEntered" BeginStepID="2" Category="10 TransferNode Processes" Description="**Purpose:** Handles load entity arrival at final dump points, firing entry event and filtering for ModelEntity type only.">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="BatteryElectricTruck" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Object.Is.obj_Truck</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Fire" Name="OnEnteredEvent" Description="**Fire OnEnteredEvent:** Trigger OnEntered event from tbl_TransferNodes for this node" Color="fca09f" ID="3">
+        <Properties>
+          <Property Name="EventName">tbl_TransferNodes.OnEnteredEvent</Property>
+        </Properties>
+      </Step>
+      <Step Type="Fire" Name="SpeedUpdatesFalse" Description="**Fire OnEnteredEvent:** Trigger OnEntered event from tbl_TransferNodes for this node" Color="fca09f" ID="4">
+        <Properties>
+          <Property Name="EventName">obj_Truck.event_SpeedUpdates_False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- kEJ1lwJoOScjiYDUTyB1ggx84vETYLaDF4bUM4yKtFEqPEz4TyYpW6moZnhyZvkOfxJZ76Nm1P83qE/gTuH5UQ== -->

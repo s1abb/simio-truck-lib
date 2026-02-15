@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SetResourceState_Idle" BeginStepID="2" Category="20 Interface">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SetResourceState_Idle</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="Idle" Color="8db3e2" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.ResourceState</Value>
+          </Property>
+          <Property Name="NewValue">obj_Truck.List.ResourceStateName.Idle</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- NVIPLob1Bjt6fbMK+WrGssRPIKZhWIvFWlCZiZDnI2iKNv66jqj0mN1xbwXORW/hpoqcMIFkq+vrQObShof6Bg== -->

@@ -1,0 +1,50 @@
+<Fragment>
+  <Process Name="proc_101_RaiseTray" BeginStepID="7" Category="40 TaskSequence Processes (BatterySwapTruck)" Description="**Purpose:** Prepares the truck for battery access by suspending its movement, disabling physics and battery calculations, and raising the tray to expose the battery compartment.&#xD;&#xA;&#xD;&#xA;**Steps:**&#xD;&#xA;1. **Movement** (Suspend) - Suspend movement of truck object&#xD;&#xA;2. **SpeedUpdatesFalse** (Fire) - Fire truck's `event_SpeedUpdates_False`&#xD;&#xA;3. **BatteryUpdatesFalse** (Fire) - Fire truck's `event_BatteryUpdates_False`&#xD;&#xA;4. **RaiseTray** (Fire) - Fire truck's `event_SymbolUpdate_RaiseTray`&#xD;&#xA;5. **TaskDuration** (Delay) - Delay for `tbl_Tasks.TaskDuration`&#xD;&#xA;6. **var_Debug** (Assign) - Toggle debug flag">
+    <Properties />
+    <Steps>
+      <Step Type="Fire" Name="RaiseTray" Description="Fire truck's `event_SymbolUpdate_RaiseTray`" Color="fca09f" ID="2">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_SymbolUpdate_RaiseTray</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="Delay" Name="TaskDuration" Description="Delay for `tbl_Tasks.TaskDuration`" ID="4">
+        <Properties>
+          <Property Name="DelayTime">tbl_Tasks.TaskDuration</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Fire" Name="BatteryUpdatesFalse" Description="Fire truck's `event_BatteryUpdates_False`" Color="fca09f" ID="5">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_BatteryUpdates_False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+      <Step Type="Fire" Name="SpeedUpdatesFalse" Description="Fire truck's `event_SpeedUpdates_False`" Color="fca09f" ID="6">
+        <Properties>
+          <Property Name="EventName">var_BatteryElectricTruckObjectReference.obj_BatteryElectricTruck.event_SpeedUpdates_False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Suspend" Name="Movement" Description="Suspend movement of truck object" ID="7">
+        <Properties>
+          <Property Name="SuspendType">ObjectMovement</Property>
+          <Property Name="ObjectType">SpecificObject</Property>
+          <Property Name="Object">
+            <Value>var_BatteryElectricTruckObjectReference</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- wWyRzm/v0tGzOwwpm4fnbcnksaKtYaLO6UyaoDrLlfjEgZhAqIVhDljy3BNk/FUGlHOlHvxonu1C+FwLdntHog== -->

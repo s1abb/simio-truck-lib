@@ -1,0 +1,31 @@
+<Fragment>
+  <Process Name="OnEvaluatingRiderReservation" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Transporter.OnEvaluatingRiderReservation" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Decide" Name="IfAcceptTransportRequest" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">(ResourceState==List.ResourceStateName.Idle) || (Entity.CurrentNode==DestinationNode) || (Entity.CurrentNode==CurrentNode &amp;&amp; DestinationNode==Nothing)</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="4" />
+        <Exit Name="False" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="RejectTransportRequest" ID="3">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>Token.ReturnValue</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+      </Step>
+      <Step Type="Execute" Name="EvaluatingTransportRequestAddOnProcess" ID="4">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>EvaluatingTransportRequestAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- YPxJs1pM+pouhMRU7aC/qKdZBw1pxBtKO8K2krSnlW9Ln2vFp6UjpBL0bDw6niysVgAJhkSDedAc9h+6mdqG1g== -->

@@ -1,0 +1,31 @@
+<Fragment>
+  <Process Name="proc_OnRunInitialised" BeginStepID="2" Category="10 OnRunInitialised Processes" Description="**Trigger:** `event_OnRunInitialised` | **Token:** `tkn_proc_OnRunInitialised`&#xD;&#xA;&#xD;&#xA;**Purpose:** Initializes truck at simulation start by creating a new battery entity, configuring its initial state from the battery types table, transferring it to the truck's battery station, and subscribing to the timestep timer for continuous physics/battery updates.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_OnRunInitialised</Property>
+      <Property Name="TokenClassName">tkn_proc_OnRunInitialised</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="TruckVariables" Description="Assign `var_AssignBatterySwapChargeStationNode = prop_InitialAssignBatterySwapChargeStationNode`" Color="c3d69b" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_CurrentSymbolIndex_Truck</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">List.list_CurrentSymbolIndex_Truck.DieselElectricTrayDown</Property>
+              </Properties>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>var_SpeedUpdates</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">True</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Gsxm8VrGwhM48fTZCLjifVsvwSR7xByeDOlmTkIBcRrlxeF4/IJmGfREtbcl/jdvzyAO4vG9V8JUQWr7OmOIBg== -->

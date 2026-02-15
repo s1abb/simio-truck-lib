@@ -1,0 +1,15 @@
+<Fragment>
+  <Process Name="OnExited" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnExited" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Execute" Name="ExitedAddOnProcess" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ExitedAddOnProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Is2UIGmaAPEEdUcdJc8vnyaqXHZGAXXI/ccW9Myr12rWdYi8R8qkjyOarKpV6gF/n7xcdUsADA395asgHmwYKA== -->

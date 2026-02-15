@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_BatteryUpdates_False" BeginStepID="2" Category="20 Interface" Description="Disables physics-based speed calculations, preventing speed changes during operations like battery swaps where the truck should remain stationary.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_BatteryUpdates_False</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="BatteryUpdatesFalse" Description="Set `var_SpeedUpdates = False`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_BatteryUpdates</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 7J4rHMU6tpXqKBVF+9GW1T7dbs+jQQFloADXAzcbbMlkW16zTlGaa+1OLvUKrFFJ9wynTYr5qN9Ncmh+wG99aA== -->

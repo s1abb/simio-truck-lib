@@ -1,0 +1,19 @@
+<Fragment>
+  <Process Name="proc_OnRunEnding" IsOverride="True" BeginStepID="2" Category="10 OnRunInitialised Processes" Description="Unsubscribe `proc_SpeedBatteryUpdates` from `tmr_TimeStep.Event`">
+    <Properties>
+      <Property Name="TriggeringEventName">event_OnRunEnding</Property>
+    </Properties>
+    <Steps>
+      <Step Type="UnSubscribe" Name="SpeedBatteryUpdate" Description="Unsubscribe `proc_SpeedBatteryUpdates` from `tmr_TimeStep.Event`" ID="2">
+        <Properties>
+          <Property Name="EventType">SpecificEvent</Property>
+          <Property Name="EventName">tmr_TimeStep.Event</Property>
+          <Property Name="ProcessName">
+            <Value>proc_PhysicsUpdates_BatterySwap</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- cNWuKrH8skNLMSoAksvH5seb4mVsqjor7A+PJUFBNN8YayxSGdwVrNh+LmPsXjfE3VXrvKwRg9lKgkjxRrpijA== -->

@@ -1,0 +1,64 @@
+<Fragment>
+  <Process Name="proc_BSCS00_OnEntered" BeginStepID="2" Category="10 TransferNode Processes" Description="**Purpose:** Handles truck arrival at battery swap charge station entry node 00, searching for available station with ready batteries and assigning truck to optimal station.&#xD;&#xA;**Search BSCS:** Search tbl_BatterySwapChargeStations table to maximize ready batteries, filtering for available stations&#xD;&#xA;**Assign BSCSNode:** Assign selected station node to truck (obj_BatteryElectricTruck.var_BatterySwapChargeStationNode ← tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.CurrentNode)&#xD;&#xA;**Decide ReadyBatteries=0:** Check if search returned zero ready batteries (Token.ReturnValue == 0)&#xD;&#xA;**Delay 1min:** Wait 1 minute before retrying station search, then return to step 1&#xD;&#xA;**SetNode BSCSNode:** Route truck to assigned battery swap charge station node">
+    <Properties />
+    <Steps>
+      <Step Type="Search" Name="BSCS" Description="**Search BSCS:** Search tbl_BatterySwapChargeStations table to maximize ready batteries, filtering for available stations" ID="2">
+        <Properties>
+          <Property Name="CollectionType">TableRows</Property>
+          <Property Name="TableName">tbl_BatterySwapChargeStations</Property>
+          <Property Name="SearchType">MaximizeExpression</Property>
+          <Property Name="MatchCondition">BSCS10_BSCS20.NumberTravelers == 0 &amp;&amp;
+!Candidate.tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.Population.FirstItem.obj_BatterySwapChargeStation.var_UnavailableFlag &amp;&amp;
+(Candidate.tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.Population.FirstItem.obj_BatterySwapChargeStation.CurrentNode.obj_TransferNode.NumberTravelers + 
+Candidate.tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.Population.FirstItem.obj_BatterySwapChargeStation.CurrentNode.obj_TransferNode.InboundLinks.FirstItem.NumberTravelers ) == 0</Property>
+          <Property Name="SearchExpression">Candidate.tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.Population.FirstItem.obj_BatterySwapChargeStation.var_BatteriesReadyToDeploy</Property>
+          <Property Name="SaveSearchExpressionSum">
+            <Value></Value>
+          </Property>
+          <Property Name="SaveNumberFound">
+            <Value>Token.ReturnValue</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Original" Type="Primary" NextID="3" />
+        <Exit Name="Found" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Decide" Name="ReadyBatteries=0" Description="**Decide ReadyBatteries=0:** Check if search returned zero ready batteries (Token.ReturnValue == 0)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Token.ReturnValue==0</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="5" />
+        <Exit Name="False" Type="Alternate" NextID="7" />
+      </Step>
+      <Step Type="Assign" Name="BSCSNode" Description="**Assign BSCSNode:** Assign selected station node to truck (obj_BatteryElectricTruck.var_BatterySwapChargeStationNode ← tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.CurrentNode)" Color="fac08f" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>obj_Truck.var_ManualControlDestinationNode</Value>
+          </Property>
+          <Property Name="NewValue">tbl_BatterySwapChargeStations.Name.obj_BatterySwapChargeStation.Population.FirstItem.obj_BatterySwapChargeStation.CurrentNode</Property>
+        </Properties>
+      </Step>
+      <Step Type="Delay" Name="Delay1" Description="**Delay 1min:** Wait 1 minute before retrying station search, then return to step 1" ID="5">
+        <Properties>
+          <Property Name="DelayTime" Units="Minutes">1</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="2" />
+      </Step>
+      <Step Type="Assign" Name="var_Debug" Description="Toggle debug flag" Color="ffffff" ID="6">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_Debug</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(var_Debug,False,True)</Property>
+        </Properties>
+      </Step>
+      <Step Type="SetNode" Name="BSCSNode" Description="**SetNode BSCSNode:** Route truck to assigned battery swap charge station node" Color="fac08f" ID="7">
+        <Properties>
+          <Property Name="NodeName">obj_Truck.var_ManualControlDestinationNode</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- jC7mQiYuzwan16xJDxxKz16+qWLlH7TCHx13DXX9rCR0d6mp3vGpBt6PJWIrwS3w2RvHWaIGfIcQOPwJq76ghA== -->

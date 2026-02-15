@@ -1,0 +1,11 @@
+<Fragment>
+  <Process Name="OnEnteredParking" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Node.OnEnteredParking" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="EndTransfer" Name="EndTransfer" ID="2">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Cp7rhu3ZCQtCRJaOVMIcJYKmNonFxWE2VwlskJj8I7fUN47CnghZ0fsgKHEoWlsKqUIapKPzDjzX4eNiECJl6Q== -->

@@ -1,0 +1,21 @@
+<Fragment>
+  <Process Name="OnCapacityReservationCancelled" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnCapacityReservationCancelled" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Allocate" Name="Vehicle" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.OnDemand,0,2)" ID="2">
+        <Properties>
+          <Property Name="ResourceType">ParentObject</Property>
+        </Properties>
+        <Exit Name="Failed" Type="Alternate" NextID="3" />
+      </Step>
+      <Step Type="PlanVisit" Name="NewTransportRequests" ExclusionExpression="Math.If(RoutingType==List.VehicleRoutingType.OnDemand,0,2)" ID="3">
+        <Properties>
+          <Property Name="EntityType">ParentObject</Property>
+          <Property Name="SelectionGoal">TaskSelectionStrategy</Property>
+        </Properties>
+        <Exit Name="OK" Type="Primary" NextID="3" />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- ws9pLTA5NpRORtWKZGbtHihiUaachwugVX8jxclvCmmeNtu5MOO19GMy3fOh98UuhUu6Z92r0hfR1jRa3PLloQ== -->

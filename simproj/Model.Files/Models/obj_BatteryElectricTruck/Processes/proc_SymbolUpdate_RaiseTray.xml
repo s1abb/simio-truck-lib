@@ -1,0 +1,26 @@
+<Fragment>
+  <Process Name="proc_SymbolUpdate_RaiseTray" IsOverride="True" BeginStepID="2" Category="20 Interface" Description="Updates the truck's visual symbol to show the tray in raised position, indicating loading or battery swap operations in progress.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SymbolUpdate_RaiseTray</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="CurrentSymbolIndex" Description="Set `var_CurrentSymbolIndex = 1` (tray raised symbol)" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_CurrentSymbolIndex_BatteryElectricTruck</Value>
+          </Property>
+          <Property Name="NewValue">Math.If(
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatterySwap,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatterySwapTrayUp,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.DieselElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.DieselElectricTrayUp,
+	tbl_TruckTypes[tbl_TruckTypes.TruckType.RowForKey(String.FromList(list_TruckTypes,prop_TruckType))].TruckMode== List.list_TruckMode.BatteryElectric,
+	List.list_CurrentSymbolIndex_BatteryElectricTruck.BatteryElectricTrayUp,
+	0
+)</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- OgIBAG9O95TAEe2Ty5jWwZXadr8zflDHGM9VMevnWTzV4b4ZfT7v4DDbgXSqUq6Jvm8NJd2QpXVoW1KIWLILEA== -->

@@ -1,0 +1,25 @@
+<Fragment>
+  <Process Name="OnRiderLoaded" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Transporter.OnRiderLoaded" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="EndTransfer" Name="OntoVehicle" ID="2">
+        <Properties />
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Execute" Name="LoadedAddOnProcess" ExclusionExpression="!LoadedAddOnProcess.HasValue" ID="3">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>LoadedAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Fire" Name="RiderLoadedEvent" ExclusionExpression="!LoadedAddOnProcess.HasValue" ID="4">
+        <Properties>
+          <Property Name="EventName">RiderLoaded</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- n8gYwHkPUEdNpXa0l44WNIDksmpqLQ+ZYhNG+fMorLfPjynzxZzB2qMUGXqS1i9J7Tn0cqzlGIMc2xS17xJwZg== -->

@@ -1,0 +1,34 @@
+<Fragment>
+  <Process Name="OnNewSeizeRequest" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Object.OnNewSeizeRequest" BeginStepID="2">
+    <Properties>
+      <Property Name="InitiallyEnabled">False</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Decide" Name="IfPreferredOwner" ID="2">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">Entity==PreferredOwner</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Release" Name="Vehicle" ID="3">
+        <Properties>
+          <Property Name="OwnerType">ParentObject</Property>
+          <Property Name="ResourceReleases">
+            <Rows>
+              <Properties>
+                <Property Name="ResourceType">ParentObject</Property>
+                <Property Name="QuantityType">All</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="EndTransfer" Name="FromVehicle" ID="4">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Ukc5xikIswu2ASn42jv88Inx/QIU8fSoPp7ySfmZk46XSE3a1vFIq/DIwbAjJy+tgOV7Xns+aRDz28i6wZ1A+Q== -->

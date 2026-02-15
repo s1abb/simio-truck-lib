@@ -1,0 +1,92 @@
+<Fragment>
+  <Process Name="OnEntered" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnEntered" BeginStepID="2">
+    <Properties>
+      <Property Name="TokenActionOnAssociatedObjectDestroyed">EndProcess</Property>
+      <Property Name="TokenActionOnAssociatedObjectTransferRequested">EndProcess</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="OnEnteringAssignments" ID="2">
+        <Properties>
+          <Property Name="Assignments">
+            <Value>AssignmentsOnEntering</Value>
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>AssignmentsOnEnteringStateVariableName</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">AssignmentsOnEnteringNewValue</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Decide" Name="IfNoEnteredAddOnProcess" ExclusionExpression="Math.If(EnteredAddOnProcess.HasValue, 2, 1)" ID="3">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">!EnteredAddOnProcess.HasValue</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="9" />
+        <Exit Name="False" Type="Alternate" NextID="4" />
+      </Step>
+      <Step Type="Assign" Name="DisableOnCollisionCleared" ID="4">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnCollisionCleared.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="5" />
+      </Step>
+      <Step Type="Suspend" Name="EntityMovement" ID="5">
+        <Properties>
+          <Property Name="SuspendType">ObjectMovement</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="6" />
+      </Step>
+      <Step Type="Assign" Name="EnableOnCollisionCleared" ID="6">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>OnCollisionCleared.Enabled</Value>
+          </Property>
+          <Property Name="NewValue">True</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="7" />
+      </Step>
+      <Step Type="Execute" Name="EnteredAddOnProcess" ID="7">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>EnteredAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="8" />
+      </Step>
+      <Step Type="Resume" Name="EntityMovement" ID="8">
+        <Properties>
+          <Property Name="ResumeType">ObjectMovement</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="9" />
+      </Step>
+      <Step Type="Assign" Name="EntityMovementRate" ID="9">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>Entity.Movement.Rate</Value>
+          </Property>
+          <Property Name="NewValue">Math.Min(Entity.DesiredSpeed, SpeedLimit)</Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="10" />
+      </Step>
+      <Step Type="Decide" Name="IfPassingAllowed" ExclusionExpression="Math.If(AllowPassing, 1, 2)" ID="10">
+        <Properties>
+          <Property Name="DecideType">ConditionBased</Property>
+          <Property Name="ConditionOrProbability">AllowPassing</Property>
+        </Properties>
+        <Exit Name="True" Type="Primary" NextID="11" />
+      </Step>
+      <Step Type="EndTransfer" Name="OntoPath" ID="11">
+        <Properties />
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- l9EQBYA7dZmQTD04CaQv6xx66st2CvVVyXiBEQx4eV2VHwYvTekiVtXDL7wXmOcZeQzwwimy4WV4/3FoKhpKNg== -->

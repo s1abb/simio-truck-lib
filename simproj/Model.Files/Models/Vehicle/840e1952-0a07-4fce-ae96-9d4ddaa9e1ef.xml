@@ -1,0 +1,540 @@
+<Fragment>
+  <Icon>
+    <FileRef Name="Data\Icons\Vehicle.png" />
+  </Icon>
+  <ChangeDescriptions>
+    <ChangeDescription Version="74">Version 2.36: Updated the Vehicle object to provide a ResourceState state variable tracking Idle, Busy, and Failed states (and statistics). Additionally, an 'On Demand' routing type vehicle may now be used as a moveable resource that is seized and released for tasks by model process logic. Significant changes to the Vehicle object's process logic were made to support these new features. An obsoleted 'IsIdle' state variable and 'RideReserved' event were also removed.</ChangeDescription>
+    <ChangeDescription Version="75">Version 2.38: Updated the Vehicle object to fix a bug where the vehicle's process logic sometimes hung if using the 'Loaded' or 'Unloaded' add-on process trigger features. This fix to the Vehicle process logic involved adding a Math.Epsilon delay into the 'OnRiderLoading' and 'OnRiderUnloading' processes.</ChangeDescription>
+    <ChangeDescription Version="76">Version 2.39: Updated the Vehicle object process logic to specify all of the object's process delays as non-interruptible.</ChangeDescription>
+    <ChangeDescription Version="94">Version 2.40: The 'Transport Logic' property category is now first in the category display order in the Properties Window. The 'None' Idle Action option was renamed to 'Remain In Place'. The display name for the EvaluatingAllocationAddOnProcess property was changed to 'Evaluating Seize Request'. The display name for the EvaluatingRiderAddOnProcess was changed to 'Evaluating Transport Request'. The 'Network' and 'Desired Speed' property display names were changed to 'Initial Network' and 'Initial Desired Speed' respectively. New 'Allocated' and 'Released' add-on process triggers were added and the 'Allocated' and 'Released' events fired by the vehicle were made public. Added a new 'Allocated' public process. Added 'Transporting' and 'FailedBusy' state values to the object's ResourceState state variable. Restructured the failure-related process logic. In the object process logic, the 'Action' property for all Execute steps executing an 'add-on process' is now specified as 'WaitUntilCompleted'.</ChangeDescription>
+    <ChangeDescription Version="95">Version 2.41: Added customized resource utilization calculation for the object using its 'ResourceState' list state.</ChangeDescription>
+    <ChangeDescription Version="96">Version 3.42: Changes related to setting the 'Token Associated Object Destroyed Action' option for process logic in this object.</ChangeDescription>
+    <ChangeDescription Version="99">Version 3.43: Updated the Vehicle object's OnVisitingNode process logic to now include a SelectVisit step attempt that searches for an accepted visit request (either a transport pickup or a seize visit) before considering the vehicle as 'Idle'. Also, if the vehicle resource is released from transporting activity and then immediately reseized, added some decision logic to account for possibility of the new Seize requesting a visit to the same node destination as the vehicle's current node.</ChangeDescription>
+    <ChangeDescription Version="100">Version 3.44: 'SeizedObjects.UnitsOwned' function renamed to 'SeizedObjects.CapacityUnitsOwned'.</ChangeDescription>
+    <ChangeDescription Version="103">Version 3.45: A Vehicle object in the 'Transporting' state will now accept multiple transport reservation requests up to its ride capacity if the request(s) originate from the same pickup location that the vehicle is already traveling to.</ChangeDescription>
+    <ChangeDescription Version="104">Version 3.46: Removed special-casing of ride capacity '1' in the vehicle's OnVisitingNode process to allow dynamic assignments of the vehicle's ride capacity to consistently work as expected.</ChangeDescription>
+    <ChangeDescription Version="107">Version 3.47: Updated the Vehicle object's process logic to handle the scenario where, if the vehicle has picked up a rider who did not make a reservation, the vehicle will still accept multiple transport reservation requests up to its ride capacity while at the same pickup point. A vehicle object also now always immediately goes into the Transporting state if picking up an unreserved rider. Added new 'Appearance' property category.</ChangeDescription>
+    <ChangeDescription Version="112">Version 3.49: Specified the 'OnAssociatedObjectTransferRequested' property of some processes as 'EndProcess'. The 'Exiting Node' add-on process trigger is now also called when the Worker is exiting a node by parking in the node's parking station. Added new 'Park While Busy' and 'Park to Load/Unload' properties.</ChangeDescription>
+    <ChangeDescription Version="113">Version 3.52: If the model's 'Disable Randomness' option is being used, the object's 'Reliability Logic' is now automatically disabled to not generate any failure occurrences.</ChangeDescription>
+    <ChangeDescription Version="116">Version 3.53: Conversion to 'OnEvaluatingMoveRequest' and 'OnMoveRequestAccepted' standard interface processes. Added vehicle support to allow multiple move requests by an owning entity.</ChangeDescription>
+    <ChangeDescription Version="120">Version 3.54: Usage of 'Run.RandomnessDisabled' function instead of deprecated 'DisableRandomness' function. Added new Notify step to 'OnCapacityChanged' process to output a warning if the vehicle's resource capacity is assigned a value other than 1. Conversion to 'OnRunInitialized' standard interface process. Added 'Run Ending' add-on process trigger.</ChangeDescription>
+    <ChangeDescription Version="121">Version 3.55: Conversion to 'OnRiderReservationAccepted' standard interface process.</ChangeDescription>
+    <ChangeDescription Version="122">Version 3.56: Conversion to 'OnEvaluatingSeizeRequest' standard interface process.</ChangeDescription>
+    <ChangeDescription Version="124">Version 3.57: OnRunInitialized logic change - Never try to unpark vehicle if not parked. Removed some unnecessary Wait steps from the 'OnVisitingNode' process logic.</ChangeDescription>
+    <ChangeDescription Version="130">Version 4.58: OnVisitingNode process logic - After arriving to the destination of a requested move, check the vehicle's visit request queue for additional accepted move requests. OnRunInitialized process logic - After parking at the initial node, do a PlanVisit step to check for initial move or transport requests. 'Dynamic Objects' property category renamed to 'Population'. Added new 'Advanced Options' property category.</ChangeDescription>
+    <ChangeDescription Version="131">Version 4.59: Process logic now uses new entity 'CurrentNode' and 'DestinationNode' object reference functions instead of deprecated 'CurrentNodeID' and 'DestinationNodeID' functions.</ChangeDescription>
+    <ChangeDescription Version="132">Version 4.60: Process logic now uses new object 'SeizedResources.CapacityUnitsOwned' function instead of deprecated 'SeizedObjects.CapacityUnitsOwned'.</ChangeDescription>
+    <ChangeDescription Version="134">Version 4.61: Added new 'Financials' property category.</ChangeDescription>
+    <ChangeDescription Version="135">Version 4.62: Added new 'Financials-&gt;Transport Costs' property category.</ChangeDescription>
+    <ChangeDescription Version="138">Version 4.63: Reordered the position of the 'Financials' property category.  Added new 'Financials-&gt;Resource Costs' property category.</ChangeDescription>
+    <ChangeDescription Version="145">Version 4.65: Process logic now uses new object 'SeizedResources.CapacityOwnedOf' function instead of deprecated 'SeizedResources.CapacityUnitsOwned'. Private 'HomeNodeID' state variable replaced by new Public 'HomeNode' node reference state variable. Private 'IgnoredDestinationNodeID' state variable replaced by new Private boolean 'IgnoreVisitingCurrentNode' state variable assignment. 'Repairing' add-on process trigger marked as obsolete and is no longer displayed in the Properties window if not previously defined.</ChangeDescription>
+    <ChangeDescription Version="146">Version 4.66: Added Work Schedule support.</ChangeDescription>
+    <ChangeDescription Version="149">Version 4.68: Renamed 'InitializedAddOnProcess' property to 'RunInitializedAddOnProcess'. Renamed 'EvaluatingAllocationAddOnProcess' property to 'EvaluatingSeizeRequestAddOnProcess'. Renamed 'EvaluatingRiderAddOnProcess' property to 'EvaluatingTransportRequestAddOnProcess'. Renamed 'Process Logic' property category to 'Resource Logic'.</ChangeDescription>
+    <ChangeDescription Version="151">Version 4.71: Process logic now uses new transporter 'RideStationLoad' function instead of deprecated 'RideCapacityRemaining'. Renamed 'EventName' property to 'FailureEventName'.</ChangeDescription>
+    <ChangeDescription Version="163">Version 4.73: New 'Minimum Dwell Time' related features now available in the 'Transport Logic' category. In the process logic, removed the 'RiderPickupsFinished' event and the 'OnRiderReservationsPickedUp' process which was triggered by that event.</ChangeDescription>
+    <ChangeDescription Version="164">Version 4.74: If dwelling due to minimum dwell time requirement, and the vehicle goes off-shift, the 'Dwell Only If' condition is now rechecked.</ChangeDescription>
+    <ChangeDescription Version="182">Version 4.75: Added 'OnEnteredFreeSpace' process logic to support free space travel.</ChangeDescription>
+    <ChangeDescription Version="183">Version 4.76: Updates required due to Suspend &amp; Resume step enhancements.</ChangeDescription>
+    <ChangeDescription Version="184">Version 5.80: Fixed Route Vehicle - 'Minimum Dwell Time' option related bug fix.</ChangeDescription>
+    <ChangeDescription Version="185">Version 5.87: Process logic now uses new property 'HasValue' function instead of deprecated 'IsDefined'.</ChangeDescription>
+    <ChangeDescription Version="186">Version 5.88: If the 'Minimum Dwell Time' feature is being used, by default the vehicle will now dwell at a node only if the node is a TransferNode with its RideOnTransporter property set to 'True'.</ChangeDescription>
+    <ChangeDescription Version="187">Version 5.90: Some simplification of the vehicle's 'OnEnteredFreeSpace' process logic.</ChangeDescription>
+    <ChangeDescription Version="189">Version 5.91: Fixed issues assigning a correct value to the vehicle's 'OnEvaluatingRiderAtPickup.Enabled' state. Added information to indicate which properties to display if the new 'Show Commonly Used Properties Only' option is enabled.</ChangeDescription>
+    <ChangeDescription Version="190">Version 5.92: Fixed issues assigning the resource state of a fixed route vehicle if using both work schedule and failure related features.</ChangeDescription>
+    <ChangeDescription Version="192">Version 5.95: Updates to the 'OnCapacityChanged' process logic.</ChangeDescription>
+    <ChangeDescription Version="193">Version 6.101: Minor edit to the 'OnVisitingNode' process logic. The 'IfParked' Decide step right before attempting to dropoff/pickup riders was changed to 'IfParking' for improved process logic readability.</ChangeDescription>
+    <ChangeDescription Version="194">Version 6.103: Some property description updates.</ChangeDescription>
+    <ChangeDescription Version="195">Version 6.112: If a fixed route vehicle goes offshift while there are still outstanding ride pickup reservations or while an entity is being loaded, then the vehicle now goes into the 'OffShiftTransporting' state instead of 'OffShift'.</ChangeDescription>
+    <ChangeDescription Version="197">Version 7.121: 'OnVisitingNode' process logic - When released from a processing task, if the vehicle has been kept reserved then delay the executing token for an epsilon time before checking whether to exit the current node, to allow for possible new tasks at the same node.</ChangeDescription>
+    <ChangeDescription Version="205">Version 7.122: Simplification of the 'OnEvaluatingSeizeRequest' process logic - The Simio engine now automatically ignores checking this decision process if the vehicle is trying to seize itself. 'OnVisitingNode' process logic - After attempting transport dropoffs and pickups, if the vehicle has been kept as a reserved resource then delay the executing token for an epsilon time before potentially performing any idle actions, to allow for possible new tasks at the same node.'OnRiderUnloading' process logic replaced by new 'OnRiderUnloaded' standard interface process, plus related changes to affected portions of the 'OnVisitingNode' process logic. These changes were made to better support the use of the vehicle if being kept as a reserved transport resource.</ChangeDescription>
+    <ChangeDescription Version="210">Version 7.123: Added 'OnCapacityReservationCancelled' &amp; 'OnNewSeizeRequest' process logic. 'Allocate', 'Pickup', 'Dropoff', and 'PlanVisit' processes moved to 'Obsolete Processes' category.</ChangeDescription>
+    <ChangeDescription Version="211">Version 7.126: 'OnRiderLoaded' process now a standard interface process automatically called by the engine.</ChangeDescription>
+    <ChangeDescription Version="213">Version 7.127: Updates to support new 'Release Quantity Type' property on Release step.</ChangeDescription>
+    <ChangeDescription Version="214">Version 7.130: Added 'Advanced Options -&gt; Obsolete Properties' property category.</ChangeDescription>
+    <ChangeDescription Version="215">Version 7.134: New 'Travel Logic -&gt; Free Space Steering Behavior' property.</ChangeDescription>
+    <ChangeDescription Version="217">Version 8.136: Simplification of 'OnFailed' &amp; 'OnRepaired' process logic to use fewer Suspend &amp; Resume steps. Simplification of 'OnCreated' process logic.</ChangeDescription>
+    <ChangeDescription Version="219">Version 8.137: Simplification of 'OnFailed' process logic to use fewer Suspend &amp; Resume steps. Changed default value of 'FreeSpaceSteeringUpdateInterval' property.</ChangeDescription>
+    <ChangeDescription Version="222">Version 8.142: Added 'Repaired' event and failure-related timers now use that event as their reset triggering event. Seize steps in process logic now use Skip Seize Condition feature if applicable. Resource state assignments always performed using separate Assign step for better trace readability.</ChangeDescription>
+    <ChangeDescription Version="223">Version 9.149: Added 'Failed' event &amp; changed scope of 'Repaired' event from private to public.</ChangeDescription>
+    <ChangeDescription Version="224">Version 9.150: Updated 'Initial Node' property description text. Some simplification of 'OnCreated' process logic.</ChangeDescription>
+    <ChangeDescription Version="225">Version 9.154: Failure-related timers now reset by a 'FailuresTimerReset' event (fired after Repair step in 'FailureOccurrenceLogic') instead of by the 'Repaired' event.</ChangeDescription>
+    <ChangeDescription Version="227">Version 9.159: Default value 'None' now properly specified for the Request Move property of Seize steps in the vehicle's process logic.</ChangeDescription>
+    <ChangeDescription Version="228">Version 9.160: New OnCapacityChangedProcess property added to Seize step.</ChangeDescription>
+    <ChangeDescription Version="230">Version 9.162: Process logic now references Process.TokensInProcess function namespace instead of deprecated Process.NumberTokensInProcess. Updates to the vehicles's ResourceState assignments to support use of the new 'Off Shift Rule' option for secondary resources in the Standard and Flow libraries.</ChangeDescription>
+    <ChangeDescription Version="233">Version 9.163: OnCapacityChanged process logic - Always fire 'RemainInPlaceEnded' event at start of a shift. If the vehicle is OffShiftTransporting or OffShiftBusy and its operations are suspended because of a failure, then the vehicle's resource state is now assigned the state value 'Failed' instead of 'OffShift'.</ChangeDescription>
+    <ChangeDescription Version="234">Version 10.180: OnVisitingNode process logic fix - Allow ride pickup requests at current node to be accepted if dwelling.</ChangeDescription>
+    <ChangeDescription Version="235">Version 10.184: Simplification of the OnEnteredFreeSpace process logic.</ChangeDescription>
+    <ChangeDescription Version="236">Version 10.186: OnCapacityChanged process logic - If on shift, then delay for epsilon time before trying to allocate the vehicle resource.</ChangeDescription>
+    <ChangeDescription Version="237">Version 10.187: OnVisitingNode process logic - When released from a processing task, always delay the executing token for an epsilon time before checking whether to exit the current node, to allow for possible new tasks at the same node.</ChangeDescription>
+    <ChangeDescription Version="239">Version 11.188: OnVisitingNode process logic - Release step releasing the vehicle if no additional transportation tasks, the Immediately Try Allocate property is now set to False.</ChangeDescription>
+    <ChangeDescription Version="240">Version 12.214: Changed the display name and description of Work Schedule property to Initial Work Schedule.</ChangeDescription>
+    <ChangeDescription Version="242">Version 14.225: Updated External View graphics to rotate with object.</ChangeDescription>
+    <ChangeDescription Version="244">Version 15.256: Required update due to BasicNode and TransferNode object updates.</ChangeDescription>
+    <ChangeDescription Version="245">Version 16.258: Required update due to TransferNode object updates.</ChangeDescription>
+    <ChangeDescription Version="246">Version 18.270: Required update due to TransferNode object updates.</ChangeDescription>
+  </ChangeDescriptions>
+  <ChangeStringReplacements>
+    <ChangeStringReplacement Version="149" RegularExpressionPattern="(^|[^\w_])(?i:InitializedAddOnProcess)([^\w_]|$)" ReplacementString="$1RunInitializedAddOnProcess$2" />
+    <ChangeStringReplacement Version="149" RegularExpressionPattern="(^|[^\w_])(?i:EvaluatingRiderAddOnProcess)([^\w_]|$)" ReplacementString="$1EvaluatingTransportRequestAddOnProcess$2" />
+    <ChangeStringReplacement Version="149" RegularExpressionPattern="(^|[^\w_])(?i:EvaluatingAllocationAddOnProcess)([^\w_]|$)" ReplacementString="$1EvaluatingSeizeRequestAddOnProcess$2" />
+  </ChangeStringReplacements>
+  <Lists>
+    <StringList Name="VehicleMinimumDwellTimeType">
+      <Items>
+        <Item Value="NoRequirement" />
+        <Item Value="SpecificTime" />
+        <Item Value="DwellUntilEvent" />
+        <Item Value="DwellUntilFull" />
+      </Items>
+    </StringList>
+    <StringList Name="FreeSpaceSteeringBehaviorType">
+      <Items>
+        <Item Value="DirectToDestination" />
+        <Item Value="FollowNetworkPathIfPossible" />
+      </Items>
+    </StringList>
+    <StringList Name="VehicleRoutingType">
+      <Items>
+        <Item Value="OnDemand" />
+        <Item Value="FixedRoute" />
+      </Items>
+    </StringList>
+    <StringList Name="VehicleIdleAction">
+      <Items>
+        <Item Value="ParkAtNode" />
+        <Item Value="ParkAtHome" />
+        <Item Value="Roam" />
+        <Item Value="GoToHome" />
+        <Item Value="None" />
+      </Items>
+    </StringList>
+    <StringList Name="VehicleOffShiftAction">
+      <Items>
+        <Item Value="ParkAtNode" />
+        <Item Value="ParkAtHome" />
+        <Item Value="GoToHome" />
+        <Item Value="None" />
+      </Items>
+    </StringList>
+    <StringList Name="VehicleFailureType">
+      <Items>
+        <Item Value="NoFailures" />
+        <Item Value="CalendarTimeBased" />
+        <Item Value="EventCountBased" />
+      </Items>
+    </StringList>
+    <StringList Name="ResourceStateName">
+      <Items>
+        <Item Value="Idle" />
+        <Item Value="Busy" />
+        <Item Value="Blocked" />
+        <Item Value="Failed" />
+        <Item Value="OffShift" />
+        <Item Value="FailedBusy" />
+        <Item Value="OffShiftBusy" />
+        <Item Value="Transporting" />
+        <Item Value="FailedTransporting" />
+        <Item Value="OffShiftTransporting" />
+      </Items>
+    </StringList>
+  </Lists>
+  <PropertyDefinitions>
+    <Categories>
+      <Category Name="Transport Logic" Description="Transport Logic" />
+      <Category Name="Travel Logic" Description="Travel Logic" />
+      <Category Name="Routing Logic" Description="Routing Logic" />
+      <Category Name="Resource Logic" Description="Resource Logic" InitiallyExpanded="False" />
+      <Category Name="Reliability Logic" Description="Reliability Logic" InitiallyExpanded="False" />
+      <Category Name="Financials" Description="Financials" InitiallyExpanded="False" />
+      <Category Name="Financials/Transport Costs" Description="Transport Costs" InitiallyExpanded="False" />
+      <Category Name="Financials/Resource Costs" Description="Resource Costs" InitiallyExpanded="False" />
+      <Category Name="Add-On Process Triggers" Description="Add-On Process Triggers" InitiallyExpanded="False" />
+      <Category Name="Population" Description="Population" InitiallyExpanded="False" />
+      <Category Name="Advanced Options" Description="Advanced Options" InitiallyExpanded="False" />
+      <Category Name="Advanced Options/Deprecated Properties" Description="Advanced Options/Deprecated Properties" InitiallyExpanded="False" />
+    </Categories>
+    <BooleanProperty Name="ParkWhileBusy" DisplayName="Park While Busy" Description="Indicates whether this Vehicle object should park while busy at a node due to a seize request. Parking a vehicle can be useful to avoid blocking other travelers on the network." Category="Resource Logic" DefaultValue="False" NullString="null" />
+    <EnumProperty Name="TaskSelectionStrategy" DisplayName="Task Selection Strategy" Description="The strategy used by the Vehicle object to select its next transport pickup or dropoff task." Category="Transport Logic" DefaultValue="First In Queue" NullString="null" EnumType="TripSelectionGoal">
+      <Captions>
+        <Caption Value="SmallestDistance" Display="Smallest Distance" />
+        <Caption Value="LargestDistance" Display="Largest Distance" />
+        <Caption Value="SmallestPriority" Display="Smallest Priority" />
+        <Caption Value="LargestPriority" Display="Largest Priority" />
+        <Caption Value="FirstInQueue" Display="First In Queue" />
+      </Captions>
+    </EnumProperty>
+    <ExpressionProperty Name="LoadTime" DisplayName="Load Time" Description="The time required for this Vehicle object to load an entity (i.e., the load time per entity)." Category="Transport Logic" DefaultValue="0.0" NullString="null" UnitType="Time" DefaultUnits="Minutes" />
+    <ExpressionProperty Name="UnloadTime" DisplayName="Unload Time" Description="The time required for this Vehicle object to unload an entity (i.e., the unload time per entity)." Category="Transport Logic" DefaultValue="0.0" NullString="null" UnitType="Time" DefaultUnits="Minutes" />
+    <BooleanProperty Name="ParkToLoadUnload" DisplayName="Park to Load/Unload" Description="Indicates whether this Vehicle object should park to load and unload entities at a node. Parking a vehicle can be useful to avoid blocking other travelers on the network." Category="Transport Logic" DefaultValue="False" NullString="null" />
+    <ListProperty Name="MinimumDwellTimeType" DisplayName="Minimum Dwell Time Type" Description="Specifies the minimum dwell time requirement for this Vehicle object when loading and unloading entities at a node. A 'minimum dwell time' is a minimum amount of time the vehicle is required to wait, or 'dwell', at a node to load and unload entities." Category="Transport Logic" DefaultValue="No Requirement" NullString="null" List="VehicleMinimumDwellTimeType">
+      <Captions>
+        <Caption Value="NoRequirement" Display="No Requirement" />
+        <Caption Value="SpecificTime" Display="Specific Time" />
+        <Caption Value="DwellUntilEvent" Display="Dwell Until Event" />
+        <Caption Value="DwellUntilFull" Display="Dwell Until Full" />
+      </Captions>
+    </ListProperty>
+    <ExpressionProperty Name="MinimumDwellTime" DisplayName="Minimum Dwell Time" Description="The specific minimum amount of time that this Vehicle object is required to wait, or 'dwell', at a node to load and unload entities." Category="Transport Logic" DefaultValue="0.0" Parent="MinimumDwellTimeType" NullString="null" UnitType="Time">
+      <Switch Property="MinimumDwellTimeType" Value="SpecificTime" />
+    </ExpressionProperty>
+    <EventProperty Name="MinimumDwellTimeExpirationEventName" DisplayName="Event Name" Description="The name of the event whose occurrence will indicate the expiration of the minimum wait time requirement for this Vehicle object when loading and unloading entities at a node." Category="Transport Logic" Parent="MinimumDwellTimeType" NullString="null">
+      <Switch Property="MinimumDwellTimeType" Value="DwellUntilEvent" />
+    </EventProperty>
+    <ExpressionProperty Name="MinimumDwellTimeCondition" DisplayName="Dwell Only If" Description="If specified, this condition will be used to indicate whether the vehicle must respect the minimum dwell time at a node if that requirement has not yet expired, thereby forcing the vehicle to wait, or 'dwell', at the node for possible additional loads.&#xD;&#xA;&#xD;&#xA;Example uses of this property might include allowing the vehicle to exit a node before the minimum dwell time has expired if the vehicle has reached full ride capacity, or if there is little to no chance of additional loads. Another example condition might be to only respect the minimum dwell time requirement if the vehicle is at a node meeting some specific criteria." Category="Transport Logic" DefaultValue="Math.If($(DefinitionName).CurrentNode.Is.TransferNode, $(DefinitionName).CurrentNode.TransferNode.RideOnTransporter, False) &amp;&amp; ($(DefinitionName).RideStation.Capacity &gt; $(DefinitionName).RideStationLoad) &amp;&amp; ($(DefinitionName).ResourceState == 7)" Required="False" Parent="MinimumDwellTimeType" NullString="null">
+      <Switch Property="MinimumDwellTimeType" Comparison="NotEqual" Value="NoRequirement" />
+    </ExpressionProperty>
+    <ListProperty Name="FreeSpaceSteeringBehavior" DisplayName="Free Space Steering Behavior" Description="The behavior used to steer an entity of this type when traveling in free space to a destination.&#xD;&#xA;&#xD;&#xA;'Direct To Destination' will steer an entity in a straight line to its destination.&#xD;&#xA;&#xD;&#xA;'Follow Network Path If Possible' will prefer to steer an entity along a path following its currently assigned network, staying within the boundaries of the drawn path width. The Entity will travel based on the drawn length of the path even if a different logical length is specified. However, if no followable network path exists to the entity's destination then the entity will be steered in a straight line. Note: In order to use this steering behavior, make sure the entity's travel mode is set to 'Free Space Only'." Category="Travel Logic" DefaultValue="Direct To Destination" NullString="null" List="FreeSpaceSteeringBehaviorType">
+      <Captions>
+        <Caption Value="DirectToDestination" Display="Direct To Destination" />
+        <Caption Value="FollowNetworkPathIfPossible" Display="Follow Network Path If Possible" />
+      </Captions>
+    </ListProperty>
+    <ExpressionProperty Name="FreeSpaceSteeringUpdateInterval" DisplayName="Update Interval" Description="The time interval between steering adjustments to maintain adherence to the network path and avoid collisions." Category="Travel Logic" DefaultValue="0.1" Parent="FreeSpaceSteeringBehavior" NullString="null" UnitType="Time" DefaultUnits="Seconds">
+      <Switch Property="FreeSpaceSteeringBehavior" Value="FollowNetworkPathIfPossible" />
+    </ExpressionProperty>
+    <BooleanProperty Name="FreeSpaceSteeringAvoidCollisions" DisplayName="Avoid Collisions" Description="Indicates whether the steering behavior will attempt to avoid collisions with other entities that are following the same network path." Category="Travel Logic" DefaultValue="False" Parent="FreeSpaceSteeringBehavior" NullString="null">
+      <Switch Property="FreeSpaceSteeringBehavior" Value="FollowNetworkPathIfPossible" />
+    </BooleanProperty>
+    <NodeProperty Name="InitialNode" DisplayName="Initial Node (Home)" Description="The initial home node location for vehicles of this type at the beginning of the simulation run.&#xD;&#xA;&#xD;&#xA;NOTE: Refer to the user-assignable ‘HomeNode' state variable of a vehicle to dynamically change its home node during a simulation run." Category="Routing Logic" Required="False" NullString="null" ValidObjectType="Node" LocationType="Cartesian" />
+    <ListProperty Name="RoutingType" DisplayName="Routing Type" Description="Specifies the routing behavior of this vehicle. If 'On Demand', then the vehicle will route to locations on the network according to visit requests. An 'on demand' vehicle may also be used as a moveable resource that is seized and released for non-transport related tasks by model process logic. If 'Fixed Route', then the vehicle will follow a fixed route sequence to transport riders and will only load and unload entities at locations on the specified route." Category="Routing Logic" DefaultValue="On Demand" NullString="null" List="VehicleRoutingType">
+      <Captions>
+        <Caption Value="OnDemand" Display="On Demand" />
+        <Caption Value="FixedRoute" Display="Fixed Route" />
+      </Captions>
+    </ListProperty>
+    <SequenceProperty Name="RouteSequence" DisplayName="Route Sequence" Description="The sequence table that defines the route sequence that this vehicle will loop." Category="Routing Logic" NullString="null">
+      <Switch Property="RoutingType" Value="FixedRoute" />
+    </SequenceProperty>
+    <ListProperty Name="IdleAction" DisplayName="Idle Action" Description="The action of this Vehicle object when it does not have any tasks to perform." Category="Routing Logic" DefaultValue="Park At Node" NullString="null" List="VehicleIdleAction">
+      <Switch Property="RoutingType" Value="OnDemand" />
+      <Captions>
+        <Caption Value="ParkAtNode" Display="Park At Node" />
+        <Caption Value="ParkAtHome" Display="Park At Home" />
+        <Caption Value="GoToHome" Display="Go To Home" />
+        <Caption Value="None" Display="Remain In Place" />
+      </Captions>
+    </ListProperty>
+    <ListProperty Name="OffShiftAction" DisplayName="Off Shift Action" Description="The action of this Vehicle object when it goes 'off shift'. Note that, if the vehicle is busy or transporting when an off shift period begins, then this action will be taken when the vehicle is released from (i.e., finishes) the remaining tasks." Category="Routing Logic" DefaultValue="Park At Node" NullString="null" List="VehicleOffShiftAction">
+      <Captions>
+        <Caption Value="ParkAtNode" Display="Park At Node" />
+        <Caption Value="ParkAtHome" Display="Park At Home" />
+        <Caption Value="GoToHome" Display="Go To Home" />
+        <Caption Value="None" Display="Remain In Place" />
+      </Captions>
+    </ListProperty>
+    <ListProperty Name="FailureType" DisplayName="Failure Type" Description="Specifies whether this object has failures that affect the object's availability, and the method used to trigger the failure occurrences." Category="Reliability Logic" DefaultValue="No Failures" NullString="null" List="VehicleFailureType">
+      <Captions>
+        <Caption Value="NoFailures" Display="No Failures" />
+        <Caption Value="CalendarTimeBased" Display="Calendar Time Based" />
+        <Caption Value="EventCountBased" Display="Event Count Based" />
+      </Captions>
+    </ListProperty>
+    <EventProperty Name="FailureEventName" DisplayName="Event Name" Description="The name of the event whose occurrences determine when the next failure occurs." Category="Reliability Logic" NullString="null">
+      <Switch Property="FailureType" Value="EventCountBased" />
+    </EventProperty>
+    <ExpressionProperty Name="CountBetweenFailures" DisplayName="Count Between Failures" Description="The event count between failure occurrences." Category="Reliability Logic" DefaultValue="Random.Uniform(100,200)" NullString="null">
+      <Switch Property="FailureType" Comparison="GreaterThan" Value="CalendarTimeBased" />
+    </ExpressionProperty>
+    <ExpressionProperty Name="UptimeBetweenFailures" DisplayName="Uptime Between Failures" Description="The uptime between failure occurrences." Category="Reliability Logic" DefaultValue="Random.Exponential(100)" NullString="null" UnitType="Time">
+      <Switch Property="FailureType" Value="CalendarTimeBased" />
+    </ExpressionProperty>
+    <ExpressionProperty Name="TimeToRepair" DisplayName="Time To Repair" Description="The time required to repair a failure when one occurs." Category="Reliability Logic" DefaultValue="Random.Triangular(0.5,1.0,1.5)" NullString="null" UnitType="Time">
+      <Switch Property="FailureType" Comparison="NotEqual" Value="NoFailures" />
+    </ExpressionProperty>
+    <ElementProperty Name="RunInitializedAddOnProcess" DisplayName="Run Initialized" Description="Occurs when the simulation run is initialized." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="RunEndingAddOnProcess" DisplayName="Run Ending" Description="Occurs when the simulation run is ending." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="AllocatedAddOnProcess" DisplayName="Allocated" Description="Occurs when this Vehicle resource has been allocated to perform some transport tasks, or when another object has seized this Vehicle resource for some non-transport related tasks." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="ReleasedAddOnProcess" DisplayName="Released" Description="Occurs when this Vehicle resource has been released (freed) after completing a set of transport tasks, or when another object has released this Vehicle resource from some non-transport related tasks." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="FailedAddOnProcess" DisplayName="Failed" Description="Occurs when this object has failed." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="RepairedAddOnProcess" DisplayName="Repaired" Description="Occurs when a failure is repaired at this object." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="EnteredNodeAddOnProcess" DisplayName="Entered Node" Description="Occurs when this Vehicle object has entered a node's crossing area, including occurrences when the Vehicle object has entered by unparking from a node's parking station." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="UnloadedAddOnProcess" DisplayName="Unloaded" Description="Occurs after an entity has been unloaded from this Vehicle." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="LoadedAddOnProcess" DisplayName="Loaded" Description="Occurs after an entity has been loaded onto this Vehicle." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="ExitingNodeAddOnProcess" DisplayName="Exiting Node" Description="Occurs when this Vehicle object is about to begin exiting a node's crossing area, including occurrences when the Vehicle is exiting by parking in a node's parking station." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="EvaluatingTransportRequestAddOnProcess" DisplayName="Evaluating Transport Request" Description="Occurs when this Vehicle object is evaluating whether to accept or reject a transport request from a potential rider. In the executed decision process, assigning a non-positive value to the executing token's ReturnValue state indicates that the transport request is rejected." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="EvaluatingSeizeRequestAddOnProcess" DisplayName="Evaluating Seize Request" Description="Occurs when an 'On Demand' routing type Vehicle is evaluating whether to accept or reject a request from another object to seize the vehicle resource. In the executed decision process, assigning a non-positive value to the executing token's ReturnValue state indicates that the seize request is rejected." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="OnShiftAddOnProcess" DisplayName="On Shift" Description="Occurs when the vehicle is at the start of a shift because of its specified work schedule." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ElementProperty Name="OffShiftAddOnProcess" DisplayName="Off Shift" Description="Occurs when the vehicle is at the end of a shift because of its specified work schedule." Category="Add-On Process Triggers" Required="False" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <ExpressionProperty Name="CapitalCostPerVehicle" DisplayName="Capital Cost Per Vehicle" Description="The initial one-time setup cost to add a vehicle of this type to the system." Category="Financials" DefaultValue="0.0" NullString="null" UnitType="Currency" />
+    <ElementProperty Name="RepairingAddOnProcess" DisplayName="Repairing" Description="Occurs when the repair time for a failure at this object is about to begin.&#xD;&#xA;&#xD;&#xA;NOTE: This property has been deprecated. Use the 'Add-On Process Triggers -&gt; Failed' property instead." Category="Advanced Options/Deprecated Properties" Required="False" Deprecated="True" NullString="null" ValueListFilter="UserExecutableProcessesOnly" Type="Process" />
+    <Overrides>
+      <Override Name="ParentCostCenter" Visible="True" Description="The parent cost center that costs charged, or accrued, to vehicles of this type are rolled up into. If a parent cost center is not explicitly specified, then costs accrued to a vehicle will be automatically rolled up into the parent object that contains the vehicle's current location." InheritDefaultValue="True" />
+      <Override Name="InitialCost" Visible="False" InheritDefaultValue="True" />
+      <Override Name="InitialCostRate" Visible="False" InheritDefaultValue="True" />
+      <Override Name="ResourceIdleCostRate" Visible="True" Description="The cost per unit time that is charged to the cost of a vehicle of this type when it is idle." InheritDefaultValue="True" />
+      <Override Name="ResourceCostPerUse" Visible="True" Description="The one-time cost that is charged each time a vehicle of this type is used for a non-transport task, regardless of the usage duration. Is charged to the cost of the entity that seized the vehicle." InheritDefaultValue="True" />
+      <Override Name="ResourceUsageCostRate" Visible="True" Description="The cost per unit time that is charged to use a vehicle of this type for a non-transport task. Is charged to the cost of the entity that seized the vehicle." InheritDefaultValue="True" />
+      <Override Name="LogResourceUsage" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DisplayCategory" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DisplayColor" Visible="True" InheritDefaultValue="True" />
+      <Override Name="IncludeInPlanResourceConstraints" Visible="True" InheritDefaultValue="True" />
+      <Override Name="CapacityType" Visible="True" Description="The availability of this vehicle type to perform tasks. 'Fixed' indicates that this type of vehicle is always available. 'WorkSchedule' indicates that each vehicle of this type follows a work schedule defining its 'On-shift, Off-shift' availability over time." Category="Resource Logic" InheritDefaultValue="True" />
+      <Override Name="InitialWorkSchedule" Visible="True" Category="Resource Logic" InheritDefaultValue="True" />
+      <Override Name="WorkDayExceptions" Visible="True" InheritDefaultValue="True" />
+      <Override Name="WorkPeriodExceptions" Visible="True" InheritDefaultValue="True" />
+      <Override Name="InitialCapacity" Visible="False" DefaultValue="1" />
+      <Override Name="RankingRule" Visible="True" Description="The static ranking rule used to order requests waiting to seize this Vehicle object for a process task. Note: This feature only applies to an 'On Demand' routing type vehicle." Category="Resource Logic" InheritDefaultValue="True" />
+      <Override Name="RankingExpression" Visible="True" InheritDefaultValue="True" />
+      <Override Name="DynamicSelectionRule" Visible="True" Description="Indicates whether this vehicle, when it becomes available, dynamically selects the next seize request from its statically ranked allocation queue using a dynamic selection rule. Note: This feature only applies to an 'On Demand' routing type vehicle." Category="Resource Logic" InheritDefaultValue="True" />
+      <Override Name="CurrentSizeIndex" DefaultValue="$(DefinitionName).ResourceState" />
+      <Override Name="InitialNumberInSystem" DefaultValue="1" />
+      <Override Name="Destroyable" Visible="False" DefaultValue="False" />
+      <Override Name="InitialSequence" Visible="False" InheritDefaultValue="True" />
+      <Override Name="CanTransferInAndOutOfObjects" DefaultValue="False" />
+      <Override Name="DueDateExpression" Visible="False" InheritDefaultValue="True" />
+    </Overrides>
+    <PropertyReplacements>
+      <PropertyReplacement Version="148" OldPropertyName="InitializedAddOnProcess" NewPropertyName="RunInitializedAddOnProcess" />
+      <PropertyReplacement Version="148" OldPropertyName="EvaluatingAllocationAddOnProcess" NewPropertyName="EvaluatingSeizeRequestAddOnProcess" />
+      <PropertyReplacement Version="148" OldPropertyName="EvaluatingRiderAddOnProcess" NewPropertyName="EvaluatingTransportRequestAddOnProcess" />
+      <PropertyReplacement Version="150" OldPropertyName="EventName" NewPropertyName="FailureEventName" />
+    </PropertyReplacements>
+  </PropertyDefinitions>
+  <States>
+    <ElementReferenceState Name="HomeNode" Description="Gets or sets the home node location of the vehicle." ElementType="Node" />
+    <BooleanState Name="IgnoreVisitingCurrentNode" Private="True" />
+    <BooleanState Name="MinimumDwellTimeExpired" InitialValue="1" Private="True" />
+    <ElementReferenceState Name="PreferredOwner" Private="True" ElementType="Object" />
+    <ListState Name="ResourceState" Description="Gets the current resource state of the object.&#xD;&#xA;&#xD;&#xA;Possible Values: Idle = 0, Busy = 1, Failed = 3, OffShift = 4, FailedBusy = 5, OffShiftBusy = 6, Transporting = 7, OffShiftTransporting = 9" List="ResourceStateName" AutomaticAssignment="ResourceAutoStates" ResourceUtilizationCalculation="Custom">
+      <AutoStates>
+        <AutoState Label="FailedBusy" State="Failed AutoState" />
+        <AutoState Label="OffShiftBusy" State="OffShift AutoState" />
+        <AutoState Label="Transporting" State="Busy AutoState" />
+        <AutoState Label="FailedTransporting" State="Failed AutoState" />
+        <AutoState Label="OffShiftTransporting" State="OffShift AutoState" />
+      </AutoStates>
+      <ResourceUtilizationCalculationSettings>
+        <ResourceUtilizationCalculationSetting StateName="Idle" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="Busy" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="Blocked" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="Failed" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="OffShift" Setting="NotUtilized" />
+        <ResourceUtilizationCalculationSetting StateName="FailedBusy" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="OffShiftBusy" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="Transporting" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="FailedTransporting" Setting="Utilized" />
+        <ResourceUtilizationCalculationSetting StateName="OffShiftTransporting" Setting="Utilized" />
+      </ResourceUtilizationCalculationSettings>
+    </ListState>
+  </States>
+  <Events>
+    <Event Name="Failed" Description="The Failed event provides notification that this resource has failed." />
+    <Event Name="Repaired" Description="The Repaired event provides notification that a failure at this resource has been repaired." />
+    <Event Name="RiderLoaded" Description="The RiderLoaded event provides notification to the vehicle's OnVisitingNode process that a rider has been loaded." Public="False" />
+    <Event Name="RiderUnloaded" Description="The RiderUnloaded event provides notification to the vehicle's OnVisitingNode process that a rider has been unloaded." Public="False" />
+    <Event Name="Allocated" Description="The Allocated event provides notification that capacity of this resource has been allocated." />
+    <Event Name="Released" Description="The Released event provides notification that capacity of this resource has been released." />
+    <Event Name="RemainInPlaceEnded" Description="The RemainInPlaceEnded event provides notification to the vehicle's process logic that the vehicle is to no longer remain in place at its current node if currently doing so." Public="False" />
+    <Event Name="MinimumDwellTimeExpirationReset" Description="The MinimumDwellTimeExpirationReset event provides notification to reset the vehicle's minimum dwell time expiration timer." Public="False" />
+    <Event Name="FailuresTimerReset" Description="The FailuresTimerReset event provides notification to reset the built-in failure stream timer(s) of this resource." Public="False" />
+  </Events>
+  <UsedObjects>
+    <UsedObject Name="TransferNode" />
+  </UsedObjects>
+  <Elements>
+    <Element Type="Failure" Name="Failure" Scope="Public" Description="The failure occurrences for this object.">
+      <Properties>
+        <Property Name="ReportStatistics">False</Property>
+        <Property Name="OnFailedProcess">
+          <Value>OnFailed</Value>
+        </Property>
+        <Property Name="OnRepairedProcess">
+          <Value>OnRepaired</Value>
+        </Property>
+      </Properties>
+    </Element>
+    <Element Type="Timer" Name="CalendarTimeBasedFailures">
+      <Properties>
+        <Property Name="TimeOffset">UptimeBetweenFailures</Property>
+        <Property Name="TimeInterval">UptimeBetweenFailures</Property>
+        <Property Name="MaximumEvents">1</Property>
+        <Property Name="ResetEventName">FailuresTimerReset</Property>
+        <Property Name="InitiallyEnabled">False</Property>
+      </Properties>
+    </Element>
+    <Element Type="Timer" Name="EventCountBasedFailures">
+      <Properties>
+        <Property Name="IntervalType">EventCount</Property>
+        <Property Name="TriggeringEventName">FailureEventName</Property>
+        <Property Name="TriggeringEventCount">CountBetweenFailures</Property>
+        <Property Name="MaximumEvents">1</Property>
+        <Property Name="ResetEventName">FailuresTimerReset</Property>
+        <Property Name="InitiallyEnabled">False</Property>
+      </Properties>
+    </Element>
+    <Element Type="Timer" Name="MinimumDwellTimeExpirationTimer">
+      <Properties>
+        <Property Name="TimeOffset">MinimumDwellTime</Property>
+        <Property Name="TimeInterval">MinimumDwellTime</Property>
+        <Property Name="MaximumEvents">Math.If(MinimumDwellTimeExpired,0,1)</Property>
+        <Property Name="ResetEventName">MinimumDwellTimeExpirationReset</Property>
+        <Property Name="InitiallyEnabled">False</Property>
+      </Properties>
+    </Element>
+    <Element Type="CostCenter" Name="CapitalCosts">
+      <Properties>
+        <Property Name="InitialCost" Units="USD">CapitalCostPerVehicle</Property>
+        <Property Name="InitialCostRate" Units="USD per Hour">0.0</Property>
+        <Property Name="DataSource">[Object]</Property>
+        <Property Name="DataItem">"CapitalCost"</Property>
+      </Properties>
+    </Element>
+  </Elements>
+  <Processes>
+    <FileRef Name="Models\Vehicle\Processes\OnRunInitialized.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnCreated.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnCapacityAllocated.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnCapacityReleased.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnEvaluatingSeizeRequest.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnCapacityChanged.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRunEnding.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnCapacityReservationCancelled.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnNewSeizeRequest.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnVisitingNode.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnMoveRequestAccepted.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnEnteredFreeSpace.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRiderReservationAccepted.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnEvaluatingRiderReservation.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnEvaluatingRiderAtPickup.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRiderLoading.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRiderUnloading.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRiderLoaded.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRiderUnloaded.xml" />
+    <FileRef Name="Models\Vehicle\Processes\FailureOccurrenceLogic.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnFailed.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnRepaired.xml" />
+    <FileRef Name="Models\Vehicle\Processes\OnMinimumDwellTimeExpired.xml" />
+    <FileRef Name="Models\Vehicle\Processes\Allocate.xml" />
+    <FileRef Name="Models\Vehicle\Processes\PlanVisit.xml" />
+    <FileRef Name="Models\Vehicle\Processes\Pickup.xml" />
+    <FileRef Name="Models\Vehicle\Processes\Dropoff.xml" />
+  </Processes>
+  <Tokens>
+    <Token Name="FreeSpaceSteeringToken">
+      <States>
+        <BooleanState Name="EnteredFreeSpaceFromNode" />
+        <ElementReferenceState Name="NetworkPathNextLink" ElementType="Link" />
+        <ElementReferenceState Name="NetworkPathNextNode" ElementType="Node" />
+        <ElementReferenceState Name="DestinationNode" ElementType="Node" />
+      </States>
+    </Token>
+  </Tokens>
+  <External>
+    <Graphics>
+      <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+        <SymbolRef Id="48f879b1-e7e3-497c-b456-433cc40b5fc6" />
+      </SymbolInstance>
+      <Queue Queue="RideStation.Contents" ExternallyVisible="True">
+        <Points>
+          <Point Location="1 0.699999988079071 0" />
+          <Point Location="-1 0.699999988079071 0" />
+        </Points>
+      </Queue>
+      <DefaultAdditionalSymbols>
+        <DefaultAdditionalSymbol Index="0">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="1">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="568dffc4-5d4a-4df9-8484-b8d99eb2712b" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="2">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="3ccd5187-85fd-48b3-b153-b4a7b7af0dff" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="3">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="7dae80f1-e10e-4a2c-a23e-c1c857c12d32" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="4">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="5cd1ccff-eb9f-4f2c-bcba-799f818b8990" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="5">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="bee07e3d-5254-466a-aa6c-b902a0140e40" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="6">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="0bb33aed-103d-4182-b057-6dce33e2b143" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="7">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="d18ac654-e418-4d0f-91ee-06ebeceb2518" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="8">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="725c286f-36c9-4987-bd69-8d57e29be43c" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+        <DefaultAdditionalSymbol Index="9">
+          <SymbolInstance Center="0 0 0" ExternallyVisible="True">
+            <SymbolRef Id="[UseExternalSymbol]" />
+            <Decorations>
+              <Decoration SurfacePath="0,0" SurfaceId="0" DynamicPath="True">
+                <MaterialRef Id="3f1b8ae4-4137-4985-b64b-186246cd6006" />
+              </Decoration>
+            </Decorations>
+          </SymbolInstance>
+        </DefaultAdditionalSymbol>
+      </DefaultAdditionalSymbols>
+    </Graphics>
+  </External>
+  <SaveHistories>
+    <SaveHistory SavedDateTime="2025-04-02T21:04:15" ProductVersion="18.275.44757.0" Edition="Internal" />
+    <SaveHistory SavedDateTime="2026-02-15T04:44:06" ProductVersion="18.275.44757.0" Edition="Professional" />
+  </SaveHistories>
+  <Graphics>
+    <AnimationSetup MinimumNumberOfFramesToDisplayIdleAnimation="10" />
+  </Graphics>
+</Fragment>
+<!-- ytSMaLcAyKgMgKWX1kfHPk+xaWi27L0AskZSYnZXE7sjXzAjapfNDrPMzGIgmMzF2GrGW0upzu3rYg3o6LJNVw== -->

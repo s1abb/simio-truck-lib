@@ -1,0 +1,63 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">101</Property>
+      <Property Name="Name">101_PositionAtRefuelPoint</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_101_PositionAtRefuelPoint</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">102</Property>
+      <Property Name="Name">102_ConnectRefuelPoint</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_102_ConnectRefuelPoint</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">103</Property>
+      <Property Name="Name">103_RefuelDiesel</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_103_RefuelDiesel</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">104</Property>
+      <Property Name="Name">104_WaitDieselRefueled</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_104_WaitDieselRefueled</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="SequenceNumber">105</Property>
+      <Property Name="Name">105_DisconnectRefuelPoint</Property>
+      <Property Name="TaskBranchType">Conditional</Property>
+      <Property Name="TaskConditionOrProbability">True</Property>
+      <Property Name="TaskProcessName">
+        <Value>proc_105_DisconnectRefuelPoint</Value>
+      </Property>
+      <Property Name="TaskDuration">0</Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- oxv71qJIqedFcLSIGp+bSp9J6HU5II7b0XtfuM+QhruRnny8VJiDwMQgNQawtJVQG/ZREEYHaH+wWJd1msbTyA== -->

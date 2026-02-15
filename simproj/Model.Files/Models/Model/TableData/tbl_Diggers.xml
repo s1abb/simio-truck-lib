@@ -1,0 +1,72 @@
+<Fragment>
+  <Row>
+    <Properties>
+      <Property Name="Name">Digger1</Property>
+      <Property Name="ObjectType">obj_Digger</Property>
+      <Property Name="x1">1285</Property>
+      <Property Name="y1">96</Property>
+      <Property Name="z1">317.5</Property>
+      <Property Name="InitialNumberInSystem">1</Property>
+      <Property Name="InitialNode">HomeNode</Property>
+      <Property Name="InitialDesiredSpeed">10</Property>
+      <Property Name="LoadTime">5</Property>
+      <Property Name="DumpTime">5</Property>
+      <Property Name="IdleAction">ParkAtHome</Property>
+      <Property Name="NetworkTurnaroundMethod">Reverse</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_Digger_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_Digger.event_OnRunInitialised</Property>
+      <Property Name="AssignMineBlockParcelToDiggerProcess">
+        <Value>proc_AllocateDigger</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">Digger2</Property>
+      <Property Name="ObjectType">obj_Digger</Property>
+      <Property Name="x1">1285</Property>
+      <Property Name="y1">96</Property>
+      <Property Name="z1">317.5</Property>
+      <Property Name="InitialNumberInSystem">1</Property>
+      <Property Name="InitialNode">HomeNode</Property>
+      <Property Name="InitialDesiredSpeed">10</Property>
+      <Property Name="LoadTime">5</Property>
+      <Property Name="DumpTime">5</Property>
+      <Property Name="IdleAction">ParkAtHome</Property>
+      <Property Name="NetworkTurnaroundMethod">Reverse</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_Digger_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_Digger.event_OnRunInitialised</Property>
+      <Property Name="AssignMineBlockParcelToDiggerProcess">
+        <Value>proc_AllocateDigger</Value>
+      </Property>
+    </Properties>
+  </Row>
+  <Row>
+    <Properties>
+      <Property Name="Name">Digger3</Property>
+      <Property Name="ObjectType">obj_Digger</Property>
+      <Property Name="x1">1285</Property>
+      <Property Name="y1">96</Property>
+      <Property Name="z1">317.5</Property>
+      <Property Name="InitialNumberInSystem">1</Property>
+      <Property Name="InitialNode">HomeNode</Property>
+      <Property Name="InitialDesiredSpeed">10</Property>
+      <Property Name="LoadTime">5</Property>
+      <Property Name="DumpTime">5</Property>
+      <Property Name="IdleAction">ParkAtHome</Property>
+      <Property Name="NetworkTurnaroundMethod">Reverse</Property>
+      <Property Name="OnRunInitialisedProcess">
+        <Value>proc_Digger_OnRunInitialised</Value>
+      </Property>
+      <Property Name="OnRunInitialisedEvent">obj_Digger.event_OnRunInitialised</Property>
+      <Property Name="AssignMineBlockParcelToDiggerProcess">
+        <Value>proc_AllocateDigger</Value>
+      </Property>
+    </Properties>
+  </Row>
+</Fragment>
+<!-- TxJr1xfXfvbkDIHC4XCQyWOEifCBUHkP7lM4BsVMzEQTwWAWLtRMO3CcC8hS5vTTF94z+X7kjOcFFJoSLaPPpg== -->

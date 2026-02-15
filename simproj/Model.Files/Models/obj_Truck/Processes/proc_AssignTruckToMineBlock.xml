@@ -1,0 +1,17 @@
+<Fragment>
+  <Process Name="proc_AssignTruckToMineBlock" BeginStepID="2" Category="40 Dispatch Processes">
+    <Properties>
+      <Property Name="TriggeringEventName">event_AssignTruckToMineBlockLoadPoint</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Execute" Name="prop_AssignTruckToMineBlock" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>prop_AssignTruckToMineBlockLoadPointProcess</Value>
+          </Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- 076AQ+Hdh3Sotas+6Vj04s03zigLYnkYPqfEJDbwXaFpo6xwRkVea3RzpeFa8Dd8wyIdtj1lgmZL3IEB5kOZYg== -->

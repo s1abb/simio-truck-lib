@@ -1,0 +1,37 @@
+<Fragment>
+  <Process Name="OnReachedEnd" IsOverride="True" ShowAsUserExecutableProcess="False" InterfaceProcessID="Link.OnReachedEnd" BeginStepID="2">
+    <Properties />
+    <Steps>
+      <Step Type="Execute" Name="ReachedEndAddOnProcess" ID="2">
+        <Properties>
+          <Property Name="ProcessName">
+            <Value>ReachedEndAddOnProcess</Value>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="3" />
+      </Step>
+      <Step Type="Assign" Name="BeforeExitingAssignments" ID="3">
+        <Properties>
+          <Property Name="Assignments">
+            <Value>AssignmentsBeforeExiting</Value>
+            <Rows>
+              <Properties>
+                <Property Name="AssignmentsStateVariableName">
+                  <Value>AssignmentsBeforeExitingStateVariableName</Value>
+                </Property>
+                <Property Name="AssignmentsNewValue">AssignmentsBeforeExitingNewValue</Property>
+              </Properties>
+            </Rows>
+          </Property>
+        </Properties>
+        <Exit Name="Exit" Type="Primary" NextID="4" />
+      </Step>
+      <Step Type="Transfer" Name="FromPath" ID="4">
+        <Properties>
+          <Property Name="FromType">EndOfLink</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- URYGXKw98Skr86JaLEdm6TC0tCOFdHtaygFMJG8TNQx2VSKJSqBcrRPtjKZgxwBnYz202n1W0cNTtLOWlrGRgw== -->

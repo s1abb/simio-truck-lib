@@ -1,0 +1,18 @@
+<Fragment>
+  <Process Name="proc_SpeedUpdates_False" BeginStepID="2" Category="20 Interface" Description="Disables physics-based speed calculations, preventing speed changes during operations like battery swaps where the truck should remain stationary.">
+    <Properties>
+      <Property Name="TriggeringEventName">event_SpeedUpdates_False</Property>
+    </Properties>
+    <Steps>
+      <Step Type="Assign" Name="SpeedUpdatesFalse" Description="Set `var_SpeedUpdates = False`" ID="2">
+        <Properties>
+          <Property Name="StateVariableName">
+            <Value>var_SpeedUpdates</Value>
+          </Property>
+          <Property Name="NewValue">False</Property>
+        </Properties>
+      </Step>
+    </Steps>
+  </Process>
+</Fragment>
+<!-- Psi5ytcQ1DWSD2pCgd/kbDJH7Cu2iGYAfnQXQ7z4RZUKhie5ECEDhHSK2FQwR65d0JRYeT3Ek1NEhOBW3cMOeg== -->
